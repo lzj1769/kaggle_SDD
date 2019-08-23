@@ -8,7 +8,7 @@ from torch.nn import BCEWithLogitsLoss
 from torch.optim import SGD, Adam
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 
-from model import UResNet34, UResNet34SCSE, UResNet34SCSEHyper
+from model import UResNet34
 from data_loader import get_dataloader
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 

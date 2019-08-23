@@ -79,8 +79,7 @@ class DecoderBlock(nn.Module):
 
         self.SCSE = SCSEBlock(out_channels)
 
-    def forward(self, x):
-        x, skip = x
+    def forward(self, x, skip):
         x = F.interpolate(x, scale_factor=2, mode='bilinear', align_corners=True)
         if skip is not None:
             x = torch.cat([x, skip], dim=1)
@@ -89,56 +88,6 @@ class DecoderBlock(nn.Module):
         x = self.SCSE(x)
 
         return x
-
-
-class SpatialAttention2d(nn.Module):
-    def __init__(self, channel):
-        super(SpatialAttention2d, self).__init__()
-        self.squeeze = nn.Conv2d(channel, 1, kernel_size=1, bias=False)
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        z = self.squeeze(x)
-        z = self.sigmoid(z)
-        return x * z
-
-
-class GAB(nn.Module):
-    def __init__(self, input_dim, reduction=4):
-        super(GAB, self).__init__()
-        self.global_avgpool = nn.AdaptiveAvgPool2d(1)
-        self.conv1 = nn.Conv2d(input_dim, input_dim // reduction, kernel_size=1, stride=1)
-        self.conv2 = nn.Conv2d(input_dim // reduction, input_dim, kernel_size=1, stride=1)
-        self.relu = nn.ReLU(inplace=True)
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        z = self.global_avgpool(x)
-        z = self.relu(self.conv1(z))
-        z = self.sigmoid(self.conv2(z))
-        return x * z
-
-
-class DecoderBlockV2(nn.Module):
-    def __init__(self, up_in, x_in, n_out):
-        super(DecoderBlockV2, self).__init__()
-        up_out = x_out = n_out // 2
-        self.x_conv = nn.Conv2d(x_in, x_out, 1, bias=False)
-        self.tr_conv = nn.ConvTranspose2d(up_in, up_out, 2, stride=2)
-        self.bn = nn.BatchNorm2d(n_out)
-        self.relu = nn.ReLU(True)
-        self.s_att = SpatialAttention2d(n_out)
-        self.c_att = GAB(n_out, 16)
-
-    def forward(self, up_p, x_p):
-        up_p = self.tr_conv(up_p)
-        x_p = self.x_conv(x_p)
-
-        cat_p = torch.cat([up_p, x_p], 1)
-        cat_p = self.relu(self.bn(cat_p))
-        s = self.s_att(cat_p)
-        c = self.c_att(cat_p)
-        return s + c
 
 
 class UResNet34(nn.Module):
@@ -157,25 +106,27 @@ class UResNet34(nn.Module):
         self.encoder5 = nn.Sequential(self.resnet.layer4, SCSEBlock(512))
 
         self.decoder5 = DecoderBlock(512 + 256, 512, 64)
-        self.decoder4 = DecoderBlock(256 + 128, 256, 64)
-        self.decoder3 = DecoderBlock(128 + 64, 128, 64)
+        self.decoder4 = DecoderBlock(64 + 128, 256, 64)
+        self.decoder3 = DecoderBlock(64 + 64, 128, 64)
         self.decoder2 = DecoderBlock(64 + 64, 64, 64)
         self.decoder1 = DecoderBlock(64, 32, 64)
 
-        self.final_conv = nn.Conv2d(576, classes, kernel_size=(1, 1))
+        self.final_conv = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
+                                        nn.ReLU(inplace=True),
+                                        nn.Conv2d(64, classes, kernel_size=1, padding=0))
 
     def forward(self, x):
-        encode1 = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/2)
-        encode2 = self.encoder2(self.resnet.maxpool(encode1))  # 64x128x800 ==> 64x64x400 (1/4)
-        encode3 = self.encoder3(encode2)  # 64x64x400 ==> 128x32x200
-        encode4 = self.encoder4(encode3)  # 128x32x200 ==> 256x16x100
-        encode5 = self.encoder5(encode4)  # 256x16x100 ==> 512x8x50
+        encode1 = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/4)
+        encode2 = self.encoder2(self.resnet.maxpool(encode1))  # 64x128x800 ==> 64x64x400 (1/8)
+        encode3 = self.encoder3(encode2)  # 64x64x400 ==> 128x32x200 (1/16)
+        encode4 = self.encoder4(encode3)  # 128x32x200 ==> 256x16x100 (1/32)
+        encode5 = self.encoder5(encode4)  # 256x16x100 ==> 512x8x50 (1/64)
 
-        decode5 = self.decoder5((encode5, encode4))  # 512x8x50 + 256x16x100 ==> 256x16x100
-        decode4 = self.decoder4((decode5, encode3))  # 256x16x100 + 128x32x200 ==> 128x32x200
-        decode3 = self.decoder3((decode4, encode2))  # 128x32x200 + 64x64x400 ==> 64x64x400
-        decode2 = self.decoder2((decode3, encode1))  # 64x64x400 + 64x128x800 ==> 64x128x800
-        decode1 = self.decoder1((decode2, None))
+        decode5 = self.decoder5(encode5, encode4)  # 512x8x50 + 256x16x100 ==> 64x16x100
+        decode4 = self.decoder4(decode5, encode3)  # 256x16x100 + 128x32x200 ==> 64x32x200
+        decode3 = self.decoder3(decode4, encode2)  # 64x32x200 + 64x64x400 ==> 64x64x400
+        decode2 = self.decoder2(decode3, encode1)  # 64x64x400 + 64x128x800 ==> 64x128x800
+        decode1 = self.decoder1(decode2, None)
 
         x = torch.cat((decode1,
                        F.interpolate(decode2, scale_factor=2, mode='bilinear', align_corners=True),
@@ -183,7 +134,7 @@ class UResNet34(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
-
+        x = F.dropout2d(x, p=0.50)
         x = self.final_conv(x)
         return x
 
