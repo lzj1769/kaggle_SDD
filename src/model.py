@@ -95,11 +95,7 @@ class UResNet34(nn.Module):
         super(UResNet34, self).__init__()
         self.resnet = torchvision.models.resnet34(pretrained=True)
 
-        self.encoder1 = nn.Sequential(
-            self.resnet.conv1,
-            self.resnet.bn1,
-            self.resnet.relu)
-
+        self.encoder1 = nn.Sequential(self.resnet.conv1, self.resnet.bn1, self.resnet.relu)
         self.encoder2 = nn.Sequential(self.resnet.layer1, SCSEBlock(64))
         self.encoder3 = nn.Sequential(self.resnet.layer2, SCSEBlock(128))
         self.encoder4 = nn.Sequential(self.resnet.layer3, SCSEBlock(256))
@@ -134,7 +130,6 @@ class UResNet34(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
-        x = F.dropout2d(x, p=0.50)
         x = self.final_conv(x)
         return x
 
