@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "train.py", line 237, in <module>
+    model_trainer.plot_history()
+  File "train.py", line 232, in main
+    model_save_path=model_save_path,
+  File "train.py", line 185, in start
+    print("=================================================================")
+  File "train.py", line 125, in iterate
+    running_loss = 0.0
+  File "train.py", line 114, in forward
+    outputs = self.model(images.cuda())
+  File "/home/rs619065/miniconda2/envs/py36env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/rwthfs/rz/cluster/home/rs619065/kaggle/SDD/src/model.py", line 137, in forward
+    x = F.dropout2d(x, p=0.50)
+  File "/home/rs619065/miniconda2/envs/py36env/lib/python3.6/site-packages/torch/nn/functional.py", line 844, in dropout2d
+    else _VF.feature_dropout(input, p, training))
+RuntimeError: CUDA out of memory. Tried to allocate 1.95 GiB (GPU 0; 15.75 GiB total capacity; 11.99 GiB already allocated; 1.12 GiB free; 1.50 GiB cached)

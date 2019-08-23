@@ -10,7 +10,7 @@ def train_aug(image, mask):
     if np.random.rand() < 0.5:
         image, mask = do_horizontal_flip2(image, mask)
 
-    if np.random.rand() < 0.0:
+    if np.random.rand() < 0.5:
         c = np.random.choice(3)
         if c == 0:
             image, mask = do_random_shift_scale_crop_pad2(image, mask, 0.2)
@@ -21,16 +21,14 @@ def train_aug(image, mask):
         if c == 2:
             image, mask = do_shift_scale_rotate2(image, mask, dx=0, dy=0, scale=1, angle=np.random.uniform(0, 15))
 
-    if np.random.rand() < 0.0:
+    if np.random.rand() < 0.5:
         c = np.random.choice(2)
         if c == 0:
             image = do_brightness_shift(image, np.random.uniform(-0.1, +0.1))
         if c == 1:
             image = do_brightness_multiply(image, np.random.uniform(1 - 0.08, 1 + 0.08))
 
-    image = do_normalization(image)
-
-    return img_to_tensor(image), mask_to_tensor(mask)
+    return image, mask
 
 
 def make_mask(row_id, df):
@@ -67,7 +65,10 @@ class SteelDataset(Dataset):
         if self.phase == "train":
             img, mask = train_aug(image=img, mask=mask)
 
+        img = do_normalization(img)
+        img, mask = img_to_tensor(img), mask_to_tensor(mask)
         mask = mask[0].permute(2, 0, 1)  # 1x4x256x1600
+
         return img, mask
 
     def __len__(self):
@@ -95,5 +96,3 @@ if __name__ == '__main__':
 
     print(imgs.shape)  # batch * 3 * 256 * 1600
     print(masks.shape)  # batch * 4 * 256 * 1600
-
-    print(imgs)

@@ -105,9 +105,9 @@ class UResNet34(nn.Module):
         self.encoder4 = nn.Sequential(self.resnet.layer3, SCSEBlock(256))
         self.encoder5 = nn.Sequential(self.resnet.layer4, SCSEBlock(512))
 
-        self.decoder5 = DecoderBlock(512 + 256, 512, 64)
-        self.decoder4 = DecoderBlock(64 + 128, 256, 64)
-        self.decoder3 = DecoderBlock(64 + 64, 128, 64)
+        self.decoder5 = DecoderBlock(512 + 256, 256, 64)
+        self.decoder4 = DecoderBlock(64 + 128, 128, 64)
+        self.decoder3 = DecoderBlock(64 + 64, 64, 64)
         self.decoder2 = DecoderBlock(64 + 64, 64, 64)
         self.decoder1 = DecoderBlock(64, 32, 64)
 

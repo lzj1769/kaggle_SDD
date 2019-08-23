@@ -94,7 +94,7 @@ class Trainer(object):
         self.criterion = BCEWithLogitsLoss()
         # self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
         # self.scheduler = CosineAnnealingLR(self.optimizer, T_max=50, eta_min=min_lr)
-        self.optimizer = Adam(self.model.parameters(), lr=5e-4)
+        self.optimizer = Adam(self.model.parameters(), lr=3e-4)
         self.scheduler = ReduceLROnPlateau(optimizer=self.optimizer, mode='max')
         self.model = self.model.cuda()
         self.dataloaders = {
@@ -116,7 +116,11 @@ class Trainer(object):
         return loss, outputs
 
     def iterate(self, phase):
-        self.model.train(phase == "train")
+        if phase == "train":
+            self.model.train()
+        else:
+            self.model.evl()
+
         dataloader = self.dataloaders[phase]
         running_loss = 0.0
         running_dice = 0.0
@@ -217,12 +221,6 @@ def main():
     model = None
     if args.model == "UResNet34":
         model = UResNet34()
-
-    elif args.model == "UResNet34SCSE":
-        model = UResNet34SCSE()
-
-    elif args.model == "UResNet34SCSEHyper":
-        model = UResNet34SCSEHyper()
 
     model_save_path = os.path.join(SAVE_MODEL_PATH, args.model)
     training_history_path = os.path.join(TRAINING_HISTORY_PATH, args.model)
