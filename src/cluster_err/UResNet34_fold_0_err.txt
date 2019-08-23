@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    from model import UResNet34, UResNet34SCSE, UResNet34SCSEHyper
+ImportError: cannot import name 'UResNet34SCSE'
