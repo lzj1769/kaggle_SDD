@@ -119,7 +119,7 @@ class Trainer(object):
         if phase == "train":
             self.model.train()
         else:
-            self.model.evl()
+            self.model.eval()
 
         dataloader = self.dataloaders[phase]
         running_loss = 0.0
@@ -186,7 +186,8 @@ class Trainer(object):
             # print("Learning rate: %0.8f" % (self.scheduler.get_lr()[0]))
 
             train_loss, train_dice = self.iterate("train")
-            valid_loss, valid_dice = self.iterate("valid")
+            with torch.no_grad():
+                valid_loss, valid_dice = self.iterate("valid")
 
             print("Training loss: %0.8f, dice: %0.8f" % (train_loss, train_dice))
             print("Validation loss: %0.8f, dice: %0.8f" % (valid_loss, valid_dice))
