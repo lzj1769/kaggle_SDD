@@ -5,12 +5,13 @@ import torch
 import numpy as np
 import random
 from torch.nn import BCEWithLogitsLoss
-from torch.optim import SGD, Adam
-from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
+from torch.optim import SGD
+from torch.optim.lr_scheduler import CosineAnnealingLR
 
 from model import UResNet34
 from data_loader import get_dataloader
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
+from utils import compute_dice
 
 import matplotlib
 
@@ -26,7 +27,7 @@ def parse_args():
                         help="Number of workers for training. Default: 4")
     parser.add_argument("--batch-size", type=int, default=4,
                         help="Batch size for training. Default: 4")
-    parser.add_argument("--num-epochs", type=int, default=200,
+    parser.add_argument("--num-epochs", type=int, default=50,
                         help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
     parser.add_argument('--max_lr', type=float, default=0.01, help='max learning rate')
@@ -47,55 +48,24 @@ def seed_torch(seed):
     torch.backends.cudnn.deterministic = True
 
 
-def compute_dice(preds, masks, threshold=0.5):
-    '''Calculates dice of positive and negative images seperately'''
-    '''probability and truth must be torch tensors'''
-    batch_size = len(masks)
-    with torch.no_grad():
-        probs = torch.sigmoid(preds)
-        probs = probs.view(batch_size, -1)
-        masks = masks.view(batch_size, -1)
-        assert (probs.shape == masks.shape)
-
-        p = (probs > threshold).float()
-        t = (masks > 0.5).float()
-
-        t_sum = t.sum(-1)
-        p_sum = p.sum(-1)
-        neg_index = torch.nonzero(t_sum == 0)
-        pos_index = torch.nonzero(t_sum >= 1)
-
-        dice_neg = (p_sum == 0).float()
-        dice_pos = 2 * (p * t).sum(-1) / ((p + t).sum(-1))
-
-        dice_neg = dice_neg[neg_index]
-        dice_pos = dice_pos[pos_index]
-        dice = torch.cat([dice_pos, dice_neg])
-        dice = dice.mean().item()
-
-    return dice
-
-
 class Trainer(object):
     '''This class takes care of training and validation of our model'''
 
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, max_lr=0.01, min_lr=0.001, momentum=0.9, weight_decay=1e-04):
+                 fold, training_history_path, max_lr=0.1, min_lr=0.01, momentum=0.9, weight_decay=1e-04):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
         self.num_epochs = num_epochs
-        self.best_dice = 0
+        self.best_loss = np.inf
         self.phases = ["train", "valid"]
         self.model_save_path = model_save_path
         self.model_save_name = model_save_name
         self.fold = fold
         self.training_history_path = training_history_path
         self.criterion = BCEWithLogitsLoss()
-        # self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
-        # self.scheduler = CosineAnnealingLR(self.optimizer, T_max=50, eta_min=min_lr)
-        self.optimizer = Adam(self.model.parameters(), lr=3e-4)
-        self.scheduler = ReduceLROnPlateau(optimizer=self.optimizer, mode='max')
+        self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
+        self.scheduler = CosineAnnealingLR(self.optimizer, T_max=50, eta_min=min_lr)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
@@ -167,13 +137,13 @@ class Trainer(object):
                                        "{}_fold_{}.txt".format(self.model_save_name, self.fold))
 
         res = [self.losses['train'][-1], self.losses['valid'][-1],
-               self.dice_scores['train'][-1], self.dice_scores['valid'][-1]]
+               self.dice_scores['train'][-1], self.dice_scores['valid'][-1], self.lr[-1]]
 
         if os.path.exists(output_filename):
             with open(output_filename, "a") as f:
                 f.write("\t".join(map(str, res)) + "\n")
         else:
-            header = ["Training loss", "Validation loss", "Training dice", "Validation dice"]
+            header = ["Training loss", "Validation loss", "Training dice", "Validation dice", "Learning rate"]
             with open(output_filename, "w") as f:
                 f.write("\t".join(header) + "\n")
                 f.write("\t".join(map(str, res)) + "\n")
@@ -183,7 +153,7 @@ class Trainer(object):
             start = time.strftime("%D:%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
             print("=================================================================")
-            # print("Learning rate: %0.8f" % (self.scheduler.get_lr()[0]))
+            print("Learning rate: %0.8f" % (self.scheduler.get_lr()[0]))
 
             train_loss, train_dice = self.iterate("train")
             with torch.no_grad():
@@ -196,16 +166,17 @@ class Trainer(object):
 
             state = {
                 "epoch": epoch,
-                "best_dice": self.best_dice,
+                "best_loss": self.best_loss,
                 "state_dict": self.model.state_dict(),
                 "optimizer": self.optimizer.state_dict(),
             }
 
-            # self.lr.append(self.scheduler.get_lr()[0])
-            self.scheduler.step(metrics=valid_dice, epoch=epoch)
-            if valid_dice > self.best_dice:
-                print("******** New optimal found, saving state ********")
-                state["best_dice"] = self.best_dice = valid_dice
+            self.lr.append(self.scheduler.get_lr()[0])
+            self.scheduler.step(epoch=epoch)
+            if valid_loss < self.best_loss:
+                print("******** Validation loss improved from {} to {}, saving state ********".format(self.best_loss,
+                                                                                                      valid_loss))
+                state["best_loss"] = self.best_loss = valid_dice
                 filename = os.path.join(self.model_save_path, "{}_fold_{}.pt".format(self.model_save_name, self.fold))
                 if os.path.exists(filename):
                     os.remove(filename)
