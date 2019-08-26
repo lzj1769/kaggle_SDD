@@ -52,7 +52,7 @@ class Trainer(object):
     '''This class takes care of training and validation of our model'''
 
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, max_lr=0.1, min_lr=0.01, momentum=0.9, weight_decay=1e-04):
+                 fold, training_history_path, max_lr, min_lr, momentum, weight_decay):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -104,7 +104,7 @@ class Trainer(object):
 
             running_loss += loss.item()
             outputs = outputs.detach().cpu()
-            running_dice += compute_dice(outputs, masks)
+            running_dice += compute_dice(outputs, masks).item()
 
         epoch_loss = running_loss / len(dataloader)
         epoch_dice = running_dice / len(dataloader)
@@ -117,15 +117,18 @@ class Trainer(object):
         return epoch_loss, epoch_dice
 
     def plot_history(self):
-        plt.subplot(1, 2, 1)
+        plt.subplot(1, 3, 1)
         plt.plot(self.losses['train'], '-b', label='Training loss')
         plt.plot(self.losses['valid'], '-r', label='Validation loss')
         plt.title("Loss", fontweight='bold')
 
-        plt.subplot(1, 2, 2)
+        plt.subplot(1, 3, 2)
         plt.plot(self.dice_scores['train'], '-b', label='Training dice')
         plt.plot(self.dice_scores['valid'], '-r', label='Validation dice')
         plt.title("Dice", fontweight='bold')
+
+        plt.subplot(1, 3, 3)
+        plt.plot(self.lr, '-b', label='Learning rate')
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}.pdf".format(self.model_save_name, self.fold))
@@ -149,6 +152,9 @@ class Trainer(object):
                 f.write("\t".join(map(str, res)) + "\n")
 
     def start(self):
+        print("Train on {} mini-batches, validate on {} mini-batches".format(len(self.dataloaders["train"]),
+                                                                             len(self.dataloaders["valid"])))
+
         for epoch in range(self.num_epochs):
             start = time.strftime("%D:%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
@@ -159,10 +165,8 @@ class Trainer(object):
             with torch.no_grad():
                 valid_loss, valid_dice = self.iterate("valid")
 
-            print("Training loss: %0.8f, dice: %0.8f" % (train_loss, train_dice))
-            print("Validation loss: %0.8f, dice: %0.8f" % (valid_loss, valid_dice))
-
-            self.write_history()
+            print("loss: %0.8f, dice: %0.8f, val_loss: %0.8f, val_dice: %0.8f" % (train_loss, train_dice,
+                                                                                  valid_loss, valid_dice))
 
             state = {
                 "epoch": epoch,
@@ -176,13 +180,14 @@ class Trainer(object):
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from {} to {}, saving state ********".format(self.best_loss,
                                                                                                       valid_loss))
-                state["best_loss"] = self.best_loss = valid_dice
+                state["best_loss"] = self.best_loss = valid_loss
                 filename = os.path.join(self.model_save_path, "{}_fold_{}.pt".format(self.model_save_name, self.fold))
                 if os.path.exists(filename):
                     os.remove(filename)
                 torch.save(state, filename)
 
             print()
+            self.write_history()
 
 
 def main():
@@ -204,7 +209,11 @@ def main():
                             model_save_path=model_save_path,
                             training_history_path=training_history_path,
                             model_save_name=args.model,
-                            fold=args.fold)
+                            fold=args.fold,
+                            max_lr=args.max_lr,
+                            min_lr=args.min_lr,
+                            momentum=args.momentum,
+                            weight_decay=args.weight_decay)
     model_trainer.start()
     model_trainer.plot_history()
 

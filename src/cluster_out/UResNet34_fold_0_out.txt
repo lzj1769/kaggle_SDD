@@ -1,69 +1,49 @@
-Epoch: 1/200 |  time : 08/26/19:10:33:24
+Train on 2514 mini-batches, validate on 629 mini-batches
+Epoch: 1/50 |  time : 08/26/19:19:07:42
 =================================================================
-Training loss: 0.03956186, dice: 0.43200182
-Validation loss: 0.02779818, dice: 0.44884473
-******** New optimal found, saving state ********
+Learning rate: 0.01000000
+loss: 0.03681754, dice: 0.85374418, val_loss: 0.01870668, val_dice: 0.87508156
+******** Validation loss improved from inf to 0.018706681216724176, saving state ********
 
-Epoch: 2/200 |  time : 08/26/19:10:58:34
+Epoch: 2/50 |  time : 08/26/19:19:32:30
 =================================================================
-Training loss: 0.03606424, dice: 0.42526724
-Validation loss: 0.02522040, dice: 0.47877486
-******** New optimal found, saving state ********
+Learning rate: 0.01000000
+loss: 0.03108414, dice: 0.85658080, val_loss: 0.01633391, val_dice: 0.87491719
+******** Validation loss improved from 0.018706681216724176 to 0.016333905036915803, saving state ********
 
-Epoch: 3/200 |  time : 08/26/19:11:23:46
+Epoch: 3/50 |  time : 08/26/19:19:57:20
 =================================================================
-Training loss: 0.03424474, dice: 0.45140098
-Validation loss: 0.02240937, dice: 0.38499926
+Learning rate: 0.00999112
+loss: 0.02990783, dice: 0.86132803, val_loss: 0.01648214, val_dice: 0.86408308
 
-Epoch: 4/200 |  time : 08/26/19:11:48:54
+Epoch: 4/50 |  time : 08/26/19:20:22:07
 =================================================================
-Training loss: 0.03239729, dice: 0.48361502
-Validation loss: 0.01967217, dice: 0.55185958
-******** New optimal found, saving state ********
+Learning rate: 0.00996452
+loss: 0.02910451, dice: 0.86682912, val_loss: 0.01450321, val_dice: 0.88456669
+******** Validation loss improved from 0.016333905036915803 to 0.014503209516594841, saving state ********
 
-Epoch: 5/200 |  time : 08/26/19:12:14:04
+Epoch: 5/50 |  time : 08/26/19:20:46:55
 =================================================================
-Training loss: 0.03077509, dice: 0.50183752
-Validation loss: 0.02258331, dice: 0.49773811
+Learning rate: 0.00992029
+loss: 0.02784147, dice: 0.87057905, val_loss: 0.01533839, val_dice: 0.87745960
 
-Epoch: 6/200 |  time : 08/26/19:12:39:10
+Epoch: 6/50 |  time : 08/26/19:21:11:42
 =================================================================
-Training loss: 0.03064549, dice: 0.50811216
-Validation loss: 0.02346955, dice: 0.52730970
+Learning rate: 0.00985862
+loss: 0.02781679, dice: 0.87355999, val_loss: 0.01651120, val_dice: 0.88190306
 
-Epoch: 7/200 |  time : 08/26/19:13:04:18
+Epoch: 7/50 |  time : 08/26/19:21:36:27
 =================================================================
-Training loss: 0.03000886, dice: 0.51280238
-Validation loss: 0.01793900, dice: 0.58078627
-******** New optimal found, saving state ********
+Learning rate: 0.00977975
+loss: 0.02752288, dice: 0.87526587, val_loss: 0.01273445, val_dice: 0.89975985
+******** Validation loss improved from 0.014503209516594841 to 0.01273444579670462, saving state ********
 
-Epoch: 8/200 |  time : 08/26/19:13:29:27
+Epoch: 8/50 |  time : 08/26/19:22:01:15
 =================================================================
-Training loss: 0.02947118, dice: 0.52608246
-Validation loss: 0.01785466, dice: 0.58302345
-******** New optimal found, saving state ********
+Learning rate: 0.00968399
+loss: 0.02724327, dice: 0.87698133, val_loss: 0.01236759, val_dice: 0.90716663
+******** Validation loss improved from 0.01273444579670462 to 0.012367590218266977, saving state ********
 
-Epoch: 9/200 |  time : 08/26/19:13:54:35
+Epoch: 9/50 |  time : 08/26/19:22:26:03
 =================================================================
-Training loss: 0.02932577, dice: 0.52872461
-Validation loss: 0.01764201, dice: 0.60035361
-******** New optimal found, saving state ********
-
-Epoch: 10/200 |  time : 08/26/19:14:19:43
-=================================================================
-Training loss: 0.02894036, dice: 0.53182574
-Validation loss: 0.01691484, dice: 0.58704953
-
-Epoch: 11/200 |  time : 08/26/19:14:44:47
-=================================================================
-Training loss: 0.02871218, dice: 0.54651781
-Validation loss: 0.01474893, dice: 0.60062453
-******** New optimal found, saving state ********
-
-Epoch: 12/200 |  time : 08/26/19:15:09:55
-=================================================================
-Training loss: 0.02823639, dice: 0.54372828
-Validation loss: 0.01679225, dice: 0.49930576
-
-Epoch: 13/200 |  time : 08/26/19:15:35:02
-=================================================================
+Learning rate: 0.00957172
