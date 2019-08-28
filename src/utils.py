@@ -1,4 +1,8 @@
 import torch
+import matplotlib
+
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
 
 
 def compute_dice(preds, truth, threshold=0.5):
@@ -42,6 +46,28 @@ def dice_loss_single_channel(probability, true, smooth=1.0):
 
     return 1 - ((2. * intersection + smooth) /
                 (iflat.sum() + tflat.sum() + smooth))
+
+
+def visualize(image, mask, original_image=None, original_mask=None):
+    if original_image is None and original_mask is None:
+        f, ax = plt.subplots(2, 1, figsize=(8, 8))
+
+        ax[0].imshow(image)
+        ax[1].imshow(mask)
+    else:
+        f, ax = plt.subplots(2, 2, figsize=(8, 8))
+
+        ax[0, 0].imshow(original_image)
+        ax[0, 0].set_title('Original image', fontsize=18)
+
+        ax[1, 0].imshow(original_mask)
+        ax[1, 0].set_title('Original mask', fontsize=18)
+
+        ax[0, 1].imshow(image)
+        ax[0, 1].set_title('Transformed image', fontsize=18)
+
+        ax[1, 1].imshow(mask)
+        ax[1, 1].set_title('Transformed mask', fontsize=18)
 
 
 if __name__ == '__main__':

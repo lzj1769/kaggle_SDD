@@ -3,19 +3,15 @@ import numpy as np
 import torch
 import cv2
 
-from configure import MEAN, STD
 
-
-def do_horizontal_flip(image):
-    # flip left-right
-    image = cv2.flip(image, 1)
+def do_vertical_flip(image):
+    image = cv2.flip(image, 0)
     return image
 
 
-def do_horizontal_flip2(image, mask):
-    image = do_horizontal_flip(image)
-    mask = do_horizontal_flip(mask)
-    return image, mask
+def do_horizontal_flip(image):
+    image = cv2.flip(image, 1)
+    return image
 
 
 def do_brightness_multiply(image, alpha=1):
@@ -54,30 +50,6 @@ def do_random_shift_scale_crop_pad2(image, mask, limit=0.10):
     return image, mask
 
 
-def do_horizontal_shear2(image, mask, dx=0):
-    borderMode = cv2.BORDER_REFLECT_101
-    # cv2.BORDER_REFLECT_101  cv2.BORDER_CONSTANT
-
-    height, width = image.shape[:2]
-    dx = int(dx * width)
-
-    box0 = np.array([[0, 0], [width, 0], [width, height], [0, height], ], np.float32)
-    box1 = np.array([[+dx, 0], [width + dx, 0], [width - dx, height], [-dx, height], ], np.float32)
-
-    box0 = box0.astype(np.float32)
-    box1 = box1.astype(np.float32)
-    mat = cv2.getPerspectiveTransform(box0, box1)
-
-    image = cv2.warpPerspective(image, mat, (width, height), flags=cv2.INTER_LINEAR,
-                                borderMode=borderMode, borderValue=(
-            0, 0, 0,))  # cv2.BORDER_CONSTANT, borderValue = (0, 0, 0))  #cv2.BORDER_REFLECT_101
-    mask = cv2.warpPerspective(mask, mat, (width, height), flags=cv2.INTER_NEAREST,  # cv2.INTER_LINEAR
-                               borderMode=borderMode, borderValue=(
-            0, 0, 0,))  # cv2.BORDER_CONSTANT, borderValue = (0, 0, 0))  #cv2.BORDER_REFLECT_101
-    mask = (mask > 0.5).astype(np.float32)
-    return image, mask
-
-
 def do_shift_scale_rotate2(image, mask, dx=0, dy=0, scale=1, angle=0):
     borderMode = cv2.BORDER_REFLECT_101
     # cv2.BORDER_REFLECT_101  cv2.BORDER_CONSTANT
@@ -113,22 +85,6 @@ def do_brightness_shift(image, alpha=0.125):
     return image
 
 
-def do_normalization(image, max_pixel_value=255):
-    mean = np.array(MEAN, dtype=np.float32)
-    mean *= max_pixel_value
-
-    std = np.array(STD, dtype=np.float32)
-    std *= max_pixel_value
-
-    denominator = np.reciprocal(std, dtype=np.float32)
-
-    img = image.astype(np.float32)
-    img -= mean
-    img *= denominator
-
-    return img
-
-
 def img_to_tensor(img):
     tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32))
     return tensor
@@ -137,21 +93,3 @@ def img_to_tensor(img):
 def mask_to_tensor(mask):
     mask = np.expand_dims(mask, 0).astype(np.float32)
     return torch.from_numpy(mask)
-
-# def get_transforms(phase, mean, std):
-#     from albumentations import Normalize
-#     list_transforms = []
-#     if phase == "train":
-#         list_transforms.extend(
-#             [
-#                 HorizontalFlip(p=0.5),  # only horizontal flip as of now
-#             ]
-#         )
-#     list_transforms.extend(
-#         [
-#             Normalize(mean=mean, std=std, p=1),
-#             ToTensor(),
-#         ]
-#     )
-#     list_trfms = Compose(list_transforms)
-#     return list_trfms

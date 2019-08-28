@@ -91,9 +91,9 @@ class DecoderBlock(nn.Module):
 
 
 class UResNet34(nn.Module):
-    def __init__(self, classes=4):
+    def __init__(self, classes=4, pretrained=True):
         super(UResNet34, self).__init__()
-        self.resnet = torchvision.models.resnet34(pretrained=True)
+        self.resnet = torchvision.models.resnet34(pretrained=pretrained)
 
         self.encoder1 = nn.Sequential(self.resnet.conv1, self.resnet.bn1, self.resnet.relu)
         self.encoder2 = nn.Sequential(self.resnet.layer1, SCSEBlock(64))
