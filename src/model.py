@@ -130,6 +130,7 @@ class UResNet34(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
+        x = F.dropout2d(x, p=0.50)
         x = self.final_conv(x)
         return x
 

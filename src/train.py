@@ -117,23 +117,24 @@ class Trainer(object):
         return epoch_loss, epoch_dice
 
     def plot_history(self):
-        plt.subplot(1, 3, 1)
-        plt.plot(self.losses['train'], '-b', label='Training loss')
-        plt.plot(self.losses['valid'], '-r', label='Validation loss')
-        plt.title("Loss", fontweight='bold')
+        fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
+        ax1.plot(self.losses['train'], '-b', label='Training loss')
+        ax1.plot(self.losses['valid'], '-r', label='Validation loss')
+        ax1.set_title("Loss", fontweight='bold')
+        ax1.legend(loc="upper right", frameon=False)
 
-        plt.subplot(1, 3, 2)
-        plt.plot(self.dice_scores['train'], '-b', label='Training dice')
-        plt.plot(self.dice_scores['valid'], '-r', label='Validation dice')
-        plt.title("Dice", fontweight='bold')
+        ax2.plot(self.dice_scores['train'], '-b', label='Training dice')
+        ax2.plot(self.dice_scores['valid'], '-r', label='Validation dice')
+        ax2.set_title("Dice", fontweight='bold')
+        ax2.legend(loc="upper right", frameon=False)
 
-        plt.subplot(1, 3, 3)
-        plt.plot(self.lr, '-b', label='Learning rate')
+        ax3.plot(self.lr)
+        ax3.set_title("Learning rate", fontweight='bold')
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}.pdf".format(self.model_save_name, self.fold))
-        plt.tight_layout()
-        plt.savefig(output_filename)
+        fig.tight_layout()
+        fig.savefig(output_filename)
 
     def write_history(self):
         output_filename = os.path.join(self.training_history_path,
