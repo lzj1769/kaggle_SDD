@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 7580129 ON ncg06 CANCELLED AT 2019-08-29T18:24:49 ***

@@ -12,6 +12,7 @@ from model import UResNet34
 from data_loader import get_dataloader
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 from utils import compute_dice
+from loss import DiceLoss, DiceBCELoss
 
 import matplotlib
 
@@ -52,7 +53,7 @@ class Trainer(object):
     '''This class takes care of training and validation of our model'''
 
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, max_lr, min_lr, momentum, weight_decay):
+                 fold, training_history_path, max_lr, min_lr, momentum, weight_decay, loss="BCE"):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -63,7 +64,13 @@ class Trainer(object):
         self.model_save_name = model_save_name
         self.fold = fold
         self.training_history_path = training_history_path
-        self.criterion = BCEWithLogitsLoss()
+        if loss == "BCE":
+            self.criterion = BCEWithLogitsLoss()
+        elif loss == "Dice":
+            self.criterion = DiceLoss()
+        elif loss == "DiceBCE":
+            self.criterion = DiceBCELoss()
+
         self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
         self.scheduler = CosineAnnealingLR(self.optimizer, T_max=50, eta_min=min_lr)
         self.model = self.model.cuda()
@@ -157,7 +164,7 @@ class Trainer(object):
                                                                              len(self.dataloaders["valid"])))
 
         for epoch in range(self.num_epochs):
-            start = time.strftime("%D:%H:%M:%S")
+            start = time.strftime("%D-%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
             print("=================================================================")
             print("Learning rate: %0.8f" % (self.scheduler.get_lr()[0]))
@@ -214,7 +221,8 @@ def main():
                             max_lr=args.max_lr,
                             min_lr=args.min_lr,
                             momentum=args.momentum,
-                            weight_decay=args.weight_decay)
+                            weight_decay=args.weight_decay,
+                            loss="DiceBCE")
     model_trainer.start()
     model_trainer.plot_history()
 
