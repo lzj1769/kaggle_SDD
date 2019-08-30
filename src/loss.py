@@ -37,4 +37,8 @@ class DiceBCELoss(nn.Module):
         self.dice = DiceLoss(smooth)
 
     def forward(self, input, target):
-        return self.alpha * self.bce(input, target) + (1 - self.alpha) * self.dice(input, target)
+        bce_loss = self.bce(input, target)
+        dice_loss = self.dice(input, target)
+        loss = self.alpha * bce_loss + (1 - self.alpha) * dice_loss
+
+        return loss, bce_loss, dice_loss

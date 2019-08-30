@@ -11,7 +11,6 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from model import UResNet34
 from data_loader import get_dataloader
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
-from utils import compute_dice
 from loss import DiceLoss, DiceBCELoss
 
 import matplotlib
@@ -84,13 +83,13 @@ class Trainer(object):
             for phase in self.phases
         }
         self.losses = {phase: [] for phase in self.phases}
-        self.dice_scores = {phase: [] for phase in self.phases}
-        self.lr = []
+        self.bce = {phase: [] for phase in self.phases}
+        self.dice = {phase: [] for phase in self.phases}
 
     def forward(self, images, masks):
         outputs = self.model(images.cuda())
-        loss = self.criterion(outputs, masks.cuda())
-        return loss, outputs
+        loss, bce, dice = self.criterion(outputs, masks.cuda())
+        return loss, bce, dice, outputs
 
     def iterate(self, phase):
         if phase == "train":
@@ -100,43 +99,50 @@ class Trainer(object):
 
         dataloader = self.dataloaders[phase]
         running_loss = 0.0
+        running_bce = 0.0
         running_dice = 0.0
 
         for images, masks in dataloader:
-            loss, outputs = self.forward(images, masks)
+            loss, bce, dice, outputs = self.forward(images, masks)
             if phase == "train":
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
 
             running_loss += loss.item()
-            outputs = outputs.detach().cpu()
-            running_dice += compute_dice(outputs, masks).item()
+            running_bce += bce.item()
+            running_dice += dice.item()
+            # outputs = outputs.detach().cpu()
+            # running_dice += compute_dice(outputs, masks).item()
 
         epoch_loss = running_loss / len(dataloader)
+        epoch_bce = running_bce / len(dataloader)
         epoch_dice = running_dice / len(dataloader)
 
         self.losses[phase].append(epoch_loss)
-        self.dice_scores[phase].append(epoch_dice)
+        self.bce[phase].append(epoch_bce)
+        self.dice[phase].append(epoch_dice)
 
         torch.cuda.empty_cache()
 
-        return epoch_loss, epoch_dice
+        return epoch_loss, epoch_bce, epoch_dice
 
     def plot_history(self):
         fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
-        ax1.plot(self.losses['train'], '-b', label='Training loss')
-        ax1.plot(self.losses['valid'], '-r', label='Validation loss')
+        ax1.plot(self.losses['train'], '-b', label='Training')
+        ax1.plot(self.losses['valid'], '-r', label='Validation')
         ax1.set_title("Loss", fontweight='bold')
         ax1.legend(loc="upper right", frameon=False)
 
-        ax2.plot(self.dice_scores['train'], '-b', label='Training dice')
-        ax2.plot(self.dice_scores['valid'], '-r', label='Validation dice')
-        ax2.set_title("Dice", fontweight='bold')
+        ax2.plot(self.bce['train'], '-b', label='Training')
+        ax2.plot(self.bce['valid'], '-r', label='Validation')
+        ax2.set_title("BCE", fontweight='bold')
         ax2.legend(loc="upper right", frameon=False)
 
-        ax3.plot(self.lr)
-        ax3.set_title("Learning rate", fontweight='bold')
+        ax3.plot(self.dice['train'], '-b', label='Training')
+        ax3.plot(self.dice['valid'], '-r', label='Validation')
+        ax3.set_title("Dice", fontweight='bold')
+        ax3.legend(loc="upper right", frameon=False)
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}.pdf".format(self.model_save_name, self.fold))
@@ -148,13 +154,15 @@ class Trainer(object):
                                        "{}_fold_{}.txt".format(self.model_save_name, self.fold))
 
         res = [self.losses['train'][-1], self.losses['valid'][-1],
-               self.dice_scores['train'][-1], self.dice_scores['valid'][-1], self.lr[-1]]
+               self.bce['train'][-1], self.bce['valid'][-1],
+               self.dice['train'][-1], self.dice['valid'][-1]]
 
         if os.path.exists(output_filename):
             with open(output_filename, "a") as f:
                 f.write("\t".join(map(str, res)) + "\n")
         else:
-            header = ["Training loss", "Validation loss", "Training dice", "Validation dice", "Learning rate"]
+            header = ["Training loss", "Validation loss", "Training bce", "Validation bce",
+                      "Training dice", "Validation dice"]
             with open(output_filename, "w") as f:
                 f.write("\t".join(header) + "\n")
                 f.write("\t".join(map(str, res)) + "\n")
@@ -167,14 +175,13 @@ class Trainer(object):
             start = time.strftime("%D-%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
             print("=================================================================")
-            print("Learning rate: %0.8f" % (self.scheduler.get_lr()[0]))
 
-            train_loss, train_dice = self.iterate("train")
+            train_loss, train_bce, train_dice = self.iterate("train")
             with torch.no_grad():
-                valid_loss, valid_dice = self.iterate("valid")
+                valid_loss, valid_bce, valid_dice = self.iterate("valid")
 
-            print("loss: %0.8f, dice: %0.8f, val_loss: %0.8f, val_dice: %0.8f" % (train_loss, train_dice,
-                                                                                  valid_loss, valid_dice))
+            print("loss: %0.8f, bce: %0.8f, dice: %0.8f, val_loss: %0.8f, val_bce: %0.8f, val_dice: %0.8f" %
+                  (train_loss, train_bce, train_dice, valid_loss, valid_bce, valid_dice))
 
             state = {
                 "epoch": epoch,
@@ -183,7 +190,6 @@ class Trainer(object):
                 "optimizer": self.optimizer.state_dict(),
             }
 
-            self.lr.append(self.scheduler.get_lr()[0])
             self.scheduler.step(epoch=epoch)
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from {} to {}, saving state ********".format(self.best_loss,

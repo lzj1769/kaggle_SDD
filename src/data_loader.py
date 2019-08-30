@@ -58,13 +58,13 @@ class SteelDataset(Dataset):
         if np.random.rand() < self.aug_prob:
             img, mask = do_vertical_flip(img), do_vertical_flip(mask)
 
-        # # Random adjust brightness
-        # if np.random.rand() < self.aug_prob:
-        #     c = np.random.choice(2)
-        #     if c == 0:
-        #         img = do_brightness_shift(img, np.random.uniform(-0.1, +0.1))
-        #     if c == 1:
-        #         img = do_brightness_multiply(img, np.random.uniform(1 - 0.08, 1 + 0.08))
+        # Random adjust brightness
+        if np.random.rand() < self.aug_prob:
+            c = np.random.choice(2)
+            if c == 0:
+                img = do_brightness_shift(img, np.random.uniform(-0.1, +0.1))
+            if c == 1:
+                img = do_brightness_multiply(img, np.random.uniform(1 - 0.08, 1 + 0.08))
         #
         # # Random shift and crop
         # if np.random.rand() < 0.5:
