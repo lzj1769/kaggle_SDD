@@ -66,14 +66,14 @@ class SteelDataset(Dataset):
             if c == 1:
                 img = do_brightness_multiply(img, np.random.uniform(1 - 0.08, 1 + 0.08))
 
-        # # Random shift and crop
-        # if np.random.rand() < 0.5:
-        #     c = np.random.choice(2)
-        #     if c == 0:
-        #         image, mask = do_random_shift_scale_crop_pad2(img, mask, 0.2)
-        #
-        #     if c == 1:
-        #         image, mask = do_shift_scale_rotate2(img, mask, dx=0, dy=0, scale=1, angle=np.random.uniform(0, 15))
+        # Random shift and crop
+        if np.random.rand() < 0.5:
+            c = np.random.choice(2)
+            if c == 0:
+                image, mask = do_random_shift_scale_crop_pad2(img, mask, 0.2)
+
+            if c == 1:
+                image, mask = do_shift_scale_rotate2(img, mask, dx=0, dy=0, scale=1, angle=np.random.uniform(0, 15))
 
         return img, mask
 

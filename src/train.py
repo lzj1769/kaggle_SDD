@@ -1,18 +1,15 @@
 import os
 import time
 import argparse
-import torch
 import numpy as np
 import random
-from torch.nn import BCEWithLogitsLoss
 from torch.optim import SGD
-from torch.optim.lr_scheduler import CosineAnnealingLR
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
-from model import UResNet34
+from model import *
 from data_loader import get_dataloader
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
-from loss import DiceLoss, DiceBCELoss
-
+from loss import DiceBCELoss
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -26,11 +23,10 @@ def parse_args():
                         help="Number of workers for training. Default: 4")
     parser.add_argument("--batch-size", type=int, default=4,
                         help="Batch size for training. Default: 4")
-    parser.add_argument("--num-epochs", type=int, default=50,
+    parser.add_argument("--num-epochs", type=int, default=200,
                         help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
-    parser.add_argument('--max_lr', type=float, default=0.01, help='max learning rate')
-    parser.add_argument('--min_lr', type=float, default=0.001, help='min learning rate')
+    parser.add_argument('--lr', type=float, default=0.01, help='learning rate')
     parser.add_argument('--momentum', type=float, default=0.9, help='momentum for SGD')
     parser.add_argument('--weight_decay', type=float, default=1e-4, help='Weight decay for SGD')
 
@@ -49,7 +45,7 @@ def seed_torch(seed):
 
 class Trainer(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, max_lr, min_lr, momentum, weight_decay, loss="BCE"):
+                 fold, training_history_path, lr, momentum, weight_decay):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -60,17 +56,11 @@ class Trainer(object):
         self.model_save_name = model_save_name
         self.fold = fold
         self.training_history_path = training_history_path
-        if loss == "BCE":
-            self.criterion = BCEWithLogitsLoss()
-        elif loss == "Dice":
-            self.criterion = DiceLoss()
-        elif loss == "DiceBCE":
-            self.criterion = DiceBCELoss()
+        self.criterion = DiceBCELoss()
 
-        # self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
-        # self.optimizer = Adam(self.model.parameters(), lr=3e-04, weight_decay=weight_decay)
-        self.optimizer = RAdam(self.model.parameters(), lr=3e-04, weight_decay=weight_decay)
-        self.scheduler = CosineAnnealingLR(self.optimizer, T_max=50, eta_min=min_lr)
+        self.optimizer = SGD(self.model.parameters(), lr=lr, momentum=momentum, weight_decay=weight_decay)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, factor=0.5, mode="min", threshold=1e-08, min_lr=1e-03,
+                                           verbose=True)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
@@ -111,8 +101,6 @@ class Trainer(object):
             running_loss += loss.item()
             running_bce += bce.item()
             running_dice += dice.item()
-            # outputs = outputs.detach().cpu()
-            # running_dice += compute_dice(outputs, masks).item()
 
         epoch_loss = running_loss / len(dataloader)
         epoch_bce = running_bce / len(dataloader)
@@ -189,7 +177,7 @@ class Trainer(object):
                 "optimizer": self.optimizer.state_dict(),
             }
 
-            # self.scheduler.step(epoch=epoch)
+            self.scheduler.step(metrics=valid_loss)
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from {} to {}, saving state ********".format(self.best_loss,
                                                                                                       valid_loss))
@@ -211,6 +199,8 @@ def main():
     model = None
     if args.model == "UResNet34":
         model = UResNet34()
+    elif args.model == "UResNet50":
+        model = UResNet50()
 
     model_save_path = os.path.join(SAVE_MODEL_PATH, args.model)
     training_history_path = os.path.join(TRAINING_HISTORY_PATH, args.model)
@@ -223,11 +213,9 @@ def main():
                             training_history_path=training_history_path,
                             model_save_name=args.model,
                             fold=args.fold,
-                            max_lr=args.max_lr,
-                            min_lr=args.min_lr,
+                            lr=args.lr,
                             momentum=args.momentum,
-                            weight_decay=args.weight_decay,
-                            loss="DiceBCE")
+                            weight_decay=args.weight_decay)
     model_trainer.start()
     model_trainer.plot_history()
 
