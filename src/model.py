@@ -111,6 +111,13 @@ class UResNet34(nn.Module):
                                         nn.ReLU(inplace=True),
                                         nn.Conv2d(64, classes, kernel_size=1, padding=0))
 
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+            elif isinstance(m, nn.BatchNorm2d):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
+
     def forward(self, x):
         encode1 = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/4)
         encode2 = self.encoder2(self.resnet.maxpool(encode1))  # 64x128x800 ==> 64x64x400 (1/8)

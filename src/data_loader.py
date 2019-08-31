@@ -65,7 +65,7 @@ class SteelDataset(Dataset):
                 img = do_brightness_shift(img, np.random.uniform(-0.1, +0.1))
             if c == 1:
                 img = do_brightness_multiply(img, np.random.uniform(1 - 0.08, 1 + 0.08))
-        #
+
         # # Random shift and crop
         # if np.random.rand() < 0.5:
         #     c = np.random.choice(2)

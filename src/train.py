@@ -14,7 +14,6 @@ from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 from loss import DiceLoss, DiceBCELoss
 
 import matplotlib
-
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -49,8 +48,6 @@ def seed_torch(seed):
 
 
 class Trainer(object):
-    '''This class takes care of training and validation of our model'''
-
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
                  fold, training_history_path, max_lr, min_lr, momentum, weight_decay, loss="BCE"):
         self.model = model
@@ -70,7 +67,9 @@ class Trainer(object):
         elif loss == "DiceBCE":
             self.criterion = DiceBCELoss()
 
-        self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
+        # self.optimizer = SGD(self.model.parameters(), lr=max_lr, momentum=momentum, weight_decay=weight_decay)
+        # self.optimizer = Adam(self.model.parameters(), lr=3e-04, weight_decay=weight_decay)
+        self.optimizer = RAdam(self.model.parameters(), lr=3e-04, weight_decay=weight_decay)
         self.scheduler = CosineAnnealingLR(self.optimizer, T_max=50, eta_min=min_lr)
         self.model = self.model.cuda()
         self.dataloaders = {
@@ -180,8 +179,8 @@ class Trainer(object):
             with torch.no_grad():
                 valid_loss, valid_bce, valid_dice = self.iterate("valid")
 
-            print("loss: %0.8f, bce: %0.8f, dice: %0.8f, val_loss: %0.8f, val_bce: %0.8f, val_dice: %0.8f" %
-                  (train_loss, train_bce, train_dice, valid_loss, valid_bce, valid_dice))
+            print("train_loss: %0.8f, train_bce: %0.8f, train_dice: %0.8f" % (train_loss, train_bce, train_dice))
+            print("valid_loss: %0.8f, valid_bce: %0.8f, valid_dice: %0.8f" % (valid_loss, valid_bce, valid_dice))
 
             state = {
                 "epoch": epoch,
@@ -190,7 +189,7 @@ class Trainer(object):
                 "optimizer": self.optimizer.state_dict(),
             }
 
-            self.scheduler.step(epoch=epoch)
+            # self.scheduler.step(epoch=epoch)
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from {} to {}, saving state ********".format(self.best_loss,
                                                                                                       valid_loss))
