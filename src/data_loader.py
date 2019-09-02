@@ -66,8 +66,8 @@ class SteelDataset(Dataset):
             image, mask = augmented['image'], augmented['mask']
 
         # Random shift and and scale
-        if np.random.rand() < 0.5:
-            aug = ShiftScaleRotate(p=1.0, border_mode=cv2.BORDER_CONSTANT)
+        if np.random.rand() < self.aug_prob:
+            aug = ShiftScaleRotate(p=1.0, rotate_limit=15, border_mode=cv2.BORDER_CONSTANT, value=0, mask_value=0)
             augmented = aug(image=image, mask=mask)
             image, mask = augmented['image'], augmented['mask']
 
@@ -89,9 +89,9 @@ def get_dataloader(phase, fold, batch_size, num_workers):
 
 
 if __name__ == '__main__':
-    dataloader = get_dataloader(phase="train", fold=1, batch_size=10, num_workers=1)
+    dataloader = get_dataloader(phase="train", fold=0, batch_size=1, num_workers=1)
 
     imgs, masks = next(iter(dataloader))
 
-    print(imgs)  # batch * 3 * 256 * 1600
-    print(masks.shape)  # batch * 4 * 256 * 1600
+    print(imgs.shape)  # batch * 3 * 256 * 1600
+    print(masks)  # batch * 4 * 256 * 1600

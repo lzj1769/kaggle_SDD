@@ -3,7 +3,7 @@ import time
 import argparse
 import numpy as np
 from torch.optim import Adam
-from torch.optim.lr_scheduler import StepLR
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from model import *
 from data_loader import get_dataloader
@@ -27,16 +27,13 @@ def parse_args():
     parser.add_argument("--num-epochs", type=int, default=200,
                         help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
-    parser.add_argument('--lr', type=float, default=1e-03, help='learning rate')
-    parser.add_argument('--momentum', type=float, default=0.9, help='momentum for SGD')
-    parser.add_argument('--weight_decay', type=float, default=1e-4, help='Weight decay for SGD')
 
     return parser.parse_args()
 
 
 class Trainer(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, lr, weight_decay):
+                 fold, training_history_path):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -49,8 +46,9 @@ class Trainer(object):
         self.training_history_path = training_history_path
         self.criterion = DiceBCELoss()
 
-        self.optimizer = Adam(self.model.parameters(), lr=lr, weight_decay=weight_decay)
-        self.scheduler = StepLR(self.optimizer, step_size=30, gamma=0.5)
+        self.optimizer = Adam(self.model.parameters(), lr=3e-04)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=10, threshold=0,
+                                           min_lr=1e-05)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
@@ -167,7 +165,7 @@ class Trainer(object):
                 "optimizer": self.optimizer.state_dict(),
             }
 
-            self.scheduler.step(epoch=epoch)
+            self.scheduler.step(metrics=valid_loss)
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from {} to {}, saving state ********".format(self.best_loss,
                                                                                                       valid_loss))
@@ -204,9 +202,7 @@ def main():
                             model_save_path=model_save_path,
                             training_history_path=training_history_path,
                             model_save_name=args.model,
-                            fold=args.fold,
-                            lr=args.lr,
-                            weight_decay=args.weight_decay)
+                            fold=args.fold)
     model_trainer.start()
     model_trainer.plot_history()
 

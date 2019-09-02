@@ -107,6 +107,8 @@ class UResNet34(nn.Module):
         self.decoder2 = DecoderBlock(64 + 64, 64, 64)
         self.decoder1 = DecoderBlock(64, 32, 64)
 
+        self.dropout = nn.Dropout2d(p=0.5)
+
         self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
                                     nn.ReLU(inplace=True),
                                     nn.Conv2d(64, classes, kernel_size=1, padding=0))
@@ -137,7 +139,10 @@ class UResNet34(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
+
+        x = self.dropout(x)
         x = self.output(x)
+
         return x
 
 
@@ -158,9 +163,11 @@ class UResNet50(nn.Module):
         self.decoder2 = DecoderBlock(64 + 64, 64, 64)
         self.decoder1 = DecoderBlock(64, 32, 64)
 
-        self.final_conv = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
-                                        nn.ReLU(inplace=True),
-                                        nn.Conv2d(64, classes, kernel_size=1, padding=0))
+        self.dropout = nn.Dropout2d(p=0.5)
+
+        self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
+                                    nn.ReLU(inplace=True),
+                                    nn.Conv2d(64, classes, kernel_size=1, padding=0))
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -188,8 +195,8 @@ class UResNet50(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
-        x = F.dropout2d(x, p=0.50)
-        x = self.final_conv(x)
+        x = self.dropout(x)
+        x = self.output(x)
         return x
 
 
@@ -210,9 +217,11 @@ class UResNext50(nn.Module):
         self.decoder2 = DecoderBlock(64 + 64, 64, 64)
         self.decoder1 = DecoderBlock(64, 32, 64)
 
-        self.final_conv = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
-                                        nn.ReLU(inplace=True),
-                                        nn.Conv2d(64, classes, kernel_size=1, padding=0))
+        self.dropout = nn.Dropout2d(p=0.5)
+        
+        self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
+                                    nn.ReLU(inplace=True),
+                                    nn.Conv2d(64, classes, kernel_size=1, padding=0))
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -240,8 +249,8 @@ class UResNext50(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
-        x = F.dropout2d(x, p=0.50)
-        x = self.final_conv(x)
+        x = self.dropout(x)
+        x = self.output(x)
         return x
 
 

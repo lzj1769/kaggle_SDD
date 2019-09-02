@@ -3,7 +3,7 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['UResNet34']
+model_list = ['UResNet50', 'UResNext50']
 fold_list = [0]
 
 for model in model_list:
