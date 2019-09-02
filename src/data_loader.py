@@ -1,9 +1,12 @@
 import os
+import cv2
 import pandas as pd
+import numpy as np
 from torch.utils.data import Dataset, DataLoader
+from albumentations import HorizontalFlip, VerticalFlip, ShiftScaleRotate
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
-from transform import *
+from utils import img_to_tensor, mask_to_tensor
 
 
 def make_mask(row_id, df):
@@ -37,45 +40,38 @@ class SteelDataset(Dataset):
     def __getitem__(self, idx):
         image_id, mask = make_mask(idx, self.df)
         image_path = os.path.join(self.data_folder, image_id)
-        img = cv2.imread(image_path) / 255.0
+        image = cv2.imread(image_path)
 
         if self.phase == "train":
-            img, mask = self.transform(img=img, mask=mask)
+            image, mask = self.transform(image=image, mask=mask)
 
-        img, mask = img_to_tensor(img), mask_to_tensor(mask)
+        image, mask = img_to_tensor(image), mask_to_tensor(mask)
         mask = mask[0].permute(2, 0, 1)  # 1x4x256x1600
-        return img, mask
+        return image, mask
 
     def __len__(self):
         return len(self.filenames)
 
-    def transform(self, img, mask):
+    def transform(self, image, mask):
         # Random horizontal flipping
         if np.random.rand() < self.aug_prob:
-            img, mask = do_horizontal_flip(img), do_horizontal_flip(mask)
+            aug = HorizontalFlip(p=1.0)
+            augmented = aug(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
 
         # Random vertical flipping
         if np.random.rand() < self.aug_prob:
-            img, mask = do_vertical_flip(img), do_vertical_flip(mask)
+            aug = VerticalFlip(p=1.0)
+            augmented = aug(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
 
-        # Random adjust brightness
-        if np.random.rand() < self.aug_prob:
-            c = np.random.choice(2)
-            if c == 0:
-                img = do_brightness_shift(img, np.random.uniform(-0.1, +0.1))
-            if c == 1:
-                img = do_brightness_multiply(img, np.random.uniform(1 - 0.08, 1 + 0.08))
-
-        # Random shift and crop
+        # Random shift and and scale
         if np.random.rand() < 0.5:
-            c = np.random.choice(2)
-            if c == 0:
-                image, mask = do_random_shift_scale_crop_pad2(img, mask, 0.2)
+            aug = ShiftScaleRotate(p=1.0, border_mode=cv2.BORDER_CONSTANT)
+            augmented = aug(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
 
-            if c == 1:
-                image, mask = do_shift_scale_rotate2(img, mask, dx=0, dy=0, scale=1, angle=np.random.uniform(0, 15))
-
-        return img, mask
+        return image, mask
 
 
 def get_dataloader(phase, fold, batch_size, num_workers):

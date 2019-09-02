@@ -1,8 +1,31 @@
+import os
+import numpy as np
+import random
 import torch
 import matplotlib
 
 matplotlib.use("agg")
 import matplotlib.pyplot as plt
+
+
+def seed_torch(seed):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+
+
+def img_to_tensor(img):
+    tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32)) / 255.0
+    return tensor
+
+
+def mask_to_tensor(mask):
+    mask = np.expand_dims(mask, 0).astype(np.float32)
+    return torch.from_numpy(mask)
 
 
 def compute_dice(preds, truth, threshold=0.5):
