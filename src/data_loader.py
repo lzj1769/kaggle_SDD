@@ -3,7 +3,7 @@ import cv2
 import pandas as pd
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
-from albumentations import HorizontalFlip, VerticalFlip, ShiftScaleRotate
+from albumentations import HorizontalFlip, VerticalFlip, ShiftScaleRotate, Normalize
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
 from utils import img_to_tensor, mask_to_tensor
@@ -36,6 +36,7 @@ class SteelDataset(Dataset):
         self.phase = phase
         self.filenames = self.df.ImageId.values
         self.aug_prob = aug_prob
+        self.normalizer = Normalize()
 
     def __getitem__(self, idx):
         image_id, mask = make_mask(idx, self.df)

@@ -22,8 +22,8 @@ def parse_args():
                         help="Name for encode used in Unet. Currently available: UResNet34")
     parser.add_argument("--num-workers", type=int, default=2,
                         help="Number of workers for training. Default: 2")
-    parser.add_argument("--batch-size", type=int, default=4,
-                        help="Batch size for training. Default: 4")
+    parser.add_argument("--batch-size", type=int, default=5,
+                        help="Batch size for training. Default: 5")
     parser.add_argument("--num-epochs", type=int, default=200,
                         help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
@@ -47,8 +47,8 @@ class Trainer(object):
         self.criterion = DiceBCELoss()
 
         self.optimizer = Adam(self.model.parameters(), lr=3e-04)
-        self.scheduler = ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=10, threshold=0,
-                                           min_lr=1e-05)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=5, threshold=0,
+                                           verbose=True, min_lr=1e-05)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
