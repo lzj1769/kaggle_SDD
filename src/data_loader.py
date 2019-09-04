@@ -1,12 +1,8 @@
-import os
-import cv2
 import pandas as pd
-import numpy as np
 from torch.utils.data import Dataset, DataLoader
-from albumentations import HorizontalFlip, VerticalFlip, ShiftScaleRotate, Normalize
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
-from utils import img_to_tensor, mask_to_tensor
+from utils import *
 
 
 def make_mask(row_id, df):
@@ -29,22 +25,30 @@ def make_mask(row_id, df):
     return filename, masks
 
 
+def train_aug(image, mask):
+    if np.random.rand() < 0.5:
+        image, mask = do_horizontal_flip(image), do_horizontal_flip(mask)
+
+    if np.random.rand() < 0.5:
+        image, mask = do_vertical_flip(image), do_vertical_flip(mask)
+
+    return image, mask
+
+
 class SteelDataset(Dataset):
-    def __init__(self, df, phase, aug_prob=0.5):
+    def __init__(self, df, phase):
         self.df = df
         self.data_folder = DATA_FOLDER
         self.phase = phase
         self.filenames = self.df.ImageId.values
-        self.aug_prob = aug_prob
-        self.normalizer = Normalize()
 
     def __getitem__(self, idx):
         image_id, mask = make_mask(idx, self.df)
         image_path = os.path.join(self.data_folder, image_id)
-        image = cv2.imread(image_path)
+        image = cv2.imread(image_path) / 255.0
 
         if self.phase == "train":
-            image, mask = self.transform(image=image, mask=mask)
+            image, mask = train_aug(image=image, mask=mask)
 
         image, mask = img_to_tensor(image), mask_to_tensor(mask)
         mask = mask[0].permute(2, 0, 1)  # 1x4x256x1600
@@ -52,27 +56,6 @@ class SteelDataset(Dataset):
 
     def __len__(self):
         return len(self.filenames)
-
-    def transform(self, image, mask):
-        # Random horizontal flipping
-        if np.random.rand() < self.aug_prob:
-            aug = HorizontalFlip(p=1.0)
-            augmented = aug(image=image, mask=mask)
-            image, mask = augmented['image'], augmented['mask']
-
-        # Random vertical flipping
-        if np.random.rand() < self.aug_prob:
-            aug = VerticalFlip(p=1.0)
-            augmented = aug(image=image, mask=mask)
-            image, mask = augmented['image'], augmented['mask']
-
-        # Random shift and and scale
-        if np.random.rand() < self.aug_prob:
-            aug = ShiftScaleRotate(p=1.0, rotate_limit=15, border_mode=cv2.BORDER_CONSTANT, value=0, mask_value=0)
-            augmented = aug(image=image, mask=mask)
-            image, mask = augmented['image'], augmented['mask']
-
-        return image, mask
 
 
 def get_dataloader(phase, fold, batch_size, num_workers):
@@ -95,4 +78,4 @@ if __name__ == '__main__':
     imgs, masks = next(iter(dataloader))
 
     print(imgs.shape)  # batch * 3 * 256 * 1600
-    print(masks)  # batch * 4 * 256 * 1600
+    print(masks.shape)  # batch * 4 * 256 * 1600

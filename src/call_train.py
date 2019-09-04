@@ -4,7 +4,7 @@ import pathlib
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
 model_list = ['UResNet34']
-fold_list = [0, 1]
+fold_list = [0, 1, 2, 3, 4]
 
 for model in model_list:
     model_save_path = os.path.join(SAVE_MODEL_PATH, model)

@@ -9,7 +9,7 @@ from model import *
 from data_loader import get_dataloader
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 from loss import DiceBCELoss
-from utils import seed_torch
+from utils import seed_torch, compute_dice
 import matplotlib
 
 matplotlib.use("Agg")
@@ -22,8 +22,8 @@ def parse_args():
                         help="Name for encode used in Unet. Currently available: UResNet34")
     parser.add_argument("--num-workers", type=int, default=2,
                         help="Number of workers for training. Default: 2")
-    parser.add_argument("--batch-size", type=int, default=5,
-                        help="Batch size for training. Default: 5")
+    parser.add_argument("--batch-size", type=int, default=4,
+                        help="Batch size for training. Default: 4")
     parser.add_argument("--num-epochs", type=int, default=200,
                         help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
@@ -46,8 +46,8 @@ class Trainer(object):
         self.training_history_path = training_history_path
         self.criterion = DiceBCELoss()
 
-        self.optimizer = Adam(self.model.parameters(), lr=3e-04)
-        self.scheduler = ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=5, threshold=0,
+        self.optimizer = Adam(self.model.parameters())
+        self.scheduler = ReduceLROnPlateau(self.optimizer, mode='min', factor=0.1, patience=5, threshold=0,
                                            verbose=True, min_lr=1e-05)
         self.model = self.model.cuda()
         self.dataloaders = {
@@ -59,65 +59,73 @@ class Trainer(object):
             )
             for phase in self.phases
         }
-        self.losses = {phase: [] for phase in self.phases}
-        self.bce = {phase: [] for phase in self.phases}
+        self.loss = {phase: [] for phase in self.phases}
+        self.bce_loss = {phase: [] for phase in self.phases}
+        self.dice_loss = {phase: [] for phase in self.phases}
         self.dice = {phase: [] for phase in self.phases}
 
     def forward(self, images, masks):
         outputs = self.model(images.cuda())
-        loss, bce, dice = self.criterion(outputs, masks.cuda())
-        return loss, bce, dice, outputs
+        loss, bce_loss, dice_loss = self.criterion(outputs, masks.cuda())
+        return loss, bce_loss, dice_loss, outputs
 
     def iterate(self, phase):
-        if phase == "train":
-            self.model.train()
-        else:
-            self.model.eval()
+        self.model.train(phase == "train")
 
-        dataloader = self.dataloaders[phase]
         running_loss = 0.0
-        running_bce = 0.0
+        running_bce_loss = 0.0
+        running_dice_loss = 0.0
         running_dice = 0.0
 
-        for images, masks in dataloader:
-            loss, bce, dice, outputs = self.forward(images, masks)
+        for images, masks in self.dataloaders[phase]:
+            loss, bce_loss, dice_loss, outputs = self.forward(images, masks)
             if phase == "train":
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
 
             running_loss += loss.item()
-            running_bce += bce.item()
-            running_dice += dice.item()
+            running_bce_loss += bce_loss.item()
+            running_dice_loss += dice_loss.item()
 
-        epoch_loss = running_loss / len(dataloader)
-        epoch_bce = running_bce / len(dataloader)
-        epoch_dice = running_dice / len(dataloader)
+            outputs = outputs.detach().cpu()
+            running_dice += compute_dice(outputs, masks).item()
 
-        self.losses[phase].append(epoch_loss)
-        self.bce[phase].append(epoch_bce)
+        epoch_loss = running_loss / len(self.dataloaders[phase])
+        epoch_bce_loss = running_bce_loss / len(self.dataloaders[phase])
+        epoch_dice_loss = running_dice_loss / len(self.dataloaders[phase])
+        epoch_dice = running_dice / len(self.dataloaders[phase])
+
+        self.loss[phase].append(epoch_loss)
+        self.bce_loss[phase].append(epoch_bce_loss)
+        self.dice_loss[phase].append(epoch_dice_loss)
         self.dice[phase].append(epoch_dice)
 
         torch.cuda.empty_cache()
 
-        return epoch_loss, epoch_bce, epoch_dice
+        return epoch_loss, epoch_bce_loss, epoch_dice_loss, epoch_dice
 
     def plot_history(self):
-        fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
-        ax1.plot(self.losses['train'], '-b', label='Training')
-        ax1.plot(self.losses['valid'], '-r', label='Validation')
+        fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
+        ax1.plot(self.loss['train'], '-b', label='Training')
+        ax1.plot(self.loss['valid'], '-r', label='Validation')
         ax1.set_title("Loss", fontweight='bold')
         ax1.legend(loc="upper right", frameon=False)
 
-        ax2.plot(self.bce['train'], '-b', label='Training')
-        ax2.plot(self.bce['valid'], '-r', label='Validation')
-        ax2.set_title("BCE", fontweight='bold')
+        ax2.plot(self.bce_loss['train'], '-b', label='Training')
+        ax2.plot(self.bce_loss['valid'], '-r', label='Validation')
+        ax2.set_title("BCE Loss", fontweight='bold')
         ax2.legend(loc="upper right", frameon=False)
 
-        ax3.plot(self.dice['train'], '-b', label='Training')
-        ax3.plot(self.dice['valid'], '-r', label='Validation')
-        ax3.set_title("Dice", fontweight='bold')
+        ax3.plot(self.dice_loss['train'], '-b', label='Training')
+        ax3.plot(self.dice_loss['valid'], '-r', label='Validation')
+        ax3.set_title("Dice Loss", fontweight='bold')
         ax3.legend(loc="upper right", frameon=False)
+
+        ax4.plot(self.dice['train'], '-b', label='Training')
+        ax4.plot(self.dice['valid'], '-r', label='Validation')
+        ax4.set_title("Dice", fontweight='bold')
+        ax4.legend(loc="upper right", frameon=False)
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}.pdf".format(self.model_save_name, self.fold))
@@ -127,19 +135,19 @@ class Trainer(object):
     def write_history(self):
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}.txt".format(self.model_save_name, self.fold))
+        header = ["Training loss", "Validation loss",
+                  "Training bce loss", "Validation loss",
+                  "Training dice loss", "Validation dice loss",
+                  "Training dice", "Validation dice"]
 
-        res = [self.losses['train'][-1], self.losses['valid'][-1],
-               self.bce['train'][-1], self.bce['valid'][-1],
-               self.dice['train'][-1], self.dice['valid'][-1]]
+        with open(output_filename, "a") as f:
+            f.write("\t".join(header) + "\n")
+            for i in range(self.num_epochs):
+                res = [self.loss['train'][i], self.loss['valid'][i],
+                       self.bce_loss['train'][i], self.bce_loss['valid'][i],
+                       self.dice_loss['train'][i], self.dice_loss['valid'][i],
+                       self.dice['train'][i], self.dice['valid'][i]]
 
-        if os.path.exists(output_filename):
-            with open(output_filename, "a") as f:
-                f.write("\t".join(map(str, res)) + "\n")
-        else:
-            header = ["Training loss", "Validation loss", "Training bce", "Validation bce",
-                      "Training dice", "Validation dice"]
-            with open(output_filename, "w") as f:
-                f.write("\t".join(header) + "\n")
                 f.write("\t".join(map(str, res)) + "\n")
 
     def start(self):
@@ -151,12 +159,14 @@ class Trainer(object):
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
             print("=================================================================")
 
-            train_loss, train_bce, train_dice = self.iterate("train")
+            train_loss, train_bce_loss, train_dice_loss, train_dice = self.iterate("train")
             with torch.no_grad():
-                valid_loss, valid_bce, valid_dice = self.iterate("valid")
+                valid_loss, valid_bce_loss, valid_dice_loss, valid_dice = self.iterate("valid")
 
-            print("train_loss: %0.8f, train_bce: %0.8f, train_dice: %0.8f" % (train_loss, train_bce, train_dice))
-            print("valid_loss: %0.8f, valid_bce: %0.8f, valid_dice: %0.8f" % (valid_loss, valid_bce, valid_dice))
+            print("train_loss: %0.8f, train_bce_loss: %0.8f, train_dice_loss: %0.8f, train_dice: %0.8f" % (
+                train_loss, train_bce_loss, train_dice_loss, train_dice))
+            print("valid_loss: %0.8f, valid_bce_loss: %0.8f, valid_dice_loss: %0.8f, valid_dice: %0.8f" % (
+                valid_loss, valid_bce_loss, valid_dice_loss, valid_dice))
 
             state = {
                 "epoch": epoch,
@@ -176,7 +186,6 @@ class Trainer(object):
                 torch.save(state, filename)
 
             print()
-            self.write_history()
 
 
 def main():
@@ -204,6 +213,7 @@ def main():
                             model_save_name=args.model,
                             fold=args.fold)
     model_trainer.start()
+    model_trainer.write_history()
     model_trainer.plot_history()
 
 

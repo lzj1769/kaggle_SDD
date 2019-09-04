@@ -1,4 +1,5 @@
 import os
+import cv2
 import numpy as np
 import random
 import torch
@@ -18,23 +19,17 @@ def seed_torch(seed):
     torch.backends.cudnn.deterministic = True
 
 
-def normalize(img, mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225), max_pixel_value=255.0):
-    mean = np.array(mean, dtype=np.float32)
-    mean *= max_pixel_value
+def do_horizontal_flip(image):
+    image = cv2.flip(image, 1)
+    return image
 
-    std = np.array(std, dtype=np.float32)
-    std *= max_pixel_value
 
-    denominator = np.reciprocal(std, dtype=np.float32)
-
-    img = img.astype(np.float32)
-    img -= mean
-    img *= denominator
-    return img
+def do_vertical_flip(image):
+    image = cv2.flip(image, 0)
+    return image
 
 
 def img_to_tensor(img):
-    img = normalize(img)
     tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32))
     return tensor
 
