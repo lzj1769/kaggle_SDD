@@ -1,3 +1,20 @@
 Train on 2514 mini-batches, validate on 629 mini-batches
 Epoch: 1/200 |  time : 09/05/19-18:35:07
 =================================================================
+train_loss: 0.07066951, train_bce_loss: 0.02705258, train_dice_loss: 0.46322192, train_dice: 0.83804843
+valid_loss: 0.04223476, valid_bce_loss: 0.01810232, valid_dice_loss: 0.25942673, valid_dice: 0.87867297
+******** Validation loss improved from inf to 0.04223476362744841, saving state ********
+
+Epoch: 2/200 |  time : 09/05/19-19:00:41
+=================================================================
+train_loss: 0.04344535, train_bce_loss: 0.02102369, train_dice_loss: 0.24524027, train_dice: 0.86589647
+valid_loss: 0.04381792, valid_bce_loss: 0.02852964, valid_dice_loss: 0.18141243, valid_dice: 0.88624005
+
+Epoch: 3/200 |  time : 09/05/19-19:26:13
+=================================================================
+train_loss: 0.03502653, train_bce_loss: 0.02141128, train_dice_loss: 0.15756377, train_dice: 0.89616999
+valid_loss: 0.03054586, valid_bce_loss: 0.02039582, valid_dice_loss: 0.12189625, valid_dice: 0.91235476
+******** Validation loss improved from 0.04223476362744841 to 0.030545862033646346, saving state ********
+
+Epoch: 4/200 |  time : 09/05/19-19:51:46
+=================================================================

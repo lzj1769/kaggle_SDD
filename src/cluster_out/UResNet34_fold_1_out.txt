@@ -245,3 +245,14 @@ valid_loss: 0.04917624, valid_bce_loss: 0.03107383, valid_dice_loss: 0.21209797,
 
 Epoch: 46/200 |  time : 09/05/19-18:48:55
 =================================================================
+train_loss: 0.03112796, train_bce_loss: 0.01992785, train_dice_loss: 0.13192896, train_dice: 0.89977185
+valid_loss: 0.03374900, valid_bce_loss: 0.02237777, valid_dice_loss: 0.13609012, valid_dice: 0.89242210
+
+Epoch: 47/200 |  time : 09/05/19-19:14:54
+=================================================================
+train_loss: 0.03016152, train_bce_loss: 0.01899744, train_dice_loss: 0.13063825, train_dice: 0.90078400
+valid_loss: 0.02865443, valid_bce_loss: 0.02029704, valid_dice_loss: 0.10387097, valid_dice: 0.91249199
+Epoch    46: reducing learning rate of group 0 to 1.0000e-04.
+
+Epoch: 48/200 |  time : 09/05/19-19:40:54
+=================================================================
