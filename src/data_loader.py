@@ -25,24 +25,6 @@ def make_mask(row_id, df):
     return filename, masks
 
 
-def make_mask_multiclass(row_id, df):
-    # Given a row index, return image_id and mask (256, 1600, 1)
-    filename = df.iloc[row_id].ImageId
-    labels = df.iloc[row_id][1:5]
-
-    mask = np.zeros(256 * 1600, dtype=np.uint8)  # float32 is V.Imp
-    # 4:class 1～4 (ch:0～3)
-    for idx, label in enumerate(labels.values):
-        if label is not np.nan:
-            label = label.split(" ")
-            positions = map(int, label[0::2])
-            length = map(int, label[1::2])
-            for pos, le in zip(positions, length):
-                mask[pos:(pos + le)] = (idx + 1)
-
-    return filename, mask.reshape(256, 1600, order='F')
-
-
 def train_aug(image, mask):
     if np.random.rand() < 0.5:
         image, mask = do_horizontal_flip(image), do_horizontal_flip(mask)
@@ -53,29 +35,6 @@ def train_aug(image, mask):
     return image, mask
 
 
-class SteelDatasetMultiClass(Dataset):
-    def __init__(self, df, phase):
-        self.df = df
-        self.data_folder = DATA_FOLDER
-        self.phase = phase
-        self.filenames = self.df.ImageId.values
-
-    def __getitem__(self, idx):
-        image_id, mask = make_mask_multiclass(idx, self.df)
-        image_path = os.path.join(self.data_folder, image_id)
-        image = cv2.imread(image_path) / 255.0
-
-        if self.phase == "train":
-            image, mask = train_aug(image=image, mask=mask)
-
-        image, mask = img_to_tensor(image), mask_to_tensor(mask)
-        mask = mask[0].permute(2, 0, 1)  # 1x256x1600
-        return image, mask
-
-    def __len__(self):
-        return len(self.filenames)
-
-
 class SteelDataset(Dataset):
     def __init__(self, df, phase):
         self.df = df
@@ -84,7 +43,7 @@ class SteelDataset(Dataset):
         self.filenames = self.df.ImageId.values
 
     def __getitem__(self, idx):
-        image_id, mask = make_mask_multiclass(idx, self.df)
+        image_id, mask = make_mask(idx, self.df)
         image_path = os.path.join(self.data_folder, image_id)
         image = cv2.imread(image_path) / 255.0
 
@@ -102,7 +61,7 @@ class SteelDataset(Dataset):
 def get_dataloader(phase, fold, batch_size, num_workers):
     df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
     df = pd.read_csv(df_path)
-    image_dataset = SteelDatasetMultiClass(df, phase)
+    image_dataset = SteelDataset(df, phase)
     shuffle = True if phase == "train" else False
     drop_last = True if phase == "train" else False
     dataloader = DataLoader(image_dataset,
