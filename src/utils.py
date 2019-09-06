@@ -35,7 +35,6 @@ def img_to_tensor(img):
 
 
 def mask_to_tensor(mask):
-    mask = np.expand_dims(mask, 0).astype(np.float32)
     return torch.from_numpy(mask)
 
 
