@@ -107,6 +107,7 @@ class UResNet34(nn.Module):
         self.decoder2 = DecoderBlock(64 + 64, 64, 64)
         self.decoder1 = DecoderBlock(64, 32, 64)
 
+        self.dropout = nn.Dropout2d(p=0.5)
         self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
                                     nn.ReLU(inplace=True),
                                     nn.Conv2d(64, classes, kernel_size=1, padding=0))
@@ -130,6 +131,7 @@ class UResNet34(nn.Module):
                        F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
                        F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
                       1)  # 320, 256, 1600
+        x = self.dropout(x)
         x = self.output(x)
 
         return x
@@ -155,13 +157,6 @@ class UResNet50(nn.Module):
         self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
                                     nn.ReLU(inplace=True),
                                     nn.Conv2d(64, classes, kernel_size=1, padding=0))
-
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-            elif isinstance(m, nn.BatchNorm2d):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
 
     def forward(self, x):
         encode1 = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/4)
@@ -206,13 +201,6 @@ class UResNext50(nn.Module):
         self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
                                     nn.ReLU(inplace=True),
                                     nn.Conv2d(64, classes, kernel_size=1, padding=0))
-
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-            elif isinstance(m, nn.BatchNorm2d):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
 
     def forward(self, x):
         encode1 = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/4)
