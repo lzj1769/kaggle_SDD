@@ -262,3 +262,9 @@ valid_loss: 0.02306807, valid_bce_loss: 0.01795646, valid_dice_loss: 0.06907256,
 
 Epoch: 50/200 |  time : 09/06/19-17:02:26
 =================================================================
+train_loss: 0.01262136, train_bce_loss: 0.00794198, train_dice_loss: 0.05473573, train_dice: 0.95362091
+valid_loss: 0.02055077, valid_bce_loss: 0.01550844, valid_dice_loss: 0.06593171, valid_dice: 0.94098042
+Epoch    49: reducing learning rate of group 0 to 1.0000e-03.
+
+Epoch: 51/200 |  time : 09/06/19-17:28:07
+=================================================================

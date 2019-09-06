@@ -282,3 +282,9 @@ valid_loss: 0.02203578, valid_bce_loss: 0.01658338, valid_dice_loss: 0.07110733,
 
 Epoch: 54/200 |  time : 09/06/19-17:06:45
 =================================================================
+train_loss: 0.01268812, train_bce_loss: 0.00813455, train_dice_loss: 0.05367021, train_dice: 0.95522487
+valid_loss: 0.01775511, valid_bce_loss: 0.01216719, valid_dice_loss: 0.06804637, valid_dice: 0.94299970
+******** Validation loss improved from 0.018022431242709556 to 0.017755111957552184, saving state ********
+
+Epoch: 55/200 |  time : 09/06/19-17:32:15
+=================================================================

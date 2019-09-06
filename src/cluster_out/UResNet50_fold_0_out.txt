@@ -1,0 +1,52 @@
+Train on 2513 mini-batches, validate on 629 mini-batches
+Epoch: 1/200 |  time : 09/06/19-13:00:10
+=================================================================
+train_loss: 0.06871050, train_bce_loss: 0.02722576, train_dice_loss: 0.44207315, train_dice: 0.83807910
+valid_loss: 0.04191014, valid_bce_loss: 0.01854121, valid_dice_loss: 0.25223054, valid_dice: 0.86654159
+******** Validation loss improved from inf to 0.04191013895543751, saving state ********
+
+Epoch: 2/200 |  time : 09/06/19-13:29:05
+=================================================================
+train_loss: 0.04418776, train_bce_loss: 0.02093121, train_dice_loss: 0.25349671, train_dice: 0.86027829
+valid_loss: 0.04033586, valid_bce_loss: 0.01796845, valid_dice_loss: 0.24164252, valid_dice: 0.89483168
+******** Validation loss improved from 0.04191013895543751 to 0.04033586067489581, saving state ********
+
+Epoch: 3/200 |  time : 09/06/19-13:57:56
+=================================================================
+train_loss: 0.04000283, train_bce_loss: 0.02123595, train_dice_loss: 0.20890476, train_dice: 0.88033579
+valid_loss: 0.03338696, valid_bce_loss: 0.01978105, valid_dice_loss: 0.15584015, valid_dice: 0.89206699
+******** Validation loss improved from 0.04033586067489581 to 0.033386957097838565, saving state ********
+
+Epoch: 4/200 |  time : 09/06/19-14:26:46
+=================================================================
+train_loss: 0.03512113, train_bce_loss: 0.02194707, train_dice_loss: 0.15368771, train_dice: 0.89626522
+valid_loss: 0.04058209, valid_bce_loss: 0.03194419, valid_dice_loss: 0.11832325, valid_dice: 0.89872389
+
+Epoch: 5/200 |  time : 09/06/19-14:55:33
+=================================================================
+train_loss: 0.03316098, train_bce_loss: 0.02089693, train_dice_loss: 0.14353742, train_dice: 0.89896354
+valid_loss: 0.04318715, valid_bce_loss: 0.03325873, valid_dice_loss: 0.13254295, valid_dice: 0.89486414
+
+Epoch: 6/200 |  time : 09/06/19-15:24:21
+=================================================================
+train_loss: 0.02849652, train_bce_loss: 0.01829160, train_dice_loss: 0.12034076, train_dice: 0.91028325
+valid_loss: 0.02739292, valid_bce_loss: 0.01722365, valid_dice_loss: 0.11891630, valid_dice: 0.91244160
+******** Validation loss improved from 0.033386957097838565 to 0.027392918406403278, saving state ********
+
+Epoch: 7/200 |  time : 09/06/19-15:53:10
+=================================================================
+train_loss: 0.02771013, train_bce_loss: 0.01799335, train_dice_loss: 0.11516120, train_dice: 0.91244904
+valid_loss: 0.03127989, valid_bce_loss: 0.02239793, valid_dice_loss: 0.11121757, valid_dice: 0.90898819
+
+Epoch: 8/200 |  time : 09/06/19-16:21:57
+=================================================================
+train_loss: 0.02707712, train_bce_loss: 0.01775762, train_dice_loss: 0.11095261, train_dice: 0.91490431
+valid_loss: 0.03217179, valid_bce_loss: 0.02509080, valid_dice_loss: 0.09590071, valid_dice: 0.91444371
+
+Epoch: 9/200 |  time : 09/06/19-16:50:44
+=================================================================
+train_loss: 0.02596284, train_bce_loss: 0.01673934, train_dice_loss: 0.10897437, train_dice: 0.91486973
+valid_loss: 0.02751222, valid_bce_loss: 0.01844579, valid_dice_loss: 0.10911010, valid_dice: 0.91085473
+
+Epoch: 10/200 |  time : 09/06/19-17:19:32
+=================================================================
