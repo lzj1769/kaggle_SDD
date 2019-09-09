@@ -24,6 +24,52 @@ class Conv2dReLU(nn.Module):
         return self.block(x)
 
 
+class FPAv2(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(FPAv2, self).__init__()
+        self.glob = nn.Sequential(nn.AdaptiveAvgPool2d(1),
+                                  nn.Conv2d(input_dim, output_dim, kernel_size=1, bias=False))
+
+        self.down2_1 = nn.Sequential(nn.Conv2d(input_dim, input_dim, kernel_size=5, stride=2, padding=2, bias=False),
+                                     nn.BatchNorm2d(input_dim),
+                                     nn.ReLU(True))
+        self.down2_2 = nn.Sequential(nn.Conv2d(input_dim, output_dim, kernel_size=5, padding=2, bias=False),
+                                     nn.BatchNorm2d(output_dim),
+                                     nn.ReLU(True))
+
+        self.down3_1 = nn.Sequential(nn.Conv2d(input_dim, input_dim, kernel_size=3, stride=2, padding=1, bias=False),
+                                     nn.BatchNorm2d(input_dim),
+                                     nn.ReLU(True))
+        self.down3_2 = nn.Sequential(nn.Conv2d(input_dim, output_dim, kernel_size=3, padding=1, bias=False),
+                                     nn.BatchNorm2d(output_dim),
+                                     nn.ReLU(True))
+
+        self.conv1 = nn.Sequential(nn.Conv2d(input_dim, output_dim, kernel_size=1, bias=False),
+                                   nn.BatchNorm2d(output_dim),
+                                   nn.ReLU(True))
+
+    def forward(self, x):
+        # x shape: 512, 16, 100
+        x_glob = self.glob(x)  # 256, 16, 16
+
+        d2 = self.down2_1(x)  # 512, 8, 8
+        d3 = self.down3_1(d2)  # 512, 4, 4
+
+        d2 = self.down2_2(d2)  # 256, 8, 8
+        d3 = self.down3_2(d3)  # 256, 4, 4
+
+        d3 = F.interpolate(d3, scale_factor=2, mode='bilinear', align_corners=True)  # 256, 8, 8
+        d2 = d2 + d3
+
+        d2 = F.interpolate(d2, scale_factor=2, mode='bilinear', align_corners=True)  # 256, 16, 16
+        x = self.conv1(x)  # 256, 16, 16
+        x = x * d2
+
+        x = x + x_glob
+
+        return x
+
+
 class SELayer(nn.Module):
     def __init__(self, channel, reduction=16):
         super(SELayer, self).__init__()
@@ -137,6 +183,58 @@ class UResNet34(nn.Module):
         return x
 
 
+class UResNet34V2(nn.Module):
+    def __init__(self, classes=4, pretrained=True):
+        super(UResNet34V2, self).__init__()
+        self.resnet = torchvision.models.resnet34(pretrained=pretrained)
+
+        self.encoder1 = nn.Sequential(self.resnet.conv1, self.resnet.bn1, self.resnet.relu)
+        self.encoder2 = nn.Sequential(self.resnet.layer1, SCSEBlock(64))
+        self.encoder3 = nn.Sequential(self.resnet.layer2, SCSEBlock(128))
+        self.encoder4 = nn.Sequential(self.resnet.layer3, SCSEBlock(256))
+        self.encoder5 = nn.Sequential(self.resnet.layer4, SCSEBlock(512))
+
+        self.center = nn.Sequential(FPAv2(512, 256),
+                                    nn.MaxPool2d(2, 2))
+
+        self.decoder5 = DecoderBlock(256 + 512, 256, 64)
+        self.decoder4 = DecoderBlock(64 + 256, 128, 64)
+        self.decoder3 = DecoderBlock(64 + 128, 64, 64)
+        self.decoder2 = DecoderBlock(64 + 64, 64, 64)
+        self.decoder1 = DecoderBlock(64, 32, 64)
+
+        self.dropout = nn.Dropout2d(p=0.5)
+        self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
+                                    nn.ReLU(inplace=True),
+                                    nn.Conv2d(64, classes, kernel_size=1, padding=0))
+
+    def forward(self, x):
+        x = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/4)
+        encode2 = self.encoder2(x)  # 64x128x800 ==> 64x128x800 (1/8)
+        encode3 = self.encoder3(encode2)  # 64x128x800 ==> 128x64x400 (1/16)
+        encode4 = self.encoder4(encode3)  # 128x64x400 ==> 256x32x200 (1/32)
+        encode5 = self.encoder5(encode4)  # 256x32x200 ==> 512x16x100 (1/64)
+
+        center = self.center(encode5)  # 512x16x100 ==> 256x8x50
+
+        decode5 = self.decoder5(center, encode5)  # 256x8x50 + 512x16x100 ==> 64x16x100
+        decode4 = self.decoder4(decode5, encode4)  # 64x16x100 + 256x32x200 ==> 64x32x200
+        decode3 = self.decoder3(decode4, encode3)  # 64x32x200 + 128x64x400 ==> 64x64x400
+        decode2 = self.decoder2(decode3, encode2)  # 64x64x400 + 64x128x800 ==> 64x128x800
+        decode1 = self.decoder1(decode2, None)
+
+        x = torch.cat((decode1,
+                       F.interpolate(decode2, scale_factor=2, mode='bilinear', align_corners=True),
+                       F.interpolate(decode3, scale_factor=4, mode='bilinear', align_corners=True),
+                       F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
+                       F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
+                      1)  # 320, 256, 1600
+        x = self.dropout(x)
+        x = self.output(x)
+
+        return x
+
+
 class UResNet50(nn.Module):
     def __init__(self, classes=4, pretrained=True):
         super(UResNet50, self).__init__()
@@ -230,7 +328,7 @@ if __name__ == '__main__':
     from torch.nn import BCEWithLogitsLoss
 
     dataloader = get_dataloader(phase="train", fold=0, batch_size=4, num_workers=2)
-    model = UResNext50()
+    model = UResNet34V2()
     model.cuda()
     model.train()
     imgs, masks = next(iter(dataloader))
