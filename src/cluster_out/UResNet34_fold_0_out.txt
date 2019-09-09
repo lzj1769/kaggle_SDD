@@ -1,70 +1,7 @@
 Train on 2513 mini-batches, validate on 629 mini-batches
-Epoch: 1/200 |  time : 09/09/19-12:51:25
+Epoch: 1/200 |  time : 09/09/19-23:35:00
 Learning rate: 0.01000000
 =================================================================
-train_loss: 0.0716, train_bce_loss: 0.0295, train_dice_loss: 0.4508, dice : 0.9277, 0.9794, 0.5065, 0.9163, mean dice: 0.8325
-valid_loss: 0.0449, valid_bce_loss: 0.0218, valid_dice_loss: 0.2522, dice : 0.9241, 0.9754, 0.6398, 0.9412, mean dice: 0.8701
-******** Validation loss improved from inf to 0.044869171055729705, saving state ********
-
-Epoch: 2/200 |  time : 09/09/19-13:17:23
-Learning rate: 0.01000000
-=================================================================
-train_loss: 0.0462, train_bce_loss: 0.0227, train_dice_loss: 0.2578, dice : 0.9298, 0.9816, 0.5705, 0.9259, mean dice: 0.8519
-valid_loss: 0.0383, valid_bce_loss: 0.0168, valid_dice_loss: 0.2319, dice : 0.9241, 0.9754, 0.7258, 0.9529, mean dice: 0.8945
-******** Validation loss improved from 0.044869171055729705 to 0.03829454813324306, saving state ********
-
-Epoch: 3/200 |  time : 09/09/19-13:43:33
-Learning rate: 0.00998474
-=================================================================
-train_loss: 0.0391, train_bce_loss: 0.0234, train_dice_loss: 0.1807, dice : 0.9298, 0.9816, 0.6890, 0.9431, mean dice: 0.8859
-valid_loss: 0.0327, valid_bce_loss: 0.0195, valid_dice_loss: 0.1515, dice : 0.9241, 0.9754, 0.7575, 0.9311, mean dice: 0.8970
-******** Validation loss improved from 0.03829454813324306 to 0.0326906938762578, saving state ********
-
-Epoch: 4/200 |  time : 09/09/19-14:09:28
-Learning rate: 0.00993906
-=================================================================
-train_loss: 0.0343, train_bce_loss: 0.0219, train_dice_loss: 0.1456, dice : 0.9298, 0.9816, 0.7307, 0.9519, mean dice: 0.8985
-valid_loss: 0.0264, valid_bce_loss: 0.0168, valid_dice_loss: 0.1125, dice : 0.9241, 0.9754, 0.7768, 0.9744, mean dice: 0.9126
-******** Validation loss improved from 0.0326906938762578 to 0.02635886733980517, saving state ********
-
-Epoch: 5/200 |  time : 09/09/19-14:35:29
-Learning rate: 0.00986323
-=================================================================
-train_loss: 0.0291, train_bce_loss: 0.0187, train_dice_loss: 0.1227, dice : 0.9298, 0.9816, 0.7657, 0.9667, mean dice: 0.9109
-valid_loss: 0.0270, valid_bce_loss: 0.0170, valid_dice_loss: 0.1173, dice : 0.9241, 0.9754, 0.7800, 0.9670, mean dice: 0.9116
-
-Epoch: 6/200 |  time : 09/09/19-15:01:21
-Learning rate: 0.00975773
-=================================================================
-train_loss: 0.0286, train_bce_loss: 0.0185, train_dice_loss: 0.1195, dice : 0.9298, 0.9816, 0.7788, 0.9651, mean dice: 0.9138
-valid_loss: 0.0246, valid_bce_loss: 0.0166, valid_dice_loss: 0.0965, dice : 0.9241, 0.9754, 0.7981, 0.9744, mean dice: 0.9180
-******** Validation loss improved from 0.02635886733980517 to 0.02460206553817534, saving state ********
-
-Epoch: 7/200 |  time : 09/09/19-15:27:16
-Learning rate: 0.00962320
-=================================================================
-train_loss: 0.0269, train_bce_loss: 0.0176, train_dice_loss: 0.1103, dice : 0.9299, 0.9817, 0.7837, 0.9679, mean dice: 0.9158
-valid_loss: 0.0325, valid_bce_loss: 0.0211, valid_dice_loss: 0.1348, dice : 0.9241, 0.9754, 0.7259, 0.9627, mean dice: 0.8970
-
-Epoch: 8/200 |  time : 09/09/19-15:53:08
-Learning rate: 0.00946048
-=================================================================
-train_loss: 0.0258, train_bce_loss: 0.0169, train_dice_loss: 0.1057, dice : 0.9299, 0.9816, 0.7895, 0.9724, mean dice: 0.9183
-valid_loss: 0.0267, valid_bce_loss: 0.0185, valid_dice_loss: 0.1005, dice : 0.9241, 0.9754, 0.7938, 0.9635, mean dice: 0.9142
-
-Epoch: 9/200 |  time : 09/09/19-16:19:00
-Learning rate: 0.00927057
-=================================================================
-train_loss: 0.0269, train_bce_loss: 0.0179, train_dice_loss: 0.1079, dice : 0.9298, 0.9816, 0.7927, 0.9649, mean dice: 0.9172
-valid_loss: 0.0256, valid_bce_loss: 0.0177, valid_dice_loss: 0.0975, dice : 0.9241, 0.9754, 0.8047, 0.9589, mean dice: 0.9157
-
-Epoch: 10/200 |  time : 09/09/19-16:44:52
-Learning rate: 0.00905463
-=================================================================
-train_loss: 0.0245, train_bce_loss: 0.0163, train_dice_loss: 0.0988, dice : 0.9298, 0.9816, 0.8054, 0.9710, mean dice: 0.9219
-valid_loss: 0.0244, valid_bce_loss: 0.0170, valid_dice_loss: 0.0908, dice : 0.9241, 0.9754, 0.8147, 0.9687, mean dice: 0.9207
-******** Validation loss improved from 0.02460206553817534 to 0.02437519826135168, saving state ********
-
-Epoch: 11/200 |  time : 09/09/19-17:10:45
-Learning rate: 0.00881401
-=================================================================
+train_loss: 0.07128261, train_bce_loss: 0.02918338, train_dice_loss: 0.45017566
+valid_loss: 0.04383571, valid_bce_loss: 0.02066531, valid_dice_loss: 0.25236938
+******** Validation loss improved from inf to 0.04383571 ********
