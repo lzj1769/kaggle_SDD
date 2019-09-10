@@ -1,1 +1,1 @@
-slurmstepd: error: *** JOB 8214239 ON ncg03 CANCELLED AT 2019-09-07T12:08:26 ***
+slurmstepd: error: *** JOB 8627942 ON ncg08 CANCELLED AT 2019-09-11T00:08:06 ***

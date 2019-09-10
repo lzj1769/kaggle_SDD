@@ -99,7 +99,7 @@ class Trainer(object):
         return epoch_loss, epoch_bce_loss, epoch_dice_loss
 
     def plot_history(self):
-        fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
+        fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
         ax1.plot(self.loss['train'], '-b', label='Training')
         ax1.plot(self.loss['valid'], '-r', label='Validation')
         ax1.set_title("Loss", fontweight='bold')
@@ -115,37 +115,50 @@ class Trainer(object):
         ax3.set_title("Dice Loss", fontweight='bold')
         ax3.legend(loc="upper right", frameon=False)
 
-        ax4.plot(self.dice['train'], '-b', label='Training')
-        ax4.plot(self.dice['valid'], '-r', label='Validation')
-        ax4.set_title("Dice", fontweight='bold')
-        ax4.legend(loc="upper right", frameon=False)
+        output_filename = os.path.join(self.training_history_path,
+                                       "{}_fold_{}_loss.pdf".format(self.model_save_name, self.fold))
+        fig.tight_layout()
+        fig.savefig(output_filename)
+
+    def plot_dice(self, thresholds, mean_dice):
+        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
+
+        axes[0, 0].plot(thresholds, mean_dice[:, 0], '-b')
+        axes[0, 0].set_title("Class 1", fontweight='bold')
+
+        axes[0, 1].plot(thresholds, mean_dice[:, 1], '-b')
+        axes[0, 1].set_title("Class 2", fontweight='bold')
+
+        axes[1, 0].plot(thresholds, mean_dice[:, 2], '-b')
+        axes[1, 0].set_title("Class 3", fontweight='bold')
+
+        axes[1, 1].plot(thresholds, mean_dice[:, 3], '-b')
+        axes[1, 1].set_title("Class 4", fontweight='bold')
 
         output_filename = os.path.join(self.training_history_path,
-                                       "{}_fold_{}.pdf".format(self.model_save_name, self.fold))
+                                       "{}_fold_{}_dice.pdf".format(self.model_save_name, self.fold))
         fig.tight_layout()
         fig.savefig(output_filename)
 
     def write_history(self):
         output_filename = os.path.join(self.training_history_path,
-                                       "{}_fold_{}.txt".format(self.model_save_name, self.fold))
+                                       "{}_fold_{}_loss.txt".format(self.model_save_name, self.fold))
         header = ["Training loss", "Validation loss",
                   "Training bce loss", "Validation loss",
-                  "Training dice loss", "Validation dice loss",
-                  "Training dice", "Validation dice"]
+                  "Training dice loss", "Validation dice loss"]
 
-        with open(output_filename, "a") as f:
+        with open(output_filename, "w") as f:
             f.write("\t".join(header) + "\n")
             for i in range(self.num_epochs):
                 res = [self.loss['train'][i], self.loss['valid'][i],
                        self.bce_loss['train'][i], self.bce_loss['valid'][i],
-                       self.dice_loss['train'][i], self.dice_loss['valid'][i],
-                       self.dice['train'][i], self.dice['valid'][i]]
+                       self.dice_loss['train'][i], self.dice_loss['valid'][i]]
 
                 f.write("\t".join(map(str, res)) + "\n")
 
     def start(self):
-        print("Train on {} mini-batches, validate on {} mini-batches".format(len(self.dataloaders["train"]),
-                                                                             len(self.dataloaders["valid"])))
+        print("Train on {} mini-batches, validate on {} mini-batches".
+              format(len(self.dataloaders["train"]), len(self.dataloaders["valid"])))
 
         for epoch in range(self.num_epochs):
             start = time.strftime("%D-%H:%M:%S")
@@ -175,7 +188,7 @@ class Trainer(object):
                                                                                               best_dice[1],
                                                                                               best_dice[2],
                                                                                               best_dice[3]))
-                print("******* Mean dice:             %0.8f" % np.mean(best_dice))
+                print("******** Mean dice:            %0.8f" % np.mean(best_dice))
                 state = {
                     "threshold": thresholds,
                     "best_dice": best_dice,
@@ -188,6 +201,7 @@ class Trainer(object):
                 torch.save(state, filename)
 
             print()
+            self.plot_history()
 
     def optimize_threshold(self):
         mean_dice = np.zeros(shape=(100, 4))
@@ -202,6 +216,8 @@ class Trainer(object):
         mean_dice = mean_dice / len(self.dataloaders["valid"])
         best_dice = np.max(mean_dice, axis=0)
         best_dice_index = np.argmax(mean_dice, axis=0)
+
+        self.plot_dice(thresholds, mean_dice)
 
         return thresholds[best_dice_index], best_dice
 
@@ -231,10 +247,7 @@ def main():
                             model_save_name=args.model,
                             fold=args.fold)
     model_trainer.start()
-    model_trainer.optimize_threshold()
-
-    # model_trainer.write_history()
-    # model_trainer.plot_history()
+    model_trainer.write_history()
 
 
 if __name__ == '__main__':
