@@ -2,12 +2,13 @@ import os
 import time
 import argparse
 import numpy as np
+import pandas as pd
 from torch.optim import SGD
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
 from model import *
 from data_loader import get_dataloader
-from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
+from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH, SPLIT_FOLDER
 from loss import DiceBCELoss
 from utils import seed_torch, compute_dice
 import matplotlib
@@ -157,9 +158,6 @@ class Trainer(object):
                 f.write("\t".join(map(str, res)) + "\n")
 
     def start(self):
-        print("Train on {} mini-batches, validate on {} mini-batches".
-              format(len(self.dataloaders["train"]), len(self.dataloaders["valid"])))
-
         for epoch in range(self.num_epochs):
             start = time.strftime("%D-%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
@@ -234,9 +232,28 @@ def main():
         model = UResNet50()
     elif args.model == "UResNext50":
         model = UResNext50()
+    elif args.model == "USeResNext50":
+        model = USeResNext50()
 
     model_save_path = os.path.join(SAVE_MODEL_PATH, args.model)
     training_history_path = os.path.join(TRAINING_HISTORY_PATH, args.model)
+
+    df_train_path = os.path.join(SPLIT_FOLDER, "fold_{}_train.csv".format(args.fold))
+    df_train = pd.read_csv(df_train_path)
+
+    df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
+    df_valid = pd.read_csv(df_valid_path)
+
+    print("Training on {} images, class 1: {}, class 2: {}, class 3: {}, class 4: {}".format(len(df_train),
+                                                                                             df_train['defect1'].sum(),
+                                                                                             df_train['defect2'].sum(),
+                                                                                             df_train['defect3'].sum(),
+                                                                                             df_train['defect4'].sum()))
+    print("Validate on {} images, class 1: {}, class 2: {}, class 3: {}, class 4: {}".format(len(df_valid),
+                                                                                             df_valid['defect1'].sum(),
+                                                                                             df_valid['defect2'].sum(),
+                                                                                             df_valid['defect3'].sum(),
+                                                                                             df_valid['defect4'].sum()))
 
     model_trainer = Trainer(model=model,
                             num_workers=args.num_workers,
