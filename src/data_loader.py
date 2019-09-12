@@ -19,6 +19,7 @@ def make_mask(row_id, df):
             length = map(int, label[1::2])
             mask = np.zeros(256 * 1600, dtype=np.uint8)
             for pos, le in zip(positions, length):
+                pos -= 1  # https://www.kaggle.com/paulorzp/rle-functions-run-lenght-encode-decode
                 mask[pos:(pos + le)] = 1
             masks[:, :, idx] = mask.reshape(256, 1600, order='F')
 
