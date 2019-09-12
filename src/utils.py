@@ -43,14 +43,14 @@ def compute_dice(preds, truth, threshold=0.5):
     probability = torch.sigmoid(preds)
     batch_size = truth.shape[0]
     channel_num = truth.shape[1]
-    mean_dice_channel = 0.
+    mean_dice_channels = [0.] * channel_num
     with torch.no_grad():
         for i in range(batch_size):
             for j in range(channel_num):
                 channel_dice = dice_single_channel(probability[i, j, :, :], truth[i, j, :, :], threshold)
-                mean_dice_channel += channel_dice / (batch_size * channel_num)
+                mean_dice_channels[j] += channel_dice / batch_size
 
-    return mean_dice_channel
+    return mean_dice_channels
 
 
 def dice_single_channel(probability, truth, threshold, eps=1E-9):

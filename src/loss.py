@@ -12,13 +12,13 @@ class DiceLoss(nn.Module):
         probability = torch.sigmoid(input)
         batch_size = target.shape[0]
         channel_num = target.shape[1]
-        mean_loss = 0.0
+        dice = 0.0
         for i in range(batch_size):
             for j in range(channel_num):
                 channel_loss = self.dice_loss_single_channel(probability[i, j, :, :], target[i, j, :, :])
-                mean_loss += channel_loss / (batch_size * channel_num)
+                dice += channel_loss / (batch_size * channel_num)
 
-        return mean_loss
+        return dice
 
     def dice_loss_single_channel(self, input, target):
         input_flat = input.view(-1)
