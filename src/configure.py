@@ -10,4 +10,5 @@ SAVE_MODEL_PATH = "/home/rs619065/kaggle/SDD/input/models"
 TRAINING_HISTORY_PATH = "/home/rs619065/kaggle/SDD/history"
 
 # model url
-SEResNet50URL = "https://data.lip6.fr/cadene/pretrainedmodels/se_resnet50-ce0d4300.pth"
+SEResNext50URL = "http://data.lip6.fr/cadene/pretrainedmodels/se_resnext50_32x4d-a260b3a4.pth"
+

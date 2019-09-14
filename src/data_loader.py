@@ -7,10 +7,10 @@ import albumentations as albu
 
 train_aug = albu.Compose([
     albu.OneOf([
-        albu.RandomGamma(gamma_limit=(60, 120), p=0.9),
-        albu.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.9),
-        albu.CLAHE(clip_limit=4.0, tile_grid_size=(4, 4), p=0.9),
-    ]),
+        albu.RandomGamma(gamma_limit=(60, 120), p=1),
+        albu.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=1),
+        albu.CLAHE(clip_limit=4.0, tile_grid_size=(4, 4), p=1),
+    ], p=0.5),
     albu.OneOf([
         albu.Blur(blur_limit=4, p=1),
         albu.MotionBlur(blur_limit=4, p=1),
@@ -57,8 +57,8 @@ class SteelDataset(Dataset):
 
         if self.phase == "train":
             augmented = train_aug(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
 
-        image, mask = augmented['image'], augmented['mask']
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
         mask = torch.from_numpy(mask).permute(2, 0, 1)
         return image, mask

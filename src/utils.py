@@ -29,15 +29,6 @@ def do_vertical_flip(image):
     return image
 
 
-def img_to_tensor(img):
-    tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32)) / 255.0
-    return tensor
-
-
-def mask_to_tensor(mask):
-    return torch.from_numpy(mask)
-
-
 def compute_dice(preds, truth, threshold=0.5):
     probability = torch.sigmoid(preds)
     batch_size = truth.shape[0]

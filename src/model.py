@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import torchvision
 from collections import OrderedDict
 from torch.utils import model_zoo
+import math
 from configure import *
 
 
@@ -221,6 +222,30 @@ class SEResNetBottleneck(Bottleneck):
         self.stride = stride
 
 
+class SEResNeXtBottleneck(Bottleneck):
+    """
+    ResNeXt bottleneck type C with a Squeeze-and-Excitation module.
+    """
+    expansion = 4
+
+    def __init__(self, inplanes, planes, groups, reduction, stride=1,
+                 downsample=None, base_width=4):
+        super(SEResNeXtBottleneck, self).__init__()
+        width = math.floor(planes * (base_width / 64)) * groups
+        self.conv1 = nn.Conv2d(inplanes, width, kernel_size=1, bias=False,
+                               stride=1)
+        self.bn1 = nn.BatchNorm2d(width)
+        self.conv2 = nn.Conv2d(width, width, kernel_size=3, stride=stride,
+                               padding=1, groups=groups, bias=False)
+        self.bn2 = nn.BatchNorm2d(width)
+        self.conv3 = nn.Conv2d(width, planes * 4, kernel_size=1, bias=False)
+        self.bn3 = nn.BatchNorm2d(planes * 4)
+        self.relu = nn.ReLU(inplace=True)
+        self.se_module = SEModule(planes * 4, reduction=reduction)
+        self.downsample = downsample
+        self.stride = stride
+
+
 class SENet(nn.Module):
 
     def __init__(self, block, layers, groups, reduction, dropout_p=0.2,
@@ -383,15 +408,15 @@ class SENet(nn.Module):
         return x
 
 
-class USEResNet50(nn.Module):
+class USEResNext50(nn.Module):
     def __init__(self, classes=4, pretrain=True):
-        super(USEResNet50, self).__init__()
-        self.senet = SENet(SEResNetBottleneck, [3, 4, 6, 3], groups=32, reduction=16,
+        super(USEResNext50, self).__init__()
+        self.senet = SENet(SEResNeXtBottleneck, [3, 4, 6, 3], groups=32, reduction=16,
                            inplanes=64, input_3x3=False, downsample_kernel_size=1,
                            dropout_p=None, downsample_padding=0)
 
         if pretrain:
-            self.senet.load_state_dict(model_zoo.load_url(SEResNet50URL))
+            self.senet.load_state_dict(model_zoo.load_url(SEResNext50URL))
 
         self.encoder1 = self.senet.layer0
         self.encoder2 = nn.Sequential(self.senet.layer1, SCSEBlock(256))
@@ -437,30 +462,30 @@ class USEResNet50(nn.Module):
         return x
 
 
-if __name__ == '__main__':
-    import os
-    from data_loader import get_dataloader
-    from loss import LovaszLoss, BCEWithLogitsLoss, DiceBCELoss
-
-    dataloader = get_dataloader(phase="valid", fold=0, batch_size=4, num_workers=2)
-    model = UResNet34()
-    model.cuda()
-    model.eval()
-
-    model_save_path = os.path.join(SAVE_MODEL_PATH, "UResNet34", "UResNet34_fold_0.pt")
-    state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
-    model.load_state_dict(state["state_dict"])
-
-    imgs, masks = next(iter(dataloader))
-    preds = model(imgs.cuda())
-    criterion = LovaszLoss()
-    loss = criterion(preds, masks.cuda())
-    print("LovaszLoss: {}".format(loss.item()))
-
-    criterion = BCEWithLogitsLoss()
-    loss = criterion(preds, masks.cuda())
-    print("BCE: {}".format(loss.item()))
-
-    criterion = DiceBCELoss()
-    loss, _, _ = criterion(preds, masks.cuda())
-    print("DiceBCELoss: {}".format(loss.item()))
+# if __name__ == '__main__':
+#     import os
+#     from data_loader import get_dataloader
+#     from loss import LovaszLoss, BCEWithLogitsLoss, DiceBCELoss
+#
+#     dataloader = get_dataloader(phase="valid", fold=0, batch_size=4, num_workers=2)
+#     model = UResNet34()
+#     model.cuda()
+#     model.eval()
+#
+#     model_save_path = os.path.join(SAVE_MODEL_PATH, "UResNet34", "UResNet34_fold_0.pt")
+#     state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+#     model.load_state_dict(state["state_dict"])
+#
+#     imgs, masks = next(iter(dataloader))
+#     preds = model(imgs.cuda())
+#     criterion = LovaszLoss()
+#     loss = criterion(preds, masks.cuda())
+#     print("LovaszLoss: {}".format(loss.item()))
+#
+#     criterion = BCEWithLogitsLoss()
+#     loss = criterion(preds, masks.cuda())
+#     print("BCE: {}".format(loss.item()))
+#
+#     criterion = DiceBCELoss()
+#     loss, _, _ = criterion(preds, masks.cuda())
+#     print("DiceBCELoss: {}".format(loss.item()))

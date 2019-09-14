@@ -551,3 +551,33 @@ valid_loss: 0.01802869, valid_bce_loss: 0.01290278, valid_dice_loss: 0.06416194
 Epoch: 79/100 |  time : 09/14/19-19:46:34
 Learning rate: 0.00010000
 =================================================================
+train_loss: 0.01327659, train_bce_loss: 0.00860820, train_dice_loss: 0.05529211
+valid_loss: 0.01814044, valid_bce_loss: 0.01297847, valid_dice_loss: 0.06459818
+
+Epoch: 80/100 |  time : 09/14/19-20:12:09
+Learning rate: 0.00010000
+=================================================================
+train_loss: 0.01326169, train_bce_loss: 0.00858679, train_dice_loss: 0.05533579
+valid_loss: 0.01817762, valid_bce_loss: 0.01290666, valid_dice_loss: 0.06561632
+
+Epoch: 81/100 |  time : 09/14/19-20:37:42
+Learning rate: 0.00010000
+=================================================================
+train_loss: 0.01329544, train_bce_loss: 0.00865402, train_dice_loss: 0.05506824
+valid_loss: 0.01796423, valid_bce_loss: 0.01277648, valid_dice_loss: 0.06465398
+
+Epoch: 82/100 |  time : 09/14/19-21:03:16
+Learning rate: 0.00010000
+=================================================================
+train_loss: 0.01333518, train_bce_loss: 0.00870198, train_dice_loss: 0.05503399
+valid_loss: 0.01822851, valid_bce_loss: 0.01310332, valid_dice_loss: 0.06435523
+
+Epoch: 83/100 |  time : 09/14/19-21:28:51
+Learning rate: 0.00010000
+=================================================================
+train_loss: 0.01325558, train_bce_loss: 0.00857261, train_dice_loss: 0.05540235
+valid_loss: 0.01799687, valid_bce_loss: 0.01270457, valid_dice_loss: 0.06562752
+
+Epoch: 84/100 |  time : 09/14/19-21:54:25
+Learning rate: 0.00010000
+=================================================================
