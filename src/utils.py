@@ -30,12 +30,11 @@ def do_vertical_flip(image):
 
 
 def img_to_tensor(img):
-    tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32))
+    tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32)) / 255.0
     return tensor
 
 
 def mask_to_tensor(mask):
-    mask = np.expand_dims(mask, 0).astype(np.float32)
     return torch.from_numpy(mask)
 
 

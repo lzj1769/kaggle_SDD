@@ -46,13 +46,17 @@ class SteelDataset(Dataset):
     def __getitem__(self, idx):
         image_id, mask = make_mask(idx, self.df)
         image_path = os.path.join(self.data_folder, image_id)
-        image = cv2.imread(image_path) / 255.0
+        image = cv2.imread(image_path)
+
+        image = cv2.resize(image, (128, 800))
+        mask = cv2.resize(mask, (128, 800))
+        mask = (mask > 0.5).astype(np.int8)
 
         if self.phase == "train":
             image, mask = train_aug(image=image, mask=mask)
 
         image, mask = img_to_tensor(image), mask_to_tensor(mask)
-        mask = mask[0].permute(2, 0, 1)  # 1x4x256x1600
+        mask = mask.permute(2, 0, 1)  # 1x4x256x1600
         return image, mask
 
     def __len__(self):

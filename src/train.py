@@ -4,7 +4,7 @@ import argparse
 import numpy as np
 import pandas as pd
 from torch.optim import SGD
-from torch.optim.lr_scheduler import CosineAnnealingLR
+from torch.optim.lr_scheduler import StepLR
 
 from model import *
 from data_loader import get_dataloader
@@ -21,12 +21,12 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Training model for steel defect detection')
     parser.add_argument("--model", type=str, default='UResNet34',
                         help="Name for encode used in Unet. Currently available: UResNet34")
-    parser.add_argument("--num-workers", type=int, default=1,
+    parser.add_argument("--num-workers", type=int, default=2,
                         help="Number of workers for training. Default: 1")
-    parser.add_argument("--batch-size", type=int, default=4,
-                        help="Batch size for training. Default: 4")
-    parser.add_argument("--num-epochs", type=int, default=200,
-                        help="Number of epochs for training. Default: 200")
+    parser.add_argument("--batch-size", type=int, default=16,
+                        help="Batch size for training. Default: 16")
+    parser.add_argument("--num-epochs", type=int, default=100,
+                        help="Number of epochs for training. Default: 100")
     parser.add_argument("--fold", type=int, default=0)
 
     return parser.parse_args()
@@ -48,7 +48,7 @@ class Trainer(object):
         self.criterion = DiceBCELoss()
 
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
-        self.scheduler = CosineAnnealingLR(self.optimizer, T_max=40, eta_min=1e-04)
+        self.scheduler = StepLR(self.optimizer, step_size=30, gamma=0.1)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
@@ -121,6 +121,21 @@ class Trainer(object):
         fig.tight_layout()
         fig.savefig(output_filename)
 
+        output_filename = os.path.join(self.training_history_path,
+                                       "{}_fold_{}_loss.txt".format(self.model_save_name, self.fold))
+        header = ["Training loss", "Validation loss",
+                  "Training bce loss", "Validation loss",
+                  "Training dice loss", "Validation dice loss"]
+
+        with open(output_filename, "w") as f:
+            f.write("\t".join(header) + "\n")
+            for i in range(len(self.loss['train'])):
+                res = [self.loss['train'][i], self.loss['valid'][i],
+                       self.bce_loss['train'][i], self.bce_loss['valid'][i],
+                       self.dice_loss['train'][i], self.dice_loss['valid'][i]]
+
+                f.write("\t".join(map(str, res)) + "\n")
+
     def plot_dice(self, thresholds, mean_dice):
         fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
 
@@ -141,20 +156,15 @@ class Trainer(object):
         fig.tight_layout()
         fig.savefig(output_filename)
 
-    def write_history(self):
         output_filename = os.path.join(self.training_history_path,
-                                       "{}_fold_{}_loss.txt".format(self.model_save_name, self.fold))
-        header = ["Training loss", "Validation loss",
-                  "Training bce loss", "Validation loss",
-                  "Training dice loss", "Validation dice loss"]
+                                       "{}_fold_{}_dice.txt".format(self.model_save_name, self.fold))
+
+        header = ["Threshold", "Class 1", "Class 2", "Class 3", "Class 4"]
 
         with open(output_filename, "w") as f:
             f.write("\t".join(header) + "\n")
-            for i in range(self.num_epochs):
-                res = [self.loss['train'][i], self.loss['valid'][i],
-                       self.bce_loss['train'][i], self.bce_loss['valid'][i],
-                       self.dice_loss['train'][i], self.dice_loss['valid'][i]]
-
+            for i in range(len(thresholds)):
+                res = [thresholds[i], mean_dice[i, 0], mean_dice[i, 1], mean_dice[i, 2], mean_dice[i, 3]]
                 f.write("\t".join(map(str, res)) + "\n")
 
     def start(self):
@@ -177,21 +187,27 @@ class Trainer(object):
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from %0.8f to %0.8f ********" % (self.best_loss, valid_loss))
                 self.best_loss = valid_loss
-                thresholds, best_dice = self.optimize_threshold()
-                print("******** Optimized thresholds: %0.8f, %0.8f, %0.8f, %0.8f ********" % (thresholds[0],
-                                                                                              thresholds[1],
-                                                                                              thresholds[2],
-                                                                                              thresholds[3]))
-                print("******** Best dices:           %0.8f, %0.8f, %0.8f, %0.8f ********" % (best_dice[0],
-                                                                                              best_dice[1],
-                                                                                              best_dice[2],
-                                                                                              best_dice[3]))
-                print("******** Mean dice:            %0.8f" % np.mean(best_dice))
-                state = {
-                    "threshold": thresholds,
-                    "best_dice": best_dice,
-                    "state_dict": self.model.state_dict(),
-                }
+                if epoch > 10:
+
+                    thresholds, best_dice = self.optimize_threshold()
+                    print("******** Optimized thresholds: %0.8f, %0.8f, %0.8f, %0.8f ********" % (thresholds[0],
+                                                                                                  thresholds[1],
+                                                                                                  thresholds[2],
+                                                                                                  thresholds[3]))
+                    print("******** Best dices:           %0.8f, %0.8f, %0.8f, %0.8f ********" % (best_dice[0],
+                                                                                                  best_dice[1],
+                                                                                                  best_dice[2],
+                                                                                                  best_dice[3]))
+                    print("******** Mean dice:            %0.8f" % np.mean(best_dice))
+                    state = {
+                        "threshold": thresholds,
+                        "best_dice": best_dice,
+                        "state_dict": self.model.state_dict(),
+                    }
+                else:
+                    state = {
+                        "state_dict": self.model.state_dict(),
+                    }
 
                 filename = os.path.join(self.model_save_path, "{}_fold_{}.pt".format(self.model_save_name, self.fold))
                 if os.path.exists(filename):
@@ -228,12 +244,8 @@ def main():
     model = None
     if args.model == "UResNet34":
         model = UResNet34()
-    elif args.model == "UResNet50":
-        model = UResNet50()
-    elif args.model == "UResNext50":
-        model = UResNext50()
-    elif args.model == "USeResNext50":
-        model = USeResNext50()
+    elif args.model == "UResNet34V2":
+        model = UResNet34V2()
 
     model_save_path = os.path.join(SAVE_MODEL_PATH, args.model)
     training_history_path = os.path.join(TRAINING_HISTORY_PATH, args.model)
@@ -264,7 +276,6 @@ def main():
                             model_save_name=args.model,
                             fold=args.fold)
     model_trainer.start()
-    model_trainer.write_history()
 
 
 if __name__ == '__main__':
