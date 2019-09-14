@@ -1,4 +1,3 @@
-import os
 import time
 import argparse
 import numpy as np
@@ -21,20 +20,21 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Training model for steel defect detection')
     parser.add_argument("--model", type=str, default='UResNet34',
                         help="Name for encode used in Unet. Currently available: UResNet34")
-    parser.add_argument("--num-workers", type=int, default=2,
+    parser.add_argument("--num-workers", type=int, default=1,
                         help="Number of workers for training. Default: 1")
-    parser.add_argument("--batch-size", type=int, default=16,
-                        help="Batch size for training. Default: 16")
+    parser.add_argument("--batch-size", type=int, default=4,
+                        help="Batch size for training. Default: 4")
     parser.add_argument("--num-epochs", type=int, default=100,
                         help="Number of epochs for training. Default: 100")
     parser.add_argument("--fold", type=int, default=0)
+    parser.add_argument("--optimize-threshold", type=bool, default=False)
 
     return parser.parse_args()
 
 
 class Trainer(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path):
+                 fold, training_history_path, optimize_threshold):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -45,6 +45,7 @@ class Trainer(object):
         self.model_save_name = model_save_name
         self.fold = fold
         self.training_history_path = training_history_path
+        self.optimize_threshold = optimize_threshold
         self.criterion = DiceBCELoss()
 
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
@@ -187,8 +188,7 @@ class Trainer(object):
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from %0.8f to %0.8f ********" % (self.best_loss, valid_loss))
                 self.best_loss = valid_loss
-                if epoch > 10:
-
+                if self.optimize_threshold:
                     thresholds, best_dice = self.optimize_threshold()
                     print("******** Optimized thresholds: %0.8f, %0.8f, %0.8f, %0.8f ********" % (thresholds[0],
                                                                                                   thresholds[1],
@@ -274,7 +274,8 @@ def main():
                             model_save_path=model_save_path,
                             training_history_path=training_history_path,
                             model_save_name=args.model,
-                            fold=args.fold)
+                            fold=args.fold,
+                            optimize_threshold=args.optimize_threshold)
     model_trainer.start()
 
 

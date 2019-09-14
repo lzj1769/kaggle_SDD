@@ -3,6 +3,23 @@ from torch.utils.data import Dataset, DataLoader
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
 from utils import *
+import albumentations as albu
+
+train_aug = albu.Compose([
+    albu.OneOf([
+        albu.RandomGamma(gamma_limit=(60, 120), p=0.9),
+        albu.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.9),
+        albu.CLAHE(clip_limit=4.0, tile_grid_size=(4, 4), p=0.9),
+    ]),
+    albu.OneOf([
+        albu.Blur(blur_limit=4, p=1),
+        albu.MotionBlur(blur_limit=4, p=1),
+        albu.MedianBlur(blur_limit=4, p=1)
+    ], p=0.5),
+    albu.HorizontalFlip(p=0.5),
+    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=0,
+                          interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
+])
 
 
 def make_mask(row_id, df):
@@ -26,16 +43,6 @@ def make_mask(row_id, df):
     return filename, masks
 
 
-def train_aug(image, mask):
-    if np.random.rand() < 0.5:
-        image, mask = do_horizontal_flip(image), do_horizontal_flip(mask)
-
-    if np.random.rand() < 0.5:
-        image, mask = do_vertical_flip(image), do_vertical_flip(mask)
-
-    return image, mask
-
-
 class SteelDataset(Dataset):
     def __init__(self, df, phase):
         self.df = df
@@ -48,15 +55,12 @@ class SteelDataset(Dataset):
         image_path = os.path.join(self.data_folder, image_id)
         image = cv2.imread(image_path)
 
-        image = cv2.resize(image, (128, 800))
-        mask = cv2.resize(mask, (128, 800))
-        mask = (mask > 0.5).astype(np.int8)
-
         if self.phase == "train":
-            image, mask = train_aug(image=image, mask=mask)
+            augmented = train_aug(image=image, mask=mask)
 
-        image, mask = img_to_tensor(image), mask_to_tensor(mask)
-        mask = mask.permute(2, 0, 1)  # 1x4x256x1600
+        image, mask = augmented['image'], augmented['mask']
+        image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
+        mask = torch.from_numpy(mask).permute(2, 0, 1)
         return image, mask
 
     def __len__(self):
