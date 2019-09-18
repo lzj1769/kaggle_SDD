@@ -89,3 +89,32 @@ class DiceBCELoss(nn.Module):
         loss = self.alpha * bce_loss + (1 - self.alpha) * dice_loss
 
         return loss, bce_loss, dice_loss
+
+
+class VAELoss(nn.Module):
+    def __init__(self, beta=1):
+        super(VAELoss, self).__init__()
+        self.beta = beta
+
+    def forward(self, images_pred, images, mu, logvar):
+        mse = F.mse_loss(images_pred, images)
+        kl = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())
+
+        return mse + self.beta * kl
+
+
+class DiceBCEVAELoss(nn.Module):
+    def __init__(self):
+        super(DiceBCEVAELoss, self).__init__()
+        self.bce = BCEWithLogitsLoss()
+        self.dice = DiceLoss(smooth=1)
+        self.vae = VAELoss()
+
+    def forward(self, masks_pred, masks, images_pred, images, mu, logvar):
+        bce_loss = self.bce(masks_pred, masks)
+        dice_loss = self.dice(masks_pred, masks)
+        vae_loss = self.vae(images_pred, images, mu, logvar)
+
+        loss = 0.8 * bce_loss + 0.1 * dice_loss + 0.1 * vae_loss
+
+        return loss, bce_loss, dice_loss, vae_loss

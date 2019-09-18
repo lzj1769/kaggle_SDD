@@ -4,12 +4,12 @@ import argparse
 import numpy as np
 import pandas as pd
 from torch.optim import SGD
-from torch.optim.lr_scheduler import StepLR
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from model import *
 from data_loader import get_dataloader
-from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH, SPLIT_FOLDER
-from loss import DiceBCELoss
+from configure import *
+from loss import *
 from utils import seed_torch, compute_dice
 import matplotlib
 
@@ -21,7 +21,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Training model for steel defect detection')
     parser.add_argument("--model", type=str, default='UResNet34',
                         help="Name for encode used in Unet. Currently available: UResNet34")
-    parser.add_argument("--num-workers", type=int, default=1,
+    parser.add_argument("--num-workers", type=int, default=2,
                         help="Number of workers for training. Default: 1")
     parser.add_argument("--batch-size", type=int, default=4,
                         help="Batch size for training. Default: 4")
@@ -48,7 +48,9 @@ class Trainer(object):
         self.criterion = DiceBCELoss()
 
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
-        self.scheduler = StepLR(self.optimizer, step_size=30, gamma=0.1)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, factor=0.1, patience=10,
+                                           verbose=True, threshold=1e-8,
+                                           min_lr=1e-04, eps=1e-8)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
@@ -63,7 +65,6 @@ class Trainer(object):
         self.bce_loss = {phase: [] for phase in self.phases}
         self.dice_loss = {phase: [] for phase in self.phases}
         self.dice = {phase: [] for phase in self.phases}
-        self.thresholds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
     def forward(self, images, masks):
         outputs = self.model(images.cuda())
@@ -76,7 +77,7 @@ class Trainer(object):
         running_loss = 0.0
         running_bce_loss = 0.0
         running_dice_loss = 0.0
-        running_dice = np.zeros(shape=(len(self.thresholds), 4))
+        running_dice = np.zeros(4, dtype=np.float32)
 
         for images, masks in self.dataloaders[phase]:
             loss, bce_loss, dice_loss, outputs = self.forward(images, masks)
@@ -90,10 +91,9 @@ class Trainer(object):
             running_dice_loss += dice_loss.item()
 
             outputs = outputs.detach().cpu()
-            for i, threshold in enumerate(self.thresholds):
-                dice = compute_dice(outputs, masks, threshold=threshold)
-                for j in range(4):
-                    running_dice[i, j] += dice[j].item()
+            dice = compute_dice(outputs, masks, threshold=0.5)
+            for j in range(4):
+                running_dice[j] += dice[j]
 
         epoch_loss = running_loss / len(self.dataloaders[phase])
         epoch_bce_loss = running_bce_loss / len(self.dataloaders[phase])
@@ -103,7 +103,7 @@ class Trainer(object):
         self.loss[phase].append(epoch_loss)
         self.bce_loss[phase].append(epoch_bce_loss)
         self.dice_loss[phase].append(epoch_dice_loss)
-        self.dice[phase] = epoch_dice
+        self.dice[phase] = np.mean(epoch_dice)
 
         torch.cuda.empty_cache()
 
@@ -146,42 +146,10 @@ class Trainer(object):
 
                 f.write("\t".join(map(str, res)) + "\n")
 
-    def plot_dice(self, thresholds, mean_dice):
-        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
-
-        axes[0, 0].plot(thresholds, mean_dice[:, 0], '-b')
-        axes[0, 0].set_title("Class 1", fontweight='bold')
-
-        axes[0, 1].plot(thresholds, mean_dice[:, 1], '-b')
-        axes[0, 1].set_title("Class 2", fontweight='bold')
-
-        axes[1, 0].plot(thresholds, mean_dice[:, 2], '-b')
-        axes[1, 0].set_title("Class 3", fontweight='bold')
-
-        axes[1, 1].plot(thresholds, mean_dice[:, 3], '-b')
-        axes[1, 1].set_title("Class 4", fontweight='bold')
-
-        output_filename = os.path.join(self.training_history_path,
-                                       "{}_fold_{}_dice.pdf".format(self.model_save_name, self.fold))
-        fig.tight_layout()
-        fig.savefig(output_filename)
-
-        output_filename = os.path.join(self.training_history_path,
-                                       "{}_fold_{}_dice.txt".format(self.model_save_name, self.fold))
-
-        header = ["Threshold", "Class 1", "Class 2", "Class 3", "Class 4"]
-
-        with open(output_filename, "w") as f:
-            f.write("\t".join(header) + "\n")
-            for i in range(len(thresholds)):
-                res = [thresholds[i], mean_dice[i, 0], mean_dice[i, 1], mean_dice[i, 2], mean_dice[i, 3]]
-                f.write("\t".join(map(str, res)) + "\n")
-
     def start(self):
         for epoch in range(self.num_epochs):
             start = time.strftime("%D-%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
-            print("Learning rate: %0.8f" % self.scheduler.get_lr()[0])
             print("=================================================================")
 
             train_loss, train_bce_loss, train_dice_loss, train_dice = self.iterate("train")
@@ -193,14 +161,7 @@ class Trainer(object):
             print("valid_loss: %0.8f, valid_bce_loss: %0.8f, valid_dice_loss: %0.8f" % (valid_loss, valid_bce_loss,
                                                                                         valid_dice_loss))
 
-            for i, threshold in enumerate(self.thresholds):
-                print("%0.1f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f"
-                      % (self.thresholds[i],
-                         train_dice[i, 0], train_dice[i, 1], train_dice[i, 2], train_dice[i, 3], np.mean(train_dice[i]),
-                         valid_dice[i, 0], valid_dice[i, 1], valid_dice[i, 2], valid_dice[i, 3], np.mean(valid_dice[i]))
-                      )
-
-            self.scheduler.step(epoch=epoch)
+            self.scheduler.step(metrics=valid_loss)
             if valid_loss < self.best_loss:
                 print("******** Validation loss improved from %0.8f to %0.8f ********" % (self.best_loss, valid_loss))
                 self.best_loss = valid_loss
@@ -216,35 +177,180 @@ class Trainer(object):
             print()
             self.plot_history()
 
-    # def optimize_threshold(self):
-    #     mean_dice = np.zeros(shape=(100, 4))
-    #     thresholds = np.linspace(start=0, stop=1, num=100)
-    #     for images, masks in self.dataloaders["valid"]:
-    #         preds = self.model(images.cuda()).detach().cpu()
-    #         for i, threshold in enumerate(thresholds):
-    #             dice = compute_dice(preds, masks, threshold=threshold)
-    #             for j in range(4):
-    #                 mean_dice[i, j] += dice[j].item()
-    #
-    #     mean_dice = mean_dice / len(self.dataloaders["valid"])
-    #     best_dice = np.max(mean_dice, axis=0)
-    #     best_dice_index = np.argmax(mean_dice, axis=0)
-    #
-    #     self.plot_dice(thresholds, mean_dice)
-    #
-    #     return thresholds[best_dice_index], best_dice
+
+class TrainerVAE(object):
+    def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
+                 fold, training_history_path):
+        self.model = model
+        self.num_workers = num_workers
+        self.batch_size = batch_size
+        self.num_epochs = num_epochs
+        self.best_loss = np.inf
+        self.phases = ["train", "valid"]
+        self.model_save_path = model_save_path
+        self.model_save_name = model_save_name
+        self.fold = fold
+        self.training_history_path = training_history_path
+        self.criterion = DiceBCEVAELoss()
+
+        self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, factor=0.1, patience=10,
+                                           verbose=True, threshold=1e-8,
+                                           min_lr=1e-04, eps=1e-8)
+        self.model = self.model.cuda()
+        self.dataloaders = {
+            phase: get_dataloader(
+                phase=phase,
+                fold=fold,
+                batch_size=self.batch_size,
+                num_workers=self.num_workers,
+            )
+            for phase in self.phases
+        }
+        self.loss = {phase: [] for phase in self.phases}
+        self.bce_loss = {phase: [] for phase in self.phases}
+        self.dice_loss = {phase: [] for phase in self.phases}
+        self.vae_loss = {phase: [] for phase in self.phases}
+        self.dice = {phase: [] for phase in self.phases}
+        self.thresholds = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+
+    def forward(self, images, masks):
+        images, masks = images.cuda(), masks.cuda()
+        masks_pred, images_pred, mu, logvar = self.model(images)
+        loss, bce_loss, dice_loss, vae_loss = self.criterion(masks_pred=masks_pred, masks=masks,
+                                                             images_pred=images_pred, images=images,
+                                                             mu=mu, logvar=logvar)
+        return loss, bce_loss, dice_loss, vae_loss, masks_pred
+
+    def iterate(self, phase):
+        self.model.train(phase == "train")
+
+        running_loss = 0.0
+        running_bce_loss = 0.0
+        running_dice_loss = 0.0
+        running_vae_loss = 0.0
+        running_dice = np.zeros(shape=(len(self.thresholds), 4))
+
+        for images, masks in self.dataloaders[phase]:
+            loss, bce_loss, dice_loss, vae_loss, outputs = self.forward(images, masks)
+            if phase == "train":
+                self.optimizer.zero_grad()
+                loss.backward()
+                self.optimizer.step()
+
+            running_loss += loss.item()
+            running_bce_loss += bce_loss.item()
+            running_dice_loss += dice_loss.item()
+            running_vae_loss += vae_loss.item()
+
+            outputs = outputs.detach().cpu()
+            for i, threshold in enumerate(self.thresholds):
+                dice = compute_dice(outputs, masks, threshold=threshold)
+                for j in range(4):
+                    running_dice[i, j] += dice[j]
+
+        epoch_loss = running_loss / len(self.dataloaders[phase])
+        epoch_bce_loss = running_bce_loss / len(self.dataloaders[phase])
+        epoch_dice_loss = running_dice_loss / len(self.dataloaders[phase])
+        epoch_vae_loss = running_vae_loss / len(self.dataloaders[phase])
+        epoch_dice = running_dice / len(self.dataloaders[phase])
+
+        self.loss[phase].append(epoch_loss)
+        self.bce_loss[phase].append(epoch_bce_loss)
+        self.dice_loss[phase].append(epoch_dice_loss)
+        self.vae_loss[phase].append(epoch_vae_loss)
+        self.dice[phase] = epoch_dice
+
+        torch.cuda.empty_cache()
+
+        return epoch_loss, epoch_bce_loss, epoch_dice_loss, epoch_vae_loss, epoch_dice
+
+    def plot_history(self):
+        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
+        axes[0, 0].plot(self.loss['train'], '-b', label='Training')
+        axes[0, 0].plot(self.loss['valid'], '-r', label='Validation')
+        axes[0, 0].set_title("Loss", fontweight='bold')
+        axes[0, 0].legend(loc="upper right", frameon=False)
+
+        axes[0, 1].plot(self.bce_loss['train'], '-b', label='Training')
+        axes[0, 1].plot(self.bce_loss['valid'], '-r', label='Validation')
+        axes[0, 1].set_title("BCE Loss", fontweight='bold')
+        axes[0, 1].legend(loc="upper right", frameon=False)
+
+        axes[1, 0].plot(self.dice_loss['train'], '-b', label='Training')
+        axes[1, 0].plot(self.dice_loss['valid'], '-r', label='Validation')
+        axes[1, 0].set_title("Dice Loss", fontweight='bold')
+        axes[1, 0].legend(loc="upper right", frameon=False)
+
+        axes[1, 1].plot(self.vae_loss['train'], '-b', label='Training')
+        axes[1, 1].plot(self.vae_loss['valid'], '-r', label='Validation')
+        axes[1, 1].set_title("VAE Loss", fontweight='bold')
+        axes[1, 1].legend(loc="upper right", frameon=False)
+
+        output_filename = os.path.join(self.training_history_path,
+                                       "{}_fold_{}_loss.pdf".format(self.model_save_name, self.fold))
+        fig.tight_layout()
+        fig.savefig(output_filename)
+
+        output_filename = os.path.join(self.training_history_path,
+                                       "{}_fold_{}_loss.txt".format(self.model_save_name, self.fold))
+        header = ["Training loss", "Validation loss",
+                  "Training bce loss", "Validation loss",
+                  "Training dice loss", "Validation dice loss",
+                  "Training vae loss", "Validation vae loss"]
+
+        with open(output_filename, "w") as f:
+            f.write("\t".join(header) + "\n")
+            for i in range(len(self.loss['train'])):
+                res = [self.loss['train'][i], self.loss['valid'][i],
+                       self.bce_loss['train'][i], self.bce_loss['valid'][i],
+                       self.dice_loss['train'][i], self.dice_loss['valid'][i],
+                       self.vae_loss['train'][i], self.vae_loss['valid'][i]]
+
+                f.write("\t".join(map(str, res)) + "\n")
+
+    def start(self):
+        for epoch in range(self.num_epochs):
+            start = time.strftime("%D-%H:%M:%S")
+            print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
+            print("=================================================================")
+
+            train_loss, train_bce_loss, train_dice_loss, train_vae_loss, train_dice = self.iterate("train")
+            with torch.no_grad():
+                valid_loss, valid_bce_loss, valid_dice_loss, valid_vae_loss, valid_dice = self.iterate("valid")
+
+            print("train_loss: %0.8f, train_bce_loss: %0.8f, train_dice_loss: %0.8f, train_vae_loss: %0.8f" %
+                  (train_loss, train_bce_loss, train_dice_loss, train_vae_loss))
+            print("valid_loss: %0.8f, valid_bce_loss: %0.8f, valid_dice_loss: %0.8f, valid_vae_loss: %0.8f" %
+                  (valid_loss, valid_bce_loss, valid_dice_loss, valid_vae_loss))
+
+            for i, threshold in enumerate(self.thresholds):
+                print("%0.1f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f | %0.5f"
+                      % (self.thresholds[i],
+                         train_dice[i, 0], train_dice[i, 1], train_dice[i, 2], train_dice[i, 3], np.mean(train_dice[i]),
+                         valid_dice[i, 0], valid_dice[i, 1], valid_dice[i, 2], valid_dice[i, 3], np.mean(valid_dice[i]))
+                      )
+
+            self.scheduler.step(metrics=valid_loss)
+            if valid_loss < self.best_loss:
+                print("******** Validation loss improved from %0.8f to %0.8f ********" % (self.best_loss, valid_loss))
+                self.best_loss = valid_loss
+                state = {
+                    "state_dict": self.model.state_dict(),
+                }
+
+                filename = os.path.join(self.model_save_path, "{}_fold_{}.pt".format(self.model_save_name, self.fold))
+                if os.path.exists(filename):
+                    os.remove(filename)
+                torch.save(state, filename)
+
+            print()
+            self.plot_history()
 
 
 def main():
     args = parse_args()
-
     seed_torch(seed=42)
-
-    model = None
-    if args.model == "UResNet34":
-        model = UResNet34()
-    elif args.model == "USEResNext50":
-        model = USEResNext50()
 
     model_save_path = os.path.join(SAVE_MODEL_PATH, args.model)
     training_history_path = os.path.join(TRAINING_HISTORY_PATH, args.model)
@@ -265,15 +371,26 @@ def main():
                                                                                              df_valid['defect2'].sum(),
                                                                                              df_valid['defect3'].sum(),
                                                                                              df_valid['defect4'].sum()))
+    model_trainer = None, None
+    if args.model == "UResNet34":
+        model_trainer = Trainer(model=UResNet34(),
+                                num_workers=args.num_workers,
+                                batch_size=args.batch_size,
+                                num_epochs=args.num_epochs,
+                                model_save_path=model_save_path,
+                                training_history_path=training_history_path,
+                                model_save_name=args.model,
+                                fold=args.fold)
+    elif args.model == "UResNet34VAE":
+        model_trainer = TrainerVAE(model=UResNet34VAE(),
+                                   num_workers=args.num_workers,
+                                   batch_size=args.batch_size,
+                                   num_epochs=args.num_epochs,
+                                   model_save_path=model_save_path,
+                                   training_history_path=training_history_path,
+                                   model_save_name=args.model,
+                                   fold=args.fold)
 
-    model_trainer = Trainer(model=model,
-                            num_workers=args.num_workers,
-                            batch_size=args.batch_size,
-                            num_epochs=args.num_epochs,
-                            model_save_path=model_save_path,
-                            training_history_path=training_history_path,
-                            model_save_name=args.model,
-                            fold=args.fold)
     model_trainer.start()
 
 

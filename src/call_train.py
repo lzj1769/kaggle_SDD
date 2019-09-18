@@ -3,7 +3,7 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['USEResNext50']
+model_list = ['UResNet34']
 fold_list = [0]
 
 for model in model_list:
@@ -19,5 +19,5 @@ for model in model_list:
         job_name = "{}_fold_{}".format(model, fold)
         command = "sbatch -J " + job_name + " -o " + "./cluster_out/" + job_name + "_out.txt -e " + \
                   "./cluster_err/" + job_name + "_err.txt -t 120:00:00 --mem 30G -A rwth0429 "
-        command += "--partition=c18g --gres=gpu:1 train.zsh"
+        command += "--partition=c18g -c 2 --gres=gpu:1 train.zsh"
         os.system(command + " " + model + " " + str(fold))
