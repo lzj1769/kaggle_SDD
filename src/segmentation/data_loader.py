@@ -81,12 +81,3 @@ def get_dataloader(phase, fold, batch_size, num_workers):
                             drop_last=drop_last)
 
     return dataloader
-
-
-if __name__ == '__main__':
-    dataloader = get_dataloader(phase="valid", fold=0, batch_size=1, num_workers=1)
-
-    imgs, masks = next(iter(dataloader))
-
-    print(imgs.shape)  # batch * 3 * 256 * 1600
-    print(masks.shape)  # batch * 4 * 256 * 1600

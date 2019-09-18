@@ -2,20 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision
-from collections import OrderedDict
-from torch.utils import model_zoo
-import math
-from configure import *
-
-
-class UnFlatten(nn.Module):
-    def __init__(self, n_channels):
-        super(UnFlatten, self).__init__()
-        self.n_channels = n_channels
-
-    def forward(self, input):
-        size = int((input.size(1) // self.n_channels) ** 0.5)
-        return input.view(input.size(0), self.n_channels, size, size)
 
 
 class Conv2dReLU(nn.Module):
@@ -133,6 +119,35 @@ class UResNet34(nn.Module):
         return x
 
 
+class ResNet34(nn.Module):
+    def __init__(self, classes=4, pretrained=True):
+        super(ResNet34, self).__init__()
+        self.resnet = torchvision.models.resnet34(pretrained=pretrained)
+
+        self.layer0 = nn.Sequential(self.resnet.conv1, self.resnet.bn1, self.resnet.relu, self.resnet.maxpool)
+        self.layer1 = nn.Sequential(self.resnet.layer1, SCSEBlock(64))
+        self.layer2 = nn.Sequential(self.resnet.layer2, SCSEBlock(128))
+        self.layer3 = nn.Sequential(self.resnet.layer3, SCSEBlock(256))
+        self.layer4 = nn.Sequential(self.resnet.layer4, SCSEBlock(512))
+
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        self.dropout = nn.Dropout(p=0.5)
+        self.fc = nn.Linear(512, classes)
+
+    def forward(self, x):
+        x = self.layer0(x)  # 3x256x1600 ==> 64x128x800 (1/4)
+        x = self.layer1(x)  # 64x128x800 ==> 64x64x400 (1/8)
+        x = self.layer2(x)  # 64x64x400 ==> 128x32x200 (1/16)
+        x = self.layer3(x)  # 128x32x200 ==> 256x16x100 (1/32)
+        x = self.layer4(x)  # 256x16x100 ==> 512x8x50 (1/64)
+
+        x = self.avgpool(x)
+        x = torch.flatten(x, 1)
+        x = self.dropout(x)
+        x = self.fc(x)
+        return x
+
+
 class VAE(nn.Module):
     def __init__(self):
         super(VAE, self).__init__()
@@ -225,7 +240,6 @@ class UResNet34VAE(nn.Module):
         y, mu, logvar = self.vae(encode5)
 
         return x, y, mu, logvar
-
 
 # if __name__ == '__main__':
 #     import os

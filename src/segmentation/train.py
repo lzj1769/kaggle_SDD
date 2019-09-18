@@ -22,10 +22,10 @@ def parse_args():
     parser.add_argument("--model", type=str, default='UResNet34',
                         help="Name for encode used in Unet. Currently available: UResNet34")
     parser.add_argument("--num-workers", type=int, default=2,
-                        help="Number of workers for training. Default: 1")
-    parser.add_argument("--batch-size", type=int, default=4,
-                        help="Batch size for training. Default: 4")
-    parser.add_argument("--num-epochs", type=int, default=100,
+                        help="Number of workers for training. Default: 2")
+    parser.add_argument("--batch-size", type=int, default=6,
+                        help="Batch size for training. Default: 6")
+    parser.add_argument("--num-epochs", type=int, default=300,
                         help="Number of epochs for training. Default: 100")
     parser.add_argument("--fold", type=int, default=0)
 
@@ -50,7 +50,7 @@ class Trainer(object):
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
         self.scheduler = ReduceLROnPlateau(self.optimizer, factor=0.1, patience=10,
                                            verbose=True, threshold=1e-8,
-                                           min_lr=1e-04, eps=1e-8)
+                                           min_lr=3e-05, eps=1e-8)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader(
@@ -110,21 +110,26 @@ class Trainer(object):
         return epoch_loss, epoch_bce_loss, epoch_dice_loss, epoch_dice
 
     def plot_history(self):
-        fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
-        ax1.plot(self.loss['train'], '-b', label='Training')
-        ax1.plot(self.loss['valid'], '-r', label='Validation')
-        ax1.set_title("Loss", fontweight='bold')
-        ax1.legend(loc="upper right", frameon=False)
+        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(8, 8))
+        axes[0, 0].plot(self.loss['train'], '-b', label='Training')
+        axes[0, 0].plot(self.loss['valid'], '-r', label='Validation')
+        axes[0, 0].set_title("Loss", fontweight='bold')
+        axes[0, 0].legend(loc="upper right", frameon=False)
 
-        ax2.plot(self.bce_loss['train'], '-b', label='Training')
-        ax2.plot(self.bce_loss['valid'], '-r', label='Validation')
-        ax2.set_title("BCE Loss", fontweight='bold')
-        ax2.legend(loc="upper right", frameon=False)
+        axes[0, 1].plot(self.bce_loss['train'], '-b', label='Training')
+        axes[0, 1].plot(self.bce_loss['valid'], '-r', label='Validation')
+        axes[0, 1].set_title("BCE Loss", fontweight='bold')
+        axes[0, 1].legend(loc="upper right", frameon=False)
 
-        ax3.plot(self.dice_loss['train'], '-b', label='Training')
-        ax3.plot(self.dice_loss['valid'], '-r', label='Validation')
-        ax3.set_title("Dice Loss", fontweight='bold')
-        ax3.legend(loc="upper right", frameon=False)
+        axes[1, 0].plot(self.dice_loss['train'], '-b', label='Training')
+        axes[1, 0].plot(self.dice_loss['valid'], '-r', label='Validation')
+        axes[1, 0].set_title("Dice Loss", fontweight='bold')
+        axes[1, 0].legend(loc="upper right", frameon=False)
+
+        axes[1, 1].plot(self.dice['train'], '-b', label='Training')
+        axes[1, 1].plot(self.dice['valid'], '-r', label='Validation')
+        axes[1, 1].set_title("Dice", fontweight='bold')
+        axes[1, 1].legend(loc="upper right", frameon=False)
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}_loss.pdf".format(self.model_save_name, self.fold))
@@ -135,14 +140,16 @@ class Trainer(object):
                                        "{}_fold_{}_loss.txt".format(self.model_save_name, self.fold))
         header = ["Training loss", "Validation loss",
                   "Training bce loss", "Validation loss",
-                  "Training dice loss", "Validation dice loss"]
+                  "Training dice loss", "Validation dice loss",
+                  "Training dice", "Validation dice"]
 
         with open(output_filename, "w") as f:
             f.write("\t".join(header) + "\n")
             for i in range(len(self.loss['train'])):
                 res = [self.loss['train'][i], self.loss['valid'][i],
                        self.bce_loss['train'][i], self.bce_loss['valid'][i],
-                       self.dice_loss['train'][i], self.dice_loss['valid'][i]]
+                       self.dice_loss['train'][i], self.dice_loss['valid'][i],
+                       self.dice['train'][i], self.dice['valid'][i]]
 
                 f.write("\t".join(map(str, res)) + "\n")
 
@@ -156,10 +163,14 @@ class Trainer(object):
             with torch.no_grad():
                 valid_loss, valid_bce_loss, valid_dice_loss, valid_dice = self.iterate("valid")
 
-            print("train_loss: %0.8f, train_bce_loss: %0.8f, train_dice_loss: %0.8f" % (train_loss, train_bce_loss,
-                                                                                        train_dice_loss))
-            print("valid_loss: %0.8f, valid_bce_loss: %0.8f, valid_dice_loss: %0.8f" % (valid_loss, valid_bce_loss,
-                                                                                        valid_dice_loss))
+            print("loss: %0.5f, bce_loss: %0.5f, dice_loss: %0.5f, "
+                  "dice: %0.5f, %0.5f, %0.5f, %0.5f, mean dice: %0.5f" %
+                  (train_loss, train_bce_loss, train_dice_loss,
+                   train_dice[0], train_dice[1], train_dice[2], train_dice[3], np.mean(train_dice)))
+            print("loss: %0.5f, bce_loss: %0.5f, dice_loss: %0.5f, "
+                  "dice: %0.5f, %0.5f, %0.5f, %0.5f, mean dice: %0.5f" %
+                  (valid_loss, valid_bce_loss, valid_dice_loss,
+                   valid_dice[0], valid_dice[1], valid_dice[2], valid_dice[3], np.mean(valid_dice)))
 
             self.scheduler.step(metrics=valid_loss)
             if valid_loss < self.best_loss:
@@ -348,6 +359,118 @@ class TrainerVAE(object):
             self.plot_history()
 
 
+class TrainerClassification(object):
+    def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
+                 fold, training_history_path):
+        self.model = model
+        self.num_workers = num_workers
+        self.batch_size = batch_size
+        self.num_epochs = num_epochs
+        self.best_loss = np.inf
+        self.phases = ["train", "valid"]
+        self.model_save_path = model_save_path
+        self.model_save_name = model_save_name
+        self.fold = fold
+        self.training_history_path = training_history_path
+        self.criterion = BCEWithLogitsLoss()
+
+        self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, factor=0.1, patience=10,
+                                           verbose=True, threshold=1e-8,
+                                           min_lr=3e-05, eps=1e-8)
+        self.model = self.model.cuda()
+        self.dataloaders = {
+            phase: get_dataloader(
+                phase=phase,
+                fold=fold,
+                batch_size=self.batch_size,
+                num_workers=self.num_workers,
+            )
+            for phase in self.phases
+        }
+        self.loss = {phase: [] for phase in self.phases}
+
+    def forward(self, images, masks):
+        outputs = self.model(images.cuda())
+        loss = self.criterion(outputs, masks.cuda())
+        return loss, outputs
+
+    def iterate(self, phase):
+        self.model.train(phase == "train")
+
+        running_loss = 0.0
+        for images, masks in self.dataloaders[phase]:
+            masks = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
+            print(masks)
+
+            loss, outputs = self.forward(images, masks)
+            if phase == "train":
+                self.optimizer.zero_grad()
+                loss.backward()
+                self.optimizer.step()
+
+            running_loss += loss.item()
+
+        epoch_loss = running_loss / len(self.dataloaders[phase])
+
+        self.loss[phase].append(epoch_loss)
+
+        torch.cuda.empty_cache()
+
+        return epoch_loss
+
+    def plot_history(self):
+        fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(4, 4))
+        axes[0, 0].plot(self.loss['train'], '-b', label='Training')
+        axes[0, 0].plot(self.loss['valid'], '-r', label='Validation')
+        axes[0, 0].set_title("Loss", fontweight='bold')
+        axes[0, 0].legend(loc="upper right", frameon=False)
+
+        output_filename = os.path.join(self.training_history_path,
+                                       "{}_fold_{}_loss.pdf".format(self.model_save_name, self.fold))
+        fig.tight_layout()
+        fig.savefig(output_filename)
+
+        output_filename = os.path.join(self.training_history_path,
+                                       "{}_fold_{}_loss.txt".format(self.model_save_name, self.fold))
+        header = ["Training loss", "Validation loss"]
+
+        with open(output_filename, "w") as f:
+            f.write("\t".join(header) + "\n")
+            for i in range(len(self.loss['train'])):
+                res = [self.loss['train'][i], self.loss['valid'][i]]
+
+                f.write("\t".join(map(str, res)) + "\n")
+
+    def start(self):
+        for epoch in range(self.num_epochs):
+            start = time.strftime("%D-%H:%M:%S")
+            print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
+            print("=================================================================")
+
+            train_loss = self.iterate("train")
+            with torch.no_grad():
+                valid_loss = self.iterate("valid")
+
+            print("train_loss: %0.5f, valid_loss: %0.5f" % (train_loss, valid_loss))
+
+            self.scheduler.step(metrics=valid_loss)
+            if valid_loss < self.best_loss:
+                print("******** Validation loss improved from %0.8f to %0.8f ********" % (self.best_loss, valid_loss))
+                self.best_loss = valid_loss
+                state = {
+                    "state_dict": self.model.state_dict(),
+                }
+
+                filename = os.path.join(self.model_save_path, "{}_fold_{}.pt".format(self.model_save_name, self.fold))
+                if os.path.exists(filename):
+                    os.remove(filename)
+                torch.save(state, filename)
+
+            print()
+            self.plot_history()
+
+
 def main():
     args = parse_args()
     seed_torch(seed=42)
@@ -381,15 +504,15 @@ def main():
                                 training_history_path=training_history_path,
                                 model_save_name=args.model,
                                 fold=args.fold)
-    elif args.model == "UResNet34VAE":
-        model_trainer = TrainerVAE(model=UResNet34VAE(),
-                                   num_workers=args.num_workers,
-                                   batch_size=args.batch_size,
-                                   num_epochs=args.num_epochs,
-                                   model_save_path=model_save_path,
-                                   training_history_path=training_history_path,
-                                   model_save_name=args.model,
-                                   fold=args.fold)
+    elif args.model == "ResNet34":
+        model_trainer = TrainerClassification(model=ResNet34(),
+                                              num_workers=args.num_workers,
+                                              batch_size=args.batch_size,
+                                              num_epochs=args.num_epochs,
+                                              model_save_path=model_save_path,
+                                              training_history_path=training_history_path,
+                                              model_save_name=args.model,
+                                              fold=args.fold)
 
     model_trainer.start()
 
