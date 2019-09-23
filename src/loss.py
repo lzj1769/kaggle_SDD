@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import numpy as np
 from torch.nn import BCEWithLogitsLoss
 from torch.autograd import Variable
 import torch.nn.functional as F
@@ -118,3 +119,27 @@ class DiceBCEVAELoss(nn.Module):
         loss = 0.8 * bce_loss + 0.1 * dice_loss + 0.1 * vae_loss
 
         return loss, bce_loss, dice_loss, vae_loss
+
+
+class CBLoss(nn.Module):
+    def __init__(self, samples_per_cls, no_of_classes, beta, gamma):
+        super(CBLoss, self).__init__()
+        self.samples_per_cls = samples_per_cls
+        self.no_of_classes = no_of_classes
+        self.beta = beta
+        self.gamma = gamma
+
+    def forward(self, logits, labels):
+        effective_num = 1.0 - np.power(self.beta, self.samples_per_cls)
+        weights = (1.0 - self.beta) / np.array(effective_num)
+        weights = weights / np.sum(weights) * self.no_of_classes
+
+        labels_one_hot = F.one_hot(labels, self.no_of_classes).float()
+
+        weights = torch.tensor(weights).float()
+        weights = weights.unsqueeze(0)
+        weights = weights.repeat(labels_one_hot.shape[0], 1) * labels_one_hot
+
+        cb_loss = F.binary_cross_entropy_with_logits(input=logits, target=labels_one_hot, weight=weights)
+
+        return cb_loss

@@ -21,12 +21,12 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Training model for steel defect detection')
     parser.add_argument("--model", type=str, default='UResNet34',
                         help="Name for encode used in Unet. Currently available: UResNet34")
-    parser.add_argument("--num-workers", type=int, default=2,
-                        help="Number of workers for training. Default: 2")
+    parser.add_argument("--num-workers", type=int, default=4,
+                        help="Number of workers for training. Default: 4")
     parser.add_argument("--batch-size", type=int, default=6,
                         help="Batch size for training. Default: 6")
-    parser.add_argument("--num-epochs", type=int, default=300,
-                        help="Number of epochs for training. Default: 100")
+    parser.add_argument("--num-epochs", type=int, default=200,
+                        help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
 
     return parser.parse_args()
@@ -103,7 +103,7 @@ class TrainerSegmentation(object):
         self.loss[phase].append(epoch_loss)
         self.bce_loss[phase].append(epoch_bce_loss)
         self.dice_loss[phase].append(epoch_dice_loss)
-        self.dice[phase] = np.mean(epoch_dice)
+        self.dice[phase].append(np.mean(epoch_dice))
 
         torch.cuda.empty_cache()
 
@@ -389,6 +389,7 @@ class TrainerClassification(object):
             for phase in self.phases
         }
         self.loss = {phase: [] for phase in self.phases}
+        self.accuracy = {phase: np.zeros(shape=(0, 4), dtype=np.float32) for phase in self.phases}
 
     def forward(self, images, masks):
         outputs = self.model(images.cuda())
@@ -399,9 +400,12 @@ class TrainerClassification(object):
         self.model.train(phase == "train")
 
         running_loss = 0.0
+        running_acc = np.zeros(4)
+
         for images, masks in self.dataloaders[phase]:
-            masks = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
-            loss, outputs = self.forward(images, masks)
+            labels = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
+            loss, outputs = self.forward(images, labels)
+
             if phase == "train":
                 self.optimizer.zero_grad()
                 loss.backward()
@@ -409,20 +413,47 @@ class TrainerClassification(object):
 
             running_loss += loss.item()
 
+            outputs = (outputs.detach().cpu() > 0.5).type(torch.float32).numpy()
+            labels = labels.numpy()
+            correct = np.equal(outputs, labels).astype(np.float32)
+            running_acc += np.sum(correct, axis=0) / labels.shape[0]
+
         epoch_loss = running_loss / len(self.dataloaders[phase])
+        epoch_acc = running_acc / len(self.dataloaders[phase])
 
         self.loss[phase].append(epoch_loss)
+        self.accuracy[phase] = np.concatenate((self.accuracy[phase], np.expand_dims(epoch_acc, axis=0)), axis=0)
 
         torch.cuda.empty_cache()
 
-        return epoch_loss
+        return epoch_loss, epoch_acc
 
     def plot_history(self):
-        fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(4, 4))
+        fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(12, 8))
         axes[0, 0].plot(self.loss['train'], '-b', label='Training')
         axes[0, 0].plot(self.loss['valid'], '-r', label='Validation')
         axes[0, 0].set_title("Loss", fontweight='bold')
         axes[0, 0].legend(loc="upper right", frameon=False)
+
+        axes[0, 1].plot(self.accuracy['train'][:, 0], '-b', label='Training')
+        axes[0, 1].plot(self.accuracy['valid'][:, 0], '-r', label='Validation')
+        axes[0, 1].set_title("Accuracy 1", fontweight='bold')
+        axes[0, 1].legend(loc="lower right", frameon=False)
+
+        axes[0, 2].plot(self.accuracy['train'][:, 1], '-b', label='Training')
+        axes[0, 2].plot(self.accuracy['valid'][:, 1], '-r', label='Validation')
+        axes[0, 2].set_title("Accuracy 2", fontweight='bold')
+        axes[0, 2].legend(loc="lower right", frameon=False)
+
+        axes[1, 0].plot(self.accuracy['train'][:, 2], '-b', label='Training')
+        axes[1, 0].plot(self.accuracy['valid'][:, 2], '-r', label='Validation')
+        axes[1, 0].set_title("Accuracy 3", fontweight='bold')
+        axes[1, 0].legend(loc="lower right", frameon=False)
+
+        axes[1, 1].plot(self.accuracy['train'][:, 3], '-b', label='Training')
+        axes[1, 1].plot(self.accuracy['valid'][:, 3], '-r', label='Validation')
+        axes[1, 1].set_title("Accuracy 4", fontweight='bold')
+        axes[1, 1].legend(loc="lower right", frameon=False)
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}_loss.pdf".format(self.model_save_name, self.fold))
@@ -446,11 +477,14 @@ class TrainerClassification(object):
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
             print("=================================================================")
 
-            train_loss = self.iterate("train")
+            train_loss, train_acc = self.iterate("train")
             with torch.no_grad():
-                valid_loss = self.iterate("valid")
+                valid_loss, valid_acc = self.iterate("valid")
 
-            print("train_loss: %0.5f, valid_loss: %0.5f" % (train_loss, valid_loss))
+            print("train_loss: %0.5f, accuracy: %0.5f, %0.5f, %0.5f, %0.5f"
+                  % (train_loss, train_acc[0], train_acc[1], train_acc[2], train_acc[3]))
+            print("valid_loss: %0.5f, accuracy: %0.5f, %0.5f, %0.5f, %0.5f"
+                  % (valid_loss, valid_acc[0], valid_acc[1], valid_acc[2], valid_acc[3]))
 
             self.scheduler.step(metrics=valid_loss)
             if valid_loss < self.best_loss:

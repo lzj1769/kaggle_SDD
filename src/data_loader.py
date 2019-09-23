@@ -17,7 +17,8 @@ train_aug = albu.Compose([
         albu.MedianBlur(blur_limit=4, p=1)
     ], p=0.5),
     albu.HorizontalFlip(p=0.5),
-    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=0,
+    albu.VerticalFlip(p=0.5),
+    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=15,
                           interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
 ])
 
