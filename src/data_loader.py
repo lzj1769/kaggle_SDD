@@ -1,8 +1,11 @@
+import os
+import cv2
+import numpy as np
 import pandas as pd
+import torch
 from torch.utils.data import Dataset, DataLoader
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
-from utils import *
 import albumentations as albu
 
 train_aug = albu.Compose([
@@ -18,7 +21,7 @@ train_aug = albu.Compose([
     ], p=0.5),
     albu.HorizontalFlip(p=0.5),
     albu.VerticalFlip(p=0.5),
-    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=15,
+    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=0,
                           interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
 ])
 
@@ -62,6 +65,7 @@ class SteelDataset(Dataset):
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
         mask = torch.from_numpy(mask).permute(2, 0, 1)
+
         return image, mask
 
     def __len__(self):

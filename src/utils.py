@@ -1,12 +1,7 @@
 import os
-import cv2
 import numpy as np
 import random
 import torch
-import matplotlib
-
-matplotlib.use("agg")
-import matplotlib.pyplot as plt
 
 
 def seed_torch(seed):
@@ -19,14 +14,19 @@ def seed_torch(seed):
     torch.backends.cudnn.deterministic = True
 
 
-def do_horizontal_flip(image):
-    image = cv2.flip(image, 1)
-    return image
+def mixup_data(x, y, alpha=0.2):
+    '''Compute the mixup data. Return mixed inputs, pairs of targets, and lambda'''
+    if alpha > 0.:
+        lam = np.random.beta(alpha, alpha)
+    else:
+        lam = 1.
+    batch_size = x.size()[0]
+    index = torch.randperm(batch_size)
 
+    mixed_x = lam * x + (1 - lam) * x[index, :]
+    y_a, y_b = y, y[index]
 
-def do_vertical_flip(image):
-    image = cv2.flip(image, 0)
-    return image
+    return mixed_x, y_a, y_b, lam
 
 
 def compute_dice(preds, truth, threshold=0.5):
@@ -52,28 +52,6 @@ def dice_single_channel(probability, truth, threshold):
         dice = (2.0 * (p * t).sum()) / (p.sum() + t.sum()).item()
 
     return dice
-
-
-def visualize(image, mask, original_image=None, original_mask=None):
-    if original_image is None and original_mask is None:
-        f, ax = plt.subplots(2, 1, figsize=(8, 8))
-
-        ax[0].imshow(image)
-        ax[1].imshow(mask)
-    else:
-        f, ax = plt.subplots(2, 2, figsize=(8, 8))
-
-        ax[0, 0].imshow(original_image)
-        ax[0, 0].set_title('Original image', fontsize=18)
-
-        ax[1, 0].imshow(original_mask)
-        ax[1, 0].set_title('Original mask', fontsize=18)
-
-        ax[0, 1].imshow(image)
-        ax[0, 1].set_title('Transformed image', fontsize=18)
-
-        ax[1, 1].imshow(mask)
-        ax[1, 1].set_title('Transformed mask', fontsize=18)
 
 
 if __name__ == '__main__':
