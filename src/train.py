@@ -24,9 +24,8 @@ def parse_args():
                         help="Number of workers for training. Default: 4")
     parser.add_argument("--batch-size", type=int, default=6,
                         help="Batch size for training. Default: 6")
-    parser.add_argument("--num-epochs", type=int, default=200,
-                        help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
+    parser.add_argument("--class", type=int, default=1)
 
     return parser.parse_args()
 

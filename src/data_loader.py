@@ -10,10 +10,9 @@ from configure import SPLIT_FOLDER, DATA_FOLDER
 import albumentations as albu
 
 train_aug_seg = albu.Compose([
-    albu.RandomCrop(height=128, width=800, p=1.0),
     albu.HorizontalFlip(p=0.5),
     albu.VerticalFlip(p=0.5),
-    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=15,
+    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=0,
                           interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
 ])
 
