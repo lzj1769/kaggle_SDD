@@ -1,8 +1,27 @@
+import os
+import cv2
+import numpy as np
 import pandas as pd
+import torch
 from torch.utils.data import Dataset, DataLoader
+from torchvision.transforms.functional import normalize
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
-from utils import *
+import albumentations as albu
+
+train_aug_seg = albu.Compose([
+    albu.HorizontalFlip(p=0.5),
+    albu.VerticalFlip(p=0.5),
+    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=0,
+                          interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
+])
+
+train_aug_cls = albu.Compose([
+    albu.HorizontalFlip(p=0.5),
+    albu.VerticalFlip(p=0.5),
+    albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=15,
+                          interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
+])
 
 
 def make_mask(row_id, df):
@@ -26,45 +45,50 @@ def make_mask(row_id, df):
     return filename, masks
 
 
-def train_aug(image, mask):
-    if np.random.rand() < 0.5:
-        image, mask = do_horizontal_flip(image), do_horizontal_flip(mask)
-
-    if np.random.rand() < 0.5:
-        image, mask = do_vertical_flip(image), do_vertical_flip(mask)
-
-    return image, mask
-
-
 class SteelDataset(Dataset):
-    def __init__(self, df, phase):
+    def __init__(self, df, phase, task):
         self.df = df
         self.data_folder = DATA_FOLDER
         self.phase = phase
+        self.task = task
         self.filenames = self.df.ImageId.values
 
     def __getitem__(self, idx):
         image_id, mask = make_mask(idx, self.df)
         image_path = os.path.join(self.data_folder, image_id)
-        image = cv2.imread(image_path) / 255.0
+        image = cv2.imread(image_path)
 
         if self.phase == "train":
-            image, mask = train_aug(image=image, mask=mask)
+            if self.task == "seg":
+                augmented = train_aug_seg(image=image, mask=mask)
+                image, mask = augmented['image'], augmented['mask']
+            elif self.task == "cls":
+                augmented = train_aug_cls(image=image, mask=mask)
+                image, mask = augmented['image'], augmented['mask']
+            else:
+                raise "unknown task: {}".format(self.task)
 
-        image, mask = img_to_tensor(image), mask_to_tensor(mask)
-        mask = mask[0].permute(2, 0, 1)  # 1x4x256x1600
+        image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
+        image = normalize(image, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        mask = torch.from_numpy(mask).permute(2, 0, 1)
+
         return image, mask
 
     def __len__(self):
         return len(self.filenames)
 
 
-def get_dataloader(phase, fold, batch_size, num_workers):
+def get_dataloader(phase, fold, train_batch_size, valid_batch_size, num_workers, task):
     df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
     df = pd.read_csv(df_path)
-    image_dataset = SteelDataset(df, phase)
+    # select the image with non-empty masks for segmentation training
+    if task == "seg":
+        df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
+
+    image_dataset = SteelDataset(df, phase, task=task)
     shuffle = True if phase == "train" else False
     drop_last = True if phase == "train" else False
+    batch_size = train_batch_size if phase == "train" else valid_batch_size
     dataloader = DataLoader(image_dataset,
                             batch_size=batch_size,
                             num_workers=num_workers,
@@ -73,12 +97,3 @@ def get_dataloader(phase, fold, batch_size, num_workers):
                             drop_last=drop_last)
 
     return dataloader
-
-
-if __name__ == '__main__':
-    dataloader = get_dataloader(phase="valid", fold=0, batch_size=1, num_workers=1)
-
-    imgs, masks = next(iter(dataloader))
-
-    print(imgs.shape)  # batch * 3 * 256 * 1600
-    print(masks.shape)  # batch * 4 * 256 * 1600

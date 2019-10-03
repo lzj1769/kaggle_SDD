@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-from sklearn.model_selection import StratifiedKFold
 from iterstrat.ml_stratifiers import MultilabelStratifiedKFold
 
 from configure import TRAIN_DF_PATH, SPLIT_FOLDER

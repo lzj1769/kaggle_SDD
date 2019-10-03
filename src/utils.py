@@ -1,12 +1,7 @@
 import os
-import cv2
 import numpy as np
 import random
 import torch
-import matplotlib
-
-matplotlib.use("agg")
-import matplotlib.pyplot as plt
 
 
 def seed_torch(seed):
@@ -19,24 +14,19 @@ def seed_torch(seed):
     torch.backends.cudnn.deterministic = True
 
 
-def do_horizontal_flip(image):
-    image = cv2.flip(image, 1)
-    return image
+def mixup_data(x, y, alpha=0.2):
+    '''Compute the mixup data. Return mixed inputs, pairs of targets, and lambda'''
+    if alpha > 0.:
+        lam = np.random.beta(alpha, alpha)
+    else:
+        lam = 1.
+    batch_size = x.size()[0]
+    index = torch.randperm(batch_size)
 
+    mixed_x = lam * x + (1 - lam) * x[index, :]
+    y_a, y_b = y, y[index]
 
-def do_vertical_flip(image):
-    image = cv2.flip(image, 0)
-    return image
-
-
-def img_to_tensor(img):
-    tensor = torch.from_numpy(np.moveaxis(img, -1, 0).astype(np.float32))
-    return tensor
-
-
-def mask_to_tensor(mask):
-    mask = np.expand_dims(mask, 0).astype(np.float32)
-    return torch.from_numpy(mask)
+    return mixed_x, y_a, y_b, lam
 
 
 def compute_dice(preds, truth, threshold=0.5):
@@ -53,33 +43,15 @@ def compute_dice(preds, truth, threshold=0.5):
     return mean_dice_channels
 
 
-def dice_single_channel(probability, truth, threshold, eps=1E-9):
+def dice_single_channel(probability, truth, threshold):
     p = (probability.view(-1) > threshold).float()
     t = (truth.view(-1) > 0.5).float()
-    dice = (2.0 * (p * t).sum() + eps) / (p.sum() + t.sum() + eps)
-    return dice
-
-
-def visualize(image, mask, original_image=None, original_mask=None):
-    if original_image is None and original_mask is None:
-        f, ax = plt.subplots(2, 1, figsize=(8, 8))
-
-        ax[0].imshow(image)
-        ax[1].imshow(mask)
+    if p.sum() == 0 and t.sum() == 0:
+        dice = 1
     else:
-        f, ax = plt.subplots(2, 2, figsize=(8, 8))
+        dice = (2.0 * (p * t).sum()) / (p.sum() + t.sum()).item()
 
-        ax[0, 0].imshow(original_image)
-        ax[0, 0].set_title('Original image', fontsize=18)
-
-        ax[1, 0].imshow(original_mask)
-        ax[1, 0].set_title('Original mask', fontsize=18)
-
-        ax[0, 1].imshow(image)
-        ax[0, 1].set_title('Transformed image', fontsize=18)
-
-        ax[1, 1].imshow(mask)
-        ax[1, 1].set_title('Transformed mask', fontsize=18)
+    return dice
 
 
 if __name__ == '__main__':

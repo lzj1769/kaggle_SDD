@@ -1,441 +1,963 @@
 Training on 10055 images, class 1: 718, class 2: 198, class 3: 4120, class 4: 640
 Validate on 2513 images, class 1: 179, class 2: 49, class 3: 1030, class 4: 161
-Epoch: 1/200 |  time : 09/11/19-00:21:17
-Learning rate: 0.01000000
+Epoch: 1/200 |  time : 10/02/19-15:37:11
 =================================================================
-train_loss: 0.07283825, train_bce_loss: 0.02882401, train_dice_loss: 0.46896640
-valid_loss: 0.04532215, valid_bce_loss: 0.02288594, valid_dice_loss: 0.24724810
-******** Validation loss improved from inf to 0.04532215 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.92929293, 0.34343434 ********
-******** Best dices:           0.92885533, 0.98052464, 0.68721727, 0.95620155 ********
-******** Mean dice:            0.88819970
+loss: 0.08874, bce_loss: 0.05044, dice_loss: 0.43344, dice: 0.94798, 0.97857, 0.67933, 0.94114, mean dice: 0.88676
+loss: 0.06103, bce_loss: 0.03534, dice_loss: 0.29218, dice: 0.92886, 0.98052, 0.43063, 0.93601, mean dice: 0.81900
+******** Validation dice improved from 0.00000000 to 0.81900465 ********
 
-Epoch: 2/200 |  time : 09/11/19-01:29:09
-Learning rate: 0.01000000
+Epoch: 2/200 |  time : 10/02/19-15:44:50
 =================================================================
-train_loss: 0.04643015, train_bce_loss: 0.02294791, train_dice_loss: 0.25777027
-valid_loss: 0.03715818, valid_bce_loss: 0.01816283, valid_dice_loss: 0.20811629
-******** Validation loss improved from 0.04532215 to 0.03715818 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.91919192, 0.44444444 ********
-******** Best dices:           0.92885533, 0.98052464, 0.71141080, 0.97024247 ********
-******** Mean dice:            0.89775831
+loss: 0.05180, bce_loss: 0.02997, dice_loss: 0.24829, dice: 0.95853, 0.99003, 0.70110, 0.95714, mean dice: 0.90170
+loss: 0.04979, bce_loss: 0.02111, dice_loss: 0.30793, dice: 0.92886, 0.98052, 0.61409, 0.93601, mean dice: 0.86487
+******** Validation dice improved from 0.81900465 to 0.86486995 ********
 
-Epoch: 3/200 |  time : 09/11/19-02:37:05
-Learning rate: 0.00998474
+Epoch: 3/200 |  time : 10/02/19-15:52:28
 =================================================================
-train_loss: 0.03795491, train_bce_loss: 0.02272434, train_dice_loss: 0.17503006
-valid_loss: 0.02825534, valid_bce_loss: 0.01926496, valid_dice_loss: 0.10916879
-******** Validation loss improved from 0.03715818 to 0.02825534 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.36363636, 0.30303030 ********
-******** Best dices:           0.92885533, 0.98052464, 0.77218499, 0.97659665 ********
-******** Mean dice:            0.91454040
+loss: 0.04158, bce_loss: 0.02740, dice_loss: 0.16920, dice: 0.95943, 0.98953, 0.74028, 0.95194, mean dice: 0.91029
+loss: 0.04003, bce_loss: 0.02126, dice_loss: 0.20900, dice: 0.92886, 0.98052, 0.67792, 0.91955, mean dice: 0.87671
+******** Validation dice improved from 0.86486995 to 0.87671220 ********
 
-Epoch: 4/200 |  time : 09/11/19-03:44:55
-Learning rate: 0.00993906
+Epoch: 4/200 |  time : 10/02/19-16:00:07
 =================================================================
-train_loss: 0.03343186, train_bce_loss: 0.02154673, train_dice_loss: 0.14039810
-valid_loss: 0.02792166, valid_bce_loss: 0.01936833, valid_dice_loss: 0.10490165
-******** Validation loss improved from 0.02825534 to 0.02792166 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.36363636, 0.69696970 ********
-******** Best dices:           0.92885533, 0.98052464, 0.77900972, 0.97612601 ********
-******** Mean dice:            0.91612893
+loss: 0.03536, bce_loss: 0.02412, dice_loss: 0.13658, dice: 0.95903, 0.99133, 0.76079, 0.95461, mean dice: 0.91644
+loss: 0.03574, bce_loss: 0.01903, dice_loss: 0.18605, dice: 0.92886, 0.98052, 0.66044, 0.95134, mean dice: 0.88029
+******** Validation dice improved from 0.87671220 to 0.88029069 ********
 
-Epoch: 5/200 |  time : 09/11/19-04:52:14
-Learning rate: 0.00986323
+Epoch: 5/200 |  time : 10/02/19-16:07:45
 =================================================================
-train_loss: 0.03323040, train_bce_loss: 0.02126170, train_dice_loss: 0.14094878
-valid_loss: 0.02634011, valid_bce_loss: 0.01788260, valid_dice_loss: 0.10245769
-******** Validation loss improved from 0.02792166 to 0.02634011 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.38383838, 0.43434343 ********
-******** Best dices:           0.92885533, 0.98052464, 0.78478015, 0.97294805 ********
-******** Mean dice:            0.91677704
+loss: 0.03167, bce_loss: 0.02213, dice_loss: 0.11746, dice: 0.96083, 0.98973, 0.78492, 0.95892, mean dice: 0.92360
+loss: 0.03368, bce_loss: 0.01819, dice_loss: 0.17306, dice: 0.92886, 0.98052, 0.69184, 0.95697, mean dice: 0.88955
+******** Validation dice improved from 0.88029069 to 0.88954711 ********
 
-Epoch: 6/200 |  time : 09/11/19-05:59:47
-Learning rate: 0.00975773
+Epoch: 6/200 |  time : 10/02/19-16:15:22
 =================================================================
-train_loss: 0.02950923, train_bce_loss: 0.01913667, train_dice_loss: 0.12286227
-valid_loss: 0.02607812, valid_bce_loss: 0.01797296, valid_dice_loss: 0.09902448
-******** Validation loss improved from 0.02634011 to 0.02607812 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.43434343, 0.77777778 ********
-******** Best dices:           0.92885533, 0.98052464, 0.80188282, 0.96773513 ********
-******** Mean dice:            0.91974948
+loss: 0.03003, bce_loss: 0.02096, dice_loss: 0.11163, dice: 0.96073, 0.99033, 0.78968, 0.95952, mean dice: 0.92506
+loss: 0.02953, bce_loss: 0.01879, dice_loss: 0.12615, dice: 0.92886, 0.98052, 0.75742, 0.96804, mean dice: 0.90871
+******** Validation dice improved from 0.88954711 to 0.90871078 ********
 
-Epoch: 7/200 |  time : 09/11/19-07:06:55
-Learning rate: 0.00962320
+Epoch: 7/200 |  time : 10/02/19-16:23:02
 =================================================================
-train_loss: 0.02725869, train_bce_loss: 0.01777078, train_dice_loss: 0.11264985
-valid_loss: 0.02539826, valid_bce_loss: 0.01811450, valid_dice_loss: 0.09095211
-******** Validation loss improved from 0.02607812 to 0.02539826 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.43434343, 0.23232323 ********
-******** Best dices:           0.92885533, 0.98052464, 0.80702809, 0.97438152 ********
-******** Mean dice:            0.92269739
+loss: 0.02901, bce_loss: 0.02033, dice_loss: 0.10719, dice: 0.95684, 0.98953, 0.79257, 0.96382, mean dice: 0.92569
+loss: 0.02894, bce_loss: 0.01859, dice_loss: 0.12206, dice: 0.92886, 0.98052, 0.75484, 0.96402, mean dice: 0.90706
 
-Epoch: 8/200 |  time : 09/11/19-08:14:11
-Learning rate: 0.00946048
+Epoch: 8/200 |  time : 10/02/19-16:30:44
 =================================================================
-train_loss: 0.02615340, train_bce_loss: 0.01702636, train_dice_loss: 0.10829672
-valid_loss: 0.02535860, valid_bce_loss: 0.01846058, valid_dice_loss: 0.08744079
-******** Validation loss improved from 0.02539826 to 0.02535860 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.21212121, 0.41414141 ********
-******** Best dices:           0.92885533, 0.98052464, 0.82000260, 0.97377121 ********
-******** Mean dice:            0.92578844
+loss: 0.02741, bce_loss: 0.01932, dice_loss: 0.10026, dice: 0.96102, 0.99113, 0.79780, 0.96521, mean dice: 0.92879
+loss: 0.02906, bce_loss: 0.01808, dice_loss: 0.12784, dice: 0.92886, 0.98052, 0.76769, 0.96070, mean dice: 0.90944
+******** Validation dice improved from 0.90871078 to 0.90944272 ********
 
-Epoch: 9/200 |  time : 09/11/19-09:17:40
-Learning rate: 0.00927057
+Epoch: 9/200 |  time : 10/02/19-16:38:24
 =================================================================
-train_loss: 0.02463154, train_bce_loss: 0.01626231, train_dice_loss: 0.09995464
-valid_loss: 0.02487680, valid_bce_loss: 0.01718672, valid_dice_loss: 0.09408748
-******** Validation loss improved from 0.02535860 to 0.02487680 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.61616162, 0.71717172 ********
-******** Best dices:           0.92885533, 0.98052464, 0.80336456, 0.97707504 ********
-******** Mean dice:            0.92245489
+loss: 0.02746, bce_loss: 0.01932, dice_loss: 0.10063, dice: 0.95903, 0.98953, 0.80353, 0.96380, mean dice: 0.92897
+loss: 0.03138, bce_loss: 0.02197, dice_loss: 0.11608, dice: 0.92886, 0.98052, 0.77770, 0.95065, mean dice: 0.90943
 
-Epoch: 10/200 |  time : 09/11/19-10:23:26
-Learning rate: 0.00905463
+Epoch: 10/200 |  time : 10/02/19-16:46:03
 =================================================================
-train_loss: 0.02520457, train_bce_loss: 0.01655558, train_dice_loss: 0.10304553
-valid_loss: 0.02866593, valid_bce_loss: 0.02173759, valid_dice_loss: 0.09102095
+loss: 0.02708, bce_loss: 0.01919, dice_loss: 0.09811, dice: 0.96073, 0.99003, 0.81293, 0.96435, mean dice: 0.93201
+loss: 0.02694, bce_loss: 0.01661, dice_loss: 0.11995, dice: 0.92886, 0.98052, 0.77346, 0.97062, mean dice: 0.91337
+******** Validation dice improved from 0.90944272 to 0.91336542 ********
 
-Epoch: 11/200 |  time : 09/11/19-10:48:56
-Learning rate: 0.00881401
+Epoch: 11/200 |  time : 10/02/19-16:53:44
 =================================================================
-train_loss: 0.02585516, train_bce_loss: 0.01707655, train_dice_loss: 0.10486261
-valid_loss: 0.02355904, valid_bce_loss: 0.01602082, valid_dice_loss: 0.09140301
-******** Validation loss improved from 0.02487680 to 0.02355904 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.43434343, 0.13131313 ********
-******** Best dices:           0.92885533, 0.98052464, 0.81475348, 0.97826318 ********
-******** Mean dice:            0.92559916
+loss: 0.02630, bce_loss: 0.01866, dice_loss: 0.09509, dice: 0.95903, 0.98993, 0.80951, 0.96971, mean dice: 0.93205
+loss: 0.03069, bce_loss: 0.01672, dice_loss: 0.15646, dice: 0.92886, 0.98052, 0.72723, 0.96719, mean dice: 0.90095
 
-Epoch: 12/200 |  time : 09/11/19-11:55:21
-Learning rate: 0.00855018
+Epoch: 12/200 |  time : 10/02/19-17:01:19
 =================================================================
-train_loss: 0.02367230, train_bce_loss: 0.01545094, train_dice_loss: 0.09766457
-valid_loss: 0.02243514, valid_bce_loss: 0.01422588, valid_dice_loss: 0.09631855
-******** Validation loss improved from 0.02355904 to 0.02243514 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.38383838, 0.54545455 ********
-******** Best dices:           0.92885533, 0.98052464, 0.80838922, 0.97898263 ********
-******** Mean dice:            0.92418795
+loss: 0.02545, bce_loss: 0.01803, dice_loss: 0.09219, dice: 0.95893, 0.98933, 0.81659, 0.96885, mean dice: 0.93343
+loss: 0.02723, bce_loss: 0.01810, dice_loss: 0.10939, dice: 0.92886, 0.98052, 0.78467, 0.97228, mean dice: 0.91658
+******** Validation dice improved from 0.91336542 to 0.91658390 ********
 
-Epoch: 13/200 |  time : 09/11/19-13:01:23
-Learning rate: 0.00826477
+Epoch: 13/200 |  time : 10/02/19-17:08:55
 =================================================================
-train_loss: 0.02366375, train_bce_loss: 0.01546223, train_dice_loss: 0.09747741
-valid_loss: 0.02313237, valid_bce_loss: 0.01496379, valid_dice_loss: 0.09664951
+loss: 0.02678, bce_loss: 0.01887, dice_loss: 0.09793, dice: 0.95933, 0.99043, 0.81478, 0.96325, mean dice: 0.93195
+loss: 0.03139, bce_loss: 0.02137, dice_loss: 0.12161, dice: 0.92886, 0.98052, 0.76654, 0.93804, mean dice: 0.90349
 
-Epoch: 14/200 |  time : 09/11/19-13:26:47
-Learning rate: 0.00795954
+Epoch: 14/200 |  time : 10/02/19-17:16:31
 =================================================================
-train_loss: 0.02314444, train_bce_loss: 0.01517941, train_dice_loss: 0.09482969
-valid_loss: 0.02744536, valid_bce_loss: 0.01815362, valid_dice_loss: 0.11107105
+loss: 0.02669, bce_loss: 0.01885, dice_loss: 0.09724, dice: 0.95843, 0.99103, 0.81560, 0.96097, mean dice: 0.93151
+loss: 0.02739, bce_loss: 0.01827, dice_loss: 0.10949, dice: 0.92886, 0.98052, 0.77614, 0.96318, mean dice: 0.91218
 
-Epoch: 15/200 |  time : 09/11/19-13:52:12
-Learning rate: 0.00763637
+Epoch: 15/200 |  time : 10/02/19-17:24:08
 =================================================================
-train_loss: 0.02393888, train_bce_loss: 0.01556261, train_dice_loss: 0.09932529
-valid_loss: 0.02239692, valid_bce_loss: 0.01495828, valid_dice_loss: 0.08934468
-******** Validation loss improved from 0.02243514 to 0.02239692 ********
-******** Optimized thresholds: 0.01010101, 0.01010101, 0.36363636, 0.65656566 ********
-******** Best dices:           0.94089261, 0.98052464, 0.80724707, 0.97754592 ********
-******** Mean dice:            0.92655256
+loss: 0.02497, bce_loss: 0.01772, dice_loss: 0.09013, dice: 0.95843, 0.99113, 0.82009, 0.97018, mean dice: 0.93496
+loss: 0.02841, bce_loss: 0.02044, dice_loss: 0.10013, dice: 0.92886, 0.98052, 0.79119, 0.96784, mean dice: 0.91710
+******** Validation dice improved from 0.91658390 to 0.91710246 ********
 
-Epoch: 16/200 |  time : 09/11/19-15:00:04
-Learning rate: 0.00729725
+Epoch: 16/200 |  time : 10/02/19-17:31:46
 =================================================================
-train_loss: 0.02194480, train_bce_loss: 0.01434908, train_dice_loss: 0.09030629
-valid_loss: 0.02182590, valid_bce_loss: 0.01504703, valid_dice_loss: 0.08283581
-******** Validation loss improved from 0.02239692 to 0.02182590 ********
-******** Optimized thresholds: 0.12121212, 0.01010101, 0.23232323, 0.77777778 ********
-******** Best dices:           0.94709591, 0.98052464, 0.82134697, 0.97823935 ********
-******** Mean dice:            0.93180172
+loss: 0.02385, bce_loss: 0.01716, dice_loss: 0.08402, dice: 0.96003, 0.99103, 0.82869, 0.97279, mean dice: 0.93814
+loss: 0.02568, bce_loss: 0.01658, dice_loss: 0.10757, dice: 0.92886, 0.98052, 0.77759, 0.97466, mean dice: 0.91541
 
-Epoch: 17/200 |  time : 09/11/19-16:06:23
-Learning rate: 0.00694428
+Epoch: 17/200 |  time : 10/02/19-17:39:23
 =================================================================
-train_loss: 0.02116443, train_bce_loss: 0.01368386, train_dice_loss: 0.08848951
-valid_loss: 0.02169795, valid_bce_loss: 0.01517296, valid_dice_loss: 0.08042287
-******** Validation loss improved from 0.02182590 to 0.02169795 ********
-******** Optimized thresholds: 0.32323232, 0.01010101, 0.56565657, 0.38383838 ********
-******** Best dices:           0.95092568, 0.98052464, 0.82000256, 0.97821471 ********
-******** Mean dice:            0.93241690
+loss: 0.02385, bce_loss: 0.01684, dice_loss: 0.08694, dice: 0.95943, 0.99023, 0.82120, 0.97271, mean dice: 0.93589
+loss: 0.02469, bce_loss: 0.01596, dice_loss: 0.10328, dice: 0.92886, 0.98052, 0.79691, 0.97569, mean dice: 0.92049
+******** Validation dice improved from 0.91710246 to 0.92049491 ********
 
-Epoch: 18/200 |  time : 09/11/19-17:14:24
-Learning rate: 0.00657963
+Epoch: 18/200 |  time : 10/02/19-17:47:01
 =================================================================
-train_loss: 0.02198199, train_bce_loss: 0.01428900, train_dice_loss: 0.09121895
-valid_loss: 0.02142142, valid_bce_loss: 0.01469444, valid_dice_loss: 0.08196425
-******** Validation loss improved from 0.02169795 to 0.02142142 ********
-******** Optimized thresholds: 0.36363636, 0.01010101, 0.57575758, 0.45454545 ********
-******** Best dices:           0.94865187, 0.98052464, 0.81727118, 0.97777810 ********
-******** Mean dice:            0.93105645
+loss: 0.02360, bce_loss: 0.01670, dice_loss: 0.08569, dice: 0.95823, 0.99073, 0.82391, 0.97156, mean dice: 0.93611
+loss: 0.02588, bce_loss: 0.01718, dice_loss: 0.10420, dice: 0.92886, 0.98052, 0.79648, 0.96538, mean dice: 0.91781
 
-Epoch: 19/200 |  time : 09/11/19-18:21:44
-Learning rate: 0.00620555
+Epoch: 19/200 |  time : 10/02/19-17:54:39
 =================================================================
-train_loss: 0.01984498, train_bce_loss: 0.01300812, train_dice_loss: 0.08137671
-valid_loss: 0.02180122, valid_bce_loss: 0.01556568, valid_dice_loss: 0.07792105
+loss: 0.02355, bce_loss: 0.01655, dice_loss: 0.08655, dice: 0.95983, 0.98814, 0.82612, 0.97169, mean dice: 0.93644
+loss: 0.02587, bce_loss: 0.01677, dice_loss: 0.10780, dice: 0.92886, 0.98052, 0.79064, 0.97376, mean dice: 0.91845
 
-Epoch: 20/200 |  time : 09/11/19-18:47:09
-Learning rate: 0.00582435
+Epoch: 20/200 |  time : 10/02/19-18:02:18
 =================================================================
-train_loss: 0.02021429, train_bce_loss: 0.01315878, train_dice_loss: 0.08371383
-valid_loss: 0.02588155, valid_bce_loss: 0.01883085, valid_dice_loss: 0.08933785
+loss: 0.02448, bce_loss: 0.01705, dice_loss: 0.09134, dice: 0.96033, 0.98914, 0.82013, 0.96458, mean dice: 0.93354
+loss: 0.02553, bce_loss: 0.01570, dice_loss: 0.11407, dice: 0.92886, 0.98052, 0.76610, 0.97472, mean dice: 0.91255
 
-Epoch: 21/200 |  time : 09/11/19-19:12:34
-Learning rate: 0.00543837
+Epoch: 21/200 |  time : 10/02/19-18:09:58
 =================================================================
-train_loss: 0.01910059, train_bce_loss: 0.01247369, train_dice_loss: 0.07874272
-valid_loss: 0.02034334, valid_bce_loss: 0.01446131, valid_dice_loss: 0.07328161
-******** Validation loss improved from 0.02142142 to 0.02034334 ********
-******** Optimized thresholds: 0.93939394, 0.01010101, 0.44444444, 0.34343434 ********
-******** Best dices:           0.95278708, 0.98052464, 0.83555691, 0.98171613 ********
-******** Mean dice:            0.93764619
+loss: 0.02447, bce_loss: 0.01736, dice_loss: 0.08847, dice: 0.96063, 0.99053, 0.81716, 0.97225, mean dice: 0.93514
+loss: 0.02705, bce_loss: 0.01894, dice_loss: 0.10010, dice: 0.92886, 0.98052, 0.78984, 0.97145, mean dice: 0.91767
 
-Epoch: 22/200 |  time : 09/11/19-20:20:25
-Learning rate: 0.00505000
+Epoch: 22/200 |  time : 10/02/19-18:17:37
 =================================================================
-train_loss: 0.01919703, train_bce_loss: 0.01256832, train_dice_loss: 0.07885547
-valid_loss: 0.02117044, valid_bce_loss: 0.01504636, valid_dice_loss: 0.07628718
+loss: 0.02269, bce_loss: 0.01625, dice_loss: 0.08070, dice: 0.96093, 0.99013, 0.83487, 0.97251, mean dice: 0.93961
+loss: 0.02552, bce_loss: 0.01583, dice_loss: 0.11275, dice: 0.92886, 0.98052, 0.79304, 0.96745, mean dice: 0.91747
 
-Epoch: 23/200 |  time : 09/11/19-20:45:50
-Learning rate: 0.00466163
+Epoch: 23/200 |  time : 10/02/19-18:25:18
 =================================================================
-train_loss: 0.01855486, train_bce_loss: 0.01201893, train_dice_loss: 0.07737820
-valid_loss: 0.01988803, valid_bce_loss: 0.01423691, valid_dice_loss: 0.07074812
-******** Validation loss improved from 0.02034334 to 0.01988803 ********
-******** Optimized thresholds: 0.64646465, 0.01010101, 0.28282828, 0.41414141 ********
-******** Best dices:           0.95625812, 0.98052464, 0.83602910, 0.98102145 ********
-******** Mean dice:            0.93845833
+loss: 0.02265, bce_loss: 0.01594, dice_loss: 0.08304, dice: 0.96132, 0.99063, 0.82802, 0.97418, mean dice: 0.93854
+loss: 0.02561, bce_loss: 0.01685, dice_loss: 0.10438, dice: 0.92886, 0.98052, 0.78487, 0.97014, mean dice: 0.91610
 
-Epoch: 24/200 |  time : 09/11/19-21:53:00
-Learning rate: 0.00427565
+Epoch: 24/200 |  time : 10/02/19-18:32:57
 =================================================================
-train_loss: 0.01768384, train_bce_loss: 0.01154329, train_dice_loss: 0.07294881
-valid_loss: 0.01916424, valid_bce_loss: 0.01337079, valid_dice_loss: 0.07130525
-******** Validation loss improved from 0.01988803 to 0.01916424 ********
-******** Optimized thresholds: 0.52525253, 0.01010101, 0.39393939, 0.22222222 ********
-******** Best dices:           0.95652156, 0.98052464, 0.83782769, 0.98187512 ********
-******** Mean dice:            0.93918725
+loss: 0.02241, bce_loss: 0.01585, dice_loss: 0.08148, dice: 0.96023, 0.99133, 0.83155, 0.97364, mean dice: 0.93919
+loss: 0.02732, bce_loss: 0.01813, dice_loss: 0.11005, dice: 0.92886, 0.98052, 0.77903, 0.96497, mean dice: 0.91334
 
-Epoch: 25/200 |  time : 09/11/19-22:57:15
-Learning rate: 0.00389445
+Epoch: 25/200 |  time : 10/02/19-18:40:37
 =================================================================
-train_loss: 0.01757316, train_bce_loss: 0.01145947, train_dice_loss: 0.07259635
-valid_loss: 0.02076896, valid_bce_loss: 0.01431867, valid_dice_loss: 0.07882162
+loss: 0.02215, bce_loss: 0.01579, dice_loss: 0.07942, dice: 0.96003, 0.99053, 0.82961, 0.97470, mean dice: 0.93872
+loss: 0.02419, bce_loss: 0.01483, dice_loss: 0.10843, dice: 0.92886, 0.98052, 0.79257, 0.97198, mean dice: 0.91848
 
-Epoch: 26/200 |  time : 09/11/19-23:22:40
-Learning rate: 0.00352037
+Epoch: 26/200 |  time : 10/02/19-18:48:16
 =================================================================
-train_loss: 0.01778348, train_bce_loss: 0.01151387, train_dice_loss: 0.07421005
-valid_loss: 0.02096107, valid_bce_loss: 0.01367861, valid_dice_loss: 0.08650326
+loss: 0.02261, bce_loss: 0.01597, dice_loss: 0.08233, dice: 0.95923, 0.99003, 0.83307, 0.97426, mean dice: 0.93915
+loss: 0.02428, bce_loss: 0.01493, dice_loss: 0.10841, dice: 0.92886, 0.98052, 0.80491, 0.97377, mean dice: 0.92201
+******** Validation dice improved from 0.92049491 to 0.92201406 ********
 
-Epoch: 27/200 |  time : 09/11/19-23:48:12
-Learning rate: 0.00315572
+Epoch: 27/200 |  time : 10/02/19-18:55:53
 =================================================================
-train_loss: 0.01727574, train_bce_loss: 0.01119082, train_dice_loss: 0.07203999
-valid_loss: 0.01896249, valid_bce_loss: 0.01297718, valid_dice_loss: 0.07283027
-******** Validation loss improved from 0.01916424 to 0.01896249 ********
-******** Optimized thresholds: 0.12121212, 0.01010101, 0.36363636, 0.29292929 ********
-******** Best dices:           0.95526338, 0.98052464, 0.83406479, 0.98126678 ********
-******** Mean dice:            0.93777990
+loss: 0.02222, bce_loss: 0.01573, dice_loss: 0.08061, dice: 0.96073, 0.98914, 0.83670, 0.97406, mean dice: 0.94015
+loss: 0.02523, bce_loss: 0.01653, dice_loss: 0.10355, dice: 0.92886, 0.98052, 0.80186, 0.97092, mean dice: 0.92054
 
-Epoch: 28/200 |  time : 09/12/19-00:54:33
-Learning rate: 0.00280275
+Epoch: 28/200 |  time : 10/02/19-19:03:31
 =================================================================
-train_loss: 0.01699109, train_bce_loss: 0.01088970, train_dice_loss: 0.07190365
-valid_loss: 0.01941218, valid_bce_loss: 0.01371654, valid_dice_loss: 0.07067289
+loss: 0.02292, bce_loss: 0.01616, dice_loss: 0.08378, dice: 0.96003, 0.99073, 0.82739, 0.97194, mean dice: 0.93752
+loss: 0.02543, bce_loss: 0.01663, dice_loss: 0.10466, dice: 0.92886, 0.98052, 0.80247, 0.97487, mean dice: 0.92168
 
-Epoch: 29/200 |  time : 09/12/19-01:19:58
-Learning rate: 0.00246363
+Epoch: 29/200 |  time : 10/02/19-19:11:08
 =================================================================
-train_loss: 0.01618395, train_bce_loss: 0.01048405, train_dice_loss: 0.06748305
-valid_loss: 0.01958257, valid_bce_loss: 0.01358594, valid_dice_loss: 0.07355218
+loss: 0.02162, bce_loss: 0.01538, dice_loss: 0.07778, dice: 0.96083, 0.99153, 0.83504, 0.97492, mean dice: 0.94058
+loss: 0.02445, bce_loss: 0.01551, dice_loss: 0.10488, dice: 0.92886, 0.98052, 0.81300, 0.97288, mean dice: 0.92382
+******** Validation dice improved from 0.92201406 to 0.92381531 ********
 
-Epoch: 30/200 |  time : 09/12/19-01:45:31
-Learning rate: 0.00214046
+Epoch: 30/200 |  time : 10/02/19-19:18:47
 =================================================================
-train_loss: 0.01538828, train_bce_loss: 0.00997707, train_dice_loss: 0.06408915
-valid_loss: 0.01795819, valid_bce_loss: 0.01243146, valid_dice_loss: 0.06769875
-******** Validation loss improved from 0.01896249 to 0.01795819 ********
-******** Optimized thresholds: 0.20202020, 0.01010101, 0.42424242, 0.34343434 ********
-******** Best dices:           0.96025808, 0.98052464, 0.84426717, 0.98195955 ********
-******** Mean dice:            0.94175236
+loss: 0.02224, bce_loss: 0.01574, dice_loss: 0.08073, dice: 0.96033, 0.98993, 0.83386, 0.97290, mean dice: 0.93926
+loss: 0.02458, bce_loss: 0.01570, dice_loss: 0.10453, dice: 0.92886, 0.98052, 0.80001, 0.96664, mean dice: 0.91901
 
-Epoch: 31/200 |  time : 09/12/19-02:51:30
-Learning rate: 0.00183523
+Epoch: 31/200 |  time : 10/02/19-19:26:25
 =================================================================
-train_loss: 0.01550893, train_bce_loss: 0.01008183, train_dice_loss: 0.06435283
-valid_loss: 0.01811508, valid_bce_loss: 0.01238804, valid_dice_loss: 0.06965850
+loss: 0.02192, bce_loss: 0.01532, dice_loss: 0.08131, dice: 0.95694, 0.99063, 0.83450, 0.97217, mean dice: 0.93856
+loss: 0.02459, bce_loss: 0.01617, dice_loss: 0.10032, dice: 0.92886, 0.98052, 0.80490, 0.96265, mean dice: 0.91923
 
-Epoch: 32/200 |  time : 09/12/19-03:16:53
-Learning rate: 0.00154982
+Epoch: 32/200 |  time : 10/02/19-19:34:03
 =================================================================
-train_loss: 0.01544964, train_bce_loss: 0.00993033, train_dice_loss: 0.06512344
-valid_loss: 0.01919396, valid_bce_loss: 0.01294361, valid_dice_loss: 0.07544709
+loss: 0.02191, bce_loss: 0.01536, dice_loss: 0.08078, dice: 0.95803, 0.99063, 0.83597, 0.97484, mean dice: 0.93987
+loss: 0.02421, bce_loss: 0.01618, dice_loss: 0.09649, dice: 0.92886, 0.98052, 0.81069, 0.97426, mean dice: 0.92358
 
-Epoch: 33/200 |  time : 09/12/19-03:42:18
-Learning rate: 0.00128599
+Epoch: 33/200 |  time : 10/02/19-19:41:42
 =================================================================
-train_loss: 0.01505243, train_bce_loss: 0.00965786, train_dice_loss: 0.06360362
-valid_loss: 0.01912834, valid_bce_loss: 0.01370299, valid_dice_loss: 0.06795648
+loss: 0.02084, bce_loss: 0.01449, dice_loss: 0.07793, dice: 0.96103, 0.99103, 0.83801, 0.97609, mean dice: 0.94154
+loss: 0.02341, bce_loss: 0.01524, dice_loss: 0.09694, dice: 0.92886, 0.98052, 0.81741, 0.97194, mean dice: 0.92468
+******** Validation dice improved from 0.92381531 to 0.92468137 ********
 
-Epoch: 34/200 |  time : 09/12/19-04:07:44
-Learning rate: 0.00104537
+Epoch: 34/200 |  time : 10/02/19-19:49:19
 =================================================================
-train_loss: 0.01456376, train_bce_loss: 0.00935855, train_dice_loss: 0.06141068
-valid_loss: 0.01783982, valid_bce_loss: 0.01230905, valid_dice_loss: 0.06761674
-******** Validation loss improved from 0.01795819 to 0.01783982 ********
-******** Optimized thresholds: 0.09090909, 0.01010101, 0.39393939, 0.33333333 ********
-******** Best dices:           0.96073549, 0.98052464, 0.84224847, 0.98040907 ********
-******** Mean dice:            0.94097942
+loss: 0.02097, bce_loss: 0.01468, dice_loss: 0.07755, dice: 0.95933, 0.99043, 0.84044, 0.97619, mean dice: 0.94160
+loss: 0.02353, bce_loss: 0.01411, dice_loss: 0.10837, dice: 0.92886, 0.98052, 0.79644, 0.97310, mean dice: 0.91973
 
-Epoch: 35/200 |  time : 09/12/19-05:15:41
-Learning rate: 0.00082943
+Epoch: 35/200 |  time : 10/02/19-19:56:58
 =================================================================
-train_loss: 0.01438703, train_bce_loss: 0.00929560, train_dice_loss: 0.06020990
-valid_loss: 0.01805735, valid_bce_loss: 0.01272060, valid_dice_loss: 0.06608810
+loss: 0.02047, bce_loss: 0.01430, dice_loss: 0.07597, dice: 0.95784, 0.99043, 0.84446, 0.97745, mean dice: 0.94255
+loss: 0.02431, bce_loss: 0.01543, dice_loss: 0.10426, dice: 0.92886, 0.98052, 0.80239, 0.97484, mean dice: 0.92165
 
-Epoch: 36/200 |  time : 09/12/19-05:41:06
-Learning rate: 0.00063952
+Epoch: 36/200 |  time : 10/02/19-20:04:39
 =================================================================
-train_loss: 0.01412164, train_bce_loss: 0.00912437, train_dice_loss: 0.05909708
-valid_loss: 0.01751062, valid_bce_loss: 0.01227182, valid_dice_loss: 0.06465982
-******** Validation loss improved from 0.01783982 to 0.01751062 ********
-******** Optimized thresholds: 0.56565657, 0.01010101, 0.37373737, 0.26262626 ********
-******** Best dices:           0.96174753, 0.98052464, 0.85189980, 0.98159401 ********
-******** Mean dice:            0.94394150
+loss: 0.02055, bce_loss: 0.01444, dice_loss: 0.07551, dice: 0.95803, 0.98953, 0.84074, 0.97713, mean dice: 0.94136
+loss: 0.02492, bce_loss: 0.01648, dice_loss: 0.10089, dice: 0.92886, 0.98052, 0.80438, 0.96716, mean dice: 0.92023
 
-Epoch: 37/200 |  time : 09/12/19-06:48:54
-Learning rate: 0.00047680
+Epoch: 37/200 |  time : 10/02/19-20:12:20
 =================================================================
-train_loss: 0.01410408, train_bce_loss: 0.00912985, train_dice_loss: 0.05887218
-valid_loss: 0.01785015, valid_bce_loss: 0.01261729, valid_dice_loss: 0.06494596
+loss: 0.01980, bce_loss: 0.01366, dice_loss: 0.07506, dice: 0.95934, 0.98983, 0.84344, 0.97698, mean dice: 0.94240
+loss: 0.02384, bce_loss: 0.01512, dice_loss: 0.10230, dice: 0.92886, 0.98052, 0.79555, 0.97234, mean dice: 0.91932
 
-Epoch: 38/200 |  time : 09/12/19-07:14:18
-Learning rate: 0.00034227
+Epoch: 38/200 |  time : 10/02/19-20:19:59
 =================================================================
-train_loss: 0.01392929, train_bce_loss: 0.00897905, train_dice_loss: 0.05848142
-valid_loss: 0.01829541, valid_bce_loss: 0.01297156, valid_dice_loss: 0.06621006
+loss: 0.02029, bce_loss: 0.01396, dice_loss: 0.07723, dice: 0.96120, 0.99063, 0.83811, 0.97671, mean dice: 0.94166
+loss: 0.02522, bce_loss: 0.01464, dice_loss: 0.12044, dice: 0.93691, 0.98052, 0.75363, 0.97559, mean dice: 0.91167
 
-Epoch: 39/200 |  time : 09/12/19-07:39:43
-Learning rate: 0.00023677
+Epoch: 39/200 |  time : 10/02/19-20:27:41
 =================================================================
-train_loss: 0.01370414, train_bce_loss: 0.00887205, train_dice_loss: 0.05719290
-valid_loss: 0.01794569, valid_bce_loss: 0.01272793, valid_dice_loss: 0.06490560
+loss: 0.02045, bce_loss: 0.01413, dice_loss: 0.07734, dice: 0.96173, 0.99033, 0.83961, 0.97848, mean dice: 0.94254
+loss: 0.02379, bce_loss: 0.01701, dice_loss: 0.08490, dice: 0.94415, 0.98052, 0.81787, 0.97451, mean dice: 0.92926
+******** Validation dice improved from 0.92468137 to 0.92926216 ********
 
-Epoch: 40/200 |  time : 09/12/19-08:05:09
-Learning rate: 0.00016094
+Epoch: 40/200 |  time : 10/02/19-20:35:19
 =================================================================
-train_loss: 0.01379044, train_bce_loss: 0.00889800, train_dice_loss: 0.05782248
-valid_loss: 0.01779590, valid_bce_loss: 0.01257062, valid_dice_loss: 0.06482345
+loss: 0.02017, bce_loss: 0.01422, dice_loss: 0.07378, dice: 0.96303, 0.99023, 0.84692, 0.97597, mean dice: 0.94404
+loss: 0.02426, bce_loss: 0.01548, dice_loss: 0.10326, dice: 0.93666, 0.98052, 0.80739, 0.96722, mean dice: 0.92295
 
-Epoch: 41/200 |  time : 09/12/19-08:30:34
-Learning rate: 0.00011526
+Epoch: 41/200 |  time : 10/02/19-20:42:57
 =================================================================
-train_loss: 0.01360207, train_bce_loss: 0.00874305, train_dice_loss: 0.05733324
-valid_loss: 0.01774148, valid_bce_loss: 0.01262524, valid_dice_loss: 0.06378769
+loss: 0.01973, bce_loss: 0.01377, dice_loss: 0.07333, dice: 0.96350, 0.98904, 0.84692, 0.97667, mean dice: 0.94403
+loss: 0.02157, bce_loss: 0.01328, dice_loss: 0.09623, dice: 0.94803, 0.98052, 0.80240, 0.98002, mean dice: 0.92774
 
-Epoch: 42/200 |  time : 09/12/19-08:55:59
-Learning rate: 0.00010000
+Epoch: 42/200 |  time : 10/02/19-20:50:36
 =================================================================
-train_loss: 0.01365408, train_bce_loss: 0.00884136, train_dice_loss: 0.05696851
-valid_loss: 0.01766209, valid_bce_loss: 0.01252343, valid_dice_loss: 0.06391000
+loss: 0.01924, bce_loss: 0.01330, dice_loss: 0.07272, dice: 0.96579, 0.98914, 0.84467, 0.97868, mean dice: 0.94457
+loss: 0.02268, bce_loss: 0.01451, dice_loss: 0.09623, dice: 0.94912, 0.98052, 0.80005, 0.97244, mean dice: 0.92553
 
-Epoch: 43/200 |  time : 09/12/19-09:21:24
-Learning rate: 0.00011526
+Epoch: 43/200 |  time : 10/02/19-20:58:14
 =================================================================
-train_loss: 0.01364892, train_bce_loss: 0.00880300, train_dice_loss: 0.05726214
-valid_loss: 0.01786650, valid_bce_loss: 0.01266547, valid_dice_loss: 0.06467574
+loss: 0.01967, bce_loss: 0.01376, dice_loss: 0.07291, dice: 0.96428, 0.99013, 0.84622, 0.97958, mean dice: 0.94505
+loss: 0.02295, bce_loss: 0.01514, dice_loss: 0.09324, dice: 0.94698, 0.98052, 0.81013, 0.97530, mean dice: 0.92823
 
-Epoch: 44/200 |  time : 09/12/19-09:46:49
-Learning rate: 0.00016094
+Epoch: 44/200 |  time : 10/02/19-21:05:52
 =================================================================
-train_loss: 0.01359712, train_bce_loss: 0.00871919, train_dice_loss: 0.05749847
-valid_loss: 0.01752575, valid_bce_loss: 0.01232628, valid_dice_loss: 0.06432096
+loss: 0.01909, bce_loss: 0.01328, dice_loss: 0.07140, dice: 0.96639, 0.99113, 0.84661, 0.97757, mean dice: 0.94543
+loss: 0.02089, bce_loss: 0.01364, dice_loss: 0.08610, dice: 0.94781, 0.98052, 0.81578, 0.97739, mean dice: 0.93038
+******** Validation dice improved from 0.92926216 to 0.93037736 ********
 
-Epoch: 45/200 |  time : 09/12/19-10:12:14
-Learning rate: 0.00023677
+Epoch: 45/200 |  time : 10/02/19-21:13:32
 =================================================================
-train_loss: 0.01356577, train_bce_loss: 0.00876050, train_dice_loss: 0.05681314
-valid_loss: 0.01785595, valid_bce_loss: 0.01263412, valid_dice_loss: 0.06485235
+loss: 0.01995, bce_loss: 0.01379, dice_loss: 0.07541, dice: 0.96458, 0.98993, 0.84348, 0.97736, mean dice: 0.94384
+loss: 0.02417, bce_loss: 0.01602, dice_loss: 0.09754, dice: 0.94562, 0.98052, 0.80065, 0.96984, mean dice: 0.92416
 
-Epoch: 46/200 |  time : 09/12/19-10:37:46
-Learning rate: 0.00034227
+Epoch: 46/200 |  time : 10/02/19-21:21:11
 =================================================================
-train_loss: 0.01361277, train_bce_loss: 0.00875159, train_dice_loss: 0.05736332
-valid_loss: 0.01788661, valid_bce_loss: 0.01268443, valid_dice_loss: 0.06470627
+loss: 0.01922, bce_loss: 0.01340, dice_loss: 0.07162, dice: 0.96685, 0.99063, 0.84982, 0.97716, mean dice: 0.94612
+loss: 0.02403, bce_loss: 0.01633, dice_loss: 0.09327, dice: 0.93231, 0.98052, 0.82309, 0.97267, mean dice: 0.92715
 
-Epoch: 47/200 |  time : 09/12/19-11:03:18
-Learning rate: 0.00047680
+Epoch: 47/200 |  time : 10/02/19-21:28:50
 =================================================================
-train_loss: 0.01370875, train_bce_loss: 0.00884679, train_dice_loss: 0.05746633
-valid_loss: 0.01756007, valid_bce_loss: 0.01217496, valid_dice_loss: 0.06602605
+loss: 0.01900, bce_loss: 0.01340, dice_loss: 0.06936, dice: 0.96727, 0.99133, 0.85184, 0.97932, mean dice: 0.94744
+loss: 0.02179, bce_loss: 0.01409, dice_loss: 0.09106, dice: 0.93915, 0.98052, 0.82459, 0.97700, mean dice: 0.93032
 
-Epoch: 48/200 |  time : 09/12/19-11:28:51
-Learning rate: 0.00063952
+Epoch: 48/200 |  time : 10/02/19-21:36:30
 =================================================================
-train_loss: 0.01369356, train_bce_loss: 0.00877880, train_dice_loss: 0.05792635
-valid_loss: 0.01799209, valid_bce_loss: 0.01267310, valid_dice_loss: 0.06586305
+loss: 0.01874, bce_loss: 0.01304, dice_loss: 0.07008, dice: 0.96643, 0.99073, 0.84811, 0.97905, mean dice: 0.94608
+loss: 0.02181, bce_loss: 0.01351, dice_loss: 0.09645, dice: 0.93208, 0.98052, 0.81192, 0.97754, mean dice: 0.92552
 
-Epoch: 49/200 |  time : 09/12/19-11:54:24
-Learning rate: 0.00082943
+Epoch: 49/200 |  time : 10/02/19-21:44:10
 =================================================================
-train_loss: 0.01375791, train_bce_loss: 0.00887122, train_dice_loss: 0.05773816
-valid_loss: 0.01786404, valid_bce_loss: 0.01254718, valid_dice_loss: 0.06571583
+loss: 0.01895, bce_loss: 0.01339, dice_loss: 0.06899, dice: 0.96955, 0.99113, 0.84865, 0.97790, mean dice: 0.94681
+loss: 0.02289, bce_loss: 0.01368, dice_loss: 0.10572, dice: 0.93374, 0.98052, 0.80269, 0.97468, mean dice: 0.92291
 
-Epoch: 50/200 |  time : 09/12/19-12:19:59
-Learning rate: 0.00104537
+Epoch: 50/200 |  time : 10/02/19-21:51:50
 =================================================================
-train_loss: 0.01381825, train_bce_loss: 0.00890835, train_dice_loss: 0.05800740
-valid_loss: 0.01983925, valid_bce_loss: 0.01472765, valid_dice_loss: 0.06584358
+loss: 0.01961, bce_loss: 0.01347, dice_loss: 0.07483, dice: 0.96844, 0.99033, 0.84265, 0.97291, mean dice: 0.94359
+loss: 0.02170, bce_loss: 0.01405, dice_loss: 0.09054, dice: 0.94301, 0.98052, 0.82270, 0.97402, mean dice: 0.93006
 
-Epoch: 51/200 |  time : 09/12/19-12:45:34
-Learning rate: 0.00128599
+Epoch: 51/200 |  time : 10/02/19-21:59:30
 =================================================================
-train_loss: 0.01382804, train_bce_loss: 0.00889532, train_dice_loss: 0.05822249
-valid_loss: 0.01856170, valid_bce_loss: 0.01326493, valid_dice_loss: 0.06623262
+loss: 0.01952, bce_loss: 0.01381, dice_loss: 0.07088, dice: 0.96861, 0.99033, 0.85294, 0.97531, mean dice: 0.94680
+loss: 0.02175, bce_loss: 0.01383, dice_loss: 0.09311, dice: 0.94290, 0.98052, 0.81882, 0.97471, mean dice: 0.92924
 
-Epoch: 52/200 |  time : 09/12/19-13:11:08
-Learning rate: 0.00154982
+Epoch: 52/200 |  time : 10/02/19-22:07:09
 =================================================================
-train_loss: 0.01413009, train_bce_loss: 0.00902131, train_dice_loss: 0.06010907
-valid_loss: 0.02164847, valid_bce_loss: 0.01543700, valid_dice_loss: 0.07755166
+loss: 0.01882, bce_loss: 0.01322, dice_loss: 0.06921, dice: 0.96777, 0.99043, 0.85338, 0.97642, mean dice: 0.94700
+loss: 0.02207, bce_loss: 0.01340, dice_loss: 0.10010, dice: 0.93067, 0.98052, 0.81260, 0.97360, mean dice: 0.92435
 
-Epoch: 53/200 |  time : 09/12/19-13:36:41
-Learning rate: 0.00183523
+Epoch: 53/200 |  time : 10/02/19-22:14:44
 =================================================================
-train_loss: 0.01434579, train_bce_loss: 0.00918106, train_dice_loss: 0.06082834
-valid_loss: 0.02007897, valid_bce_loss: 0.01499931, valid_dice_loss: 0.06579585
+loss: 0.01921, bce_loss: 0.01321, dice_loss: 0.07321, dice: 0.96908, 0.99053, 0.84390, 0.97650, mean dice: 0.94500
+loss: 0.02133, bce_loss: 0.01310, dice_loss: 0.09541, dice: 0.93224, 0.98052, 0.82075, 0.97653, mean dice: 0.92751
 
-Epoch: 54/200 |  time : 09/12/19-14:02:14
-Learning rate: 0.00214046
+Epoch: 54/200 |  time : 10/02/19-22:22:19
 =================================================================
-train_loss: 0.01536287, train_bce_loss: 0.00987391, train_dice_loss: 0.06476351
-valid_loss: 0.02020270, valid_bce_loss: 0.01352975, valid_dice_loss: 0.08025924
+loss: 0.01889, bce_loss: 0.01317, dice_loss: 0.07040, dice: 0.96816, 0.99003, 0.85066, 0.97859, mean dice: 0.94686
+loss: 0.02303, bce_loss: 0.01441, dice_loss: 0.10066, dice: 0.94780, 0.98052, 0.79115, 0.97063, mean dice: 0.92253
 
-Epoch: 55/200 |  time : 09/12/19-14:27:47
-Learning rate: 0.00246363
+Epoch: 55/200 |  time : 10/02/19-22:29:55
 =================================================================
-train_loss: 0.01564682, train_bce_loss: 0.01003900, train_dice_loss: 0.06611720
-valid_loss: 0.01996332, valid_bce_loss: 0.01453747, valid_dice_loss: 0.06879590
+loss: 0.01899, bce_loss: 0.01324, dice_loss: 0.07076, dice: 0.96830, 0.98973, 0.84781, 0.97642, mean dice: 0.94556
+loss: 0.02163, bce_loss: 0.01283, dice_loss: 0.10091, dice: 0.95312, 0.98052, 0.80097, 0.97409, mean dice: 0.92718
+Epoch    54: reducing learning rate of group 0 to 1.0000e-03.
 
-Epoch: 56/200 |  time : 09/12/19-14:53:21
-Learning rate: 0.00280275
+Epoch: 56/200 |  time : 10/02/19-22:37:30
 =================================================================
-train_loss: 0.01543709, train_bce_loss: 0.00985777, train_dice_loss: 0.06565103
-valid_loss: 0.02068065, valid_bce_loss: 0.01499200, valid_dice_loss: 0.07187856
+loss: 0.01777, bce_loss: 0.01221, dice_loss: 0.06780, dice: 0.96932, 0.99053, 0.84721, 0.98096, mean dice: 0.94701
+loss: 0.02063, bce_loss: 0.01278, dice_loss: 0.09128, dice: 0.95133, 0.98052, 0.82613, 0.97593, mean dice: 0.93348
+******** Validation dice improved from 0.93037736 to 0.93347991 ********
 
-Epoch: 57/200 |  time : 09/12/19-15:18:54
-Learning rate: 0.00315572
+Epoch: 57/200 |  time : 10/02/19-22:45:08
 =================================================================
-train_loss: 0.01524877, train_bce_loss: 0.00975568, train_dice_loss: 0.06468657
-valid_loss: 0.02077578, valid_bce_loss: 0.01474796, valid_dice_loss: 0.07502616
+loss: 0.01701, bce_loss: 0.01178, dice_loss: 0.06411, dice: 0.97128, 0.98973, 0.85996, 0.98044, mean dice: 0.95035
+loss: 0.02044, bce_loss: 0.01294, dice_loss: 0.08790, dice: 0.95268, 0.98052, 0.83016, 0.97732, mean dice: 0.93517
+******** Validation dice improved from 0.93347991 to 0.93517047 ********
 
-Epoch: 58/200 |  time : 09/12/19-15:44:28
-Learning rate: 0.00352037
+Epoch: 58/200 |  time : 10/02/19-22:52:48
 =================================================================
-train_loss: 0.01551391, train_bce_loss: 0.00996459, train_dice_loss: 0.06545772
-valid_loss: 0.01999136, valid_bce_loss: 0.01413079, valid_dice_loss: 0.07273652
+loss: 0.01716, bce_loss: 0.01200, dice_loss: 0.06354, dice: 0.97192, 0.99063, 0.85940, 0.97926, mean dice: 0.95030
+loss: 0.02055, bce_loss: 0.01275, dice_loss: 0.09069, dice: 0.94832, 0.98052, 0.83214, 0.97699, mean dice: 0.93449
 
-Epoch: 59/200 |  time : 09/12/19-16:10:02
-Learning rate: 0.00389445
+Epoch: 59/200 |  time : 10/02/19-23:00:27
+=================================================================
+loss: 0.01693, bce_loss: 0.01185, dice_loss: 0.06265, dice: 0.97263, 0.99153, 0.86028, 0.98025, mean dice: 0.95117
+loss: 0.01992, bce_loss: 0.01240, dice_loss: 0.08759, dice: 0.94953, 0.98052, 0.82901, 0.97672, mean dice: 0.93395
+
+Epoch: 60/200 |  time : 10/02/19-23:08:07
+=================================================================
+loss: 0.01691, bce_loss: 0.01169, dice_loss: 0.06384, dice: 0.97102, 0.98933, 0.85873, 0.98107, mean dice: 0.95004
+loss: 0.02039, bce_loss: 0.01258, dice_loss: 0.09070, dice: 0.94848, 0.98052, 0.82751, 0.97738, mean dice: 0.93347
+
+Epoch: 61/200 |  time : 10/02/19-23:15:47
+=================================================================
+loss: 0.01673, bce_loss: 0.01156, dice_loss: 0.06332, dice: 0.97041, 0.99033, 0.86260, 0.98120, mean dice: 0.95114
+loss: 0.01947, bce_loss: 0.01252, dice_loss: 0.08203, dice: 0.95267, 0.98052, 0.83150, 0.97732, mean dice: 0.93550
+******** Validation dice improved from 0.93517047 to 0.93550229 ********
+
+Epoch: 62/200 |  time : 10/02/19-23:23:25
+=================================================================
+loss: 0.01707, bce_loss: 0.01196, dice_loss: 0.06299, dice: 0.97175, 0.98993, 0.85831, 0.98200, mean dice: 0.95050
+loss: 0.02028, bce_loss: 0.01282, dice_loss: 0.08744, dice: 0.94989, 0.98052, 0.82383, 0.97682, mean dice: 0.93277
+
+Epoch: 63/200 |  time : 10/02/19-23:31:02
+=================================================================
+loss: 0.01653, bce_loss: 0.01141, dice_loss: 0.06264, dice: 0.97177, 0.98983, 0.86407, 0.97809, mean dice: 0.95094
+loss: 0.01982, bce_loss: 0.01279, dice_loss: 0.08312, dice: 0.95279, 0.98052, 0.82850, 0.97704, mean dice: 0.93472
+
+Epoch: 64/200 |  time : 10/02/19-23:38:39
+=================================================================
+loss: 0.01638, bce_loss: 0.01133, dice_loss: 0.06185, dice: 0.97132, 0.98983, 0.86380, 0.98164, mean dice: 0.95165
+loss: 0.02053, bce_loss: 0.01262, dice_loss: 0.09165, dice: 0.94516, 0.98052, 0.82992, 0.97722, mean dice: 0.93320
+
+Epoch: 65/200 |  time : 10/02/19-23:46:17
+=================================================================
+loss: 0.01654, bce_loss: 0.01141, dice_loss: 0.06265, dice: 0.97173, 0.99033, 0.86047, 0.98000, mean dice: 0.95063
+loss: 0.02009, bce_loss: 0.01272, dice_loss: 0.08635, dice: 0.94996, 0.98052, 0.82977, 0.97692, mean dice: 0.93429
+
+Epoch: 66/200 |  time : 10/02/19-23:53:54
+=================================================================
+loss: 0.01629, bce_loss: 0.01112, dice_loss: 0.06276, dice: 0.97125, 0.99123, 0.86235, 0.98111, mean dice: 0.95148
+loss: 0.02010, bce_loss: 0.01297, dice_loss: 0.08430, dice: 0.95221, 0.98052, 0.83168, 0.97639, mean dice: 0.93520
+
+Epoch: 67/200 |  time : 10/03/19-00:01:31
+=================================================================
+loss: 0.01658, bce_loss: 0.01159, dice_loss: 0.06152, dice: 0.97013, 0.99113, 0.86401, 0.98046, mean dice: 0.95143
+loss: 0.01992, bce_loss: 0.01269, dice_loss: 0.08500, dice: 0.94830, 0.98052, 0.83346, 0.97803, mean dice: 0.93508
+
+Epoch: 68/200 |  time : 10/03/19-00:09:08
+=================================================================
+loss: 0.01630, bce_loss: 0.01142, dice_loss: 0.06024, dice: 0.97031, 0.99033, 0.86999, 0.98004, mean dice: 0.95267
+loss: 0.02013, bce_loss: 0.01257, dice_loss: 0.08818, dice: 0.94407, 0.98052, 0.83159, 0.97839, mean dice: 0.93364
+
+Epoch: 69/200 |  time : 10/03/19-00:16:45
+=================================================================
+loss: 0.01607, bce_loss: 0.01106, dice_loss: 0.06116, dice: 0.96947, 0.99113, 0.86561, 0.98198, mean dice: 0.95205
+loss: 0.01978, bce_loss: 0.01280, dice_loss: 0.08268, dice: 0.95144, 0.98052, 0.83309, 0.97765, mean dice: 0.93568
+******** Validation dice improved from 0.93550229 to 0.93567812 ********
+
+Epoch: 70/200 |  time : 10/03/19-00:24:25
+=================================================================
+loss: 0.01616, bce_loss: 0.01129, dice_loss: 0.05994, dice: 0.97159, 0.99013, 0.86584, 0.98160, mean dice: 0.95229
+loss: 0.01942, bce_loss: 0.01249, dice_loss: 0.08178, dice: 0.95332, 0.98052, 0.82757, 0.97680, mean dice: 0.93455
+
+Epoch: 71/200 |  time : 10/03/19-00:32:07
+=================================================================
+loss: 0.01636, bce_loss: 0.01131, dice_loss: 0.06181, dice: 0.97130, 0.99043, 0.86550, 0.98079, mean dice: 0.95200
+loss: 0.01961, bce_loss: 0.01255, dice_loss: 0.08308, dice: 0.95507, 0.98052, 0.82776, 0.97722, mean dice: 0.93514
+
+Epoch: 72/200 |  time : 10/03/19-00:39:47
+=================================================================
+loss: 0.01625, bce_loss: 0.01124, dice_loss: 0.06136, dice: 0.97316, 0.98983, 0.86319, 0.98007, mean dice: 0.95156
+loss: 0.01984, bce_loss: 0.01283, dice_loss: 0.08287, dice: 0.95296, 0.98052, 0.82943, 0.97644, mean dice: 0.93484
+
+Epoch: 73/200 |  time : 10/03/19-00:47:28
+=================================================================
+loss: 0.01572, bce_loss: 0.01098, dice_loss: 0.05838, dice: 0.97244, 0.99173, 0.87092, 0.98172, mean dice: 0.95420
+loss: 0.01994, bce_loss: 0.01284, dice_loss: 0.08383, dice: 0.95286, 0.98052, 0.82828, 0.97676, mean dice: 0.93461
+
+Epoch: 74/200 |  time : 10/03/19-00:55:09
+=================================================================
+loss: 0.01654, bce_loss: 0.01150, dice_loss: 0.06196, dice: 0.97045, 0.99063, 0.86476, 0.98001, mean dice: 0.95146
+loss: 0.02070, bce_loss: 0.01299, dice_loss: 0.09011, dice: 0.94618, 0.98052, 0.82738, 0.97658, mean dice: 0.93267
+
+Epoch: 75/200 |  time : 10/03/19-01:02:49
+=================================================================
+loss: 0.01653, bce_loss: 0.01150, dice_loss: 0.06177, dice: 0.96918, 0.99023, 0.86455, 0.98117, mean dice: 0.95128
+loss: 0.02065, bce_loss: 0.01328, dice_loss: 0.08693, dice: 0.94687, 0.98052, 0.82989, 0.97622, mean dice: 0.93338
+
+Epoch: 76/200 |  time : 10/03/19-01:10:29
+=================================================================
+loss: 0.01622, bce_loss: 0.01125, dice_loss: 0.06098, dice: 0.97106, 0.99003, 0.86776, 0.98056, mean dice: 0.95235
+loss: 0.02015, bce_loss: 0.01268, dice_loss: 0.08739, dice: 0.94788, 0.98052, 0.83058, 0.97737, mean dice: 0.93409
+
+Epoch: 77/200 |  time : 10/03/19-01:18:06
+=================================================================
+loss: 0.01627, bce_loss: 0.01134, dice_loss: 0.06061, dice: 0.97215, 0.99043, 0.86431, 0.98090, mean dice: 0.95195
+loss: 0.02014, bce_loss: 0.01280, dice_loss: 0.08622, dice: 0.94603, 0.98052, 0.83393, 0.97698, mean dice: 0.93437
+
+Epoch: 78/200 |  time : 10/03/19-01:25:45
+=================================================================
+loss: 0.01637, bce_loss: 0.01135, dice_loss: 0.06157, dice: 0.97061, 0.99083, 0.86428, 0.98034, mean dice: 0.95151
+loss: 0.02041, bce_loss: 0.01336, dice_loss: 0.08386, dice: 0.94764, 0.98052, 0.82944, 0.97622, mean dice: 0.93346
+
+Epoch: 79/200 |  time : 10/03/19-01:33:22
+=================================================================
+loss: 0.01647, bce_loss: 0.01149, dice_loss: 0.06122, dice: 0.97189, 0.99033, 0.86757, 0.98067, mean dice: 0.95262
+loss: 0.01932, bce_loss: 0.01242, dice_loss: 0.08139, dice: 0.95190, 0.98052, 0.83391, 0.97837, mean dice: 0.93618
+******** Validation dice improved from 0.93567812 to 0.93617690 ********
+
+Epoch: 80/200 |  time : 10/03/19-01:41:02
+=================================================================
+loss: 0.01643, bce_loss: 0.01160, dice_loss: 0.05995, dice: 0.97022, 0.98973, 0.87053, 0.98116, mean dice: 0.95291
+loss: 0.01962, bce_loss: 0.01214, dice_loss: 0.08689, dice: 0.95271, 0.98052, 0.82705, 0.97712, mean dice: 0.93435
+
+Epoch: 81/200 |  time : 10/03/19-01:48:40
+=================================================================
+loss: 0.01585, bce_loss: 0.01095, dice_loss: 0.05990, dice: 0.97034, 0.99063, 0.86870, 0.98183, mean dice: 0.95287
+loss: 0.01987, bce_loss: 0.01258, dice_loss: 0.08544, dice: 0.95051, 0.98052, 0.82968, 0.97749, mean dice: 0.93455
+
+Epoch: 82/200 |  time : 10/03/19-01:56:18
+=================================================================
+loss: 0.01590, bce_loss: 0.01109, dice_loss: 0.05918, dice: 0.97263, 0.99143, 0.86816, 0.98280, mean dice: 0.95375
+loss: 0.01995, bce_loss: 0.01283, dice_loss: 0.08400, dice: 0.94990, 0.98052, 0.82795, 0.97733, mean dice: 0.93392
+
+Epoch: 83/200 |  time : 10/03/19-02:03:57
+=================================================================
+loss: 0.01627, bce_loss: 0.01129, dice_loss: 0.06101, dice: 0.97100, 0.98963, 0.86480, 0.98067, mean dice: 0.95153
+loss: 0.02016, bce_loss: 0.01263, dice_loss: 0.08795, dice: 0.94700, 0.98052, 0.82804, 0.97786, mean dice: 0.93336
+
+Epoch: 84/200 |  time : 10/03/19-02:11:36
+=================================================================
+loss: 0.01573, bce_loss: 0.01085, dice_loss: 0.05963, dice: 0.97255, 0.98983, 0.86795, 0.98076, mean dice: 0.95277
+loss: 0.02034, bce_loss: 0.01294, dice_loss: 0.08696, dice: 0.94665, 0.98052, 0.82695, 0.97692, mean dice: 0.93276
+
+Epoch: 85/200 |  time : 10/03/19-02:19:16
+=================================================================
+loss: 0.01585, bce_loss: 0.01105, dice_loss: 0.05900, dice: 0.97135, 0.98983, 0.86961, 0.98235, mean dice: 0.95329
+loss: 0.02055, bce_loss: 0.01306, dice_loss: 0.08794, dice: 0.94350, 0.98052, 0.82712, 0.97670, mean dice: 0.93196
+
+Epoch: 86/200 |  time : 10/03/19-02:26:56
+=================================================================
+loss: 0.01572, bce_loss: 0.01091, dice_loss: 0.05907, dice: 0.97120, 0.99023, 0.87008, 0.98372, mean dice: 0.95381
+loss: 0.01991, bce_loss: 0.01267, dice_loss: 0.08505, dice: 0.95115, 0.98052, 0.83147, 0.97786, mean dice: 0.93525
+
+Epoch: 87/200 |  time : 10/03/19-02:34:36
+=================================================================
+loss: 0.01602, bce_loss: 0.01125, dice_loss: 0.05896, dice: 0.97291, 0.99013, 0.86696, 0.98210, mean dice: 0.95302
+loss: 0.02023, bce_loss: 0.01257, dice_loss: 0.08916, dice: 0.94430, 0.98052, 0.82961, 0.97767, mean dice: 0.93302
+
+Epoch: 88/200 |  time : 10/03/19-02:42:13
+=================================================================
+loss: 0.01583, bce_loss: 0.01096, dice_loss: 0.05967, dice: 0.97319, 0.98884, 0.86866, 0.98107, mean dice: 0.95294
+loss: 0.01980, bce_loss: 0.01265, dice_loss: 0.08413, dice: 0.94921, 0.98052, 0.83080, 0.97776, mean dice: 0.93457
+
+Epoch: 89/200 |  time : 10/03/19-02:49:52
+=================================================================
+loss: 0.01585, bce_loss: 0.01114, dice_loss: 0.05829, dice: 0.97228, 0.98973, 0.87241, 0.98201, mean dice: 0.95411
+loss: 0.01983, bce_loss: 0.01293, dice_loss: 0.08191, dice: 0.95169, 0.98052, 0.82829, 0.97753, mean dice: 0.93451
+
+Epoch: 90/200 |  time : 10/03/19-02:57:31
+=================================================================
+loss: 0.01577, bce_loss: 0.01097, dice_loss: 0.05900, dice: 0.97270, 0.99093, 0.86703, 0.98189, mean dice: 0.95314
+loss: 0.01988, bce_loss: 0.01272, dice_loss: 0.08428, dice: 0.95198, 0.98052, 0.82914, 0.97877, mean dice: 0.93510
+Epoch    89: reducing learning rate of group 0 to 1.0000e-04.
+
+Epoch: 91/200 |  time : 10/03/19-03:05:09
+=================================================================
+loss: 0.01552, bce_loss: 0.01078, dice_loss: 0.05823, dice: 0.97072, 0.99123, 0.87261, 0.98151, mean dice: 0.95402
+loss: 0.02006, bce_loss: 0.01265, dice_loss: 0.08671, dice: 0.95214, 0.98052, 0.82929, 0.97855, mean dice: 0.93513
+
+Epoch: 92/200 |  time : 10/03/19-03:12:48
+=================================================================
+loss: 0.01578, bce_loss: 0.01104, dice_loss: 0.05848, dice: 0.97209, 0.99053, 0.87108, 0.98203, mean dice: 0.95393
+loss: 0.02008, bce_loss: 0.01270, dice_loss: 0.08652, dice: 0.95067, 0.98052, 0.82985, 0.97847, mean dice: 0.93488
+
+Epoch: 93/200 |  time : 10/03/19-03:20:26
+=================================================================
+loss: 0.01529, bce_loss: 0.01057, dice_loss: 0.05777, dice: 0.97234, 0.99103, 0.87126, 0.98256, mean dice: 0.95430
+loss: 0.02005, bce_loss: 0.01291, dice_loss: 0.08430, dice: 0.95016, 0.98052, 0.82767, 0.97867, mean dice: 0.93426
+
+Epoch: 94/200 |  time : 10/03/19-03:28:05
+=================================================================
+loss: 0.01570, bce_loss: 0.01085, dice_loss: 0.05936, dice: 0.97210, 0.99063, 0.86549, 0.98232, mean dice: 0.95264
+loss: 0.01979, bce_loss: 0.01272, dice_loss: 0.08350, dice: 0.95319, 0.98052, 0.82789, 0.97828, mean dice: 0.93497
+
+Epoch: 95/200 |  time : 10/03/19-03:35:43
+=================================================================
+loss: 0.01579, bce_loss: 0.01090, dice_loss: 0.05986, dice: 0.97138, 0.99053, 0.86618, 0.98078, mean dice: 0.95222
+loss: 0.01962, bce_loss: 0.01257, dice_loss: 0.08311, dice: 0.95425, 0.98052, 0.82827, 0.97832, mean dice: 0.93534
+
+Epoch: 96/200 |  time : 10/03/19-03:43:23
+=================================================================
+loss: 0.01560, bce_loss: 0.01069, dice_loss: 0.05987, dice: 0.97197, 0.99003, 0.86720, 0.98320, mean dice: 0.95310
+loss: 0.01987, bce_loss: 0.01263, dice_loss: 0.08505, dice: 0.95057, 0.98052, 0.82806, 0.97782, mean dice: 0.93424
+
+Epoch: 97/200 |  time : 10/03/19-03:51:05
+=================================================================
+loss: 0.01568, bce_loss: 0.01081, dice_loss: 0.05949, dice: 0.97056, 0.98943, 0.87093, 0.98151, mean dice: 0.95311
+loss: 0.02000, bce_loss: 0.01288, dice_loss: 0.08413, dice: 0.95005, 0.98052, 0.82765, 0.97819, mean dice: 0.93410
+
+Epoch: 98/200 |  time : 10/03/19-03:58:46
+=================================================================
+loss: 0.01549, bce_loss: 0.01072, dice_loss: 0.05842, dice: 0.97366, 0.99123, 0.86911, 0.98207, mean dice: 0.95402
+loss: 0.02006, bce_loss: 0.01282, dice_loss: 0.08521, dice: 0.94943, 0.98052, 0.82889, 0.97821, mean dice: 0.93426
+
+Epoch: 99/200 |  time : 10/03/19-04:06:26
+=================================================================
+loss: 0.01574, bce_loss: 0.01099, dice_loss: 0.05848, dice: 0.97502, 0.98923, 0.86958, 0.98297, mean dice: 0.95420
+loss: 0.01996, bce_loss: 0.01271, dice_loss: 0.08530, dice: 0.95050, 0.98052, 0.82958, 0.97772, mean dice: 0.93458
+
+Epoch: 100/200 |  time : 10/03/19-04:14:08
+=================================================================
+loss: 0.01607, bce_loss: 0.01121, dice_loss: 0.05984, dice: 0.97145, 0.98953, 0.86687, 0.98241, mean dice: 0.95257
+loss: 0.02012, bce_loss: 0.01290, dice_loss: 0.08505, dice: 0.94984, 0.98052, 0.82913, 0.97794, mean dice: 0.93436
+
+Epoch: 101/200 |  time : 10/03/19-04:21:49
+=================================================================
+loss: 0.01576, bce_loss: 0.01090, dice_loss: 0.05949, dice: 0.97197, 0.98933, 0.86746, 0.98141, mean dice: 0.95255
+loss: 0.02036, bce_loss: 0.01307, dice_loss: 0.08596, dice: 0.94756, 0.98052, 0.82965, 0.97857, mean dice: 0.93408
+Epoch   100: reducing learning rate of group 0 to 1.0000e-05.
+
+Epoch: 102/200 |  time : 10/03/19-04:29:30
+=================================================================
+loss: 0.01574, bce_loss: 0.01095, dice_loss: 0.05883, dice: 0.97306, 0.98963, 0.87217, 0.98038, mean dice: 0.95381
+loss: 0.02018, bce_loss: 0.01284, dice_loss: 0.08631, dice: 0.94957, 0.98052, 0.82790, 0.97780, mean dice: 0.93395
+
+Epoch: 103/200 |  time : 10/03/19-04:37:12
+=================================================================
+loss: 0.01541, bce_loss: 0.01074, dice_loss: 0.05739, dice: 0.97465, 0.99113, 0.87064, 0.98179, mean dice: 0.95455
+loss: 0.02023, bce_loss: 0.01276, dice_loss: 0.08746, dice: 0.94662, 0.98052, 0.82841, 0.97763, mean dice: 0.93330
+
+Epoch: 104/200 |  time : 10/03/19-04:44:53
+=================================================================
+loss: 0.01552, bce_loss: 0.01072, dice_loss: 0.05874, dice: 0.97249, 0.98993, 0.87038, 0.98204, mean dice: 0.95371
+loss: 0.02001, bce_loss: 0.01267, dice_loss: 0.08611, dice: 0.94959, 0.98052, 0.82986, 0.97782, mean dice: 0.93445
+
+Epoch: 105/200 |  time : 10/03/19-04:52:34
+=================================================================
+loss: 0.01536, bce_loss: 0.01061, dice_loss: 0.05803, dice: 0.97378, 0.98973, 0.87138, 0.98208, mean dice: 0.95424
+loss: 0.02018, bce_loss: 0.01275, dice_loss: 0.08702, dice: 0.95030, 0.98052, 0.82659, 0.97844, mean dice: 0.93396
+
+Epoch: 106/200 |  time : 10/03/19-05:00:14
+=================================================================
+loss: 0.01529, bce_loss: 0.01044, dice_loss: 0.05894, dice: 0.97216, 0.99053, 0.86818, 0.98216, mean dice: 0.95326
+loss: 0.01999, bce_loss: 0.01282, dice_loss: 0.08451, dice: 0.95436, 0.98052, 0.82893, 0.97807, mean dice: 0.93547
+
+Epoch: 107/200 |  time : 10/03/19-05:07:55
+=================================================================
+loss: 0.01595, bce_loss: 0.01117, dice_loss: 0.05894, dice: 0.97155, 0.98924, 0.86827, 0.98216, mean dice: 0.95280
+loss: 0.02006, bce_loss: 0.01278, dice_loss: 0.08561, dice: 0.95264, 0.98052, 0.82932, 0.97782, mean dice: 0.93508
+
+Epoch: 108/200 |  time : 10/03/19-05:15:34
+=================================================================
+loss: 0.01572, bce_loss: 0.01086, dice_loss: 0.05945, dice: 0.97206, 0.98973, 0.86763, 0.98142, mean dice: 0.95271
+loss: 0.02019, bce_loss: 0.01282, dice_loss: 0.08653, dice: 0.94637, 0.98052, 0.82825, 0.97853, mean dice: 0.93342
+
+Epoch: 109/200 |  time : 10/03/19-05:23:15
+=================================================================
+loss: 0.01592, bce_loss: 0.01110, dice_loss: 0.05930, dice: 0.97254, 0.99113, 0.86365, 0.98156, mean dice: 0.95222
+loss: 0.01985, bce_loss: 0.01291, dice_loss: 0.08226, dice: 0.95221, 0.98052, 0.83039, 0.97840, mean dice: 0.93538
+
+Epoch: 110/200 |  time : 10/03/19-05:30:53
+=================================================================
+loss: 0.01542, bce_loss: 0.01060, dice_loss: 0.05881, dice: 0.97332, 0.99013, 0.87035, 0.98117, mean dice: 0.95374
+loss: 0.01999, bce_loss: 0.01282, dice_loss: 0.08449, dice: 0.95234, 0.98052, 0.82929, 0.97814, mean dice: 0.93507
+
+Epoch: 111/200 |  time : 10/03/19-05:38:32
+=================================================================
+loss: 0.01551, bce_loss: 0.01068, dice_loss: 0.05900, dice: 0.97151, 0.99113, 0.86684, 0.98074, mean dice: 0.95256
+loss: 0.02017, bce_loss: 0.01301, dice_loss: 0.08464, dice: 0.95027, 0.98052, 0.82859, 0.97808, mean dice: 0.93437
+
+Epoch: 112/200 |  time : 10/03/19-05:46:10
+=================================================================
+loss: 0.01544, bce_loss: 0.01070, dice_loss: 0.05816, dice: 0.97453, 0.99013, 0.87039, 0.98215, mean dice: 0.95430
+loss: 0.01988, bce_loss: 0.01271, dice_loss: 0.08441, dice: 0.95355, 0.98052, 0.82963, 0.97891, mean dice: 0.93565
+
+Epoch: 113/200 |  time : 10/03/19-05:53:48
+=================================================================
+loss: 0.01559, bce_loss: 0.01076, dice_loss: 0.05901, dice: 0.97254, 0.99003, 0.86951, 0.98146, mean dice: 0.95339
+loss: 0.01990, bce_loss: 0.01276, dice_loss: 0.08420, dice: 0.95231, 0.98052, 0.82965, 0.97804, mean dice: 0.93513
+
+Epoch: 114/200 |  time : 10/03/19-06:01:25
+=================================================================
+loss: 0.01530, bce_loss: 0.01049, dice_loss: 0.05864, dice: 0.97042, 0.98993, 0.86980, 0.98204, mean dice: 0.95305
+loss: 0.02009, bce_loss: 0.01287, dice_loss: 0.08515, dice: 0.94870, 0.98052, 0.82748, 0.97778, mean dice: 0.93362
+
+Epoch: 115/200 |  time : 10/03/19-06:09:03
+=================================================================
+loss: 0.01557, bce_loss: 0.01082, dice_loss: 0.05831, dice: 0.97241, 0.99153, 0.87004, 0.98123, mean dice: 0.95380
+loss: 0.01998, bce_loss: 0.01282, dice_loss: 0.08435, dice: 0.95231, 0.98052, 0.83097, 0.97807, mean dice: 0.93547
+
+Epoch: 116/200 |  time : 10/03/19-06:16:43
+=================================================================
+loss: 0.01580, bce_loss: 0.01099, dice_loss: 0.05907, dice: 0.97316, 0.99073, 0.86769, 0.98308, mean dice: 0.95367
+loss: 0.01995, bce_loss: 0.01259, dice_loss: 0.08624, dice: 0.95242, 0.98052, 0.82831, 0.97829, mean dice: 0.93489
+
+Epoch: 117/200 |  time : 10/03/19-06:24:20
+=================================================================
+loss: 0.01563, bce_loss: 0.01084, dice_loss: 0.05877, dice: 0.97206, 0.99083, 0.86850, 0.98062, mean dice: 0.95300
+loss: 0.01997, bce_loss: 0.01266, dice_loss: 0.08575, dice: 0.95152, 0.98052, 0.82645, 0.97794, mean dice: 0.93411
+
+Epoch: 118/200 |  time : 10/03/19-06:31:57
+=================================================================
+loss: 0.01539, bce_loss: 0.01058, dice_loss: 0.05867, dice: 0.97231, 0.99073, 0.87000, 0.98196, mean dice: 0.95375
+loss: 0.02020, bce_loss: 0.01293, dice_loss: 0.08559, dice: 0.94922, 0.98052, 0.82772, 0.97820, mean dice: 0.93392
+
+Epoch: 119/200 |  time : 10/03/19-06:39:32
+=================================================================
+loss: 0.01554, bce_loss: 0.01073, dice_loss: 0.05885, dice: 0.97174, 0.99073, 0.87145, 0.98222, mean dice: 0.95403
+loss: 0.01993, bce_loss: 0.01281, dice_loss: 0.08401, dice: 0.94882, 0.98052, 0.82982, 0.97813, mean dice: 0.93432
+
+Epoch: 120/200 |  time : 10/03/19-06:47:08
+=================================================================
+loss: 0.01577, bce_loss: 0.01095, dice_loss: 0.05920, dice: 0.97230, 0.99033, 0.86851, 0.98050, mean dice: 0.95291
+loss: 0.02013, bce_loss: 0.01270, dice_loss: 0.08696, dice: 0.94771, 0.98052, 0.82687, 0.97816, mean dice: 0.93332
+
+Epoch: 121/200 |  time : 10/03/19-06:54:44
+=================================================================
+loss: 0.01601, bce_loss: 0.01107, dice_loss: 0.06049, dice: 0.97181, 0.98933, 0.86479, 0.98062, mean dice: 0.95164
+loss: 0.02005, bce_loss: 0.01286, dice_loss: 0.08472, dice: 0.95396, 0.98052, 0.82888, 0.97845, mean dice: 0.93545
+
+Epoch: 122/200 |  time : 10/03/19-07:02:19
+=================================================================
+loss: 0.01578, bce_loss: 0.01095, dice_loss: 0.05925, dice: 0.97254, 0.99003, 0.86700, 0.98132, mean dice: 0.95272
+loss: 0.01991, bce_loss: 0.01287, dice_loss: 0.08331, dice: 0.95272, 0.98052, 0.83074, 0.97831, mean dice: 0.93557
+
+Epoch: 123/200 |  time : 10/03/19-07:09:55
+=================================================================
+loss: 0.01567, bce_loss: 0.01098, dice_loss: 0.05791, dice: 0.97119, 0.99053, 0.86979, 0.98285, mean dice: 0.95359
+loss: 0.02006, bce_loss: 0.01281, dice_loss: 0.08531, dice: 0.95143, 0.98052, 0.82948, 0.97795, mean dice: 0.93484
+
+Epoch: 124/200 |  time : 10/03/19-07:17:31
+=================================================================
+loss: 0.01556, bce_loss: 0.01067, dice_loss: 0.05955, dice: 0.97218, 0.98963, 0.86786, 0.98183, mean dice: 0.95287
+loss: 0.01981, bce_loss: 0.01268, dice_loss: 0.08397, dice: 0.95190, 0.98052, 0.82859, 0.97864, mean dice: 0.93491
+
+Epoch: 125/200 |  time : 10/03/19-07:25:07
+=================================================================
+loss: 0.01578, bce_loss: 0.01098, dice_loss: 0.05900, dice: 0.97272, 0.98963, 0.86915, 0.98166, mean dice: 0.95329
+loss: 0.01996, bce_loss: 0.01302, dice_loss: 0.08246, dice: 0.95219, 0.98052, 0.82992, 0.97771, mean dice: 0.93509
+
+Epoch: 126/200 |  time : 10/03/19-07:32:44
+=================================================================
+loss: 0.01579, bce_loss: 0.01092, dice_loss: 0.05964, dice: 0.97288, 0.99083, 0.86532, 0.98219, mean dice: 0.95281
+loss: 0.02001, bce_loss: 0.01256, dice_loss: 0.08706, dice: 0.94852, 0.98052, 0.82658, 0.97811, mean dice: 0.93343
+
+Epoch: 127/200 |  time : 10/03/19-07:40:21
+=================================================================
+loss: 0.01551, bce_loss: 0.01075, dice_loss: 0.05832, dice: 0.97208, 0.99053, 0.87263, 0.98183, mean dice: 0.95427
+loss: 0.01978, bce_loss: 0.01281, dice_loss: 0.08250, dice: 0.95394, 0.98052, 0.82864, 0.97879, mean dice: 0.93547
+
+Epoch: 128/200 |  time : 10/03/19-07:48:01
+=================================================================
+loss: 0.01539, bce_loss: 0.01064, dice_loss: 0.05811, dice: 0.97327, 0.98973, 0.87164, 0.98077, mean dice: 0.95385
+loss: 0.02002, bce_loss: 0.01268, dice_loss: 0.08611, dice: 0.94862, 0.98052, 0.82698, 0.97841, mean dice: 0.93364
+
+Epoch: 129/200 |  time : 10/03/19-07:55:42
+=================================================================
+loss: 0.01584, bce_loss: 0.01103, dice_loss: 0.05913, dice: 0.97250, 0.99013, 0.86791, 0.98197, mean dice: 0.95313
+loss: 0.02003, bce_loss: 0.01265, dice_loss: 0.08643, dice: 0.94660, 0.98052, 0.82695, 0.97861, mean dice: 0.93317
+
+Epoch: 130/200 |  time : 10/03/19-08:03:22
+=================================================================
+loss: 0.01572, bce_loss: 0.01092, dice_loss: 0.05891, dice: 0.97152, 0.99023, 0.87118, 0.98251, mean dice: 0.95386
+loss: 0.02013, bce_loss: 0.01260, dice_loss: 0.08790, dice: 0.94832, 0.98052, 0.82577, 0.97856, mean dice: 0.93329
+
+Epoch: 131/200 |  time : 10/03/19-08:10:59
+=================================================================
+loss: 0.01560, bce_loss: 0.01079, dice_loss: 0.05889, dice: 0.97277, 0.99173, 0.86951, 0.98065, mean dice: 0.95366
+loss: 0.02025, bce_loss: 0.01264, dice_loss: 0.08878, dice: 0.94769, 0.98052, 0.82585, 0.97771, mean dice: 0.93294
+
+Epoch: 132/200 |  time : 10/03/19-08:18:41
+=================================================================
+loss: 0.01569, bce_loss: 0.01089, dice_loss: 0.05887, dice: 0.97256, 0.99043, 0.86897, 0.98210, mean dice: 0.95352
+loss: 0.01999, bce_loss: 0.01258, dice_loss: 0.08671, dice: 0.95127, 0.98052, 0.83029, 0.97788, mean dice: 0.93499
+
+Epoch: 133/200 |  time : 10/03/19-08:26:18
+=================================================================
+loss: 0.01562, bce_loss: 0.01078, dice_loss: 0.05918, dice: 0.97032, 0.98963, 0.87236, 0.98140, mean dice: 0.95343
+loss: 0.02007, bce_loss: 0.01285, dice_loss: 0.08503, dice: 0.95143, 0.98052, 0.82843, 0.97802, mean dice: 0.93460
+
+Epoch: 134/200 |  time : 10/03/19-08:33:54
+=================================================================
+loss: 0.01547, bce_loss: 0.01070, dice_loss: 0.05837, dice: 0.97317, 0.99103, 0.87069, 0.98247, mean dice: 0.95434
+loss: 0.02007, bce_loss: 0.01282, dice_loss: 0.08532, dice: 0.95164, 0.98052, 0.83092, 0.97789, mean dice: 0.93524
+
+Epoch: 135/200 |  time : 10/03/19-08:41:29
+=================================================================
+loss: 0.01562, bce_loss: 0.01091, dice_loss: 0.05803, dice: 0.97391, 0.99073, 0.86840, 0.98306, mean dice: 0.95403
+loss: 0.01989, bce_loss: 0.01272, dice_loss: 0.08445, dice: 0.95065, 0.98052, 0.82881, 0.97838, mean dice: 0.93459
+
+Epoch: 136/200 |  time : 10/03/19-08:49:05
+=================================================================
+loss: 0.01548, bce_loss: 0.01066, dice_loss: 0.05884, dice: 0.97195, 0.99113, 0.86873, 0.98270, mean dice: 0.95363
+loss: 0.01995, bce_loss: 0.01260, dice_loss: 0.08613, dice: 0.94930, 0.98052, 0.82872, 0.97829, mean dice: 0.93421
+
+Epoch: 137/200 |  time : 10/03/19-08:56:41
+=================================================================
+loss: 0.01577, bce_loss: 0.01098, dice_loss: 0.05886, dice: 0.97317, 0.99083, 0.86749, 0.98269, mean dice: 0.95354
+loss: 0.02009, bce_loss: 0.01294, dice_loss: 0.08445, dice: 0.95132, 0.98052, 0.82850, 0.97810, mean dice: 0.93461
+
+Epoch: 138/200 |  time : 10/03/19-09:04:17
+=================================================================
+loss: 0.01565, bce_loss: 0.01078, dice_loss: 0.05944, dice: 0.97082, 0.99043, 0.86881, 0.98161, mean dice: 0.95292
+loss: 0.01995, bce_loss: 0.01277, dice_loss: 0.08455, dice: 0.95254, 0.98052, 0.82941, 0.97820, mean dice: 0.93517
+
+Epoch: 139/200 |  time : 10/03/19-09:11:52
+=================================================================
+loss: 0.01584, bce_loss: 0.01093, dice_loss: 0.06007, dice: 0.97210, 0.99083, 0.86426, 0.98215, mean dice: 0.95234
+loss: 0.01983, bce_loss: 0.01271, dice_loss: 0.08396, dice: 0.94919, 0.98052, 0.82855, 0.97841, mean dice: 0.93417
+
+Epoch: 140/200 |  time : 10/03/19-09:19:27
+=================================================================
+loss: 0.01572, bce_loss: 0.01096, dice_loss: 0.05859, dice: 0.97217, 0.99073, 0.86834, 0.98201, mean dice: 0.95331
+loss: 0.02019, bce_loss: 0.01300, dice_loss: 0.08486, dice: 0.94904, 0.98052, 0.82831, 0.97807, mean dice: 0.93398
+
+Epoch: 141/200 |  time : 10/03/19-09:27:03
+=================================================================
+loss: 0.01561, bce_loss: 0.01084, dice_loss: 0.05847, dice: 0.97248, 0.99053, 0.86997, 0.98137, mean dice: 0.95359
+loss: 0.01986, bce_loss: 0.01256, dice_loss: 0.08561, dice: 0.95240, 0.98052, 0.82806, 0.97830, mean dice: 0.93482
+
+Epoch: 142/200 |  time : 10/03/19-09:34:43
+=================================================================
+loss: 0.01569, bce_loss: 0.01089, dice_loss: 0.05884, dice: 0.97068, 0.99043, 0.86955, 0.98088, mean dice: 0.95289
+loss: 0.02012, bce_loss: 0.01267, dice_loss: 0.08713, dice: 0.95057, 0.98052, 0.82876, 0.97832, mean dice: 0.93455
+
+Epoch: 143/200 |  time : 10/03/19-09:42:21
+=================================================================
+loss: 0.01555, bce_loss: 0.01086, dice_loss: 0.05775, dice: 0.97415, 0.99033, 0.87172, 0.98202, mean dice: 0.95455
+loss: 0.02006, bce_loss: 0.01285, dice_loss: 0.08494, dice: 0.94969, 0.98052, 0.83057, 0.97819, mean dice: 0.93474
+
+Epoch: 144/200 |  time : 10/03/19-09:50:01
+=================================================================
+loss: 0.01534, bce_loss: 0.01054, dice_loss: 0.05851, dice: 0.97098, 0.99053, 0.87044, 0.98203, mean dice: 0.95350
+loss: 0.01987, bce_loss: 0.01271, dice_loss: 0.08430, dice: 0.95333, 0.98052, 0.82788, 0.97810, mean dice: 0.93496
+
+Epoch: 145/200 |  time : 10/03/19-09:57:41
+=================================================================
+loss: 0.01574, bce_loss: 0.01108, dice_loss: 0.05768, dice: 0.97374, 0.99073, 0.87039, 0.98208, mean dice: 0.95424
+loss: 0.02007, bce_loss: 0.01293, dice_loss: 0.08437, dice: 0.95092, 0.98052, 0.82822, 0.97819, mean dice: 0.93446
+
+Epoch: 146/200 |  time : 10/03/19-10:05:16
+=================================================================
+loss: 0.01580, bce_loss: 0.01102, dice_loss: 0.05880, dice: 0.97139, 0.99113, 0.86888, 0.98134, mean dice: 0.95319
+loss: 0.02006, bce_loss: 0.01262, dice_loss: 0.08697, dice: 0.95167, 0.98052, 0.82883, 0.97864, mean dice: 0.93492
+
+Epoch: 147/200 |  time : 10/03/19-10:12:50
+=================================================================
+loss: 0.01535, bce_loss: 0.01062, dice_loss: 0.05792, dice: 0.97344, 0.99113, 0.87132, 0.98210, mean dice: 0.95450
+loss: 0.01995, bce_loss: 0.01270, dice_loss: 0.08517, dice: 0.95054, 0.98052, 0.82804, 0.97845, mean dice: 0.93439
+
+Epoch: 148/200 |  time : 10/03/19-10:20:25
+=================================================================
+loss: 0.01592, bce_loss: 0.01113, dice_loss: 0.05897, dice: 0.97220, 0.99143, 0.86703, 0.98095, mean dice: 0.95290
+loss: 0.01992, bce_loss: 0.01275, dice_loss: 0.08444, dice: 0.95347, 0.98052, 0.82924, 0.97797, mean dice: 0.93530
+
+Epoch: 149/200 |  time : 10/03/19-10:28:03
+=================================================================
+loss: 0.01554, bce_loss: 0.01079, dice_loss: 0.05829, dice: 0.97403, 0.99023, 0.86958, 0.98193, mean dice: 0.95394
+loss: 0.01999, bce_loss: 0.01265, dice_loss: 0.08604, dice: 0.95044, 0.98052, 0.82696, 0.97828, mean dice: 0.93405
+
+Epoch: 150/200 |  time : 10/03/19-10:35:42
+=================================================================
+loss: 0.01580, bce_loss: 0.01096, dice_loss: 0.05939, dice: 0.97214, 0.99093, 0.86688, 0.97986, mean dice: 0.95245
+loss: 0.01984, bce_loss: 0.01278, dice_loss: 0.08340, dice: 0.95226, 0.98052, 0.83120, 0.97826, mean dice: 0.93556
+
+Epoch: 151/200 |  time : 10/03/19-10:43:17
+=================================================================
+loss: 0.01577, bce_loss: 0.01092, dice_loss: 0.05941, dice: 0.97219, 0.99003, 0.86711, 0.98260, mean dice: 0.95298
+loss: 0.02001, bce_loss: 0.01294, dice_loss: 0.08369, dice: 0.94949, 0.98052, 0.82865, 0.97784, mean dice: 0.93413
+
+Epoch: 152/200 |  time : 10/03/19-10:50:53
+=================================================================
+loss: 0.01572, bce_loss: 0.01083, dice_loss: 0.05976, dice: 0.97180, 0.99093, 0.86734, 0.98134, mean dice: 0.95285
+loss: 0.01983, bce_loss: 0.01268, dice_loss: 0.08422, dice: 0.95103, 0.98052, 0.82968, 0.97857, mean dice: 0.93495
+
+Epoch: 153/200 |  time : 10/03/19-10:58:29
+=================================================================
+loss: 0.01585, bce_loss: 0.01097, dice_loss: 0.05974, dice: 0.97273, 0.99033, 0.86617, 0.97989, mean dice: 0.95228
+loss: 0.02006, bce_loss: 0.01281, dice_loss: 0.08529, dice: 0.95076, 0.98052, 0.83019, 0.97806, mean dice: 0.93488
+
+Epoch: 154/200 |  time : 10/03/19-11:06:05
+=================================================================
+loss: 0.01550, bce_loss: 0.01071, dice_loss: 0.05867, dice: 0.97295, 0.99023, 0.86885, 0.98335, mean dice: 0.95385
+loss: 0.02006, bce_loss: 0.01281, dice_loss: 0.08533, dice: 0.94812, 0.98052, 0.82754, 0.97788, mean dice: 0.93351
+
+Epoch: 155/200 |  time : 10/03/19-11:13:43
+=================================================================
+loss: 0.01549, bce_loss: 0.01063, dice_loss: 0.05918, dice: 0.97265, 0.99123, 0.86663, 0.98036, mean dice: 0.95272
+loss: 0.02010, bce_loss: 0.01282, dice_loss: 0.08559, dice: 0.94913, 0.98052, 0.82864, 0.97854, mean dice: 0.93421
+
+Epoch: 156/200 |  time : 10/03/19-11:21:21
+=================================================================
+loss: 0.01566, bce_loss: 0.01079, dice_loss: 0.05951, dice: 0.97078, 0.99083, 0.87039, 0.98033, mean dice: 0.95308
+loss: 0.02020, bce_loss: 0.01259, dice_loss: 0.08870, dice: 0.94812, 0.98052, 0.82775, 0.97821, mean dice: 0.93365
+
+Epoch: 157/200 |  time : 10/03/19-11:28:55
+=================================================================
+loss: 0.01538, bce_loss: 0.01051, dice_loss: 0.05918, dice: 0.97267, 0.98894, 0.86929, 0.98236, mean dice: 0.95331
+loss: 0.01998, bce_loss: 0.01271, dice_loss: 0.08542, dice: 0.94865, 0.98052, 0.82950, 0.97815, mean dice: 0.93421
+
+Epoch: 158/200 |  time : 10/03/19-11:36:30
+=================================================================
+loss: 0.01575, bce_loss: 0.01085, dice_loss: 0.05988, dice: 0.97038, 0.98923, 0.86728, 0.98221, mean dice: 0.95228
+loss: 0.01997, bce_loss: 0.01286, dice_loss: 0.08392, dice: 0.95059, 0.98052, 0.82902, 0.97845, mean dice: 0.93465
+
+Epoch: 159/200 |  time : 10/03/19-11:44:07
+=================================================================
+loss: 0.01585, bce_loss: 0.01103, dice_loss: 0.05930, dice: 0.97162, 0.99053, 0.86764, 0.98304, mean dice: 0.95321
+loss: 0.01996, bce_loss: 0.01278, dice_loss: 0.08452, dice: 0.95281, 0.98052, 0.82820, 0.97818, mean dice: 0.93493
+
+Epoch: 160/200 |  time : 10/03/19-11:51:43
+=================================================================
+loss: 0.01532, bce_loss: 0.01048, dice_loss: 0.05895, dice: 0.97180, 0.99003, 0.86755, 0.98288, mean dice: 0.95307
+loss: 0.02004, bce_loss: 0.01281, dice_loss: 0.08508, dice: 0.94935, 0.98052, 0.82842, 0.97789, mean dice: 0.93405
+
+Epoch: 161/200 |  time : 10/03/19-11:59:19
+=================================================================
+loss: 0.01574, bce_loss: 0.01095, dice_loss: 0.05886, dice: 0.97126, 0.98983, 0.86795, 0.98158, mean dice: 0.95266
+loss: 0.02013, bce_loss: 0.01266, dice_loss: 0.08735, dice: 0.95232, 0.98052, 0.82956, 0.97815, mean dice: 0.93514
+
+Epoch: 162/200 |  time : 10/03/19-12:06:54
+=================================================================
+loss: 0.01587, bce_loss: 0.01093, dice_loss: 0.06032, dice: 0.97151, 0.99013, 0.86469, 0.98135, mean dice: 0.95192
+loss: 0.02013, bce_loss: 0.01283, dice_loss: 0.08584, dice: 0.95160, 0.98052, 0.82917, 0.97841, mean dice: 0.93492
+
+Epoch: 163/200 |  time : 10/03/19-12:14:31
+=================================================================
+loss: 0.01560, bce_loss: 0.01082, dice_loss: 0.05862, dice: 0.97220, 0.99033, 0.87113, 0.98283, mean dice: 0.95412
+loss: 0.01974, bce_loss: 0.01250, dice_loss: 0.08487, dice: 0.95014, 0.98052, 0.82609, 0.97847, mean dice: 0.93380
+
+Epoch: 164/200 |  time : 10/03/19-12:22:08
+=================================================================
+loss: 0.01584, bce_loss: 0.01094, dice_loss: 0.05988, dice: 0.97198, 0.98943, 0.86453, 0.98230, mean dice: 0.95206
+loss: 0.02013, bce_loss: 0.01274, dice_loss: 0.08666, dice: 0.95168, 0.98052, 0.83004, 0.97800, mean dice: 0.93506
+
+Epoch: 165/200 |  time : 10/03/19-12:29:45
+=================================================================
+loss: 0.01573, bce_loss: 0.01098, dice_loss: 0.05855, dice: 0.97202, 0.98993, 0.87043, 0.98063, mean dice: 0.95325
+loss: 0.02004, bce_loss: 0.01274, dice_loss: 0.08574, dice: 0.95088, 0.98052, 0.82888, 0.97821, mean dice: 0.93462
+
+Epoch: 166/200 |  time : 10/03/19-12:37:20
+=================================================================
+loss: 0.01525, bce_loss: 0.01052, dice_loss: 0.05783, dice: 0.97221, 0.99083, 0.87198, 0.98220, mean dice: 0.95430
+loss: 0.01997, bce_loss: 0.01277, dice_loss: 0.08481, dice: 0.95110, 0.98052, 0.82895, 0.97837, mean dice: 0.93474
+
+Epoch: 167/200 |  time : 10/03/19-12:44:54
+=================================================================
+loss: 0.01544, bce_loss: 0.01063, dice_loss: 0.05866, dice: 0.97316, 0.98943, 0.87065, 0.98324, mean dice: 0.95412
+loss: 0.01976, bce_loss: 0.01274, dice_loss: 0.08300, dice: 0.95568, 0.98052, 0.82829, 0.97800, mean dice: 0.93562
+
+Epoch: 168/200 |  time : 10/03/19-12:52:29
+=================================================================
+loss: 0.01574, bce_loss: 0.01092, dice_loss: 0.05911, dice: 0.97165, 0.99013, 0.86785, 0.98209, mean dice: 0.95293
+loss: 0.02012, bce_loss: 0.01272, dice_loss: 0.08671, dice: 0.94905, 0.98052, 0.82841, 0.97862, mean dice: 0.93415
+
+Epoch: 169/200 |  time : 10/03/19-13:00:07
+=================================================================
+loss: 0.01563, bce_loss: 0.01085, dice_loss: 0.05866, dice: 0.97282, 0.99143, 0.87018, 0.98219, mean dice: 0.95415
+loss: 0.02001, bce_loss: 0.01273, dice_loss: 0.08555, dice: 0.95124, 0.98052, 0.83024, 0.97818, mean dice: 0.93505
+
+Epoch: 170/200 |  time : 10/03/19-13:07:43
+=================================================================
+loss: 0.01589, bce_loss: 0.01095, dice_loss: 0.06028, dice: 0.97157, 0.99103, 0.86634, 0.98238, mean dice: 0.95283
+loss: 0.02007, bce_loss: 0.01291, dice_loss: 0.08450, dice: 0.95122, 0.98052, 0.82999, 0.97857, mean dice: 0.93508
+
+Epoch: 171/200 |  time : 10/03/19-13:15:18
+=================================================================
+loss: 0.01561, bce_loss: 0.01081, dice_loss: 0.05885, dice: 0.97144, 0.99133, 0.86758, 0.98169, mean dice: 0.95301
+loss: 0.02003, bce_loss: 0.01257, dice_loss: 0.08713, dice: 0.95170, 0.98052, 0.82845, 0.97833, mean dice: 0.93475
+
+Epoch: 172/200 |  time : 10/03/19-13:22:55
+=================================================================
+loss: 0.01598, bce_loss: 0.01119, dice_loss: 0.05907, dice: 0.97138, 0.99123, 0.86840, 0.98075, mean dice: 0.95294
+loss: 0.01994, bce_loss: 0.01266, dice_loss: 0.08547, dice: 0.94991, 0.98052, 0.82929, 0.97844, mean dice: 0.93454
+
+Epoch: 173/200 |  time : 10/03/19-13:30:31
+=================================================================
+loss: 0.01544, bce_loss: 0.01059, dice_loss: 0.05904, dice: 0.97241, 0.99033, 0.86843, 0.98127, mean dice: 0.95311
+loss: 0.02002, bce_loss: 0.01280, dice_loss: 0.08501, dice: 0.95210, 0.98052, 0.82995, 0.97833, mean dice: 0.93523
+
+Epoch: 174/200 |  time : 10/03/19-13:38:08
+=================================================================
+loss: 0.01561, bce_loss: 0.01082, dice_loss: 0.05874, dice: 0.97373, 0.99053, 0.87029, 0.98044, mean dice: 0.95375
+loss: 0.01995, bce_loss: 0.01281, dice_loss: 0.08422, dice: 0.94886, 0.98052, 0.82881, 0.97850, mean dice: 0.93417
+
+Epoch: 175/200 |  time : 10/03/19-13:45:44
+=================================================================
+loss: 0.01573, bce_loss: 0.01092, dice_loss: 0.05902, dice: 0.97290, 0.99073, 0.86945, 0.98192, mean dice: 0.95375
+loss: 0.01997, bce_loss: 0.01288, dice_loss: 0.08382, dice: 0.95164, 0.98052, 0.82874, 0.97832, mean dice: 0.93481
+
+Epoch: 176/200 |  time : 10/03/19-13:53:22
+=================================================================
+loss: 0.01584, bce_loss: 0.01095, dice_loss: 0.05977, dice: 0.97108, 0.99093, 0.86537, 0.98087, mean dice: 0.95206
+loss: 0.01991, bce_loss: 0.01270, dice_loss: 0.08478, dice: 0.95195, 0.98052, 0.82934, 0.97870, mean dice: 0.93513
+
+Epoch: 177/200 |  time : 10/03/19-14:00:59
+=================================================================
+loss: 0.01551, bce_loss: 0.01080, dice_loss: 0.05785, dice: 0.97357, 0.99103, 0.87363, 0.98084, mean dice: 0.95477
+loss: 0.02010, bce_loss: 0.01286, dice_loss: 0.08521, dice: 0.94960, 0.98052, 0.82949, 0.97829, mean dice: 0.93448
+
+Epoch: 178/200 |  time : 10/03/19-14:08:42
+=================================================================
+loss: 0.01543, bce_loss: 0.01065, dice_loss: 0.05840, dice: 0.97436, 0.99043, 0.86726, 0.98300, mean dice: 0.95376
+loss: 0.01991, bce_loss: 0.01273, dice_loss: 0.08450, dice: 0.95380, 0.98052, 0.82895, 0.97828, mean dice: 0.93539
+
+Epoch: 179/200 |  time : 10/03/19-14:16:23
+=================================================================
+loss: 0.01550, bce_loss: 0.01060, dice_loss: 0.05956, dice: 0.97200, 0.99033, 0.86763, 0.98183, mean dice: 0.95295
+loss: 0.01998, bce_loss: 0.01280, dice_loss: 0.08463, dice: 0.95246, 0.98052, 0.82893, 0.97833, mean dice: 0.93506
+
+Epoch: 180/200 |  time : 10/03/19-14:23:59
+=================================================================
+loss: 0.01580, bce_loss: 0.01104, dice_loss: 0.05868, dice: 0.97232, 0.99063, 0.87089, 0.98259, mean dice: 0.95411
+loss: 0.01988, bce_loss: 0.01255, dice_loss: 0.08587, dice: 0.95484, 0.98052, 0.82745, 0.97815, mean dice: 0.93524
+
+Epoch: 181/200 |  time : 10/03/19-14:31:37
+=================================================================
+loss: 0.01561, bce_loss: 0.01085, dice_loss: 0.05844, dice: 0.97182, 0.99113, 0.87082, 0.98149, mean dice: 0.95382
+loss: 0.02014, bce_loss: 0.01292, dice_loss: 0.08509, dice: 0.95144, 0.98052, 0.82897, 0.97824, mean dice: 0.93479
+
+Epoch: 182/200 |  time : 10/03/19-14:39:18
+=================================================================
+loss: 0.01578, bce_loss: 0.01101, dice_loss: 0.05872, dice: 0.97315, 0.99113, 0.86737, 0.98169, mean dice: 0.95334
+loss: 0.01984, bce_loss: 0.01278, dice_loss: 0.08340, dice: 0.95144, 0.98052, 0.82962, 0.97835, mean dice: 0.93498
+
+Epoch: 183/200 |  time : 10/03/19-14:46:56
+=================================================================
+loss: 0.01545, bce_loss: 0.01072, dice_loss: 0.05801, dice: 0.97268, 0.99053, 0.87103, 0.98258, mean dice: 0.95421
+loss: 0.01990, bce_loss: 0.01266, dice_loss: 0.08507, dice: 0.95175, 0.98052, 0.82945, 0.97851, mean dice: 0.93506
+
+Epoch: 184/200 |  time : 10/03/19-14:54:34
+=================================================================
+loss: 0.01571, bce_loss: 0.01091, dice_loss: 0.05891, dice: 0.97314, 0.99013, 0.86782, 0.98190, mean dice: 0.95325
+loss: 0.02010, bce_loss: 0.01261, dice_loss: 0.08754, dice: 0.95222, 0.98052, 0.82778, 0.97821, mean dice: 0.93468
+
+Epoch: 185/200 |  time : 10/03/19-15:02:14
+=================================================================
+loss: 0.01584, bce_loss: 0.01094, dice_loss: 0.05998, dice: 0.97307, 0.98973, 0.86827, 0.98122, mean dice: 0.95307
+loss: 0.01972, bce_loss: 0.01263, dice_loss: 0.08348, dice: 0.95097, 0.98052, 0.82991, 0.97843, mean dice: 0.93496
+
+Epoch: 186/200 |  time : 10/03/19-15:09:53
+=================================================================
+loss: 0.01569, bce_loss: 0.01087, dice_loss: 0.05910, dice: 0.97260, 0.99053, 0.86853, 0.98098, mean dice: 0.95316
+loss: 0.02014, bce_loss: 0.01248, dice_loss: 0.08906, dice: 0.95005, 0.98052, 0.82763, 0.97847, mean dice: 0.93417
+
+Epoch: 187/200 |  time : 10/03/19-15:17:34
+=================================================================
+loss: 0.01548, bce_loss: 0.01085, dice_loss: 0.05720, dice: 0.97335, 0.99153, 0.87286, 0.98179, mean dice: 0.95488
+loss: 0.02000, bce_loss: 0.01281, dice_loss: 0.08465, dice: 0.94842, 0.98052, 0.83049, 0.97786, mean dice: 0.93432
+
+Epoch: 188/200 |  time : 10/03/19-15:25:15
 =================================================================
