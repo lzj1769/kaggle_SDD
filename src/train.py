@@ -9,7 +9,7 @@ from model import *
 from data_loader import get_dataloader
 from configure import *
 from loss import *
-from utils import seed_torch, compute_dice, mixup_data
+from utils import seed_torch, compute_dice
 import matplotlib
 
 matplotlib.use("Agg")
@@ -27,14 +27,13 @@ def parse_args():
     parser.add_argument("--num-epochs", type=int, default=200,
                         help="Number of epochs for training. Default: 200")
     parser.add_argument("--fold", type=int, default=0)
-    parser.add_argument("--mixup", action="store_true")
 
     return parser.parse_args()
 
 
 class TrainerSegmentation(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path):
+                 fold, training_history_path, task="seg"):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -55,8 +54,10 @@ class TrainerSegmentation(object):
             phase: get_dataloader(
                 phase=phase,
                 fold=fold,
-                batch_size=self.batch_size,
+                train_batch_size=self.batch_size,
+                valid_batch_size=4,
                 num_workers=self.num_workers,
+                task=task
             )
             for phase in self.phases
         }
@@ -196,7 +197,7 @@ class TrainerSegmentation(object):
 
 class TrainerClassification(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, mixup):
+                 fold, training_history_path, task="cls"):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -204,7 +205,6 @@ class TrainerClassification(object):
         self.phases = ["train", "valid"]
         self.model_save_path = model_save_path
         self.model_save_name = model_save_name
-        self.mixup = mixup
         self.fold = fold
         self.training_history_path = training_history_path
         self.criterion = BCEWithLogitsLoss()
@@ -218,8 +218,10 @@ class TrainerClassification(object):
             phase: get_dataloader(
                 phase=phase,
                 fold=fold,
-                batch_size=self.batch_size,
+                train_batch_size=self.batch_size,
+                valid_batch_size=self.batch_size,
                 num_workers=self.num_workers,
+                task=task
             )
             for phase in self.phases
         }
@@ -231,11 +233,6 @@ class TrainerClassification(object):
         loss = self.criterion(outputs, masks.cuda())
         return loss, outputs
 
-    def forward_mixup(self, images, targets_a, targets_b, lam):
-        outputs = self.model(images.cuda())
-        loss = lam * self.criterion(outputs, targets_a.cuda()) + (1 - lam) * self.criterion(outputs, targets_b.cuda())
-        return loss, outputs
-
     def iterate(self, phase):
         self.model.train(phase == "train")
 
@@ -244,30 +241,15 @@ class TrainerClassification(object):
         for images, masks in self.dataloaders[phase]:
             labels = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
 
-            # try mixup
-            if phase == "train":
-                if self.mixup:
-                    images, targets_a, targets_b, lam = mixup_data(images, labels)
-                    loss, outputs = self.forward_mixup(images, targets_a, targets_b, lam)
-                    outputs = (outputs.detach().cpu() > 0.5).type(torch.float32).numpy()
-                    targets_a, targets_b = targets_a.numpy(), targets_b.numpy()
-                    correct = lam * np.equal(outputs, targets_a).astype(np.float32) + (1 - lam) * \
-                              np.equal(outputs, targets_b).astype(np.float32)
-                else:
-                    loss, outputs = self.forward(images, labels)
-                    outputs = (outputs.detach().cpu() > 0.5).type(torch.float32).numpy()
-                    labels = labels.numpy()
-                    correct = np.equal(outputs, labels).astype(np.float32)
+            loss, outputs = self.forward(images, labels)
+            outputs = (outputs.detach().cpu() > 0.5).type(torch.float32).numpy()
+            labels = labels.numpy()
+            correct = np.equal(outputs, labels).astype(np.float32)
 
+            if phase == "train":
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
-
-            else:
-                loss, outputs = self.forward(images, labels)
-                outputs = (outputs.detach().cpu() > 0.5).type(torch.float32).numpy()
-                labels = labels.numpy()
-                correct = np.equal(outputs, labels).astype(np.float32)
 
             running_loss += loss.item()
             running_acc += np.sum(correct, axis=0) / labels.shape[0]
@@ -322,7 +304,6 @@ class TrainerClassification(object):
             f.write("\t".join(header) + "\n")
             for i in range(len(self.loss['train'])):
                 res = [self.loss['train'][i], self.loss['valid'][i]]
-
                 f.write("\t".join(map(str, res)) + "\n")
 
     def start(self):
@@ -377,6 +358,12 @@ def main():
     df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
     df_valid = pd.read_csv(df_valid_path)
 
+    if args.model in ["UResNet34", "USeResNext50"]:
+        df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
+                df_train["defect4"] != 0)]
+        df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
+                df_valid["defect4"] != 0)]
+
     print("Training on {} images, class 1: {}, class 2: {}, class 3: {}, class 4: {}".format(len(df_train),
                                                                                              df_train['defect1'].sum(),
                                                                                              df_train['defect2'].sum(),
@@ -392,30 +379,21 @@ def main():
         model_trainer = TrainerSegmentation(model=UResNet34(),
                                             num_workers=args.num_workers,
                                             batch_size=args.batch_size,
-                                            num_epochs=args.num_epochs,
+                                            num_epochs=200,
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
                                             fold=args.fold)
-    elif args.model == "USeResNext50":
-        model_trainer = TrainerSegmentation(model=USeResNext50(),
-                                            num_workers=args.num_workers,
-                                            batch_size=args.batch_size,
-                                            num_epochs=args.num_epochs,
-                                            model_save_path=model_save_path,
-                                            training_history_path=training_history_path,
-                                            model_save_name=args.model,
-                                            fold=args.fold)
+
     elif args.model == "ResNet34":
         model_trainer = TrainerClassification(model=ResNet34(),
                                               num_workers=args.num_workers,
                                               batch_size=args.batch_size,
-                                              num_epochs=args.num_epochs,
+                                              num_epochs=100,
                                               model_save_path=model_save_path,
                                               training_history_path=training_history_path,
                                               model_save_name=args.model,
-                                              fold=args.fold,
-                                              mixup=args.mixup)
+                                              fold=args.fold)
 
     best = model_trainer.start()
 

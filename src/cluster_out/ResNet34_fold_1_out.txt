@@ -1,1024 +1,523 @@
 Training on 10055 images, class 1: 718, class 2: 198, class 3: 4120, class 4: 641
 Validate on 2513 images, class 1: 179, class 2: 49, class 3: 1030, class 4: 160
-Epoch: 1/200 |  time : 09/28/19-17:51:46
+Epoch: 1/100 |  time : 10/03/19-00:00:44
 =================================================================
-train_loss: 0.24130, accuracy: 0.92943, 0.97967, 0.75548, 0.93730, mean accuracy: 0.90047
-valid_loss: 0.15301, accuracy: 0.92892, 0.98074, 0.88686, 0.95283, mean accuracy: 0.93734
-******** Validation accuracy improved from 0.00000000 to 0.93733815 ********
+train_loss: 0.22832, accuracy: 0.92933, 0.98056, 0.78200, 0.93770, mean accuracy: 0.90740
+valid_loss: 0.15213, accuracy: 0.92892, 0.98074, 0.88214, 0.94458, mean accuracy: 0.93410
+******** Validation accuracy improved from 0.00000000 to 0.93409522 ********
 
-Epoch: 2/200 |  time : 09/28/19-17:55:33
+Epoch: 2/100 |  time : 10/03/19-00:04:18
 =================================================================
-train_loss: 0.15550, accuracy: 0.93092, 0.98166, 0.87630, 0.96083, mean accuracy: 0.93743
-valid_loss: 0.12118, accuracy: 0.92931, 0.98074, 0.92145, 0.97681, mean accuracy: 0.95208
-******** Validation accuracy improved from 0.93733815 to 0.95207871 ********
+train_loss: 0.13958, accuracy: 0.93471, 0.98146, 0.89195, 0.96252, mean accuracy: 0.94266
+valid_loss: 0.11264, accuracy: 0.94504, 0.98074, 0.91398, 0.97209, mean accuracy: 0.95296
+******** Validation accuracy improved from 0.93409522 to 0.95296314 ********
 
-Epoch: 3/200 |  time : 09/28/19-17:59:17
+Epoch: 3/100 |  time : 10/03/19-00:07:50
 =================================================================
-train_loss: 0.12938, accuracy: 0.93800, 0.98116, 0.89723, 0.97438, mean accuracy: 0.94769
-valid_loss: 0.11025, accuracy: 0.93246, 0.98074, 0.92460, 0.97838, mean accuracy: 0.95404
-******** Validation accuracy improved from 0.95207871 to 0.95404412 ********
+train_loss: 0.11250, accuracy: 0.94827, 0.98166, 0.91607, 0.97727, mean accuracy: 0.95582
+valid_loss: 0.10551, accuracy: 0.95722, 0.98074, 0.91713, 0.97681, mean accuracy: 0.95797
+******** Validation accuracy improved from 0.95296314 to 0.95797494 ********
 
-Epoch: 4/200 |  time : 09/28/19-18:03:01
+Epoch: 4/100 |  time : 10/03/19-00:11:22
 =================================================================
-train_loss: 0.11292, accuracy: 0.94468, 0.98136, 0.90889, 0.97986, mean accuracy: 0.95370
-valid_loss: 0.09078, accuracy: 0.95093, 0.98074, 0.92538, 0.98428, mean accuracy: 0.96033
-******** Validation accuracy improved from 0.95404412 to 0.96033343 ********
+train_loss: 0.09882, accuracy: 0.95754, 0.98116, 0.91936, 0.98186, mean accuracy: 0.95998
+valid_loss: 0.09704, accuracy: 0.95329, 0.98074, 0.92617, 0.99017, mean accuracy: 0.96259
+******** Validation accuracy improved from 0.95797494 to 0.96259365 ********
 
-Epoch: 5/200 |  time : 09/28/19-18:06:45
+Epoch: 5/100 |  time : 10/03/19-00:14:54
 =================================================================
-train_loss: 0.10571, accuracy: 0.95355, 0.98166, 0.91687, 0.98276, mean accuracy: 0.95871
-valid_loss: 0.10778, accuracy: 0.96273, 0.98074, 0.90691, 0.98821, mean accuracy: 0.95965
+train_loss: 0.08906, accuracy: 0.96392, 0.98196, 0.92654, 0.98594, mean accuracy: 0.96459
+valid_loss: 0.09150, accuracy: 0.95565, 0.98074, 0.91752, 0.98742, mean accuracy: 0.96033
 
-Epoch: 6/200 |  time : 09/28/19-18:10:29
+Epoch: 6/100 |  time : 10/03/19-00:18:27
 =================================================================
-train_loss: 0.09479, accuracy: 0.96372, 0.98166, 0.92394, 0.98226, mean accuracy: 0.96289
-valid_loss: 0.14354, accuracy: 0.93246, 0.98074, 0.90337, 0.98742, mean accuracy: 0.95100
+train_loss: 0.08248, accuracy: 0.96840, 0.98305, 0.93232, 0.98495, mean accuracy: 0.96718
+valid_loss: 0.09832, accuracy: 0.93750, 0.98074, 0.93200, 0.98624, mean accuracy: 0.95912
 
-Epoch: 7/200 |  time : 09/28/19-18:14:14
+Epoch: 7/100 |  time : 10/03/19-00:21:58
 =================================================================
-train_loss: 0.08843, accuracy: 0.97000, 0.98246, 0.92703, 0.98415, mean accuracy: 0.96591
-valid_loss: 0.07681, accuracy: 0.97484, 0.98074, 0.93042, 0.99175, mean accuracy: 0.96944
-******** Validation accuracy improved from 0.96033343 to 0.96943790 ********
+train_loss: 0.07448, accuracy: 0.97259, 0.98425, 0.93860, 0.98724, mean accuracy: 0.97067
+valid_loss: 0.08099, accuracy: 0.96816, 0.98153, 0.92885, 0.99135, mean accuracy: 0.96747
+******** Validation accuracy improved from 0.96259365 to 0.96747249 ********
 
-Epoch: 8/200 |  time : 09/28/19-18:18:00
+Epoch: 8/100 |  time : 10/03/19-00:25:32
 =================================================================
-train_loss: 0.08192, accuracy: 0.97219, 0.98176, 0.93222, 0.98694, mean accuracy: 0.96828
-valid_loss: 0.10178, accuracy: 0.96973, 0.98153, 0.90416, 0.98978, mean accuracy: 0.96130
+train_loss: 0.07045, accuracy: 0.97707, 0.98515, 0.94199, 0.98973, mean accuracy: 0.97348
+valid_loss: 0.12756, accuracy: 0.94064, 0.98074, 0.91674, 0.99292, mean accuracy: 0.95776
 
-Epoch: 9/200 |  time : 09/28/19-18:21:45
+Epoch: 9/100 |  time : 10/03/19-00:29:05
 =================================================================
-train_loss: 0.07779, accuracy: 0.97588, 0.98305, 0.93192, 0.98854, mean accuracy: 0.96985
-valid_loss: 0.07481, accuracy: 0.97327, 0.98664, 0.94143, 0.99057, mean accuracy: 0.97298
-******** Validation accuracy improved from 0.96943790 to 0.97297563 ********
+train_loss: 0.06650, accuracy: 0.97727, 0.98575, 0.94438, 0.99013, mean accuracy: 0.97438
+valid_loss: 0.07599, accuracy: 0.96777, 0.98546, 0.93671, 0.98585, mean accuracy: 0.96895
+******** Validation accuracy improved from 0.96747249 to 0.96894654 ********
 
-Epoch: 10/200 |  time : 09/28/19-18:25:31
+Epoch: 10/100 |  time : 10/03/19-00:32:38
 =================================================================
-train_loss: 0.07493, accuracy: 0.97528, 0.98395, 0.93411, 0.98824, mean accuracy: 0.97039
-valid_loss: 0.07004, accuracy: 0.97838, 0.98506, 0.93907, 0.98978, mean accuracy: 0.97307
-******** Validation accuracy improved from 0.97297563 to 0.97307390 ********
+train_loss: 0.06338, accuracy: 0.97817, 0.98874, 0.94388, 0.98993, mean accuracy: 0.97518
+valid_loss: 0.08237, accuracy: 0.97759, 0.99253, 0.93514, 0.98467, mean accuracy: 0.97248
+******** Validation accuracy improved from 0.96894654 to 0.97248428 ********
 
-Epoch: 11/200 |  time : 09/28/19-18:29:16
+Epoch: 11/100 |  time : 10/03/19-00:36:13
 =================================================================
-train_loss: 0.06946, accuracy: 0.97797, 0.98525, 0.93790, 0.98913, mean accuracy: 0.97256
-valid_loss: 0.08109, accuracy: 0.97995, 0.99175, 0.92342, 0.98899, mean accuracy: 0.97103
+train_loss: 0.05893, accuracy: 0.98146, 0.99023, 0.94757, 0.99143, mean accuracy: 0.97767
+valid_loss: 0.07658, accuracy: 0.96187, 0.98860, 0.93121, 0.99096, mean accuracy: 0.96816
 
-Epoch: 12/200 |  time : 09/28/19-18:33:00
+Epoch: 12/100 |  time : 10/03/19-00:39:46
 =================================================================
-train_loss: 0.06860, accuracy: 0.97787, 0.98674, 0.93591, 0.98973, mean accuracy: 0.97256
-valid_loss: 0.08143, accuracy: 0.96934, 0.99017, 0.92460, 0.99371, mean accuracy: 0.96946
+train_loss: 0.05613, accuracy: 0.98076, 0.99163, 0.94896, 0.99033, mean accuracy: 0.97792
+valid_loss: 0.06951, accuracy: 0.98113, 0.98899, 0.93482, 0.99292, mean accuracy: 0.97447
+******** Validation accuracy improved from 0.97248428 to 0.97446703 ********
 
-Epoch: 13/200 |  time : 09/28/19-18:36:45
+Epoch: 13/100 |  time : 10/03/19-00:43:20
 =================================================================
-train_loss: 0.06543, accuracy: 0.97927, 0.98904, 0.93959, 0.99143, mean accuracy: 0.97483
-valid_loss: 0.06988, accuracy: 0.97642, 0.99135, 0.92892, 0.99135, mean accuracy: 0.97201
+train_loss: 0.05369, accuracy: 0.98425, 0.99203, 0.95225, 0.99302, mean accuracy: 0.98039
+valid_loss: 0.12450, accuracy: 0.94733, 0.98506, 0.91477, 0.98310, mean accuracy: 0.95756
 
-Epoch: 14/200 |  time : 09/28/19-18:40:30
+Epoch: 14/100 |  time : 10/03/19-00:46:54
 =================================================================
-train_loss: 0.06245, accuracy: 0.98156, 0.98923, 0.94159, 0.99103, mean accuracy: 0.97585
-valid_loss: 0.06675, accuracy: 0.98192, 0.99450, 0.93718, 0.98821, mean accuracy: 0.97545
-******** Validation accuracy improved from 0.97307390 to 0.97544974 ********
+train_loss: 0.05129, accuracy: 0.98365, 0.99193, 0.95425, 0.99282, mean accuracy: 0.98066
+valid_loss: 0.12502, accuracy: 0.94111, 0.98899, 0.92578, 0.98270, mean accuracy: 0.95965
 
-Epoch: 15/200 |  time : 09/28/19-18:44:16
+Epoch: 15/100 |  time : 10/03/19-00:50:27
 =================================================================
-train_loss: 0.05936, accuracy: 0.98246, 0.99163, 0.94508, 0.99123, mean accuracy: 0.97760
-valid_loss: 0.06640, accuracy: 0.97995, 0.99253, 0.93553, 0.99096, mean accuracy: 0.97474
+train_loss: 0.04875, accuracy: 0.98385, 0.99312, 0.95514, 0.99352, mean accuracy: 0.98141
+valid_loss: 0.08800, accuracy: 0.97759, 0.99214, 0.92460, 0.98585, mean accuracy: 0.97004
 
-Epoch: 16/200 |  time : 09/28/19-18:48:00
+Epoch: 16/100 |  time : 10/03/19-00:54:00
 =================================================================
-train_loss: 0.05826, accuracy: 0.98136, 0.99123, 0.94657, 0.99093, mean accuracy: 0.97752
-valid_loss: 0.06305, accuracy: 0.98113, 0.99450, 0.93632, 0.99450, mean accuracy: 0.97661
-******** Validation accuracy improved from 0.97544974 to 0.97661164 ********
+train_loss: 0.04851, accuracy: 0.98335, 0.99312, 0.95833, 0.99252, mean accuracy: 0.98183
+valid_loss: 0.07317, accuracy: 0.97209, 0.99489, 0.93750, 0.99292, mean accuracy: 0.97435
 
-Epoch: 17/200 |  time : 09/28/19-18:51:47
+Epoch: 17/100 |  time : 10/03/19-00:57:33
 =================================================================
-train_loss: 0.05699, accuracy: 0.98335, 0.99173, 0.94767, 0.99083, mean accuracy: 0.97839
-valid_loss: 0.07379, accuracy: 0.98585, 0.99135, 0.93364, 0.99057, mean accuracy: 0.97535
+train_loss: 0.04762, accuracy: 0.98455, 0.99332, 0.95724, 0.99203, mean accuracy: 0.98178
+valid_loss: 0.12919, accuracy: 0.94150, 0.98899, 0.92113, 0.98624, mean accuracy: 0.95947
 
-Epoch: 18/200 |  time : 09/28/19-18:55:32
+Epoch: 18/100 |  time : 10/03/19-01:01:05
 =================================================================
-train_loss: 0.05572, accuracy: 0.98196, 0.99173, 0.94856, 0.99203, mean accuracy: 0.97857
-valid_loss: 0.07066, accuracy: 0.98310, 0.99410, 0.92735, 0.99096, mean accuracy: 0.97388
+train_loss: 0.04445, accuracy: 0.98575, 0.99352, 0.95923, 0.99292, mean accuracy: 0.98285
+valid_loss: 0.10518, accuracy: 0.96187, 0.99450, 0.90212, 0.99135, mean accuracy: 0.96246
 
-Epoch: 19/200 |  time : 09/28/19-18:59:17
+Epoch: 19/100 |  time : 10/03/19-01:04:39
 =================================================================
-train_loss: 0.05210, accuracy: 0.98545, 0.99312, 0.94866, 0.99163, mean accuracy: 0.97971
-valid_loss: 0.06229, accuracy: 0.98270, 0.99607, 0.94182, 0.99253, mean accuracy: 0.97828
-******** Validation accuracy improved from 0.97661164 to 0.97828224 ********
+train_loss: 0.04331, accuracy: 0.98694, 0.99472, 0.96023, 0.99222, mean accuracy: 0.98353
+valid_loss: 0.07430, accuracy: 0.97563, 0.99568, 0.94143, 0.98978, mean accuracy: 0.97563
+******** Validation accuracy improved from 0.97446703 to 0.97562893 ********
 
-Epoch: 20/200 |  time : 09/28/19-19:03:03
+Epoch: 20/100 |  time : 10/03/19-01:08:13
 =================================================================
-train_loss: 0.05187, accuracy: 0.98325, 0.99332, 0.95335, 0.99482, mean accuracy: 0.98119
-valid_loss: 0.07073, accuracy: 0.98349, 0.99410, 0.93639, 0.99332, mean accuracy: 0.97683
+train_loss: 0.04214, accuracy: 0.98834, 0.99332, 0.96073, 0.99332, mean accuracy: 0.98393
+valid_loss: 0.07691, accuracy: 0.97759, 0.99175, 0.93475, 0.98939, mean accuracy: 0.97337
 
-Epoch: 21/200 |  time : 09/28/19-19:06:48
+Epoch: 21/100 |  time : 10/03/19-01:11:45
 =================================================================
-train_loss: 0.05038, accuracy: 0.98525, 0.99302, 0.95195, 0.99302, mean accuracy: 0.98081
-valid_loss: 0.08320, accuracy: 0.98192, 0.99450, 0.92060, 0.98860, mean accuracy: 0.97140
+train_loss: 0.03844, accuracy: 0.98744, 0.99522, 0.96142, 0.99302, mean accuracy: 0.98428
+valid_loss: 0.06740, accuracy: 0.98231, 0.99568, 0.93993, 0.99332, mean accuracy: 0.97781
+******** Validation accuracy improved from 0.97562893 to 0.97780822 ********
 
-Epoch: 22/200 |  time : 09/28/19-19:10:33
+Epoch: 22/100 |  time : 10/03/19-01:15:19
 =================================================================
-train_loss: 0.04657, accuracy: 0.98614, 0.99462, 0.95295, 0.99362, mean accuracy: 0.98183
-valid_loss: 0.08084, accuracy: 0.97995, 0.98703, 0.93239, 0.99292, mean accuracy: 0.97307
+train_loss: 0.03667, accuracy: 0.98864, 0.99432, 0.96641, 0.99352, mean accuracy: 0.98572
+valid_loss: 0.08803, accuracy: 0.95833, 0.99332, 0.92538, 0.99253, mean accuracy: 0.96739
 
-Epoch: 23/200 |  time : 09/28/19-19:14:18
+Epoch: 23/100 |  time : 10/03/19-01:18:52
 =================================================================
-train_loss: 0.04751, accuracy: 0.98754, 0.99432, 0.95205, 0.99312, mean accuracy: 0.98176
-valid_loss: 0.07499, accuracy: 0.97366, 0.99292, 0.93521, 0.99332, mean accuracy: 0.97378
+train_loss: 0.03894, accuracy: 0.98874, 0.99482, 0.96262, 0.99472, mean accuracy: 0.98522
+valid_loss: 0.09263, accuracy: 0.95912, 0.98978, 0.91012, 0.99057, mean accuracy: 0.96240
 
-Epoch: 24/200 |  time : 09/28/19-19:18:02
+Epoch: 24/100 |  time : 10/03/19-01:22:25
 =================================================================
-train_loss: 0.04564, accuracy: 0.98624, 0.99452, 0.95355, 0.99551, mean accuracy: 0.98246
-valid_loss: 0.06611, accuracy: 0.97288, 0.99568, 0.93829, 0.99292, mean accuracy: 0.97494
+train_loss: 0.03731, accuracy: 0.98854, 0.99522, 0.96342, 0.99541, mean accuracy: 0.98565
+valid_loss: 0.07700, accuracy: 0.97524, 0.99175, 0.94182, 0.99371, mean accuracy: 0.97563
 
-Epoch: 25/200 |  time : 09/28/19-19:21:48
+Epoch: 25/100 |  time : 10/03/19-01:25:58
 =================================================================
-train_loss: 0.04681, accuracy: 0.98644, 0.99432, 0.95494, 0.99203, mean accuracy: 0.98193
-valid_loss: 0.06804, accuracy: 0.98035, 0.99410, 0.94229, 0.99096, mean accuracy: 0.97692
+train_loss: 0.03767, accuracy: 0.98824, 0.99402, 0.96352, 0.99452, mean accuracy: 0.98507
+valid_loss: 0.06925, accuracy: 0.97642, 0.99410, 0.93953, 0.99332, mean accuracy: 0.97584
 
-Epoch: 26/200 |  time : 09/28/19-19:25:31
+Epoch: 26/100 |  time : 10/03/19-01:29:31
 =================================================================
-train_loss: 0.04659, accuracy: 0.98535, 0.99561, 0.95704, 0.99382, mean accuracy: 0.98295
-valid_loss: 0.07086, accuracy: 0.98349, 0.99135, 0.94582, 0.99214, mean accuracy: 0.97820
+train_loss: 0.03868, accuracy: 0.98874, 0.99512, 0.96411, 0.99272, mean accuracy: 0.98517
+valid_loss: 0.06766, accuracy: 0.97956, 0.99607, 0.95047, 0.98939, mean accuracy: 0.97887
+******** Validation accuracy improved from 0.97780822 to 0.97887186 ********
 
-Epoch: 27/200 |  time : 09/28/19-19:29:17
+Epoch: 27/100 |  time : 10/03/19-01:33:05
 =================================================================
-train_loss: 0.04502, accuracy: 0.98565, 0.99432, 0.95774, 0.99272, mean accuracy: 0.98261
-valid_loss: 0.06858, accuracy: 0.98624, 0.99568, 0.94032, 0.99175, mean accuracy: 0.97850
-******** Validation accuracy improved from 0.97828224 to 0.97849612 ********
+train_loss: 0.03227, accuracy: 0.98993, 0.99512, 0.96900, 0.99522, mean accuracy: 0.98732
+valid_loss: 0.06881, accuracy: 0.97995, 0.99568, 0.94386, 0.99135, mean accuracy: 0.97771
 
-Epoch: 28/200 |  time : 09/28/19-19:33:02
+Epoch: 28/100 |  time : 10/03/19-01:36:38
 =================================================================
-train_loss: 0.04232, accuracy: 0.98644, 0.99522, 0.95963, 0.99462, mean accuracy: 0.98398
-valid_loss: 0.05941, accuracy: 0.98781, 0.99686, 0.94458, 0.99292, mean accuracy: 0.98054
-******** Validation accuracy improved from 0.97849612 to 0.98054246 ********
+train_loss: 0.03277, accuracy: 0.99163, 0.99522, 0.96960, 0.99541, mean accuracy: 0.98796
+valid_loss: 0.08667, accuracy: 0.97642, 0.99725, 0.91916, 0.99175, mean accuracy: 0.97114
 
-Epoch: 29/200 |  time : 09/28/19-19:36:48
+Epoch: 29/100 |  time : 10/03/19-01:40:11
 =================================================================
-train_loss: 0.04212, accuracy: 0.98774, 0.99492, 0.95863, 0.99442, mean accuracy: 0.98393
-valid_loss: 0.06785, accuracy: 0.97917, 0.99646, 0.94300, 0.99017, mean accuracy: 0.97720
+train_loss: 0.03537, accuracy: 0.99083, 0.99482, 0.96691, 0.99462, mean accuracy: 0.98679
+valid_loss: 0.09581, accuracy: 0.96698, 0.99450, 0.93593, 0.99096, mean accuracy: 0.97209
 
-Epoch: 30/200 |  time : 09/28/19-19:40:33
+Epoch: 30/100 |  time : 10/03/19-01:43:46
 =================================================================
-train_loss: 0.04228, accuracy: 0.98654, 0.99531, 0.95933, 0.99392, mean accuracy: 0.98378
-valid_loss: 0.06978, accuracy: 0.98310, 0.99528, 0.94143, 0.99292, mean accuracy: 0.97818
+train_loss: 0.03227, accuracy: 0.99232, 0.99551, 0.96950, 0.99551, mean accuracy: 0.98821
+valid_loss: 0.08698, accuracy: 0.98035, 0.99528, 0.93593, 0.99096, mean accuracy: 0.97563
 
-Epoch: 31/200 |  time : 09/28/19-19:44:18
+Epoch: 31/100 |  time : 10/03/19-01:47:19
 =================================================================
-train_loss: 0.04057, accuracy: 0.98854, 0.99482, 0.96182, 0.99442, mean accuracy: 0.98490
-valid_loss: 0.07798, accuracy: 0.97956, 0.99568, 0.93560, 0.99292, mean accuracy: 0.97594
+train_loss: 0.03008, accuracy: 0.99242, 0.99621, 0.97109, 0.99581, mean accuracy: 0.98889
+valid_loss: 0.07296, accuracy: 0.98231, 0.99568, 0.92925, 0.99371, mean accuracy: 0.97524
 
-Epoch: 32/200 |  time : 09/28/19-19:48:02
+Epoch: 32/100 |  time : 10/03/19-01:50:51
 =================================================================
-train_loss: 0.04128, accuracy: 0.98804, 0.99352, 0.96033, 0.99312, mean accuracy: 0.98375
-valid_loss: 0.06425, accuracy: 0.98388, 0.99607, 0.94700, 0.99253, mean accuracy: 0.97987
+train_loss: 0.03128, accuracy: 0.99003, 0.99571, 0.97219, 0.99571, mean accuracy: 0.98841
+valid_loss: 0.06097, accuracy: 0.98821, 0.99607, 0.94693, 0.99410, mean accuracy: 0.98133
+******** Validation accuracy improved from 0.97887186 to 0.98132862 ********
 
-Epoch: 33/200 |  time : 09/28/19-19:51:46
+Epoch: 33/100 |  time : 10/03/19-01:54:24
 =================================================================
-train_loss: 0.03891, accuracy: 0.98844, 0.99462, 0.96382, 0.99462, mean accuracy: 0.98537
-valid_loss: 0.06842, accuracy: 0.98781, 0.99450, 0.94929, 0.99214, mean accuracy: 0.98094
-******** Validation accuracy improved from 0.98054246 to 0.98093554 ********
+train_loss: 0.02802, accuracy: 0.99153, 0.99541, 0.97279, 0.99661, mean accuracy: 0.98908
+valid_loss: 0.07547, accuracy: 0.98035, 0.99568, 0.94379, 0.99096, mean accuracy: 0.97769
 
-Epoch: 34/200 |  time : 09/28/19-19:55:33
+Epoch: 34/100 |  time : 10/03/19-01:57:58
 =================================================================
-train_loss: 0.03875, accuracy: 0.98884, 0.99432, 0.96252, 0.99482, mean accuracy: 0.98512
-valid_loss: 0.06394, accuracy: 0.98349, 0.99410, 0.94661, 0.99175, mean accuracy: 0.97899
+train_loss: 0.02846, accuracy: 0.99193, 0.99611, 0.97398, 0.99482, mean accuracy: 0.98921
+valid_loss: 0.08854, accuracy: 0.98074, 0.99175, 0.92853, 0.98978, mean accuracy: 0.97270
 
-Epoch: 35/200 |  time : 09/28/19-19:59:18
+Epoch: 35/100 |  time : 10/03/19-02:01:31
 =================================================================
-train_loss: 0.03753, accuracy: 0.98933, 0.99531, 0.96402, 0.99502, mean accuracy: 0.98592
-valid_loss: 0.06944, accuracy: 0.98624, 0.99371, 0.94300, 0.99253, mean accuracy: 0.97887
+train_loss: 0.02767, accuracy: 0.99133, 0.99651, 0.97368, 0.99502, mean accuracy: 0.98913
+valid_loss: 0.07908, accuracy: 0.98467, 0.99607, 0.94458, 0.97995, mean accuracy: 0.97632
 
-Epoch: 36/200 |  time : 09/28/19-20:03:02
+Epoch: 36/100 |  time : 10/03/19-02:05:03
 =================================================================
-train_loss: 0.03633, accuracy: 0.99023, 0.99452, 0.96561, 0.99512, mean accuracy: 0.98637
-valid_loss: 0.07333, accuracy: 0.97995, 0.99568, 0.94661, 0.99332, mean accuracy: 0.97889
+train_loss: 0.02955, accuracy: 0.99153, 0.99591, 0.97309, 0.99452, mean accuracy: 0.98876
+valid_loss: 0.09959, accuracy: 0.96384, 0.99568, 0.92656, 0.99057, mean accuracy: 0.96916
 
-Epoch: 37/200 |  time : 09/28/19-20:06:47
+Epoch: 37/100 |  time : 10/03/19-02:08:36
 =================================================================
-train_loss: 0.03406, accuracy: 0.98824, 0.99541, 0.96750, 0.99631, mean accuracy: 0.98687
-valid_loss: 0.06991, accuracy: 0.98546, 0.99332, 0.94182, 0.99175, mean accuracy: 0.97809
+train_loss: 0.02559, accuracy: 0.99322, 0.99711, 0.97608, 0.99631, mean accuracy: 0.99068
+valid_loss: 0.09482, accuracy: 0.96777, 0.99410, 0.93396, 0.99410, mean accuracy: 0.97248
 
-Epoch: 38/200 |  time : 09/28/19-20:10:31
+Epoch: 38/100 |  time : 10/03/19-02:12:09
 =================================================================
-train_loss: 0.03674, accuracy: 0.98923, 0.99482, 0.96402, 0.99621, mean accuracy: 0.98607
-valid_loss: 0.07300, accuracy: 0.97877, 0.99450, 0.93757, 0.99332, mean accuracy: 0.97604
+train_loss: 0.02776, accuracy: 0.99173, 0.99561, 0.97398, 0.99601, mean accuracy: 0.98933
+valid_loss: 0.10735, accuracy: 0.96266, 0.99489, 0.91084, 0.99489, mean accuracy: 0.96582
 
-Epoch: 39/200 |  time : 09/28/19-20:14:16
+Epoch: 39/100 |  time : 10/03/19-02:15:42
 =================================================================
-train_loss: 0.03510, accuracy: 0.98983, 0.99601, 0.96461, 0.99522, mean accuracy: 0.98642
-valid_loss: 0.07343, accuracy: 0.98742, 0.99607, 0.94536, 0.99135, mean accuracy: 0.98005
+train_loss: 0.02687, accuracy: 0.99232, 0.99661, 0.97388, 0.99651, mean accuracy: 0.98983
+valid_loss: 0.07082, accuracy: 0.98546, 0.99371, 0.94693, 0.98821, mean accuracy: 0.97858
 
-Epoch: 40/200 |  time : 09/28/19-20:18:00
+Epoch: 40/100 |  time : 10/03/19-02:19:15
 =================================================================
-train_loss: 0.03425, accuracy: 0.99063, 0.99581, 0.96551, 0.99512, mean accuracy: 0.98677
-valid_loss: 0.06775, accuracy: 0.98624, 0.99528, 0.93868, 0.99410, mean accuracy: 0.97858
+train_loss: 0.02653, accuracy: 0.99213, 0.99701, 0.97209, 0.99671, mean accuracy: 0.98948
+valid_loss: 0.07720, accuracy: 0.98388, 0.99371, 0.94654, 0.99214, mean accuracy: 0.97907
 
-Epoch: 41/200 |  time : 09/28/19-20:21:44
+Epoch: 41/100 |  time : 10/03/19-02:22:48
 =================================================================
-train_loss: 0.03377, accuracy: 0.99113, 0.99681, 0.96561, 0.99571, mean accuracy: 0.98732
-valid_loss: 0.07618, accuracy: 0.98742, 0.99646, 0.93993, 0.98467, mean accuracy: 0.97712
+train_loss: 0.02642, accuracy: 0.99392, 0.99711, 0.97368, 0.99641, mean accuracy: 0.99028
+valid_loss: 0.06092, accuracy: 0.99017, 0.99489, 0.94929, 0.99410, mean accuracy: 0.98211
+******** Validation accuracy improved from 0.98132862 to 0.98211478 ********
 
-Epoch: 42/200 |  time : 09/28/19-20:25:29
+Epoch: 42/100 |  time : 10/03/19-02:26:21
 =================================================================
-train_loss: 0.03280, accuracy: 0.99153, 0.99611, 0.96711, 0.99492, mean accuracy: 0.98742
-valid_loss: 0.06761, accuracy: 0.98742, 0.99528, 0.94654, 0.99292, mean accuracy: 0.98054
+train_loss: 0.02471, accuracy: 0.99432, 0.99561, 0.97478, 0.99661, mean accuracy: 0.99033
+valid_loss: 0.06054, accuracy: 0.98860, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98162
 
-Epoch: 43/200 |  time : 09/28/19-20:29:13
+Epoch: 43/100 |  time : 10/03/19-02:29:54
 =================================================================
-train_loss: 0.03264, accuracy: 0.99143, 0.99571, 0.97010, 0.99472, mean accuracy: 0.98799
-valid_loss: 0.06978, accuracy: 0.98624, 0.99607, 0.94582, 0.99332, mean accuracy: 0.98036
+train_loss: 0.02365, accuracy: 0.99442, 0.99711, 0.97508, 0.99601, mean accuracy: 0.99065
+valid_loss: 0.06822, accuracy: 0.98742, 0.99686, 0.95008, 0.99175, mean accuracy: 0.98153
 
-Epoch: 44/200 |  time : 09/28/19-20:32:58
+Epoch: 44/100 |  time : 10/03/19-02:33:27
 =================================================================
-train_loss: 0.03200, accuracy: 0.99093, 0.99671, 0.96870, 0.99621, mean accuracy: 0.98814
-valid_loss: 0.06939, accuracy: 0.98388, 0.99528, 0.94261, 0.99410, mean accuracy: 0.97897
-Epoch    43: reducing learning rate of group 0 to 1.0000e-03.
+train_loss: 0.02530, accuracy: 0.99342, 0.99681, 0.97657, 0.99701, mean accuracy: 0.99095
+valid_loss: 0.10272, accuracy: 0.96659, 0.99489, 0.93160, 0.99135, mean accuracy: 0.97111
 
-Epoch: 45/200 |  time : 09/28/19-20:36:42
+Epoch: 45/100 |  time : 10/03/19-02:37:00
 =================================================================
-train_loss: 0.02747, accuracy: 0.99153, 0.99651, 0.97209, 0.99721, mean accuracy: 0.98933
-valid_loss: 0.06179, accuracy: 0.98781, 0.99568, 0.94772, 0.99489, mean accuracy: 0.98153
-******** Validation accuracy improved from 0.98093554 to 0.98152516 ********
+train_loss: 0.02160, accuracy: 0.99242, 0.99731, 0.97937, 0.99751, mean accuracy: 0.99165
+valid_loss: 0.08096, accuracy: 0.96973, 0.99450, 0.94261, 0.99489, mean accuracy: 0.97543
 
-Epoch: 46/200 |  time : 09/28/19-20:40:27
+Epoch: 46/100 |  time : 10/03/19-02:40:33
 =================================================================
-train_loss: 0.02378, accuracy: 0.99342, 0.99731, 0.97737, 0.99631, mean accuracy: 0.99110
-valid_loss: 0.06044, accuracy: 0.98821, 0.99607, 0.94693, 0.99450, mean accuracy: 0.98143
+train_loss: 0.02362, accuracy: 0.99412, 0.99731, 0.97707, 0.99711, mean accuracy: 0.99140
+valid_loss: 0.06441, accuracy: 0.98781, 0.99568, 0.94733, 0.99175, mean accuracy: 0.98064
 
-Epoch: 47/200 |  time : 09/28/19-20:44:12
+Epoch: 47/100 |  time : 10/03/19-02:44:06
 =================================================================
-train_loss: 0.02369, accuracy: 0.99342, 0.99741, 0.97917, 0.99631, mean accuracy: 0.99158
-valid_loss: 0.06239, accuracy: 0.98860, 0.99568, 0.94851, 0.99410, mean accuracy: 0.98172
-******** Validation accuracy improved from 0.98152516 to 0.98172170 ********
+train_loss: 0.02095, accuracy: 0.99312, 0.99661, 0.98206, 0.99651, mean accuracy: 0.99208
+valid_loss: 0.07310, accuracy: 0.98428, 0.99607, 0.94779, 0.99135, mean accuracy: 0.97987
 
-Epoch: 48/200 |  time : 09/28/19-20:47:57
+Epoch: 48/100 |  time : 10/03/19-02:47:39
 =================================================================
-train_loss: 0.02332, accuracy: 0.99412, 0.99711, 0.97667, 0.99701, mean accuracy: 0.99123
-valid_loss: 0.06500, accuracy: 0.98742, 0.99646, 0.94969, 0.99410, mean accuracy: 0.98192
-******** Validation accuracy improved from 0.98172170 to 0.98191824 ********
+train_loss: 0.02271, accuracy: 0.99342, 0.99701, 0.97797, 0.99661, mean accuracy: 0.99125
+valid_loss: 0.08195, accuracy: 0.97956, 0.99371, 0.94379, 0.98742, mean accuracy: 0.97612
 
-Epoch: 49/200 |  time : 09/28/19-20:51:43
+Epoch: 49/100 |  time : 10/03/19-02:51:11
 =================================================================
-train_loss: 0.02206, accuracy: 0.99502, 0.99731, 0.97787, 0.99771, mean accuracy: 0.99198
-valid_loss: 0.06165, accuracy: 0.98742, 0.99607, 0.95047, 0.99450, mean accuracy: 0.98211
-******** Validation accuracy improved from 0.98191824 to 0.98211478 ********
+train_loss: 0.02198, accuracy: 0.99462, 0.99701, 0.97937, 0.99591, mean accuracy: 0.99173
+valid_loss: 0.09922, accuracy: 0.97013, 0.99332, 0.94150, 0.99175, mean accuracy: 0.97417
 
-Epoch: 50/200 |  time : 09/28/19-20:55:28
+Epoch: 50/100 |  time : 10/03/19-02:54:43
 =================================================================
-train_loss: 0.02066, accuracy: 0.99392, 0.99791, 0.98016, 0.99651, mean accuracy: 0.99213
-valid_loss: 0.06245, accuracy: 0.98978, 0.99528, 0.94851, 0.99410, mean accuracy: 0.98192
+train_loss: 0.02346, accuracy: 0.99312, 0.99701, 0.98006, 0.99691, mean accuracy: 0.99178
+valid_loss: 0.10164, accuracy: 0.97366, 0.99017, 0.93750, 0.98388, mean accuracy: 0.97131
 
-Epoch: 51/200 |  time : 09/28/19-20:59:13
+Epoch: 51/100 |  time : 10/03/19-02:58:16
 =================================================================
-train_loss: 0.02188, accuracy: 0.99422, 0.99731, 0.97887, 0.99681, mean accuracy: 0.99180
-valid_loss: 0.06589, accuracy: 0.98703, 0.99607, 0.95047, 0.99371, mean accuracy: 0.98182
+train_loss: 0.02168, accuracy: 0.99432, 0.99721, 0.98036, 0.99651, mean accuracy: 0.99210
+valid_loss: 0.08421, accuracy: 0.98270, 0.99371, 0.93789, 0.98742, mean accuracy: 0.97543
 
-Epoch: 52/200 |  time : 09/28/19-21:02:57
+Epoch: 52/100 |  time : 10/03/19-03:01:49
 =================================================================
-train_loss: 0.02002, accuracy: 0.99601, 0.99691, 0.97967, 0.99671, mean accuracy: 0.99232
-valid_loss: 0.06563, accuracy: 0.98664, 0.99568, 0.95244, 0.99332, mean accuracy: 0.98202
+train_loss: 0.02250, accuracy: 0.99392, 0.99741, 0.97867, 0.99681, mean accuracy: 0.99170
+valid_loss: 0.08042, accuracy: 0.98388, 0.99450, 0.94654, 0.99057, mean accuracy: 0.97887
+Epoch    51: reducing learning rate of group 0 to 1.0000e-03.
 
-Epoch: 53/200 |  time : 09/28/19-21:06:42
+Epoch: 53/100 |  time : 10/03/19-03:05:22
 =================================================================
-train_loss: 0.01875, accuracy: 0.99541, 0.99841, 0.98285, 0.99751, mean accuracy: 0.99355
-valid_loss: 0.06601, accuracy: 0.98781, 0.99646, 0.95126, 0.99332, mean accuracy: 0.98221
-******** Validation accuracy improved from 0.98211478 to 0.98221305 ********
+train_loss: 0.01719, accuracy: 0.99671, 0.99850, 0.98285, 0.99731, mean accuracy: 0.99384
+valid_loss: 0.06224, accuracy: 0.98742, 0.99528, 0.95637, 0.99450, mean accuracy: 0.98339
+******** Validation accuracy improved from 0.98211478 to 0.98339230 ********
 
-Epoch: 54/200 |  time : 09/28/19-21:10:27
+Epoch: 54/100 |  time : 10/03/19-03:08:56
 =================================================================
-train_loss: 0.02030, accuracy: 0.99302, 0.99781, 0.98106, 0.99771, mean accuracy: 0.99240
-valid_loss: 0.06571, accuracy: 0.98781, 0.99607, 0.94811, 0.99292, mean accuracy: 0.98123
+train_loss: 0.01517, accuracy: 0.99751, 0.99791, 0.98634, 0.99721, mean accuracy: 0.99474
+valid_loss: 0.06112, accuracy: 0.98821, 0.99607, 0.95519, 0.99450, mean accuracy: 0.98349
+******** Validation accuracy improved from 0.98339230 to 0.98349057 ********
 
-Epoch: 55/200 |  time : 09/28/19-21:14:12
+Epoch: 55/100 |  time : 10/03/19-03:12:30
 =================================================================
-train_loss: 0.01860, accuracy: 0.99601, 0.99791, 0.98216, 0.99731, mean accuracy: 0.99335
-valid_loss: 0.06575, accuracy: 0.98860, 0.99607, 0.94851, 0.99332, mean accuracy: 0.98162
+train_loss: 0.01290, accuracy: 0.99711, 0.99870, 0.98953, 0.99821, mean accuracy: 0.99589
+valid_loss: 0.06177, accuracy: 0.98899, 0.99528, 0.95755, 0.99489, mean accuracy: 0.98418
+******** Validation accuracy improved from 0.98349057 to 0.98417846 ********
 
-Epoch: 56/200 |  time : 09/28/19-21:17:57
+Epoch: 56/100 |  time : 10/03/19-03:16:04
 =================================================================
-train_loss: 0.01931, accuracy: 0.99372, 0.99751, 0.98226, 0.99781, mean accuracy: 0.99282
-valid_loss: 0.06259, accuracy: 0.98860, 0.99568, 0.94811, 0.99450, mean accuracy: 0.98172
+train_loss: 0.01323, accuracy: 0.99631, 0.99801, 0.98854, 0.99821, mean accuracy: 0.99527
+valid_loss: 0.06130, accuracy: 0.98939, 0.99568, 0.95597, 0.99489, mean accuracy: 0.98398
 
-Epoch: 57/200 |  time : 09/28/19-21:21:41
+Epoch: 57/100 |  time : 10/03/19-03:19:36
 =================================================================
-train_loss: 0.02074, accuracy: 0.99482, 0.99711, 0.98106, 0.99761, mean accuracy: 0.99265
-valid_loss: 0.06441, accuracy: 0.98821, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98162
+train_loss: 0.01400, accuracy: 0.99621, 0.99761, 0.98804, 0.99791, mean accuracy: 0.99494
+valid_loss: 0.06284, accuracy: 0.98781, 0.99568, 0.95715, 0.99489, mean accuracy: 0.98388
 
-Epoch: 58/200 |  time : 09/28/19-21:25:26
+Epoch: 58/100 |  time : 10/03/19-03:23:09
 =================================================================
-train_loss: 0.01862, accuracy: 0.99502, 0.99761, 0.98276, 0.99751, mean accuracy: 0.99322
-valid_loss: 0.06491, accuracy: 0.98781, 0.99528, 0.95008, 0.99332, mean accuracy: 0.98162
+train_loss: 0.01368, accuracy: 0.99741, 0.99761, 0.98674, 0.99850, mean accuracy: 0.99507
+valid_loss: 0.05930, accuracy: 0.98899, 0.99607, 0.95558, 0.99489, mean accuracy: 0.98388
 
-Epoch: 59/200 |  time : 09/28/19-21:29:10
+Epoch: 59/100 |  time : 10/03/19-03:26:42
 =================================================================
-train_loss: 0.01872, accuracy: 0.99531, 0.99811, 0.98186, 0.99791, mean accuracy: 0.99330
-valid_loss: 0.06627, accuracy: 0.98939, 0.99528, 0.94929, 0.99450, mean accuracy: 0.98211
+train_loss: 0.01273, accuracy: 0.99631, 0.99791, 0.98923, 0.99841, mean accuracy: 0.99546
+valid_loss: 0.06275, accuracy: 0.99017, 0.99646, 0.95951, 0.99450, mean accuracy: 0.98516
+******** Validation accuracy improved from 0.98417846 to 0.98516117 ********
 
-Epoch: 60/200 |  time : 09/28/19-21:32:54
+Epoch: 60/100 |  time : 10/03/19-03:30:16
 =================================================================
-train_loss: 0.01982, accuracy: 0.99492, 0.99821, 0.98126, 0.99781, mean accuracy: 0.99305
-valid_loss: 0.06497, accuracy: 0.98899, 0.99568, 0.94693, 0.99410, mean accuracy: 0.98143
+train_loss: 0.01304, accuracy: 0.99641, 0.99811, 0.98983, 0.99741, mean accuracy: 0.99544
+valid_loss: 0.06348, accuracy: 0.98978, 0.99528, 0.95676, 0.99410, mean accuracy: 0.98398
 
-Epoch: 61/200 |  time : 09/28/19-21:36:38
+Epoch: 61/100 |  time : 10/03/19-03:33:49
 =================================================================
-train_loss: 0.01809, accuracy: 0.99571, 0.99701, 0.98455, 0.99801, mean accuracy: 0.99382
-valid_loss: 0.06453, accuracy: 0.98860, 0.99568, 0.94693, 0.99450, mean accuracy: 0.98143
+train_loss: 0.01207, accuracy: 0.99731, 0.99761, 0.98913, 0.99811, mean accuracy: 0.99554
+valid_loss: 0.06238, accuracy: 0.98939, 0.99489, 0.95480, 0.99410, mean accuracy: 0.98329
 
-Epoch: 62/200 |  time : 09/28/19-21:40:24
+Epoch: 62/100 |  time : 10/03/19-03:37:22
 =================================================================
-train_loss: 0.01796, accuracy: 0.99531, 0.99771, 0.98246, 0.99741, mean accuracy: 0.99322
-valid_loss: 0.06392, accuracy: 0.98939, 0.99568, 0.94733, 0.99332, mean accuracy: 0.98143
+train_loss: 0.01270, accuracy: 0.99681, 0.99801, 0.98834, 0.99781, mean accuracy: 0.99524
+valid_loss: 0.06163, accuracy: 0.99017, 0.99568, 0.95912, 0.99410, mean accuracy: 0.98477
 
-Epoch: 63/200 |  time : 09/28/19-21:44:08
+Epoch: 63/100 |  time : 10/03/19-03:40:55
 =================================================================
-train_loss: 0.01819, accuracy: 0.99482, 0.99761, 0.98365, 0.99781, mean accuracy: 0.99347
-valid_loss: 0.06381, accuracy: 0.98860, 0.99607, 0.94851, 0.99332, mean accuracy: 0.98162
+train_loss: 0.01265, accuracy: 0.99701, 0.99880, 0.98884, 0.99801, mean accuracy: 0.99566
+valid_loss: 0.06175, accuracy: 0.98899, 0.99646, 0.95755, 0.99371, mean accuracy: 0.98418
 
-Epoch: 64/200 |  time : 09/28/19-21:47:53
+Epoch: 64/100 |  time : 10/03/19-03:44:28
 =================================================================
-train_loss: 0.01750, accuracy: 0.99571, 0.99781, 0.98345, 0.99731, mean accuracy: 0.99357
-valid_loss: 0.06626, accuracy: 0.98860, 0.99607, 0.95008, 0.99371, mean accuracy: 0.98211
-Epoch    63: reducing learning rate of group 0 to 1.0000e-04.
+train_loss: 0.01198, accuracy: 0.99631, 0.99811, 0.99013, 0.99791, mean accuracy: 0.99561
+valid_loss: 0.06307, accuracy: 0.99096, 0.99489, 0.95715, 0.99410, mean accuracy: 0.98428
 
-Epoch: 65/200 |  time : 09/28/19-21:51:37
+Epoch: 65/100 |  time : 10/03/19-03:48:00
 =================================================================
-train_loss: 0.01842, accuracy: 0.99541, 0.99781, 0.98126, 0.99771, mean accuracy: 0.99305
-valid_loss: 0.06493, accuracy: 0.98821, 0.99528, 0.94733, 0.99410, mean accuracy: 0.98123
+train_loss: 0.01293, accuracy: 0.99671, 0.99811, 0.98824, 0.99791, mean accuracy: 0.99524
+valid_loss: 0.06428, accuracy: 0.99017, 0.99450, 0.95480, 0.99410, mean accuracy: 0.98339
 
-Epoch: 66/200 |  time : 09/28/19-21:55:21
+Epoch: 66/100 |  time : 10/03/19-03:51:33
 =================================================================
-train_loss: 0.01683, accuracy: 0.99482, 0.99791, 0.98355, 0.99781, mean accuracy: 0.99352
-valid_loss: 0.06502, accuracy: 0.98860, 0.99568, 0.94851, 0.99410, mean accuracy: 0.98172
+train_loss: 0.01246, accuracy: 0.99721, 0.99761, 0.99043, 0.99821, mean accuracy: 0.99586
+valid_loss: 0.06195, accuracy: 0.98939, 0.99568, 0.95637, 0.99410, mean accuracy: 0.98388
 
-Epoch: 67/200 |  time : 09/28/19-21:59:06
+Epoch: 67/100 |  time : 10/03/19-03:55:05
 =================================================================
-train_loss: 0.01713, accuracy: 0.99571, 0.99781, 0.98405, 0.99691, mean accuracy: 0.99362
-valid_loss: 0.06429, accuracy: 0.98821, 0.99607, 0.94969, 0.99371, mean accuracy: 0.98192
+train_loss: 0.01130, accuracy: 0.99761, 0.99841, 0.99023, 0.99900, mean accuracy: 0.99631
+valid_loss: 0.06145, accuracy: 0.99017, 0.99568, 0.95637, 0.99489, mean accuracy: 0.98428
 
-Epoch: 68/200 |  time : 09/28/19-22:02:50
+Epoch: 68/100 |  time : 10/03/19-03:58:38
 =================================================================
-train_loss: 0.01582, accuracy: 0.99601, 0.99811, 0.98415, 0.99781, mean accuracy: 0.99402
-valid_loss: 0.06607, accuracy: 0.98860, 0.99607, 0.94772, 0.99371, mean accuracy: 0.98153
+train_loss: 0.01103, accuracy: 0.99741, 0.99860, 0.99043, 0.99880, mean accuracy: 0.99631
+valid_loss: 0.06467, accuracy: 0.98939, 0.99489, 0.95440, 0.99489, mean accuracy: 0.98339
 
-Epoch: 69/200 |  time : 09/28/19-22:06:34
+Epoch: 69/100 |  time : 10/03/19-04:02:11
 =================================================================
-train_loss: 0.01796, accuracy: 0.99512, 0.99811, 0.98335, 0.99751, mean accuracy: 0.99352
-valid_loss: 0.06676, accuracy: 0.98899, 0.99607, 0.94890, 0.99410, mean accuracy: 0.98202
+train_loss: 0.01083, accuracy: 0.99741, 0.99880, 0.98993, 0.99771, mean accuracy: 0.99596
+valid_loss: 0.06411, accuracy: 0.99017, 0.99568, 0.95480, 0.99410, mean accuracy: 0.98369
 
-Epoch: 70/200 |  time : 09/28/19-22:10:19
+Epoch: 70/100 |  time : 10/03/19-04:05:45
 =================================================================
-train_loss: 0.01765, accuracy: 0.99561, 0.99801, 0.98335, 0.99721, mean accuracy: 0.99355
-valid_loss: 0.06509, accuracy: 0.98860, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98182
+train_loss: 0.01118, accuracy: 0.99761, 0.99801, 0.98993, 0.99801, mean accuracy: 0.99589
+valid_loss: 0.06271, accuracy: 0.98978, 0.99607, 0.95715, 0.99489, mean accuracy: 0.98447
+Epoch    69: reducing learning rate of group 0 to 1.0000e-04.
 
-Epoch: 71/200 |  time : 09/28/19-22:14:03
+Epoch: 71/100 |  time : 10/03/19-04:09:18
 =================================================================
-train_loss: 0.01666, accuracy: 0.99561, 0.99771, 0.98365, 0.99721, mean accuracy: 0.99355
-valid_loss: 0.06541, accuracy: 0.98860, 0.99568, 0.94929, 0.99410, mean accuracy: 0.98192
+train_loss: 0.01075, accuracy: 0.99761, 0.99890, 0.99083, 0.99860, mean accuracy: 0.99649
+valid_loss: 0.06441, accuracy: 0.98978, 0.99528, 0.95637, 0.99489, mean accuracy: 0.98408
 
-Epoch: 72/200 |  time : 09/28/19-22:17:48
+Epoch: 72/100 |  time : 10/03/19-04:12:51
 =================================================================
-train_loss: 0.01653, accuracy: 0.99611, 0.99811, 0.98455, 0.99671, mean accuracy: 0.99387
-valid_loss: 0.06535, accuracy: 0.98899, 0.99568, 0.94969, 0.99410, mean accuracy: 0.98211
+train_loss: 0.01168, accuracy: 0.99711, 0.99860, 0.99073, 0.99811, mean accuracy: 0.99614
+valid_loss: 0.06260, accuracy: 0.98978, 0.99528, 0.95912, 0.99450, mean accuracy: 0.98467
 
-Epoch: 73/200 |  time : 09/28/19-22:21:32
+Epoch: 73/100 |  time : 10/03/19-04:16:24
 =================================================================
-train_loss: 0.01656, accuracy: 0.99631, 0.99721, 0.98465, 0.99751, mean accuracy: 0.99392
-valid_loss: 0.06519, accuracy: 0.98939, 0.99568, 0.95008, 0.99332, mean accuracy: 0.98211
+train_loss: 0.01096, accuracy: 0.99761, 0.99821, 0.99073, 0.99821, mean accuracy: 0.99619
+valid_loss: 0.06334, accuracy: 0.98978, 0.99489, 0.95715, 0.99450, mean accuracy: 0.98408
 
-Epoch: 74/200 |  time : 09/28/19-22:25:16
+Epoch: 74/100 |  time : 10/03/19-04:19:56
 =================================================================
-train_loss: 0.01761, accuracy: 0.99551, 0.99721, 0.98345, 0.99711, mean accuracy: 0.99332
-valid_loss: 0.06552, accuracy: 0.98899, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98182
+train_loss: 0.01112, accuracy: 0.99721, 0.99860, 0.99013, 0.99781, mean accuracy: 0.99594
+valid_loss: 0.06307, accuracy: 0.98939, 0.99528, 0.95597, 0.99450, mean accuracy: 0.98379
 
-Epoch: 75/200 |  time : 09/28/19-22:29:00
+Epoch: 75/100 |  time : 10/03/19-04:23:29
 =================================================================
-train_loss: 0.01724, accuracy: 0.99522, 0.99771, 0.98305, 0.99791, mean accuracy: 0.99347
-valid_loss: 0.06484, accuracy: 0.98899, 0.99568, 0.94811, 0.99410, mean accuracy: 0.98172
-Epoch    74: reducing learning rate of group 0 to 1.0000e-05.
+train_loss: 0.01089, accuracy: 0.99791, 0.99811, 0.98943, 0.99860, mean accuracy: 0.99601
+valid_loss: 0.06407, accuracy: 0.98978, 0.99528, 0.95558, 0.99528, mean accuracy: 0.98398
 
-Epoch: 76/200 |  time : 09/28/19-22:32:45
+Epoch: 76/100 |  time : 10/03/19-04:27:01
 =================================================================
-train_loss: 0.01669, accuracy: 0.99681, 0.99781, 0.98525, 0.99701, mean accuracy: 0.99422
-valid_loss: 0.06567, accuracy: 0.98860, 0.99489, 0.94969, 0.99371, mean accuracy: 0.98172
+train_loss: 0.01125, accuracy: 0.99711, 0.99821, 0.99043, 0.99811, mean accuracy: 0.99596
+valid_loss: 0.06381, accuracy: 0.98939, 0.99489, 0.95519, 0.99528, mean accuracy: 0.98369
 
-Epoch: 77/200 |  time : 09/28/19-22:36:30
+Epoch: 77/100 |  time : 10/03/19-04:30:35
 =================================================================
-train_loss: 0.01621, accuracy: 0.99601, 0.99741, 0.98495, 0.99841, mean accuracy: 0.99419
-valid_loss: 0.06573, accuracy: 0.98939, 0.99568, 0.94890, 0.99410, mean accuracy: 0.98202
+train_loss: 0.01172, accuracy: 0.99821, 0.99821, 0.99013, 0.99860, mean accuracy: 0.99629
+valid_loss: 0.06404, accuracy: 0.98939, 0.99528, 0.95519, 0.99489, mean accuracy: 0.98369
 
-Epoch: 78/200 |  time : 09/28/19-22:40:14
+Epoch: 78/100 |  time : 10/03/19-04:34:09
 =================================================================
-train_loss: 0.01589, accuracy: 0.99531, 0.99791, 0.98405, 0.99831, mean accuracy: 0.99389
-valid_loss: 0.06448, accuracy: 0.98860, 0.99568, 0.95008, 0.99371, mean accuracy: 0.98202
+train_loss: 0.01155, accuracy: 0.99771, 0.99821, 0.98993, 0.99771, mean accuracy: 0.99589
+valid_loss: 0.06223, accuracy: 0.98978, 0.99528, 0.95676, 0.99450, mean accuracy: 0.98408
 
-Epoch: 79/200 |  time : 09/28/19-22:43:58
+Epoch: 79/100 |  time : 10/03/19-04:37:42
 =================================================================
-train_loss: 0.01660, accuracy: 0.99541, 0.99771, 0.98365, 0.99811, mean accuracy: 0.99372
-valid_loss: 0.06684, accuracy: 0.98821, 0.99568, 0.95086, 0.99371, mean accuracy: 0.98211
+train_loss: 0.01056, accuracy: 0.99761, 0.99821, 0.99023, 0.99850, mean accuracy: 0.99614
+valid_loss: 0.06322, accuracy: 0.98939, 0.99528, 0.95715, 0.99410, mean accuracy: 0.98398
 
-Epoch: 80/200 |  time : 09/28/19-22:47:44
+Epoch: 80/100 |  time : 10/03/19-04:41:15
 =================================================================
-train_loss: 0.01542, accuracy: 0.99631, 0.99781, 0.98575, 0.99811, mean accuracy: 0.99449
-valid_loss: 0.06533, accuracy: 0.98860, 0.99568, 0.95165, 0.99371, mean accuracy: 0.98241
-******** Validation accuracy improved from 0.98221305 to 0.98240959 ********
+train_loss: 0.01165, accuracy: 0.99771, 0.99841, 0.99113, 0.99781, mean accuracy: 0.99626
+valid_loss: 0.06240, accuracy: 0.98978, 0.99528, 0.95833, 0.99450, mean accuracy: 0.98447
 
-Epoch: 81/200 |  time : 09/28/19-22:51:29
+Epoch: 81/100 |  time : 10/03/19-04:44:49
 =================================================================
-train_loss: 0.01659, accuracy: 0.99512, 0.99821, 0.98425, 0.99831, mean accuracy: 0.99397
-valid_loss: 0.06578, accuracy: 0.98939, 0.99568, 0.94811, 0.99410, mean accuracy: 0.98182
+train_loss: 0.01000, accuracy: 0.99761, 0.99831, 0.99222, 0.99821, mean accuracy: 0.99659
+valid_loss: 0.06324, accuracy: 0.98899, 0.99528, 0.95637, 0.99450, mean accuracy: 0.98379
+Epoch    80: reducing learning rate of group 0 to 1.0000e-05.
 
-Epoch: 82/200 |  time : 09/28/19-22:55:15
+Epoch: 82/100 |  time : 10/03/19-04:48:24
 =================================================================
-train_loss: 0.01794, accuracy: 0.99561, 0.99791, 0.98146, 0.99751, mean accuracy: 0.99312
-valid_loss: 0.06674, accuracy: 0.98899, 0.99568, 0.94811, 0.99410, mean accuracy: 0.98172
+train_loss: 0.01114, accuracy: 0.99691, 0.99831, 0.99153, 0.99751, mean accuracy: 0.99606
+valid_loss: 0.06381, accuracy: 0.98978, 0.99528, 0.95637, 0.99489, mean accuracy: 0.98408
 
-Epoch: 83/200 |  time : 09/28/19-22:59:00
+Epoch: 83/100 |  time : 10/03/19-04:51:57
 =================================================================
-train_loss: 0.01667, accuracy: 0.99571, 0.99831, 0.98505, 0.99741, mean accuracy: 0.99412
-valid_loss: 0.06558, accuracy: 0.98899, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98192
+train_loss: 0.01098, accuracy: 0.99751, 0.99821, 0.99053, 0.99761, mean accuracy: 0.99596
+valid_loss: 0.06190, accuracy: 0.98939, 0.99528, 0.95755, 0.99450, mean accuracy: 0.98418
 
-Epoch: 84/200 |  time : 09/28/19-23:02:43
+Epoch: 84/100 |  time : 10/03/19-04:55:30
 =================================================================
-train_loss: 0.01687, accuracy: 0.99561, 0.99751, 0.98425, 0.99821, mean accuracy: 0.99389
-valid_loss: 0.06466, accuracy: 0.98899, 0.99568, 0.94811, 0.99371, mean accuracy: 0.98162
+train_loss: 0.01017, accuracy: 0.99751, 0.99880, 0.99123, 0.99821, mean accuracy: 0.99644
+valid_loss: 0.06361, accuracy: 0.99057, 0.99528, 0.95558, 0.99450, mean accuracy: 0.98398
 
-Epoch: 85/200 |  time : 09/28/19-23:06:27
+Epoch: 85/100 |  time : 10/03/19-04:59:02
 =================================================================
-train_loss: 0.01615, accuracy: 0.99452, 0.99821, 0.98664, 0.99811, mean accuracy: 0.99437
-valid_loss: 0.06652, accuracy: 0.98860, 0.99568, 0.94969, 0.99332, mean accuracy: 0.98182
+train_loss: 0.01068, accuracy: 0.99681, 0.99801, 0.99213, 0.99831, mean accuracy: 0.99631
+valid_loss: 0.06367, accuracy: 0.98860, 0.99528, 0.95676, 0.99450, mean accuracy: 0.98379
 
-Epoch: 86/200 |  time : 09/28/19-23:10:12
+Epoch: 86/100 |  time : 10/03/19-05:02:36
 =================================================================
-train_loss: 0.01650, accuracy: 0.99661, 0.99841, 0.98485, 0.99781, mean accuracy: 0.99442
-valid_loss: 0.06564, accuracy: 0.98899, 0.99568, 0.95086, 0.99410, mean accuracy: 0.98241
+train_loss: 0.00947, accuracy: 0.99781, 0.99910, 0.99053, 0.99841, mean accuracy: 0.99646
+valid_loss: 0.06274, accuracy: 0.98978, 0.99568, 0.95715, 0.99489, mean accuracy: 0.98438
 
-Epoch: 87/200 |  time : 09/28/19-23:13:56
+Epoch: 87/100 |  time : 10/03/19-05:06:10
 =================================================================
-train_loss: 0.01679, accuracy: 0.99581, 0.99781, 0.98525, 0.99751, mean accuracy: 0.99409
-valid_loss: 0.06605, accuracy: 0.98899, 0.99528, 0.94811, 0.99332, mean accuracy: 0.98143
+train_loss: 0.01060, accuracy: 0.99751, 0.99910, 0.99023, 0.99801, mean accuracy: 0.99621
+valid_loss: 0.06333, accuracy: 0.98899, 0.99607, 0.95715, 0.99450, mean accuracy: 0.98418
 
-Epoch: 88/200 |  time : 09/28/19-23:17:42
+Epoch: 88/100 |  time : 10/03/19-05:09:42
 =================================================================
-train_loss: 0.01742, accuracy: 0.99541, 0.99801, 0.98465, 0.99791, mean accuracy: 0.99399
-valid_loss: 0.06578, accuracy: 0.98939, 0.99607, 0.94929, 0.99371, mean accuracy: 0.98211
+train_loss: 0.01093, accuracy: 0.99741, 0.99930, 0.98953, 0.99761, mean accuracy: 0.99596
+valid_loss: 0.06293, accuracy: 0.98860, 0.99528, 0.95755, 0.99450, mean accuracy: 0.98398
 
-Epoch: 89/200 |  time : 09/28/19-23:21:25
+Epoch: 89/100 |  time : 10/03/19-05:13:15
 =================================================================
-train_loss: 0.01633, accuracy: 0.99731, 0.99781, 0.98585, 0.99761, mean accuracy: 0.99464
-valid_loss: 0.06605, accuracy: 0.98860, 0.99568, 0.94929, 0.99410, mean accuracy: 0.98192
+train_loss: 0.01026, accuracy: 0.99791, 0.99811, 0.99153, 0.99811, mean accuracy: 0.99641
+valid_loss: 0.06315, accuracy: 0.98821, 0.99528, 0.95597, 0.99528, mean accuracy: 0.98369
 
-Epoch: 90/200 |  time : 09/28/19-23:25:10
+Epoch: 90/100 |  time : 10/03/19-05:16:49
 =================================================================
-train_loss: 0.01779, accuracy: 0.99422, 0.99781, 0.98246, 0.99821, mean accuracy: 0.99317
-valid_loss: 0.06592, accuracy: 0.98899, 0.99528, 0.95047, 0.99371, mean accuracy: 0.98211
+train_loss: 0.01065, accuracy: 0.99731, 0.99841, 0.99113, 0.99811, mean accuracy: 0.99624
+valid_loss: 0.06313, accuracy: 0.98978, 0.99528, 0.95755, 0.99489, mean accuracy: 0.98438
 
-Epoch: 91/200 |  time : 09/28/19-23:28:55
+Epoch: 91/100 |  time : 10/03/19-05:20:22
 =================================================================
-train_loss: 0.01659, accuracy: 0.99571, 0.99711, 0.98575, 0.99741, mean accuracy: 0.99399
-valid_loss: 0.06614, accuracy: 0.98899, 0.99528, 0.94772, 0.99371, mean accuracy: 0.98143
+train_loss: 0.01098, accuracy: 0.99721, 0.99831, 0.99023, 0.99841, mean accuracy: 0.99604
+valid_loss: 0.06492, accuracy: 0.98939, 0.99489, 0.95597, 0.99489, mean accuracy: 0.98379
 
-Epoch: 92/200 |  time : 09/28/19-23:32:40
+Epoch: 92/100 |  time : 10/03/19-05:23:54
 =================================================================
-train_loss: 0.01837, accuracy: 0.99502, 0.99811, 0.98325, 0.99731, mean accuracy: 0.99342
-valid_loss: 0.06664, accuracy: 0.98939, 0.99528, 0.94890, 0.99332, mean accuracy: 0.98172
+train_loss: 0.00999, accuracy: 0.99791, 0.99841, 0.99153, 0.99801, mean accuracy: 0.99646
+valid_loss: 0.06393, accuracy: 0.98978, 0.99568, 0.95519, 0.99450, mean accuracy: 0.98379
 
-Epoch: 93/200 |  time : 09/28/19-23:36:24
+Epoch: 93/100 |  time : 10/03/19-05:27:27
 =================================================================
-train_loss: 0.01828, accuracy: 0.99512, 0.99761, 0.98425, 0.99721, mean accuracy: 0.99355
-valid_loss: 0.06439, accuracy: 0.98939, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98182
+train_loss: 0.01057, accuracy: 0.99721, 0.99880, 0.99033, 0.99870, mean accuracy: 0.99626
+valid_loss: 0.06258, accuracy: 0.98978, 0.99528, 0.95597, 0.99489, mean accuracy: 0.98398
 
-Epoch: 94/200 |  time : 09/28/19-23:40:09
+Epoch: 94/100 |  time : 10/03/19-05:31:00
 =================================================================
-train_loss: 0.01670, accuracy: 0.99631, 0.99751, 0.98325, 0.99701, mean accuracy: 0.99352
-valid_loss: 0.06544, accuracy: 0.98899, 0.99568, 0.94890, 0.99410, mean accuracy: 0.98192
+train_loss: 0.00976, accuracy: 0.99821, 0.99880, 0.99103, 0.99781, mean accuracy: 0.99646
+valid_loss: 0.06307, accuracy: 0.98939, 0.99528, 0.95676, 0.99489, mean accuracy: 0.98408
 
-Epoch: 95/200 |  time : 09/28/19-23:43:52
+Epoch: 95/100 |  time : 10/03/19-05:34:33
 =================================================================
-train_loss: 0.01740, accuracy: 0.99641, 0.99850, 0.98196, 0.99791, mean accuracy: 0.99370
-valid_loss: 0.06592, accuracy: 0.98821, 0.99568, 0.94929, 0.99410, mean accuracy: 0.98182
+train_loss: 0.01065, accuracy: 0.99791, 0.99860, 0.99163, 0.99841, mean accuracy: 0.99664
+valid_loss: 0.06303, accuracy: 0.98899, 0.99528, 0.95558, 0.99528, mean accuracy: 0.98379
 
-Epoch: 96/200 |  time : 09/28/19-23:47:37
+Epoch: 96/100 |  time : 10/03/19-05:38:06
 =================================================================
-train_loss: 0.01681, accuracy: 0.99512, 0.99731, 0.98435, 0.99781, mean accuracy: 0.99365
-valid_loss: 0.06456, accuracy: 0.98899, 0.99568, 0.94693, 0.99410, mean accuracy: 0.98143
+train_loss: 0.01037, accuracy: 0.99701, 0.99831, 0.99113, 0.99841, mean accuracy: 0.99621
+valid_loss: 0.06317, accuracy: 0.98939, 0.99528, 0.95519, 0.99489, mean accuracy: 0.98369
 
-Epoch: 97/200 |  time : 09/28/19-23:51:21
+Epoch: 97/100 |  time : 10/03/19-05:41:39
 =================================================================
-train_loss: 0.01700, accuracy: 0.99681, 0.99801, 0.98246, 0.99701, mean accuracy: 0.99357
-valid_loss: 0.06605, accuracy: 0.98899, 0.99607, 0.95047, 0.99371, mean accuracy: 0.98231
+train_loss: 0.01127, accuracy: 0.99741, 0.99831, 0.98933, 0.99801, mean accuracy: 0.99576
+valid_loss: 0.06370, accuracy: 0.98860, 0.99607, 0.95597, 0.99410, mean accuracy: 0.98369
 
-Epoch: 98/200 |  time : 09/28/19-23:55:10
+Epoch: 98/100 |  time : 10/03/19-05:45:12
 =================================================================
-train_loss: 0.01678, accuracy: 0.99581, 0.99841, 0.98415, 0.99791, mean accuracy: 0.99407
-valid_loss: 0.06724, accuracy: 0.98860, 0.99568, 0.95126, 0.99410, mean accuracy: 0.98241
+train_loss: 0.01135, accuracy: 0.99721, 0.99880, 0.99003, 0.99831, mean accuracy: 0.99609
+valid_loss: 0.06373, accuracy: 0.98939, 0.99528, 0.95873, 0.99371, mean accuracy: 0.98428
 
-Epoch: 99/200 |  time : 09/28/19-23:58:54
+Epoch: 99/100 |  time : 10/03/19-05:48:45
 =================================================================
-train_loss: 0.01766, accuracy: 0.99591, 0.99771, 0.98395, 0.99801, mean accuracy: 0.99389
-valid_loss: 0.06791, accuracy: 0.98860, 0.99568, 0.94969, 0.99371, mean accuracy: 0.98192
+train_loss: 0.00924, accuracy: 0.99731, 0.99900, 0.99222, 0.99850, mean accuracy: 0.99676
+valid_loss: 0.06414, accuracy: 0.98899, 0.99528, 0.95715, 0.99450, mean accuracy: 0.98398
 
-Epoch: 100/200 |  time : 09/29/19-00:02:39
+Epoch: 100/100 |  time : 10/03/19-05:52:18
 =================================================================
-train_loss: 0.01694, accuracy: 0.99432, 0.99781, 0.98525, 0.99791, mean accuracy: 0.99382
-valid_loss: 0.06509, accuracy: 0.98860, 0.99568, 0.94772, 0.99371, mean accuracy: 0.98143
+train_loss: 0.01056, accuracy: 0.99771, 0.99860, 0.99113, 0.99801, mean accuracy: 0.99636
+valid_loss: 0.06303, accuracy: 0.98978, 0.99528, 0.95558, 0.99489, mean accuracy: 0.98388
 
-Epoch: 101/200 |  time : 09/29/19-00:06:23
-=================================================================
-train_loss: 0.01722, accuracy: 0.99601, 0.99771, 0.98425, 0.99771, mean accuracy: 0.99392
-valid_loss: 0.06584, accuracy: 0.98899, 0.99568, 0.94890, 0.99410, mean accuracy: 0.98192
-
-Epoch: 102/200 |  time : 09/29/19-00:10:09
-=================================================================
-train_loss: 0.01702, accuracy: 0.99621, 0.99801, 0.98415, 0.99751, mean accuracy: 0.99397
-valid_loss: 0.06696, accuracy: 0.98899, 0.99568, 0.94851, 0.99410, mean accuracy: 0.98182
-
-Epoch: 103/200 |  time : 09/29/19-00:13:54
-=================================================================
-train_loss: 0.01557, accuracy: 0.99561, 0.99811, 0.98604, 0.99811, mean accuracy: 0.99447
-valid_loss: 0.06500, accuracy: 0.98939, 0.99568, 0.94811, 0.99371, mean accuracy: 0.98172
-
-Epoch: 104/200 |  time : 09/29/19-00:17:39
-=================================================================
-train_loss: 0.01773, accuracy: 0.99631, 0.99711, 0.98435, 0.99751, mean accuracy: 0.99382
-valid_loss: 0.06454, accuracy: 0.98899, 0.99528, 0.94851, 0.99371, mean accuracy: 0.98162
-
-Epoch: 105/200 |  time : 09/29/19-00:21:23
-=================================================================
-train_loss: 0.01722, accuracy: 0.99621, 0.99711, 0.98465, 0.99711, mean accuracy: 0.99377
-valid_loss: 0.06603, accuracy: 0.98939, 0.99489, 0.94929, 0.99410, mean accuracy: 0.98192
-
-Epoch: 106/200 |  time : 09/29/19-00:25:06
-=================================================================
-train_loss: 0.01515, accuracy: 0.99591, 0.99811, 0.98555, 0.99771, mean accuracy: 0.99432
-valid_loss: 0.06523, accuracy: 0.98860, 0.99528, 0.94890, 0.99450, mean accuracy: 0.98182
-
-Epoch: 107/200 |  time : 09/29/19-00:28:50
-=================================================================
-train_loss: 0.01641, accuracy: 0.99621, 0.99721, 0.98425, 0.99791, mean accuracy: 0.99389
-valid_loss: 0.06742, accuracy: 0.98860, 0.99568, 0.95047, 0.99410, mean accuracy: 0.98221
-
-Epoch: 108/200 |  time : 09/29/19-00:32:34
-=================================================================
-train_loss: 0.01514, accuracy: 0.99631, 0.99801, 0.98694, 0.99880, mean accuracy: 0.99502
-valid_loss: 0.06610, accuracy: 0.98860, 0.99528, 0.95047, 0.99410, mean accuracy: 0.98211
-
-Epoch: 109/200 |  time : 09/29/19-00:36:18
-=================================================================
-train_loss: 0.01572, accuracy: 0.99641, 0.99771, 0.98604, 0.99741, mean accuracy: 0.99439
-valid_loss: 0.06650, accuracy: 0.98899, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98192
-
-Epoch: 110/200 |  time : 09/29/19-00:40:03
-=================================================================
-train_loss: 0.01615, accuracy: 0.99701, 0.99781, 0.98455, 0.99791, mean accuracy: 0.99432
-valid_loss: 0.06528, accuracy: 0.98899, 0.99568, 0.94969, 0.99371, mean accuracy: 0.98202
-
-Epoch: 111/200 |  time : 09/29/19-00:43:49
-=================================================================
-train_loss: 0.01734, accuracy: 0.99541, 0.99811, 0.98455, 0.99741, mean accuracy: 0.99387
-valid_loss: 0.06656, accuracy: 0.98860, 0.99568, 0.95008, 0.99410, mean accuracy: 0.98211
-
-Epoch: 112/200 |  time : 09/29/19-00:47:32
-=================================================================
-train_loss: 0.01615, accuracy: 0.99591, 0.99870, 0.98445, 0.99811, mean accuracy: 0.99429
-valid_loss: 0.06564, accuracy: 0.98899, 0.99528, 0.94851, 0.99371, mean accuracy: 0.98162
-
-Epoch: 113/200 |  time : 09/29/19-00:51:16
-=================================================================
-train_loss: 0.01754, accuracy: 0.99631, 0.99801, 0.98385, 0.99671, mean accuracy: 0.99372
-valid_loss: 0.06540, accuracy: 0.98860, 0.99568, 0.95047, 0.99332, mean accuracy: 0.98202
-
-Epoch: 114/200 |  time : 09/29/19-00:55:00
-=================================================================
-train_loss: 0.01757, accuracy: 0.99591, 0.99701, 0.98385, 0.99761, mean accuracy: 0.99360
-valid_loss: 0.06724, accuracy: 0.98860, 0.99568, 0.95008, 0.99371, mean accuracy: 0.98202
-
-Epoch: 115/200 |  time : 09/29/19-00:58:45
-=================================================================
-train_loss: 0.01808, accuracy: 0.99631, 0.99771, 0.98206, 0.99681, mean accuracy: 0.99322
-valid_loss: 0.06701, accuracy: 0.98899, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98172
-
-Epoch: 116/200 |  time : 09/29/19-01:02:30
-=================================================================
-train_loss: 0.01668, accuracy: 0.99571, 0.99801, 0.98535, 0.99841, mean accuracy: 0.99437
-valid_loss: 0.06718, accuracy: 0.98860, 0.99568, 0.94969, 0.99410, mean accuracy: 0.98202
-
-Epoch: 117/200 |  time : 09/29/19-01:06:14
-=================================================================
-train_loss: 0.01728, accuracy: 0.99462, 0.99850, 0.98425, 0.99711, mean accuracy: 0.99362
-valid_loss: 0.06754, accuracy: 0.98899, 0.99568, 0.95086, 0.99371, mean accuracy: 0.98231
-
-Epoch: 118/200 |  time : 09/29/19-01:09:59
-=================================================================
-train_loss: 0.01707, accuracy: 0.99482, 0.99801, 0.98475, 0.99781, mean accuracy: 0.99384
-valid_loss: 0.06619, accuracy: 0.98899, 0.99528, 0.94929, 0.99410, mean accuracy: 0.98192
-
-Epoch: 119/200 |  time : 09/29/19-01:13:44
-=================================================================
-train_loss: 0.01694, accuracy: 0.99581, 0.99811, 0.98545, 0.99771, mean accuracy: 0.99427
-valid_loss: 0.06613, accuracy: 0.98899, 0.99568, 0.95008, 0.99371, mean accuracy: 0.98211
-
-Epoch: 120/200 |  time : 09/29/19-01:17:28
-=================================================================
-train_loss: 0.01615, accuracy: 0.99621, 0.99870, 0.98435, 0.99831, mean accuracy: 0.99439
-valid_loss: 0.06581, accuracy: 0.98899, 0.99568, 0.95008, 0.99332, mean accuracy: 0.98202
-
-Epoch: 121/200 |  time : 09/29/19-01:21:14
-=================================================================
-train_loss: 0.01742, accuracy: 0.99691, 0.99791, 0.98216, 0.99721, mean accuracy: 0.99355
-valid_loss: 0.06717, accuracy: 0.98939, 0.99528, 0.95008, 0.99371, mean accuracy: 0.98211
-
-Epoch: 122/200 |  time : 09/29/19-01:24:59
-=================================================================
-train_loss: 0.01780, accuracy: 0.99621, 0.99741, 0.98395, 0.99781, mean accuracy: 0.99384
-valid_loss: 0.06634, accuracy: 0.98899, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98192
-
-Epoch: 123/200 |  time : 09/29/19-01:28:44
-=================================================================
-train_loss: 0.01642, accuracy: 0.99641, 0.99841, 0.98465, 0.99741, mean accuracy: 0.99422
-valid_loss: 0.06505, accuracy: 0.98899, 0.99568, 0.94811, 0.99371, mean accuracy: 0.98162
-
-Epoch: 124/200 |  time : 09/29/19-01:32:29
-=================================================================
-train_loss: 0.01571, accuracy: 0.99641, 0.99831, 0.98465, 0.99701, mean accuracy: 0.99409
-valid_loss: 0.06515, accuracy: 0.98899, 0.99568, 0.94969, 0.99371, mean accuracy: 0.98202
-
-Epoch: 125/200 |  time : 09/29/19-01:36:13
-=================================================================
-train_loss: 0.01750, accuracy: 0.99591, 0.99721, 0.98335, 0.99781, mean accuracy: 0.99357
-valid_loss: 0.06627, accuracy: 0.98939, 0.99528, 0.94890, 0.99410, mean accuracy: 0.98192
-
-Epoch: 126/200 |  time : 09/29/19-01:40:00
-=================================================================
-train_loss: 0.01702, accuracy: 0.99631, 0.99711, 0.98435, 0.99751, mean accuracy: 0.99382
-valid_loss: 0.06634, accuracy: 0.98939, 0.99568, 0.94929, 0.99332, mean accuracy: 0.98192
-
-Epoch: 127/200 |  time : 09/29/19-01:43:44
-=================================================================
-train_loss: 0.01776, accuracy: 0.99561, 0.99701, 0.98395, 0.99661, mean accuracy: 0.99330
-valid_loss: 0.06604, accuracy: 0.98939, 0.99528, 0.94929, 0.99371, mean accuracy: 0.98192
-
-Epoch: 128/200 |  time : 09/29/19-01:47:31
-=================================================================
-train_loss: 0.01616, accuracy: 0.99492, 0.99841, 0.98525, 0.99831, mean accuracy: 0.99422
-valid_loss: 0.06582, accuracy: 0.98899, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98182
-
-Epoch: 129/200 |  time : 09/29/19-01:51:16
-=================================================================
-train_loss: 0.01606, accuracy: 0.99571, 0.99801, 0.98355, 0.99821, mean accuracy: 0.99387
-valid_loss: 0.06601, accuracy: 0.98978, 0.99607, 0.94929, 0.99410, mean accuracy: 0.98231
-
-Epoch: 130/200 |  time : 09/29/19-01:55:01
-=================================================================
-train_loss: 0.01584, accuracy: 0.99541, 0.99841, 0.98575, 0.99731, mean accuracy: 0.99422
-valid_loss: 0.06697, accuracy: 0.98899, 0.99568, 0.95008, 0.99371, mean accuracy: 0.98211
-
-Epoch: 131/200 |  time : 09/29/19-01:58:46
-=================================================================
-train_loss: 0.01580, accuracy: 0.99651, 0.99751, 0.98475, 0.99751, mean accuracy: 0.99407
-valid_loss: 0.06637, accuracy: 0.98939, 0.99568, 0.94890, 0.99332, mean accuracy: 0.98182
-
-Epoch: 132/200 |  time : 09/29/19-02:02:30
-=================================================================
-train_loss: 0.01631, accuracy: 0.99651, 0.99801, 0.98276, 0.99791, mean accuracy: 0.99379
-valid_loss: 0.06679, accuracy: 0.98899, 0.99528, 0.94851, 0.99371, mean accuracy: 0.98162
-
-Epoch: 133/200 |  time : 09/29/19-02:06:15
-=================================================================
-train_loss: 0.01680, accuracy: 0.99661, 0.99741, 0.98495, 0.99691, mean accuracy: 0.99397
-valid_loss: 0.06596, accuracy: 0.98899, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98182
-
-Epoch: 134/200 |  time : 09/29/19-02:10:00
-=================================================================
-train_loss: 0.01537, accuracy: 0.99671, 0.99821, 0.98585, 0.99731, mean accuracy: 0.99452
-valid_loss: 0.06568, accuracy: 0.98860, 0.99568, 0.94851, 0.99410, mean accuracy: 0.98172
-
-Epoch: 135/200 |  time : 09/29/19-02:13:45
-=================================================================
-train_loss: 0.01632, accuracy: 0.99502, 0.99811, 0.98405, 0.99801, mean accuracy: 0.99379
-valid_loss: 0.06578, accuracy: 0.98860, 0.99528, 0.94929, 0.99410, mean accuracy: 0.98182
-
-Epoch: 136/200 |  time : 09/29/19-02:17:30
-=================================================================
-train_loss: 0.01750, accuracy: 0.99482, 0.99701, 0.98455, 0.99781, mean accuracy: 0.99355
-valid_loss: 0.06601, accuracy: 0.98860, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98182
-
-Epoch: 137/200 |  time : 09/29/19-02:21:14
-=================================================================
-train_loss: 0.01647, accuracy: 0.99661, 0.99791, 0.98475, 0.99671, mean accuracy: 0.99399
-valid_loss: 0.06463, accuracy: 0.98860, 0.99568, 0.94693, 0.99450, mean accuracy: 0.98143
-
-Epoch: 138/200 |  time : 09/29/19-02:24:58
-=================================================================
-train_loss: 0.01585, accuracy: 0.99591, 0.99821, 0.98535, 0.99811, mean accuracy: 0.99439
-valid_loss: 0.06580, accuracy: 0.98899, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98172
-
-Epoch: 139/200 |  time : 09/29/19-02:28:43
-=================================================================
-train_loss: 0.01566, accuracy: 0.99522, 0.99831, 0.98565, 0.99791, mean accuracy: 0.99427
-valid_loss: 0.06642, accuracy: 0.98860, 0.99607, 0.94890, 0.99450, mean accuracy: 0.98202
-
-Epoch: 140/200 |  time : 09/29/19-02:32:28
-=================================================================
-train_loss: 0.01853, accuracy: 0.99452, 0.99771, 0.98246, 0.99801, mean accuracy: 0.99317
-valid_loss: 0.06770, accuracy: 0.98860, 0.99607, 0.95047, 0.99292, mean accuracy: 0.98202
-
-Epoch: 141/200 |  time : 09/29/19-02:36:14
-=================================================================
-train_loss: 0.01540, accuracy: 0.99651, 0.99801, 0.98585, 0.99691, mean accuracy: 0.99432
-valid_loss: 0.06518, accuracy: 0.98939, 0.99607, 0.94969, 0.99410, mean accuracy: 0.98231
-
-Epoch: 142/200 |  time : 09/29/19-02:39:59
-=================================================================
-train_loss: 0.01835, accuracy: 0.99591, 0.99741, 0.98405, 0.99751, mean accuracy: 0.99372
-valid_loss: 0.06690, accuracy: 0.98860, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98182
-
-Epoch: 143/200 |  time : 09/29/19-02:43:43
-=================================================================
-train_loss: 0.01631, accuracy: 0.99601, 0.99791, 0.98714, 0.99701, mean accuracy: 0.99452
-valid_loss: 0.06576, accuracy: 0.98899, 0.99568, 0.94615, 0.99371, mean accuracy: 0.98113
-
-Epoch: 144/200 |  time : 09/29/19-02:47:26
-=================================================================
-train_loss: 0.01538, accuracy: 0.99641, 0.99850, 0.98575, 0.99751, mean accuracy: 0.99454
-valid_loss: 0.06735, accuracy: 0.98821, 0.99607, 0.94733, 0.99410, mean accuracy: 0.98143
-
-Epoch: 145/200 |  time : 09/29/19-02:51:12
-=================================================================
-train_loss: 0.01594, accuracy: 0.99581, 0.99761, 0.98525, 0.99801, mean accuracy: 0.99417
-valid_loss: 0.06706, accuracy: 0.98860, 0.99568, 0.94733, 0.99371, mean accuracy: 0.98133
-
-Epoch: 146/200 |  time : 09/29/19-02:54:55
-=================================================================
-train_loss: 0.01625, accuracy: 0.99621, 0.99850, 0.98485, 0.99771, mean accuracy: 0.99432
-valid_loss: 0.06687, accuracy: 0.98978, 0.99528, 0.94969, 0.99371, mean accuracy: 0.98211
-
-Epoch: 147/200 |  time : 09/29/19-02:58:40
-=================================================================
-train_loss: 0.01607, accuracy: 0.99522, 0.99741, 0.98644, 0.99791, mean accuracy: 0.99424
-valid_loss: 0.06662, accuracy: 0.98939, 0.99568, 0.94851, 0.99332, mean accuracy: 0.98172
-
-Epoch: 148/200 |  time : 09/29/19-03:02:25
-=================================================================
-train_loss: 0.01686, accuracy: 0.99591, 0.99801, 0.98455, 0.99721, mean accuracy: 0.99392
-valid_loss: 0.06734, accuracy: 0.98860, 0.99568, 0.94811, 0.99371, mean accuracy: 0.98153
-
-Epoch: 149/200 |  time : 09/29/19-03:06:09
-=================================================================
-train_loss: 0.01731, accuracy: 0.99541, 0.99691, 0.98445, 0.99741, mean accuracy: 0.99355
-valid_loss: 0.06564, accuracy: 0.98939, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98192
-
-Epoch: 150/200 |  time : 09/29/19-03:09:54
-=================================================================
-train_loss: 0.01680, accuracy: 0.99561, 0.99821, 0.98385, 0.99811, mean accuracy: 0.99394
-valid_loss: 0.06618, accuracy: 0.98860, 0.99568, 0.94969, 0.99410, mean accuracy: 0.98202
-
-Epoch: 151/200 |  time : 09/29/19-03:13:38
-=================================================================
-train_loss: 0.01565, accuracy: 0.99631, 0.99781, 0.98585, 0.99850, mean accuracy: 0.99462
-valid_loss: 0.06566, accuracy: 0.98899, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98172
-
-Epoch: 152/200 |  time : 09/29/19-03:17:23
-=================================================================
-train_loss: 0.01707, accuracy: 0.99462, 0.99721, 0.98505, 0.99781, mean accuracy: 0.99367
-valid_loss: 0.06610, accuracy: 0.98860, 0.99568, 0.94929, 0.99332, mean accuracy: 0.98172
-
-Epoch: 153/200 |  time : 09/29/19-03:21:08
-=================================================================
-train_loss: 0.01677, accuracy: 0.99651, 0.99721, 0.98505, 0.99761, mean accuracy: 0.99409
-valid_loss: 0.06610, accuracy: 0.98899, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98182
-
-Epoch: 154/200 |  time : 09/29/19-03:24:52
-=================================================================
-train_loss: 0.01608, accuracy: 0.99581, 0.99711, 0.98535, 0.99791, mean accuracy: 0.99404
-valid_loss: 0.06561, accuracy: 0.98899, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98172
-
-Epoch: 155/200 |  time : 09/29/19-03:28:36
-=================================================================
-train_loss: 0.01678, accuracy: 0.99561, 0.99841, 0.98425, 0.99751, mean accuracy: 0.99394
-valid_loss: 0.06529, accuracy: 0.98939, 0.99607, 0.94890, 0.99371, mean accuracy: 0.98202
-
-Epoch: 156/200 |  time : 09/29/19-03:32:20
-=================================================================
-train_loss: 0.01645, accuracy: 0.99502, 0.99821, 0.98555, 0.99791, mean accuracy: 0.99417
-valid_loss: 0.06595, accuracy: 0.98860, 0.99528, 0.94811, 0.99410, mean accuracy: 0.98153
-
-Epoch: 157/200 |  time : 09/29/19-03:36:06
-=================================================================
-train_loss: 0.01642, accuracy: 0.99581, 0.99761, 0.98415, 0.99841, mean accuracy: 0.99399
-valid_loss: 0.06654, accuracy: 0.98860, 0.99607, 0.94851, 0.99332, mean accuracy: 0.98162
-
-Epoch: 158/200 |  time : 09/29/19-03:39:50
-=================================================================
-train_loss: 0.01640, accuracy: 0.99621, 0.99781, 0.98515, 0.99791, mean accuracy: 0.99427
-valid_loss: 0.06702, accuracy: 0.98899, 0.99528, 0.95008, 0.99371, mean accuracy: 0.98202
-
-Epoch: 159/200 |  time : 09/29/19-03:43:34
-=================================================================
-train_loss: 0.01668, accuracy: 0.99561, 0.99811, 0.98515, 0.99791, mean accuracy: 0.99419
-valid_loss: 0.06725, accuracy: 0.98939, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98202
-
-Epoch: 160/200 |  time : 09/29/19-03:47:19
-=================================================================
-train_loss: 0.01722, accuracy: 0.99711, 0.99841, 0.98435, 0.99681, mean accuracy: 0.99417
-valid_loss: 0.06643, accuracy: 0.98978, 0.99528, 0.94693, 0.99410, mean accuracy: 0.98153
-
-Epoch: 161/200 |  time : 09/29/19-03:51:03
-=================================================================
-train_loss: 0.01780, accuracy: 0.99611, 0.99761, 0.98435, 0.99661, mean accuracy: 0.99367
-valid_loss: 0.06709, accuracy: 0.98939, 0.99528, 0.94929, 0.99371, mean accuracy: 0.98192
-
-Epoch: 162/200 |  time : 09/29/19-03:54:48
-=================================================================
-train_loss: 0.01546, accuracy: 0.99621, 0.99841, 0.98465, 0.99850, mean accuracy: 0.99444
-valid_loss: 0.06596, accuracy: 0.98939, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98182
-
-Epoch: 163/200 |  time : 09/29/19-03:58:33
-=================================================================
-train_loss: 0.01782, accuracy: 0.99531, 0.99811, 0.98385, 0.99751, mean accuracy: 0.99370
-valid_loss: 0.06504, accuracy: 0.98899, 0.99568, 0.94811, 0.99371, mean accuracy: 0.98162
-
-Epoch: 164/200 |  time : 09/29/19-04:02:18
-=================================================================
-train_loss: 0.01662, accuracy: 0.99531, 0.99771, 0.98385, 0.99791, mean accuracy: 0.99370
-valid_loss: 0.06698, accuracy: 0.98939, 0.99528, 0.94929, 0.99332, mean accuracy: 0.98182
-
-Epoch: 165/200 |  time : 09/29/19-04:06:02
-=================================================================
-train_loss: 0.01615, accuracy: 0.99502, 0.99761, 0.98445, 0.99791, mean accuracy: 0.99375
-valid_loss: 0.06714, accuracy: 0.98899, 0.99568, 0.94811, 0.99332, mean accuracy: 0.98153
-
-Epoch: 166/200 |  time : 09/29/19-04:09:47
-=================================================================
-train_loss: 0.01721, accuracy: 0.99571, 0.99821, 0.98385, 0.99761, mean accuracy: 0.99384
-valid_loss: 0.06590, accuracy: 0.98939, 0.99607, 0.94772, 0.99371, mean accuracy: 0.98172
-
-Epoch: 167/200 |  time : 09/29/19-04:13:31
-=================================================================
-train_loss: 0.01507, accuracy: 0.99601, 0.99831, 0.98585, 0.99831, mean accuracy: 0.99462
-valid_loss: 0.06528, accuracy: 0.98899, 0.99528, 0.94811, 0.99371, mean accuracy: 0.98153
-
-Epoch: 168/200 |  time : 09/29/19-04:17:16
-=================================================================
-train_loss: 0.01506, accuracy: 0.99651, 0.99821, 0.98485, 0.99751, mean accuracy: 0.99427
-valid_loss: 0.06595, accuracy: 0.98821, 0.99568, 0.94929, 0.99332, mean accuracy: 0.98162
-
-Epoch: 169/200 |  time : 09/29/19-04:21:00
-=================================================================
-train_loss: 0.01685, accuracy: 0.99601, 0.99751, 0.98415, 0.99771, mean accuracy: 0.99384
-valid_loss: 0.06537, accuracy: 0.98899, 0.99568, 0.94851, 0.99292, mean accuracy: 0.98153
-
-Epoch: 170/200 |  time : 09/29/19-04:24:45
-=================================================================
-train_loss: 0.01677, accuracy: 0.99512, 0.99791, 0.98505, 0.99781, mean accuracy: 0.99397
-valid_loss: 0.06666, accuracy: 0.98899, 0.99568, 0.95047, 0.99332, mean accuracy: 0.98211
-
-Epoch: 171/200 |  time : 09/29/19-04:28:29
-=================================================================
-train_loss: 0.01829, accuracy: 0.99581, 0.99801, 0.98445, 0.99751, mean accuracy: 0.99394
-valid_loss: 0.06737, accuracy: 0.98939, 0.99528, 0.94811, 0.99371, mean accuracy: 0.98162
-
-Epoch: 172/200 |  time : 09/29/19-04:32:12
-=================================================================
-train_loss: 0.01676, accuracy: 0.99621, 0.99741, 0.98355, 0.99681, mean accuracy: 0.99350
-valid_loss: 0.06712, accuracy: 0.98860, 0.99568, 0.94890, 0.99410, mean accuracy: 0.98182
-
-Epoch: 173/200 |  time : 09/29/19-04:35:56
-=================================================================
-train_loss: 0.01660, accuracy: 0.99631, 0.99721, 0.98604, 0.99751, mean accuracy: 0.99427
-valid_loss: 0.06551, accuracy: 0.98978, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98192
-
-Epoch: 174/200 |  time : 09/29/19-04:39:41
-=================================================================
-train_loss: 0.01618, accuracy: 0.99581, 0.99771, 0.98535, 0.99821, mean accuracy: 0.99427
-valid_loss: 0.06674, accuracy: 0.98899, 0.99528, 0.94772, 0.99371, mean accuracy: 0.98143
-
-Epoch: 175/200 |  time : 09/29/19-04:43:25
-=================================================================
-train_loss: 0.01689, accuracy: 0.99661, 0.99741, 0.98415, 0.99721, mean accuracy: 0.99384
-valid_loss: 0.06687, accuracy: 0.98860, 0.99489, 0.94772, 0.99371, mean accuracy: 0.98123
-
-Epoch: 176/200 |  time : 09/29/19-04:47:09
-=================================================================
-train_loss: 0.01621, accuracy: 0.99661, 0.99801, 0.98585, 0.99731, mean accuracy: 0.99444
-valid_loss: 0.06596, accuracy: 0.98860, 0.99607, 0.94772, 0.99371, mean accuracy: 0.98153
-
-Epoch: 177/200 |  time : 09/29/19-04:50:53
-=================================================================
-train_loss: 0.01642, accuracy: 0.99561, 0.99771, 0.98345, 0.99771, mean accuracy: 0.99362
-valid_loss: 0.06654, accuracy: 0.98939, 0.99568, 0.94733, 0.99410, mean accuracy: 0.98162
-
-Epoch: 178/200 |  time : 09/29/19-04:54:39
-=================================================================
-train_loss: 0.01686, accuracy: 0.99591, 0.99731, 0.98425, 0.99781, mean accuracy: 0.99382
-valid_loss: 0.06651, accuracy: 0.98939, 0.99607, 0.94851, 0.99292, mean accuracy: 0.98172
-
-Epoch: 179/200 |  time : 09/29/19-04:58:24
-=================================================================
-train_loss: 0.01486, accuracy: 0.99621, 0.99771, 0.98614, 0.99781, mean accuracy: 0.99447
-valid_loss: 0.06638, accuracy: 0.98899, 0.99607, 0.94733, 0.99371, mean accuracy: 0.98153
-
-Epoch: 180/200 |  time : 09/29/19-05:02:09
-=================================================================
-train_loss: 0.01578, accuracy: 0.99531, 0.99841, 0.98425, 0.99801, mean accuracy: 0.99399
-valid_loss: 0.06643, accuracy: 0.98860, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98172
-
-Epoch: 181/200 |  time : 09/29/19-05:05:53
-=================================================================
-train_loss: 0.01639, accuracy: 0.99502, 0.99860, 0.98405, 0.99751, mean accuracy: 0.99379
-valid_loss: 0.06745, accuracy: 0.98939, 0.99528, 0.94851, 0.99371, mean accuracy: 0.98172
-
-Epoch: 182/200 |  time : 09/29/19-05:09:38
-=================================================================
-train_loss: 0.01655, accuracy: 0.99651, 0.99751, 0.98415, 0.99761, mean accuracy: 0.99394
-valid_loss: 0.06643, accuracy: 0.98860, 0.99568, 0.94772, 0.99410, mean accuracy: 0.98153
-
-Epoch: 183/200 |  time : 09/29/19-05:13:24
-=================================================================
-train_loss: 0.01751, accuracy: 0.99551, 0.99701, 0.98465, 0.99701, mean accuracy: 0.99355
-valid_loss: 0.06587, accuracy: 0.98899, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98192
-
-Epoch: 184/200 |  time : 09/29/19-05:17:09
-=================================================================
-train_loss: 0.01711, accuracy: 0.99611, 0.99741, 0.98485, 0.99781, mean accuracy: 0.99404
-valid_loss: 0.06594, accuracy: 0.98939, 0.99568, 0.94693, 0.99371, mean accuracy: 0.98143
-
-Epoch: 185/200 |  time : 09/29/19-05:20:53
-=================================================================
-train_loss: 0.01734, accuracy: 0.99512, 0.99751, 0.98445, 0.99751, mean accuracy: 0.99365
-valid_loss: 0.06598, accuracy: 0.98860, 0.99568, 0.94811, 0.99410, mean accuracy: 0.98162
-
-Epoch: 186/200 |  time : 09/29/19-05:24:36
-=================================================================
-train_loss: 0.01477, accuracy: 0.99661, 0.99771, 0.98664, 0.99811, mean accuracy: 0.99477
-valid_loss: 0.06678, accuracy: 0.98860, 0.99568, 0.94772, 0.99371, mean accuracy: 0.98143
-
-Epoch: 187/200 |  time : 09/29/19-05:28:21
-=================================================================
-train_loss: 0.01645, accuracy: 0.99631, 0.99811, 0.98325, 0.99781, mean accuracy: 0.99387
-valid_loss: 0.06744, accuracy: 0.98939, 0.99568, 0.94929, 0.99332, mean accuracy: 0.98192
-
-Epoch: 188/200 |  time : 09/29/19-05:32:05
-=================================================================
-train_loss: 0.01831, accuracy: 0.99571, 0.99781, 0.98345, 0.99731, mean accuracy: 0.99357
-valid_loss: 0.06589, accuracy: 0.98899, 0.99568, 0.94929, 0.99332, mean accuracy: 0.98182
-
-Epoch: 189/200 |  time : 09/29/19-05:35:49
-=================================================================
-train_loss: 0.01700, accuracy: 0.99561, 0.99811, 0.98385, 0.99771, mean accuracy: 0.99382
-valid_loss: 0.06661, accuracy: 0.98978, 0.99568, 0.94851, 0.99371, mean accuracy: 0.98192
-
-Epoch: 190/200 |  time : 09/29/19-05:39:34
-=================================================================
-train_loss: 0.01624, accuracy: 0.99601, 0.99821, 0.98565, 0.99841, mean accuracy: 0.99457
-valid_loss: 0.06602, accuracy: 0.98860, 0.99568, 0.94733, 0.99371, mean accuracy: 0.98133
-
-Epoch: 191/200 |  time : 09/29/19-05:43:18
-=================================================================
-train_loss: 0.01691, accuracy: 0.99442, 0.99791, 0.98614, 0.99741, mean accuracy: 0.99397
-valid_loss: 0.06602, accuracy: 0.98899, 0.99568, 0.94890, 0.99410, mean accuracy: 0.98192
-
-Epoch: 192/200 |  time : 09/29/19-05:47:03
-=================================================================
-train_loss: 0.01685, accuracy: 0.99581, 0.99850, 0.98425, 0.99741, mean accuracy: 0.99399
-valid_loss: 0.06615, accuracy: 0.98860, 0.99528, 0.94969, 0.99371, mean accuracy: 0.98182
-
-Epoch: 193/200 |  time : 09/29/19-05:50:46
-=================================================================
-train_loss: 0.01660, accuracy: 0.99541, 0.99781, 0.98455, 0.99711, mean accuracy: 0.99372
-valid_loss: 0.06637, accuracy: 0.98860, 0.99528, 0.94851, 0.99371, mean accuracy: 0.98153
-
-Epoch: 194/200 |  time : 09/29/19-05:54:31
-=================================================================
-train_loss: 0.01748, accuracy: 0.99541, 0.99781, 0.98315, 0.99801, mean accuracy: 0.99360
-valid_loss: 0.06517, accuracy: 0.98899, 0.99568, 0.94772, 0.99371, mean accuracy: 0.98153
-
-Epoch: 195/200 |  time : 09/29/19-05:58:15
-=================================================================
-train_loss: 0.01664, accuracy: 0.99661, 0.99831, 0.98555, 0.99771, mean accuracy: 0.99454
-valid_loss: 0.06623, accuracy: 0.98821, 0.99568, 0.94890, 0.99371, mean accuracy: 0.98162
-
-Epoch: 196/200 |  time : 09/29/19-06:01:58
-=================================================================
-train_loss: 0.01710, accuracy: 0.99551, 0.99870, 0.98305, 0.99781, mean accuracy: 0.99377
-valid_loss: 0.06502, accuracy: 0.98899, 0.99568, 0.94929, 0.99371, mean accuracy: 0.98192
-
-Epoch: 197/200 |  time : 09/29/19-06:05:44
-=================================================================
-train_loss: 0.01700, accuracy: 0.99581, 0.99751, 0.98415, 0.99711, mean accuracy: 0.99365
-valid_loss: 0.06568, accuracy: 0.98978, 0.99528, 0.94733, 0.99371, mean accuracy: 0.98153
-
-Epoch: 198/200 |  time : 09/29/19-06:09:28
-=================================================================
-train_loss: 0.01642, accuracy: 0.99571, 0.99831, 0.98664, 0.99741, mean accuracy: 0.99452
-valid_loss: 0.06648, accuracy: 0.98939, 0.99568, 0.94772, 0.99410, mean accuracy: 0.98172
-
-Epoch: 199/200 |  time : 09/29/19-06:13:12
-=================================================================
-train_loss: 0.01717, accuracy: 0.99561, 0.99821, 0.98485, 0.99791, mean accuracy: 0.99414
-valid_loss: 0.06564, accuracy: 0.98899, 0.99607, 0.94772, 0.99371, mean accuracy: 0.98162
-
-Epoch: 200/200 |  time : 09/29/19-06:16:57
-=================================================================
-train_loss: 0.01663, accuracy: 0.99541, 0.99801, 0.98495, 0.99801, mean accuracy: 0.99409
-valid_loss: 0.06728, accuracy: 0.98899, 0.99568, 0.95086, 0.99371, mean accuracy: 0.98231
-
+Training is done, best: 0.9851611672707324

@@ -92,54 +92,14 @@ class DiceBCELoss(nn.Module):
         return loss, bce_loss, dice_loss
 
 
-class VAELoss(nn.Module):
-    def __init__(self, beta=1):
-        super(VAELoss, self).__init__()
-        self.beta = beta
-
-    def forward(self, images_pred, images, mu, logvar):
-        mse = F.mse_loss(images_pred, images)
-        kl = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())
-
-        return mse + self.beta * kl
-
-
-class DiceBCEVAELoss(nn.Module):
-    def __init__(self):
-        super(DiceBCEVAELoss, self).__init__()
-        self.bce = BCEWithLogitsLoss()
-        self.dice = DiceLoss(smooth=1)
-        self.vae = VAELoss()
-
-    def forward(self, masks_pred, masks, images_pred, images, mu, logvar):
-        bce_loss = self.bce(masks_pred, masks)
-        dice_loss = self.dice(masks_pred, masks)
-        vae_loss = self.vae(images_pred, images, mu, logvar)
-
-        loss = 0.8 * bce_loss + 0.1 * dice_loss + 0.1 * vae_loss
-
-        return loss, bce_loss, dice_loss, vae_loss
-
-
-class CBLoss(nn.Module):
-    def __init__(self, samples_per_cls, no_of_classes, beta, gamma):
-        super(CBLoss, self).__init__()
-        self.samples_per_cls = samples_per_cls
-        self.no_of_classes = no_of_classes
-        self.beta = beta
+class FocalLoss(nn.Module):
+    def __init__(self, gamma=0):
+        super(FocalLoss, self).__init__()
         self.gamma = gamma
 
-    def forward(self, logits, labels):
-        effective_num = 1.0 - np.power(self.beta, self.samples_per_cls)
-        weights = (1.0 - self.beta) / np.array(effective_num)
-        weights = weights / np.sum(weights) * self.no_of_classes
-
-        labels_one_hot = F.one_hot(labels, self.no_of_classes).float()
-
-        weights = torch.tensor(weights).float()
-        weights = weights.unsqueeze(0)
-        weights = weights.repeat(labels_one_hot.shape[0], 1) * labels_one_hot
-
-        cb_loss = F.binary_cross_entropy_with_logits(input=logits, target=labels_one_hot, weight=weights)
-
-        return cb_loss
+    def forward(self, inputs, targets):
+        bce_loss = F.binary_cross_entropy_with_logits(inputs, targets,
+                                                      reduction='none')
+        pt = torch.exp(-bce_loss)  # prevents nans when probability 0
+        loss = (1 - pt) ** self.gamma * bce_loss
+        return loss.mean()
