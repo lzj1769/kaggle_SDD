@@ -3,11 +3,10 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['ResNet34']
+model_list = ['UResNet34']
 fold_list = [0]
 batch_size = dict()
-batch_size['USeResNext50'] = 4
-batch_size['UResNet34'] = 24
+batch_size['UResNet34'] = 6
 batch_size['ResNet34'] = 48
 
 

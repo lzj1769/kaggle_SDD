@@ -1,12 +1,10 @@
-import os
 import time
 import argparse
-import pandas as pd
 from torch.optim import SGD
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from model import *
-from data_loader import get_dataloader
+from data_loader import *
 from configure import *
 from loss import *
 from utils import seed_torch, compute_dice
@@ -25,14 +23,14 @@ def parse_args():
     parser.add_argument("--batch-size", type=int, default=6,
                         help="Batch size for training. Default: 6")
     parser.add_argument("--fold", type=int, default=0)
-    parser.add_argument("--class", type=int, default=1)
+    parser.add_argument("--cls", type=int, default=1)
 
     return parser.parse_args()
 
 
 class TrainerSegmentation(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, task="seg"):
+                 fold, training_history_path, cls=None):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -50,13 +48,13 @@ class TrainerSegmentation(object):
                                            min_lr=1e-05, eps=1e-8)
         self.model = self.model.cuda()
         self.dataloaders = {
-            phase: get_dataloader(
+            phase: get_dataloader_seg(
                 phase=phase,
                 fold=fold,
                 train_batch_size=self.batch_size,
-                valid_batch_size=4,
+                valid_batch_size=self.batch_size,
                 num_workers=self.num_workers,
-                task=task
+                cls=cls
             )
             for phase in self.phases
         }
@@ -196,7 +194,7 @@ class TrainerSegmentation(object):
 
 class TrainerClassification(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, task="cls"):
+                 fold, training_history_path):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -211,16 +209,15 @@ class TrainerClassification(object):
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
         self.scheduler = ReduceLROnPlateau(self.optimizer, mode='max', factor=0.1, patience=10,
                                            verbose=True, threshold=1e-8,
-                                           min_lr=1e-05, eps=1e-8)
+                                           min_lr=1e-06, eps=1e-8)
         self.model = self.model.cuda()
         self.dataloaders = {
-            phase: get_dataloader(
+            phase: get_dataloader_cls(
                 phase=phase,
                 fold=fold,
                 train_batch_size=self.batch_size,
                 valid_batch_size=self.batch_size,
                 num_workers=self.num_workers,
-                task=task
             )
             for phase in self.phases
         }
@@ -289,6 +286,11 @@ class TrainerClassification(object):
         axes[1, 1].plot(self.accuracy['valid'][:, 3], '-r', label='Validation')
         axes[1, 1].set_title("Accuracy 4", fontweight='bold')
         axes[1, 1].legend(loc="lower right", frameon=False)
+
+        axes[1, 2].plot(np.mean(self.accuracy['train'], axis=1), '-b', label='Training')
+        axes[1, 2].plot(np.mean(self.accuracy['valid'], axis=1), '-r', label='Validation')
+        axes[1, 2].set_title("Mean accuracy", fontweight='bold')
+        axes[1, 2].legend(loc="lower right", frameon=False)
 
         output_filename = os.path.join(self.training_history_path,
                                        "{}_fold_{}_loss.pdf".format(self.model_save_name, self.fold))
@@ -382,7 +384,8 @@ def main():
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
-                                            fold=args.fold)
+                                            fold=args.fold,
+                                            cls=args.cls)
 
     elif args.model == "ResNet34":
         model_trainer = TrainerClassification(model=ResNet34(),

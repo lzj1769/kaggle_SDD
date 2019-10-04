@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import torch
 from torch.utils.data import Dataset, DataLoader
-from torchvision.transforms.functional import normalize
 
 from configure import SPLIT_FOLDER, DATA_FOLDER
 import albumentations as albu
@@ -69,7 +68,6 @@ class SteelDataset(Dataset):
                 raise "unknown task: {}".format(self.task)
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
-        image = normalize(image, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         mask = torch.from_numpy(mask).permute(2, 0, 1)
 
         return image, mask
@@ -78,14 +76,39 @@ class SteelDataset(Dataset):
         return len(self.filenames)
 
 
-def get_dataloader(phase, fold, train_batch_size, valid_batch_size, num_workers, task):
+def get_dataloader_seg(phase, fold, train_batch_size, valid_batch_size, num_workers, cls):
     df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
     df = pd.read_csv(df_path)
-    # select the image with non-empty masks for segmentation training
-    if task == "seg":
-        df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
+    if cls == 1:
+        df = df.loc(df["defect1"] != 0)
+    elif cls == 2:
+        df = df.loc(df["defect2"] != 0)
+    elif cls == 3:
+        df = df.loc(df["defect3"] != 0)
+    elif cls == 4:
+        df = df.loc(df["defect4"] != 0)
+    else:
+        raise "unknown defect class: {}".format(cls)
 
-    image_dataset = SteelDataset(df, phase, task=task)
+    image_dataset = SteelDataset(df, phase, task="seg")
+    shuffle = True if phase == "train" else False
+    drop_last = True if phase == "train" else False
+    batch_size = train_batch_size if phase == "train" else valid_batch_size
+    dataloader = DataLoader(image_dataset,
+                            batch_size=batch_size,
+                            num_workers=num_workers,
+                            pin_memory=True,
+                            shuffle=shuffle,
+                            drop_last=drop_last)
+
+    return dataloader
+
+
+def get_dataloader_cls(phase, fold, train_batch_size, valid_batch_size, num_workers):
+    df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
+    df = pd.read_csv(df_path)
+
+    image_dataset = SteelDataset(df, phase, task="cls")
     shuffle = True if phase == "train" else False
     drop_last = True if phase == "train" else False
     batch_size = train_batch_size if phase == "train" else valid_batch_size
