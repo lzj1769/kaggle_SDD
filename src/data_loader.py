@@ -44,28 +44,22 @@ def make_mask(row_id, df):
     return filename, masks
 
 
-class SteelDataset(Dataset):
-    def __init__(self, df, phase, task):
+class SteelDatasetSeg(Dataset):
+    def __init__(self, df, phase):
         self.df = df
         self.data_folder = DATA_FOLDER
         self.phase = phase
-        self.task = task
         self.filenames = self.df.ImageId.values
 
     def __getitem__(self, idx):
         image_id, mask = make_mask(idx, self.df)
+
         image_path = os.path.join(self.data_folder, image_id)
         image = cv2.imread(image_path)
 
         if self.phase == "train":
-            if self.task == "seg":
-                augmented = train_aug_seg(image=image, mask=mask)
-                image, mask = augmented['image'], augmented['mask']
-            elif self.task == "cls":
-                augmented = train_aug_cls(image=image, mask=mask)
-                image, mask = augmented['image'], augmented['mask']
-            else:
-                raise "unknown task: {}".format(self.task)
+            augmented = train_aug_seg(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
         mask = torch.from_numpy(mask).permute(2, 0, 1)
@@ -76,21 +70,37 @@ class SteelDataset(Dataset):
         return len(self.filenames)
 
 
-def get_dataloader_seg(phase, fold, train_batch_size, valid_batch_size, num_workers, cls):
+class SteelDatasetCls(Dataset):
+    def __init__(self, df, phase):
+        self.df = df
+        self.data_folder = DATA_FOLDER
+        self.phase = phase
+        self.filenames = self.df.ImageId.values
+
+    def __getitem__(self, idx):
+        image_id, mask = make_mask(idx, self.df)
+        image_path = os.path.join(self.data_folder, image_id)
+        image = cv2.imread(image_path)
+
+        if self.phase == "train":
+            augmented = train_aug_cls(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
+
+        image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
+        mask = torch.from_numpy(mask).permute(2, 0, 1)
+
+        return image, mask
+
+    def __len__(self):
+        return len(self.filenames)
+
+
+def get_dataloader_seg(phase, fold, train_batch_size, valid_batch_size, num_workers):
     df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
     df = pd.read_csv(df_path)
-    if cls == 1:
-        df = df.loc(df["defect1"] != 0)
-    elif cls == 2:
-        df = df.loc(df["defect2"] != 0)
-    elif cls == 3:
-        df = df.loc(df["defect3"] != 0)
-    elif cls == 4:
-        df = df.loc(df["defect4"] != 0)
-    else:
-        raise "unknown defect class: {}".format(cls)
 
-    image_dataset = SteelDataset(df, phase, task="seg")
+    df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
+    image_dataset = SteelDatasetSeg(df, phase)
     shuffle = True if phase == "train" else False
     drop_last = True if phase == "train" else False
     batch_size = train_batch_size if phase == "train" else valid_batch_size
@@ -108,7 +118,7 @@ def get_dataloader_cls(phase, fold, train_batch_size, valid_batch_size, num_work
     df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
     df = pd.read_csv(df_path)
 
-    image_dataset = SteelDataset(df, phase, task="cls")
+    image_dataset = SteelDatasetCls(df, phase)
     shuffle = True if phase == "train" else False
     drop_last = True if phase == "train" else False
     batch_size = train_batch_size if phase == "train" else valid_batch_size

@@ -23,14 +23,13 @@ def parse_args():
     parser.add_argument("--batch-size", type=int, default=6,
                         help="Batch size for training. Default: 6")
     parser.add_argument("--fold", type=int, default=0)
-    parser.add_argument("--cls", type=int, default=1)
 
     return parser.parse_args()
 
 
 class TrainerSegmentation(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
-                 fold, training_history_path, cls=None):
+                 fold, training_history_path):
         self.model = model
         self.num_workers = num_workers
         self.batch_size = batch_size
@@ -53,8 +52,7 @@ class TrainerSegmentation(object):
                 fold=fold,
                 train_batch_size=self.batch_size,
                 valid_batch_size=self.batch_size,
-                num_workers=self.num_workers,
-                cls=cls
+                num_workers=self.num_workers
             )
             for phase in self.phases
         }
@@ -209,7 +207,7 @@ class TrainerClassification(object):
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
         self.scheduler = ReduceLROnPlateau(self.optimizer, mode='max', factor=0.1, patience=10,
                                            verbose=True, threshold=1e-8,
-                                           min_lr=1e-06, eps=1e-8)
+                                           min_lr=1e-05, eps=1e-8)
         self.model = self.model.cuda()
         self.dataloaders = {
             phase: get_dataloader_cls(
@@ -309,7 +307,6 @@ class TrainerClassification(object):
 
     def start(self):
         best_acc = 0.0
-
         for epoch in range(self.num_epochs):
             start = time.strftime("%D-%H:%M:%S")
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
@@ -359,7 +356,7 @@ def main():
     df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
     df_valid = pd.read_csv(df_valid_path)
 
-    if args.model in ["UResNet34", "USeResNext50"]:
+    if args.model in ["UResNet34", "FPN"]:
         df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
                 df_train["defect4"] != 0)]
         df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
@@ -375,6 +372,7 @@ def main():
                                                                                              df_valid['defect2'].sum(),
                                                                                              df_valid['defect3'].sum(),
                                                                                              df_valid['defect4'].sum()))
+
     model_trainer, best = None, None
     if args.model == "UResNet34":
         model_trainer = TrainerSegmentation(model=UResNet34(),
@@ -384,9 +382,17 @@ def main():
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
-                                            fold=args.fold,
-                                            cls=args.cls)
+                                            fold=args.fold)
 
+    elif args.model == "FPN":
+        model_trainer = TrainerSegmentation(model=FPN(),
+                                            num_workers=args.num_workers,
+                                            batch_size=args.batch_size,
+                                            num_epochs=200,
+                                            model_save_path=model_save_path,
+                                            training_history_path=training_history_path,
+                                            model_save_name=args.model,
+                                            fold=args.fold)
     elif args.model == "ResNet34":
         model_trainer = TrainerClassification(model=ResNet34(),
                                               num_workers=args.num_workers,
