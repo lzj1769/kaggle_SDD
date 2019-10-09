@@ -60,6 +60,7 @@ class SteelDatasetSeg(Dataset):
         if self.phase == "train":
             augmented = train_aug_seg(image=image, mask=mask)
             image, mask = augmented['image'], augmented['mask']
+            mask = (mask > 0.5).astype(np.float32)
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
         mask = torch.from_numpy(mask).permute(2, 0, 1)
@@ -85,6 +86,7 @@ class SteelDatasetCls(Dataset):
         if self.phase == "train":
             augmented = train_aug_cls(image=image, mask=mask)
             image, mask = augmented['image'], augmented['mask']
+            mask = (mask > 0.5).astype(np.float32)
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
         mask = torch.from_numpy(mask).permute(2, 0, 1)

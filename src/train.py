@@ -2,7 +2,7 @@ import time
 import argparse
 from torch.optim import SGD
 from torch.optim.lr_scheduler import ReduceLROnPlateau
-
+from sklearn.metrics import confusion_matrix
 from model import *
 from data_loader import *
 from configure import *
@@ -231,14 +231,16 @@ class TrainerClassification(object):
         self.model.train(phase == "train")
 
         running_loss = 0.0
-        running_acc = np.zeros(4)
+        epoch_label, epoch_pred = np.zeros(shape=(0, 4), dtype=np.int8), np.zeros(shape=(0, 4), dtype=np.int8)
         for images, masks in self.dataloaders[phase]:
             labels = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
 
             loss, outputs = self.forward(images, labels)
-            outputs = (outputs.detach().cpu() > 0.5).type(torch.float32).numpy()
-            labels = labels.numpy()
-            correct = np.equal(outputs, labels).astype(np.float32)
+            outputs = (outputs.detach().cpu() > 0.5).type(torch.int8).numpy()
+            labels = labels.type(torch.int8).numpy()
+
+            epoch_pred = np.concatenate((epoch_pred, outputs), axis=0)
+            epoch_label = np.concatenate((epoch_label, labels), axis=0)
 
             if phase == "train":
                 self.optimizer.zero_grad()
@@ -246,17 +248,13 @@ class TrainerClassification(object):
                 self.optimizer.step()
 
             running_loss += loss.item()
-            running_acc += np.sum(correct, axis=0) / labels.shape[0]
 
         epoch_loss = running_loss / len(self.dataloaders[phase])
-        epoch_acc = running_acc / len(self.dataloaders[phase])
 
         self.loss[phase].append(epoch_loss)
-        self.accuracy[phase] = np.concatenate((self.accuracy[phase], np.expand_dims(epoch_acc, axis=0)), axis=0)
-
         torch.cuda.empty_cache()
 
-        return epoch_loss, epoch_acc
+        return epoch_loss, epoch_label, epoch_pred
 
     def plot_history(self):
         fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(12, 8))
@@ -312,14 +310,29 @@ class TrainerClassification(object):
             print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
             print("=================================================================")
 
-            train_loss, train_acc = self.iterate("train")
+            train_loss, train_epoch_label, train_epoch_pred = self.iterate("train")
             with torch.no_grad():
-                valid_loss, valid_acc = self.iterate("valid")
+                valid_loss, valid_epoch_label, valid_epoch_pred = self.iterate("valid")
+
+            correct = np.equal(train_epoch_label, train_epoch_pred).astype(np.float32)
+            train_acc = np.sum(correct, axis=0) / train_epoch_label.shape[0]
+
+            correct = np.equal(valid_epoch_label, valid_epoch_pred).astype(np.float32)
+            valid_acc = np.sum(correct, axis=0) / valid_epoch_label.shape[0]
 
             print("train_loss: %0.5f, accuracy: %0.5f, %0.5f, %0.5f, %0.5f, mean accuracy: %0.5f"
                   % (train_loss, train_acc[0], train_acc[1], train_acc[2], train_acc[3], np.mean(train_acc)))
             print("valid_loss: %0.5f, accuracy: %0.5f, %0.5f, %0.5f, %0.5f, mean accuracy: %0.5f"
                   % (valid_loss, valid_acc[0], valid_acc[1], valid_acc[2], valid_acc[3], np.mean(valid_acc)))
+
+            for cls in range(4):
+                train_tn, train_fp, train_fn, train_tp = confusion_matrix(train_epoch_label[:, cls],
+                                                                          train_epoch_pred[:, cls]).ravel()
+
+                valid_tn, valid_fp, valid_fn, valid_tp = confusion_matrix(valid_epoch_label[:, cls],
+                                                                          valid_epoch_pred[:, cls]).ravel()
+                print("train: TP %5d, TN %5d, FP %5d, FN %5d, valid: TP %5d, TN %5d, FP %5d, FN %5d"
+                      % (train_tp, train_tn, train_fp, train_fn, valid_tp, valid_tn, valid_fp, valid_fn))
 
             self.scheduler.step(metrics=np.mean(valid_acc))
             if np.mean(valid_acc) > best_acc:
@@ -378,7 +391,7 @@ def main():
         model_trainer = TrainerSegmentation(model=UResNet34(),
                                             num_workers=args.num_workers,
                                             batch_size=args.batch_size,
-                                            num_epochs=200,
+                                            num_epochs=100,
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
@@ -388,7 +401,7 @@ def main():
         model_trainer = TrainerSegmentation(model=FPN(),
                                             num_workers=args.num_workers,
                                             batch_size=args.batch_size,
-                                            num_epochs=200,
+                                            num_epochs=100,
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
