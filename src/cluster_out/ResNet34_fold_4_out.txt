@@ -1,6 +1,6 @@
 Training on 10054 images, class 1: 718, class 2: 198, class 3: 4120, class 4: 641
 Validate on 2514 images, class 1: 179, class 2: 49, class 3: 1030, class 4: 160
-Epoch: 1/100 |  time : 10/09/19-01:25:35
+Epoch: 1/100 |  time : 10/09/19-22:46:12
 =================================================================
 train_loss: 0.23084, accuracy: 0.92853, 0.97967, 0.77153, 0.93880, mean accuracy: 0.90463
 valid_loss: 0.16918, accuracy: 0.92880, 0.98051, 0.88902, 0.94511, mean accuracy: 0.93586
@@ -10,7 +10,7 @@ train: TP  2043, TN  5697, FP   291, FN  2001, valid: TP   862, TN  1373, FP   1
 train: TP    14, TN  9404, FP     1, FN   613, valid: TP    22, TN  2354, FP     0, FN   138
 ******** Validation accuracy improved from 0.00000000 to 0.93585920 ********
 
-Epoch: 2/100 |  time : 10/09/19-01:29:17
+Epoch: 2/100 |  time : 10/09/19-22:49:51
 =================================================================
 train_loss: 0.13965, accuracy: 0.93421, 0.98096, 0.89284, 0.96372, mean accuracy: 0.94293
 valid_loss: 0.15117, accuracy: 0.92880, 0.98051, 0.89340, 0.97812, mean accuracy: 0.94521
@@ -20,7 +20,7 @@ train: TP  3212, TN  5745, FP   239, FN   836, valid: TP   801, TN  1445, FP    
 train: TP   291, TN  9377, FP    31, FN   333, valid: TP   114, TN  2345, FP     9, FN    46
 ******** Validation accuracy improved from 0.93585920 to 0.94520682 ********
 
-Epoch: 3/100 |  time : 10/09/19-01:32:54
+Epoch: 3/100 |  time : 10/09/19-22:53:26
 =================================================================
 train_loss: 0.11546, accuracy: 0.94537, 0.98156, 0.90969, 0.97578, mean accuracy: 0.95310
 valid_loss: 0.09783, accuracy: 0.96221, 0.98051, 0.93795, 0.98608, mean accuracy: 0.96669
@@ -30,7 +30,7 @@ train: TP  3355, TN  5771, FP   221, FN   685, valid: TP   961, TN  1397, FP    
 train: TP   420, TN  9369, FP    34, FN   209, valid: TP   126, TN  2353, FP     1, FN    34
 ******** Validation accuracy improved from 0.94520682 to 0.96668655 ********
 
-Epoch: 4/100 |  time : 10/09/19-01:36:32
+Epoch: 4/100 |  time : 10/09/19-22:57:04
 =================================================================
 train_loss: 0.09907, accuracy: 0.95634, 0.98136, 0.92514, 0.98176, mean accuracy: 0.96115
 valid_loss: 0.19452, accuracy: 0.93397, 0.98051, 0.86078, 0.96142, mean accuracy: 0.93417
@@ -39,7 +39,7 @@ train: TP     0, TN  9845, FP     0, FN   187, valid: TP     0, TN  2465, FP    
 train: TP  3502, TN  5779, FP   201, FN   550, valid: TP   739, TN  1425, FP    59, FN   291
 train: TP   476, TN  9373, FP    26, FN   157, valid: TP    63, TN  2354, FP     0, FN    97
 
-Epoch: 5/100 |  time : 10/09/19-01:40:07
+Epoch: 5/100 |  time : 10/09/19-23:00:45
 =================================================================
 train_loss: 0.09169, accuracy: 0.96192, 0.98126, 0.92743, 0.98405, mean accuracy: 0.96367
 valid_loss: 0.08986, accuracy: 0.94511, 0.98051, 0.94232, 0.98966, mean accuracy: 0.96440
@@ -48,7 +48,7 @@ train: TP     0, TN  9844, FP     0, FN   188, valid: TP     0, TN  2465, FP    
 train: TP  3488, TN  5816, FP   182, FN   546, valid: TP   953, TN  1416, FP    68, FN    77
 train: TP   493, TN  9379, FP    25, FN   135, valid: TP   140, TN  2348, FP     6, FN    20
 
-Epoch: 6/100 |  time : 10/09/19-01:43:41
+Epoch: 6/100 |  time : 10/09/19-23:04:22
 =================================================================
 train_loss: 0.08195, accuracy: 0.97049, 0.98166, 0.93262, 0.98585, mean accuracy: 0.96765
 valid_loss: 0.09453, accuracy: 0.94551, 0.98051, 0.92243, 0.98250, mean accuracy: 0.95774
@@ -57,7 +57,7 @@ train: TP     4, TN  9844, FP     3, FN   181, valid: TP     0, TN  2465, FP    
 train: TP  3558, TN  5798, FP   187, FN   489, valid: TP   869, TN  1450, FP    34, FN   161
 train: TP   509, TN  9381, FP    24, FN   118, valid: TP   121, TN  2349, FP     5, FN    39
 
-Epoch: 7/100 |  time : 10/09/19-01:47:19
+Epoch: 7/100 |  time : 10/09/19-23:07:58
 =================================================================
 train_loss: 0.07661, accuracy: 0.97199, 0.98345, 0.93581, 0.98644, mean accuracy: 0.96942
 valid_loss: 0.10345, accuracy: 0.96937, 0.98210, 0.89419, 0.97653, mean accuracy: 0.95555
@@ -66,7 +66,7 @@ train: TP    25, TN  9841, FP     3, FN   163, valid: TP     5, TN  2464, FP    
 train: TP  3569, TN  5819, FP   172, FN   472, valid: TP   796, TN  1452, FP    32, FN   234
 train: TP   517, TN  9379, FP    28, FN   108, valid: TP   101, TN  2354, FP     0, FN    59
 
-Epoch: 8/100 |  time : 10/09/19-01:50:56
+Epoch: 8/100 |  time : 10/09/19-23:11:34
 =================================================================
 train_loss: 0.07112, accuracy: 0.97677, 0.98495, 0.93640, 0.98874, mean accuracy: 0.97172
 valid_loss: 0.13906, accuracy: 0.93954, 0.98250, 0.92920, 0.98369, mean accuracy: 0.95873
@@ -75,7 +75,7 @@ train: TP    41, TN  9840, FP     7, FN   144, valid: TP     5, TN  2465, FP    
 train: TP  3571, TN  5823, FP   157, FN   481, valid: TP   993, TN  1343, FP   141, FN    37
 train: TP   537, TN  9382, FP    19, FN    94, valid: TP   124, TN  2349, FP     5, FN    36
 
-Epoch: 9/100 |  time : 10/09/19-01:54:33
+Epoch: 9/100 |  time : 10/09/19-23:15:13
 =================================================================
 train_loss: 0.06487, accuracy: 0.97787, 0.98794, 0.94358, 0.98953, mean accuracy: 0.97473
 valid_loss: 0.07782, accuracy: 0.96340, 0.98846, 0.94033, 0.99006, mean accuracy: 0.97056
@@ -85,7 +85,7 @@ train: TP  3652, TN  5814, FP   163, FN   403, valid: TP   949, TN  1415, FP    
 train: TP   544, TN  9383, FP    18, FN    87, valid: TP   137, TN  2352, FP     2, FN    23
 ******** Validation accuracy improved from 0.96668655 to 0.97056484 ********
 
-Epoch: 10/100 |  time : 10/09/19-01:58:12
+Epoch: 10/100 |  time : 10/09/19-23:18:51
 =================================================================
 train_loss: 0.06638, accuracy: 0.97797, 0.98874, 0.94189, 0.98933, mean accuracy: 0.97448
 valid_loss: 0.09492, accuracy: 0.96062, 0.98727, 0.91647, 0.98846, mean accuracy: 0.96321
@@ -94,7 +94,7 @@ train: TP    82, TN  9837, FP    11, FN   102, valid: TP    19, TN  2463, FP    
 train: TP  3620, TN  5829, FP   159, FN   424, valid: TP   872, TN  1432, FP    52, FN   158
 train: TP   538, TN  9387, FP    16, FN    91, valid: TP   133, TN  2352, FP     2, FN    27
 
-Epoch: 11/100 |  time : 10/09/19-02:01:47
+Epoch: 11/100 |  time : 10/09/19-23:22:28
 =================================================================
 train_loss: 0.06107, accuracy: 0.98066, 0.98993, 0.94597, 0.98884, mean accuracy: 0.97635
 valid_loss: 0.09756, accuracy: 0.97056, 0.98449, 0.91050, 0.98807, mean accuracy: 0.96340
@@ -103,7 +103,7 @@ train: TP    95, TN  9836, FP     9, FN    92, valid: TP    11, TN  2464, FP    
 train: TP  3661, TN  5829, FP   149, FN   393, valid: TP   849, TN  1440, FP    44, FN   181
 train: TP   532, TN  9388, FP    21, FN    91, valid: TP   130, TN  2354, FP     0, FN    30
 
-Epoch: 12/100 |  time : 10/09/19-02:05:24
+Epoch: 12/100 |  time : 10/09/19-23:26:08
 =================================================================
 train_loss: 0.05610, accuracy: 0.98266, 0.99153, 0.94737, 0.98913, mean accuracy: 0.97767
 valid_loss: 0.08894, accuracy: 0.96142, 0.98767, 0.94193, 0.99403, mean accuracy: 0.97126
@@ -113,7 +113,7 @@ train: TP  3642, TN  5862, FP   138, FN   390, valid: TP   982, TN  1386, FP    
 train: TP   537, TN  9386, FP    21, FN    88, valid: TP   146, TN  2353, FP     1, FN    14
 ******** Validation accuracy improved from 0.97056484 to 0.97126091 ********
 
-Epoch: 13/100 |  time : 10/09/19-02:09:01
+Epoch: 13/100 |  time : 10/09/19-23:29:47
 =================================================================
 train_loss: 0.05099, accuracy: 0.98375, 0.99272, 0.95405, 0.99282, mean accuracy: 0.98084
 valid_loss: 0.08722, accuracy: 0.97295, 0.98886, 0.95068, 0.97892, mean accuracy: 0.97285
@@ -123,7 +123,7 @@ train: TP  3722, TN  5849, FP   127, FN   334, valid: TP   993, TN  1397, FP    
 train: TP   560, TN  9400, FP    13, FN    59, valid: TP   151, TN  2310, FP    44, FN     9
 ******** Validation accuracy improved from 0.97126091 to 0.97285205 ********
 
-Epoch: 14/100 |  time : 10/09/19-02:12:40
+Epoch: 14/100 |  time : 10/09/19-23:33:27
 =================================================================
 train_loss: 0.05147, accuracy: 0.98485, 0.99312, 0.95425, 0.99143, mean accuracy: 0.98091
 valid_loss: 0.08950, accuracy: 0.95982, 0.98886, 0.92920, 0.99284, mean accuracy: 0.96768
@@ -132,7 +132,7 @@ train: TP   124, TN  9839, FP     8, FN    61, valid: TP    22, TN  2464, FP    
 train: TP  3720, TN  5853, FP   127, FN   332, valid: TP   875, TN  1461, FP    23, FN   155
 train: TP   557, TN  9389, FP    18, FN    68, valid: TP   142, TN  2354, FP     0, FN    18
 
-Epoch: 15/100 |  time : 10/09/19-02:16:16
+Epoch: 15/100 |  time : 10/09/19-23:37:03
 =================================================================
 train_loss: 0.04974, accuracy: 0.98435, 0.99232, 0.95275, 0.99312, mean accuracy: 0.98064
 valid_loss: 0.06327, accuracy: 0.97971, 0.99165, 0.94948, 0.99284, mean accuracy: 0.97842
@@ -142,7 +142,7 @@ train: TP  3696, TN  5862, FP   130, FN   344, valid: TP   942, TN  1445, FP    
 train: TP   575, TN  9388, FP     9, FN    60, valid: TP   142, TN  2354, FP     0, FN    18
 ******** Validation accuracy improved from 0.97285205 to 0.97842085 ********
 
-Epoch: 16/100 |  time : 10/09/19-02:19:55
+Epoch: 16/100 |  time : 10/09/19-23:40:41
 =================================================================
 train_loss: 0.04666, accuracy: 0.98674, 0.99382, 0.95684, 0.99302, mean accuracy: 0.98261
 valid_loss: 0.06456, accuracy: 0.98648, 0.99364, 0.93914, 0.99165, mean accuracy: 0.97772
@@ -151,7 +151,7 @@ train: TP   128, TN  9842, FP     6, FN    56, valid: TP    35, TN  2463, FP    
 train: TP  3728, TN  5871, FP   115, FN   318, valid: TP   929, TN  1432, FP    52, FN   101
 train: TP   580, TN  9382, FP    17, FN    53, valid: TP   144, TN  2349, FP     5, FN    16
 
-Epoch: 17/100 |  time : 10/09/19-02:23:31
+Epoch: 17/100 |  time : 10/09/19-23:44:17
 =================================================================
 train_loss: 0.04813, accuracy: 0.98515, 0.99272, 0.95654, 0.99362, mean accuracy: 0.98201
 valid_loss: 0.05672, accuracy: 0.98767, 0.99006, 0.95107, 0.99085, mean accuracy: 0.97991
@@ -161,7 +161,7 @@ train: TP  3721, TN  5875, FP   119, FN   317, valid: TP   955, TN  1436, FP    
 train: TP   574, TN  9394, FP    10, FN    54, valid: TP   137, TN  2354, FP     0, FN    23
 ******** Validation accuracy improved from 0.97842085 to 0.97991246 ********
 
-Epoch: 18/100 |  time : 10/09/19-02:27:09
+Epoch: 18/100 |  time : 10/09/19-23:47:56
 =================================================================
 train_loss: 0.04653, accuracy: 0.98604, 0.99402, 0.95584, 0.99282, mean accuracy: 0.98218
 valid_loss: 0.14276, accuracy: 0.95187, 0.98767, 0.91527, 0.95585, mean accuracy: 0.95267
@@ -170,7 +170,7 @@ train: TP   134, TN  9838, FP     8, FN    52, valid: TP    21, TN  2462, FP    
 train: TP  3732, TN  5857, FP   128, FN   315, valid: TP   895, TN  1406, FP    78, FN   135
 train: TP   563, TN  9397, FP    11, FN    61, valid: TP    49, TN  2354, FP     0, FN   111
 
-Epoch: 19/100 |  time : 10/09/19-02:30:45
+Epoch: 19/100 |  time : 10/09/19-23:51:31
 =================================================================
 train_loss: 0.04421, accuracy: 0.98654, 0.99472, 0.96172, 0.99262, mean accuracy: 0.98390
 valid_loss: 0.05388, accuracy: 0.98648, 0.99523, 0.95465, 0.99403, mean accuracy: 0.98260
@@ -180,7 +180,7 @@ train: TP  3755, TN  5893, FP    98, FN   286, valid: TP   955, TN  1445, FP    
 train: TP   572, TN  9386, FP    14, FN    60, valid: TP   149, TN  2350, FP     4, FN    11
 ******** Validation accuracy improved from 0.97991246 to 0.98259741 ********
 
-Epoch: 20/100 |  time : 10/09/19-02:34:22
+Epoch: 20/100 |  time : 10/09/19-23:55:12
 =================================================================
 train_loss: 0.04363, accuracy: 0.98734, 0.99412, 0.95923, 0.99372, mean accuracy: 0.98360
 valid_loss: 0.10718, accuracy: 0.97653, 0.98687, 0.93755, 0.96858, mean accuracy: 0.96738
@@ -189,7 +189,7 @@ train: TP   135, TN  9838, FP     7, FN    52, valid: TP    16, TN  2465, FP    
 train: TP  3747, TN  5876, FP   108, FN   301, valid: TP   924, TN  1433, FP    51, FN   106
 train: TP   574, TN  9395, FP    10, FN    53, valid: TP    81, TN  2354, FP     0, FN    79
 
-Epoch: 21/100 |  time : 10/09/19-02:37:59
+Epoch: 21/100 |  time : 10/09/19-23:58:51
 =================================================================
 train_loss: 0.03942, accuracy: 0.98714, 0.99462, 0.96441, 0.99442, mean accuracy: 0.98515
 valid_loss: 0.06783, accuracy: 0.97693, 0.99443, 0.94551, 0.99085, mean accuracy: 0.97693
@@ -198,7 +198,7 @@ train: TP   143, TN  9835, FP    10, FN    44, valid: TP    39, TN  2461, FP    
 train: TP  3791, TN  5884, FP    96, FN   261, valid: TP   967, TN  1410, FP    74, FN    63
 train: TP   579, TN  9397, FP     9, FN    47, valid: TP   143, TN  2348, FP     6, FN    17
 
-Epoch: 22/100 |  time : 10/09/19-02:41:37
+Epoch: 22/100 |  time : 10/10/19-00:02:29
 =================================================================
 train_loss: 0.03755, accuracy: 0.99033, 0.99561, 0.96561, 0.99342, mean accuracy: 0.98624
 valid_loss: 0.06113, accuracy: 0.98409, 0.99443, 0.94073, 0.99284, mean accuracy: 0.97802
@@ -207,7 +207,7 @@ train: TP   141, TN  9847, FP     3, FN    41, valid: TP    37, TN  2463, FP    
 train: TP  3797, TN  5890, FP    87, FN   258, valid: TP   909, TN  1456, FP    28, FN   121
 train: TP   571, TN  9395, FP    14, FN    52, valid: TP   151, TN  2345, FP     9, FN     9
 
-Epoch: 23/100 |  time : 10/09/19-02:45:14
+Epoch: 23/100 |  time : 10/10/19-00:06:07
 =================================================================
 train_loss: 0.03631, accuracy: 0.98973, 0.99472, 0.96581, 0.99621, mean accuracy: 0.98662
 valid_loss: 0.06516, accuracy: 0.98449, 0.99204, 0.94988, 0.99284, mean accuracy: 0.97981
@@ -216,7 +216,7 @@ train: TP   143, TN  9836, FP     5, FN    48, valid: TP    43, TN  2451, FP    
 train: TP  3801, TN  5888, FP    94, FN   249, valid: TP   941, TN  1447, FP    37, FN    89
 train: TP   598, TN  9396, FP     7, FN    31, valid: TP   142, TN  2354, FP     0, FN    18
 
-Epoch: 24/100 |  time : 10/09/19-02:48:51
+Epoch: 24/100 |  time : 10/10/19-00:09:43
 =================================================================
 train_loss: 0.03712, accuracy: 0.98913, 0.99581, 0.96581, 0.99512, mean accuracy: 0.98647
 valid_loss: 0.06207, accuracy: 0.97852, 0.99244, 0.95465, 0.99006, mean accuracy: 0.97892
@@ -225,7 +225,7 @@ train: TP   152, TN  9838, FP     6, FN    36, valid: TP    30, TN  2465, FP    
 train: TP  3793, TN  5896, FP    89, FN   254, valid: TP   975, TN  1425, FP    59, FN    55
 train: TP   584, TN  9399, FP     9, FN    40, valid: TP   135, TN  2354, FP     0, FN    25
 
-Epoch: 25/100 |  time : 10/09/19-02:52:28
+Epoch: 25/100 |  time : 10/10/19-00:13:19
 =================================================================
 train_loss: 0.03864, accuracy: 0.98674, 0.99532, 0.96132, 0.99472, mean accuracy: 0.98452
 valid_loss: 0.10899, accuracy: 0.95585, 0.99284, 0.93437, 0.99165, mean accuracy: 0.96868
@@ -234,7 +234,7 @@ train: TP   148, TN  9837, FP     5, FN    42, valid: TP    35, TN  2461, FP    
 train: TP  3770, TN  5874, FP   108, FN   280, valid: TP   916, TN  1433, FP    51, FN   114
 train: TP   583, TN  9396, FP     9, FN    44, valid: TP   139, TN  2354, FP     0, FN    21
 
-Epoch: 26/100 |  time : 10/09/19-02:56:06
+Epoch: 26/100 |  time : 10/10/19-00:16:54
 =================================================================
 train_loss: 0.03732, accuracy: 0.98993, 0.99482, 0.96661, 0.99492, mean accuracy: 0.98657
 valid_loss: 0.05706, accuracy: 0.98727, 0.99682, 0.95107, 0.99443, mean accuracy: 0.98240
@@ -243,7 +243,7 @@ train: TP   146, TN  9834, FP     8, FN    44, valid: TP    42, TN  2464, FP    
 train: TP  3815, TN  5882, FP    91, FN   244, valid: TP   962, TN  1429, FP    55, FN    68
 train: TP   589, TN  9392, FP     8, FN    43, valid: TP   151, TN  2349, FP     5, FN     9
 
-Epoch: 27/100 |  time : 10/09/19-02:59:43
+Epoch: 27/100 |  time : 10/10/19-00:20:32
 =================================================================
 train_loss: 0.03350, accuracy: 0.99173, 0.99541, 0.96950, 0.99591, mean accuracy: 0.98814
 valid_loss: 0.08852, accuracy: 0.98091, 0.99284, 0.92442, 0.99284, mean accuracy: 0.97275
@@ -252,7 +252,7 @@ train: TP   146, TN  9840, FP     7, FN    39, valid: TP    33, TN  2463, FP    
 train: TP  3818, TN  5908, FP    79, FN   227, valid: TP   877, TN  1447, FP    37, FN   153
 train: TP   593, TN  9398, FP     6, FN    35, valid: TP   142, TN  2354, FP     0, FN    18
 
-Epoch: 28/100 |  time : 10/09/19-03:03:20
+Epoch: 28/100 |  time : 10/10/19-00:24:09
 =================================================================
 train_loss: 0.03502, accuracy: 0.99033, 0.99502, 0.96571, 0.99522, mean accuracy: 0.98657
 valid_loss: 0.05951, accuracy: 0.98250, 0.99602, 0.95545, 0.99364, mean accuracy: 0.98190
@@ -261,7 +261,7 @@ train: TP   143, TN  9839, FP     7, FN    43, valid: TP    43, TN  2461, FP    
 train: TP  3803, TN  5885, FP    91, FN   253, valid: TP   979, TN  1423, FP    61, FN    51
 train: TP   594, TN  9390, FP    10, FN    38, valid: TP   145, TN  2353, FP     1, FN    15
 
-Epoch: 29/100 |  time : 10/09/19-03:06:55
+Epoch: 29/100 |  time : 10/10/19-00:27:46
 =================================================================
 train_loss: 0.03070, accuracy: 0.99292, 0.99551, 0.97109, 0.99412, mean accuracy: 0.98841
 valid_loss: 0.07628, accuracy: 0.98011, 0.99045, 0.93596, 0.99165, mean accuracy: 0.97454
@@ -270,7 +270,7 @@ train: TP   141, TN  9846, FP     5, FN    40, valid: TP    26, TN  2464, FP    
 train: TP  3850, TN  5892, FP    82, FN   208, valid: TP   895, TN  1458, FP    26, FN   135
 train: TP   577, TN  9396, FP    11, FN    48, valid: TP   140, TN  2353, FP     1, FN    20
 
-Epoch: 30/100 |  time : 10/09/19-03:10:32
+Epoch: 30/100 |  time : 10/10/19-00:31:24
 =================================================================
 train_loss: 0.03437, accuracy: 0.98943, 0.99571, 0.96970, 0.99462, mean accuracy: 0.98737
 valid_loss: 0.09773, accuracy: 0.96261, 0.99244, 0.93715, 0.99006, mean accuracy: 0.97056
@@ -280,7 +280,7 @@ train: TP  3830, TN  5898, FP    84, FN   220, valid: TP   981, TN  1375, FP   1
 train: TP   582, TN  9396, FP    11, FN    43, valid: TP   143, TN  2346, FP     8, FN    17
 Epoch    29: reducing learning rate of group 0 to 1.0000e-03.
 
-Epoch: 31/100 |  time : 10/09/19-03:14:08
+Epoch: 31/100 |  time : 10/10/19-00:35:00
 =================================================================
 train_loss: 0.02681, accuracy: 0.99222, 0.99671, 0.97488, 0.99681, mean accuracy: 0.99016
 valid_loss: 0.04968, accuracy: 0.99006, 0.99483, 0.96301, 0.99403, mean accuracy: 0.98548
@@ -290,7 +290,7 @@ train: TP  3865, TN  5915, FP    63, FN   189, valid: TP   974, TN  1447, FP    
 train: TP   599, TN  9401, FP     5, FN    27, valid: TP   146, TN  2353, FP     1, FN    14
 ******** Validation accuracy improved from 0.98259741 to 0.98548126 ********
 
-Epoch: 32/100 |  time : 10/09/19-03:17:45
+Epoch: 32/100 |  time : 10/10/19-00:38:39
 =================================================================
 train_loss: 0.02433, accuracy: 0.99422, 0.99681, 0.97727, 0.99671, mean accuracy: 0.99125
 valid_loss: 0.04684, accuracy: 0.99085, 0.99523, 0.96221, 0.99602, mean accuracy: 0.98608
@@ -300,7 +300,7 @@ train: TP  3889, TN  5915, FP    56, FN   172, valid: TP   974, TN  1445, FP    
 train: TP   601, TN  9398, FP     3, FN    30, valid: TP   151, TN  2353, FP     1, FN     9
 ******** Validation accuracy improved from 0.98548126 to 0.98607796 ********
 
-Epoch: 33/100 |  time : 10/09/19-03:21:23
+Epoch: 33/100 |  time : 10/10/19-00:42:18
 =================================================================
 train_loss: 0.02333, accuracy: 0.99472, 0.99641, 0.97618, 0.99731, mean accuracy: 0.99115
 valid_loss: 0.04779, accuracy: 0.99085, 0.99483, 0.96460, 0.99562, mean accuracy: 0.98648
@@ -310,7 +310,7 @@ train: TP  3867, TN  5926, FP    58, FN   181, valid: TP   980, TN  1445, FP    
 train: TP   603, TN  9402, FP     4, FN    23, valid: TP   150, TN  2353, FP     1, FN    10
 ******** Validation accuracy improved from 0.98607796 to 0.98647571 ********
 
-Epoch: 34/100 |  time : 10/09/19-03:25:00
+Epoch: 34/100 |  time : 10/10/19-00:45:56
 =================================================================
 train_loss: 0.02224, accuracy: 0.99422, 0.99701, 0.97976, 0.99631, mean accuracy: 0.99183
 valid_loss: 0.04643, accuracy: 0.99165, 0.99562, 0.96500, 0.99483, mean accuracy: 0.98677
@@ -320,7 +320,7 @@ train: TP  3894, TN  5935, FP    49, FN   154, valid: TP   976, TN  1450, FP    
 train: TP   595, TN  9400, FP     5, FN    32, valid: TP   148, TN  2353, FP     1, FN    12
 ******** Validation accuracy improved from 0.98647571 to 0.98677409 ********
 
-Epoch: 35/100 |  time : 10/09/19-03:28:37
+Epoch: 35/100 |  time : 10/10/19-00:49:39
 =================================================================
 train_loss: 0.02105, accuracy: 0.99392, 0.99711, 0.97917, 0.99711, mean accuracy: 0.99183
 valid_loss: 0.04651, accuracy: 0.99204, 0.99562, 0.96619, 0.99602, mean accuracy: 0.98747
@@ -330,7 +330,7 @@ train: TP  3889, TN  5934, FP    47, FN   162, valid: TP   980, TN  1449, FP    
 train: TP   598, TN  9405, FP     6, FN    23, valid: TP   151, TN  2353, FP     1, FN     9
 ******** Validation accuracy improved from 0.98677409 to 0.98747015 ********
 
-Epoch: 36/100 |  time : 10/09/19-03:32:15
+Epoch: 36/100 |  time : 10/10/19-00:53:16
 =================================================================
 train_loss: 0.02134, accuracy: 0.99522, 0.99691, 0.97917, 0.99691, mean accuracy: 0.99205
 valid_loss: 0.04598, accuracy: 0.99125, 0.99523, 0.96460, 0.99602, mean accuracy: 0.98677
@@ -339,7 +339,7 @@ train: TP   161, TN  9840, FP     2, FN    29, valid: TP    41, TN  2461, FP    
 train: TP  3893, TN  5930, FP    56, FN   153, valid: TP   975, TN  1450, FP    34, FN    55
 train: TP   600, TN  9401, FP     2, FN    29, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 37/100 |  time : 10/09/19-03:35:50
+Epoch: 37/100 |  time : 10/10/19-00:56:53
 =================================================================
 train_loss: 0.02123, accuracy: 0.99591, 0.99631, 0.98136, 0.99701, mean accuracy: 0.99265
 valid_loss: 0.04752, accuracy: 0.99045, 0.99523, 0.96261, 0.99403, mean accuracy: 0.98558
@@ -348,7 +348,7 @@ train: TP   153, TN  9842, FP     4, FN    33, valid: TP    41, TN  2461, FP    
 train: TP  3910, TN  5935, FP    51, FN   136, valid: TP   974, TN  1446, FP    38, FN    56
 train: TP   598, TN  9404, FP     4, FN    26, valid: TP   146, TN  2353, FP     1, FN    14
 
-Epoch: 38/100 |  time : 10/09/19-03:39:28
+Epoch: 38/100 |  time : 10/10/19-01:00:31
 =================================================================
 train_loss: 0.02002, accuracy: 0.99581, 0.99711, 0.98096, 0.99771, mean accuracy: 0.99290
 valid_loss: 0.04599, accuracy: 0.99125, 0.99523, 0.96500, 0.99602, mean accuracy: 0.98687
@@ -357,7 +357,7 @@ train: TP   163, TN  9840, FP     4, FN    25, valid: TP    41, TN  2461, FP    
 train: TP  3897, TN  5944, FP    46, FN   145, valid: TP   981, TN  1445, FP    39, FN    49
 train: TP   604, TN  9405, FP     4, FN    19, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 39/100 |  time : 10/09/19-03:43:07
+Epoch: 39/100 |  time : 10/10/19-01:04:10
 =================================================================
 train_loss: 0.02026, accuracy: 0.99452, 0.99731, 0.98036, 0.99791, mean accuracy: 0.99252
 valid_loss: 0.04617, accuracy: 0.99204, 0.99562, 0.96539, 0.99523, mean accuracy: 0.98707
@@ -366,7 +366,7 @@ train: TP   165, TN  9840, FP     3, FN    24, valid: TP    41, TN  2462, FP    
 train: TP  3910, TN  5925, FP    54, FN   143, valid: TP   977, TN  1450, FP    34, FN    53
 train: TP   610, TN  9401, FP     3, FN    18, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 40/100 |  time : 10/09/19-03:46:44
+Epoch: 40/100 |  time : 10/10/19-01:07:45
 =================================================================
 train_loss: 0.02048, accuracy: 0.99482, 0.99691, 0.98136, 0.99751, mean accuracy: 0.99265
 valid_loss: 0.04844, accuracy: 0.99204, 0.99523, 0.96539, 0.99403, mean accuracy: 0.98667
@@ -375,7 +375,7 @@ train: TP   162, TN  9839, FP     3, FN    28, valid: TP    41, TN  2461, FP    
 train: TP  3918, TN  5927, FP    50, FN   137, valid: TP   985, TN  1442, FP    42, FN    45
 train: TP   610, TN  9397, FP     5, FN    20, valid: TP   146, TN  2353, FP     1, FN    14
 
-Epoch: 41/100 |  time : 10/09/19-03:50:20
+Epoch: 41/100 |  time : 10/10/19-01:11:33
 =================================================================
 train_loss: 0.01921, accuracy: 0.99532, 0.99751, 0.98116, 0.99701, mean accuracy: 0.99275
 valid_loss: 0.04755, accuracy: 0.99204, 0.99602, 0.96181, 0.99562, mean accuracy: 0.98638
@@ -384,7 +384,7 @@ train: TP   157, TN  9850, FP     0, FN    25, valid: TP    41, TN  2463, FP    
 train: TP  3912, TN  5931, FP    48, FN   141, valid: TP   972, TN  1446, FP    38, FN    58
 train: TP   604, TN  9398, FP     3, FN    27, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 42/100 |  time : 10/09/19-03:53:57
+Epoch: 42/100 |  time : 10/10/19-01:15:10
 =================================================================
 train_loss: 0.01844, accuracy: 0.99551, 0.99781, 0.98186, 0.99741, mean accuracy: 0.99315
 valid_loss: 0.04891, accuracy: 0.99204, 0.99602, 0.96579, 0.99483, mean accuracy: 0.98717
@@ -393,7 +393,7 @@ train: TP   165, TN  9845, FP     1, FN    21, valid: TP    43, TN  2461, FP    
 train: TP  3905, TN  5945, FP    44, FN   138, valid: TP   986, TN  1442, FP    42, FN    44
 train: TP   603, TN  9403, FP     3, FN    23, valid: TP   148, TN  2353, FP     1, FN    12
 
-Epoch: 43/100 |  time : 10/09/19-03:57:32
+Epoch: 43/100 |  time : 10/10/19-01:18:46
 =================================================================
 train_loss: 0.01895, accuracy: 0.99482, 0.99761, 0.98256, 0.99681, mean accuracy: 0.99295
 valid_loss: 0.04986, accuracy: 0.99284, 0.99523, 0.96340, 0.99562, mean accuracy: 0.98677
@@ -402,7 +402,7 @@ train: TP   162, TN  9846, FP     0, FN    24, valid: TP    41, TN  2461, FP    
 train: TP  3921, TN  5936, FP    42, FN   133, valid: TP   986, TN  1436, FP    48, FN    44
 train: TP   605, TN  9395, FP     8, FN    24, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 44/100 |  time : 10/09/19-04:01:09
+Epoch: 44/100 |  time : 10/10/19-01:22:22
 =================================================================
 train_loss: 0.01827, accuracy: 0.99611, 0.99801, 0.98276, 0.99701, mean accuracy: 0.99347
 valid_loss: 0.04800, accuracy: 0.99284, 0.99562, 0.96380, 0.99523, mean accuracy: 0.98687
@@ -411,7 +411,7 @@ train: TP   169, TN  9843, FP     2, FN    18, valid: TP    42, TN  2461, FP    
 train: TP  3905, TN  5954, FP    35, FN   138, valid: TP   984, TN  1439, FP    45, FN    46
 train: TP   603, TN  9399, FP     6, FN    24, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 45/100 |  time : 10/09/19-04:04:45
+Epoch: 45/100 |  time : 10/10/19-01:25:58
 =================================================================
 train_loss: 0.01675, accuracy: 0.99581, 0.99811, 0.98335, 0.99781, mean accuracy: 0.99377
 valid_loss: 0.04697, accuracy: 0.99204, 0.99523, 0.96380, 0.99602, mean accuracy: 0.98677
@@ -420,7 +420,7 @@ train: TP   169, TN  9844, FP     3, FN    16, valid: TP    41, TN  2461, FP    
 train: TP  3911, TN  5954, FP    38, FN   129, valid: TP   972, TN  1451, FP    33, FN    58
 train: TP   612, TN  9398, FP     3, FN    19, valid: TP   152, TN  2352, FP     2, FN     8
 
-Epoch: 46/100 |  time : 10/09/19-04:08:23
+Epoch: 46/100 |  time : 10/10/19-01:29:40
 =================================================================
 train_loss: 0.01614, accuracy: 0.99631, 0.99741, 0.98445, 0.99870, mean accuracy: 0.99422
 valid_loss: 0.04815, accuracy: 0.99244, 0.99602, 0.96460, 0.99443, mean accuracy: 0.98687
@@ -430,7 +430,7 @@ train: TP  3936, TN  5940, FP    36, FN   120, valid: TP   988, TN  1437, FP    
 train: TP   613, TN  9406, FP     3, FN    10, valid: TP   147, TN  2353, FP     1, FN    13
 Epoch    45: reducing learning rate of group 0 to 1.0000e-04.
 
-Epoch: 47/100 |  time : 10/09/19-04:11:58
+Epoch: 47/100 |  time : 10/10/19-01:33:18
 =================================================================
 train_loss: 0.01951, accuracy: 0.99561, 0.99711, 0.98256, 0.99621, mean accuracy: 0.99287
 valid_loss: 0.04790, accuracy: 0.99204, 0.99562, 0.96500, 0.99523, mean accuracy: 0.98697
@@ -439,7 +439,7 @@ train: TP   157, TN  9846, FP     4, FN    25, valid: TP    42, TN  2461, FP    
 train: TP  3919, TN  5938, FP    42, FN   133, valid: TP   989, TN  1437, FP    47, FN    41
 train: TP   597, TN  9397, FP     8, FN    30, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 48/100 |  time : 10/09/19-04:15:37
+Epoch: 48/100 |  time : 10/10/19-01:36:57
 =================================================================
 train_loss: 0.01760, accuracy: 0.99571, 0.99741, 0.98365, 0.99751, mean accuracy: 0.99357
 valid_loss: 0.04802, accuracy: 0.99284, 0.99602, 0.96460, 0.99523, mean accuracy: 0.98717
@@ -448,7 +448,7 @@ train: TP   164, TN  9842, FP     2, FN    24, valid: TP    42, TN  2462, FP    
 train: TP  3929, TN  5939, FP    41, FN   123, valid: TP   990, TN  1435, FP    49, FN    40
 train: TP   604, TN  9403, FP     1, FN    24, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 49/100 |  time : 10/09/19-04:19:14
+Epoch: 49/100 |  time : 10/10/19-01:40:32
 =================================================================
 train_loss: 0.01821, accuracy: 0.99581, 0.99691, 0.98315, 0.99711, mean accuracy: 0.99325
 valid_loss: 0.04930, accuracy: 0.99204, 0.99562, 0.96539, 0.99403, mean accuracy: 0.98677
@@ -457,7 +457,7 @@ train: TP   158, TN  9843, FP     3, FN    28, valid: TP    42, TN  2461, FP    
 train: TP  3921, TN  5942, FP    40, FN   129, valid: TP   990, TN  1437, FP    47, FN    40
 train: TP   601, TN  9402, FP     5, FN    24, valid: TP   146, TN  2353, FP     1, FN    14
 
-Epoch: 50/100 |  time : 10/09/19-04:22:51
+Epoch: 50/100 |  time : 10/10/19-01:44:11
 =================================================================
 train_loss: 0.01855, accuracy: 0.99581, 0.99831, 0.98315, 0.99691, mean accuracy: 0.99355
 valid_loss: 0.04693, accuracy: 0.99284, 0.99562, 0.96619, 0.99523, mean accuracy: 0.98747
@@ -466,7 +466,7 @@ train: TP   167, TN  9848, FP     0, FN    17, valid: TP    42, TN  2461, FP    
 train: TP  3917, TN  5946, FP    35, FN   134, valid: TP   987, TN  1442, FP    42, FN    43
 train: TP   605, TN  9396, FP     4, FN    27, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 51/100 |  time : 10/09/19-04:26:29
+Epoch: 51/100 |  time : 10/10/19-01:47:48
 =================================================================
 train_loss: 0.01815, accuracy: 0.99661, 0.99751, 0.98305, 0.99791, mean accuracy: 0.99377
 valid_loss: 0.04811, accuracy: 0.99204, 0.99562, 0.96579, 0.99523, mean accuracy: 0.98717
@@ -475,7 +475,7 @@ train: TP   156, TN  9851, FP     2, FN    23, valid: TP    42, TN  2461, FP    
 train: TP  3926, TN  5936, FP    46, FN   124, valid: TP   990, TN  1438, FP    46, FN    40
 train: TP   611, TN  9400, FP     6, FN    15, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 52/100 |  time : 10/09/19-04:30:07
+Epoch: 52/100 |  time : 10/10/19-01:51:25
 =================================================================
 train_loss: 0.01703, accuracy: 0.99631, 0.99701, 0.98515, 0.99751, mean accuracy: 0.99399
 valid_loss: 0.04778, accuracy: 0.99244, 0.99562, 0.96619, 0.99523, mean accuracy: 0.98737
@@ -484,7 +484,7 @@ train: TP   160, TN  9842, FP     2, FN    28, valid: TP    42, TN  2461, FP    
 train: TP  3948, TN  5935, FP    43, FN   106, valid: TP   988, TN  1441, FP    43, FN    42
 train: TP   610, TN  9397, FP     2, FN    23, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 53/100 |  time : 10/09/19-04:33:43
+Epoch: 53/100 |  time : 10/10/19-01:55:02
 =================================================================
 train_loss: 0.01697, accuracy: 0.99621, 0.99751, 0.98425, 0.99801, mean accuracy: 0.99399
 valid_loss: 0.04755, accuracy: 0.99165, 0.99562, 0.96619, 0.99523, mean accuracy: 0.98717
@@ -493,7 +493,7 @@ train: TP   167, TN  9840, FP     2, FN    23, valid: TP    42, TN  2461, FP    
 train: TP  3920, TN  5954, FP    39, FN   119, valid: TP   989, TN  1440, FP    44, FN    41
 train: TP   614, TN  9398, FP     0, FN    20, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 54/100 |  time : 10/09/19-04:37:22
+Epoch: 54/100 |  time : 10/10/19-01:58:40
 =================================================================
 train_loss: 0.01831, accuracy: 0.99551, 0.99821, 0.98315, 0.99751, mean accuracy: 0.99360
 valid_loss: 0.04686, accuracy: 0.99244, 0.99602, 0.96659, 0.99523, mean accuracy: 0.98757
@@ -503,7 +503,7 @@ train: TP  3911, TN  5952, FP    44, FN   125, valid: TP   988, TN  1442, FP    
 train: TP   601, TN  9406, FP     1, FN    24, valid: TP   149, TN  2353, FP     1, FN    11
 ******** Validation accuracy improved from 0.98747015 to 0.98756957 ********
 
-Epoch: 55/100 |  time : 10/09/19-04:40:57
+Epoch: 55/100 |  time : 10/10/19-02:02:18
 =================================================================
 train_loss: 0.01654, accuracy: 0.99581, 0.99751, 0.98415, 0.99811, mean accuracy: 0.99389
 valid_loss: 0.04727, accuracy: 0.99244, 0.99523, 0.96698, 0.99523, mean accuracy: 0.98747
@@ -512,7 +512,7 @@ train: TP   161, TN  9846, FP     1, FN    24, valid: TP    41, TN  2461, FP    
 train: TP  3927, TN  5946, FP    31, FN   128, valid: TP   988, TN  1443, FP    41, FN    42
 train: TP   611, TN  9402, FP     4, FN    15, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 56/100 |  time : 10/09/19-04:44:35
+Epoch: 56/100 |  time : 10/10/19-02:05:58
 =================================================================
 train_loss: 0.01659, accuracy: 0.99741, 0.99831, 0.98315, 0.99741, mean accuracy: 0.99407
 valid_loss: 0.04818, accuracy: 0.99165, 0.99562, 0.96500, 0.99602, mean accuracy: 0.98707
@@ -521,7 +521,7 @@ train: TP   169, TN  9846, FP     2, FN    15, valid: TP    42, TN  2461, FP    
 train: TP  3913, TN  5950, FP    49, FN   120, valid: TP   988, TN  1438, FP    46, FN    42
 train: TP   608, TN  9398, FP     5, FN    21, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 57/100 |  time : 10/09/19-04:48:13
+Epoch: 57/100 |  time : 10/10/19-02:09:35
 =================================================================
 train_loss: 0.01820, accuracy: 0.99522, 0.99821, 0.98455, 0.99701, mean accuracy: 0.99375
 valid_loss: 0.04689, accuracy: 0.99244, 0.99562, 0.96619, 0.99523, mean accuracy: 0.98737
@@ -530,7 +530,7 @@ train: TP   172, TN  9842, FP     1, FN    17, valid: TP    42, TN  2461, FP    
 train: TP  3928, TN  5949, FP    39, FN   116, valid: TP   986, TN  1443, FP    41, FN    44
 train: TP   600, TN  9402, FP     5, FN    25, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 58/100 |  time : 10/09/19-04:51:50
+Epoch: 58/100 |  time : 10/10/19-02:13:13
 =================================================================
 train_loss: 0.01807, accuracy: 0.99561, 0.99801, 0.98186, 0.99711, mean accuracy: 0.99315
 valid_loss: 0.04723, accuracy: 0.99244, 0.99562, 0.96579, 0.99562, mean accuracy: 0.98737
@@ -539,7 +539,7 @@ train: TP   166, TN  9846, FP     2, FN    18, valid: TP    42, TN  2461, FP    
 train: TP  3919, TN  5931, FP    44, FN   138, valid: TP   984, TN  1444, FP    40, FN    46
 train: TP   594, TN  9409, FP     6, FN    23, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 59/100 |  time : 10/09/19-04:55:27
+Epoch: 59/100 |  time : 10/10/19-02:16:50
 =================================================================
 train_loss: 0.01714, accuracy: 0.99581, 0.99711, 0.98465, 0.99761, mean accuracy: 0.99379
 valid_loss: 0.04884, accuracy: 0.99125, 0.99562, 0.96579, 0.99523, mean accuracy: 0.98697
@@ -548,7 +548,7 @@ train: TP   159, TN  9844, FP     3, FN    26, valid: TP    42, TN  2461, FP    
 train: TP  3920, TN  5958, FP    35, FN   119, valid: TP   989, TN  1439, FP    45, FN    41
 train: TP   602, TN  9406, FP     0, FN    24, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 60/100 |  time : 10/09/19-04:59:04
+Epoch: 60/100 |  time : 10/10/19-02:20:28
 =================================================================
 train_loss: 0.01689, accuracy: 0.99651, 0.99781, 0.98475, 0.99731, mean accuracy: 0.99409
 valid_loss: 0.04827, accuracy: 0.99125, 0.99602, 0.96579, 0.99523, mean accuracy: 0.98707
@@ -557,7 +557,7 @@ train: TP   171, TN  9839, FP     1, FN    21, valid: TP    42, TN  2462, FP    
 train: TP  3937, TN  5942, FP    43, FN   110, valid: TP   991, TN  1437, FP    47, FN    39
 train: TP   605, TN  9400, FP     2, FN    25, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 61/100 |  time : 10/09/19-05:02:40
+Epoch: 61/100 |  time : 10/10/19-02:24:04
 =================================================================
 train_loss: 0.01729, accuracy: 0.99581, 0.99791, 0.98515, 0.99741, mean accuracy: 0.99407
 valid_loss: 0.04804, accuracy: 0.99165, 0.99602, 0.96579, 0.99562, mean accuracy: 0.98727
@@ -566,7 +566,7 @@ train: TP   170, TN  9841, FP     1, FN    20, valid: TP    42, TN  2462, FP    
 train: TP  3937, TN  5946, FP    38, FN   111, valid: TP   988, TN  1440, FP    44, FN    42
 train: TP   609, TN  9397, FP     6, FN    20, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 62/100 |  time : 10/09/19-05:06:17
+Epoch: 62/100 |  time : 10/10/19-02:27:40
 =================================================================
 train_loss: 0.01683, accuracy: 0.99621, 0.99731, 0.98445, 0.99781, mean accuracy: 0.99394
 valid_loss: 0.04677, accuracy: 0.99284, 0.99602, 0.96261, 0.99562, mean accuracy: 0.98677
@@ -575,7 +575,7 @@ train: TP   163, TN  9842, FP     4, FN    23, valid: TP    42, TN  2462, FP    
 train: TP  3942, TN  5934, FP    41, FN   115, valid: TP   973, TN  1447, FP    37, FN    57
 train: TP   610, TN  9400, FP     2, FN    20, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 63/100 |  time : 10/09/19-05:09:54
+Epoch: 63/100 |  time : 10/10/19-02:31:18
 =================================================================
 train_loss: 0.01608, accuracy: 0.99751, 0.99741, 0.98535, 0.99801, mean accuracy: 0.99457
 valid_loss: 0.04793, accuracy: 0.99165, 0.99562, 0.96738, 0.99562, mean accuracy: 0.98757
@@ -585,7 +585,7 @@ train: TP  3924, TN  5961, FP    42, FN   105, valid: TP   992, TN  1440, FP    
 train: TP   613, TN  9399, FP     4, FN    16, valid: TP   150, TN  2353, FP     1, FN    10
 ******** Validation accuracy improved from 0.98756957 to 0.98756963 ********
 
-Epoch: 64/100 |  time : 10/09/19-05:13:32
+Epoch: 64/100 |  time : 10/10/19-02:34:57
 =================================================================
 train_loss: 0.01701, accuracy: 0.99532, 0.99761, 0.98365, 0.99771, mean accuracy: 0.99357
 valid_loss: 0.04957, accuracy: 0.99165, 0.99562, 0.96659, 0.99523, mean accuracy: 0.98727
@@ -594,7 +594,7 @@ train: TP   161, TN  9847, FP     3, FN    21, valid: TP    42, TN  2461, FP    
 train: TP  3926, TN  5942, FP    30, FN   134, valid: TP   992, TN  1438, FP    46, FN    38
 train: TP   615, TN  9394, FP     4, FN    19, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 65/100 |  time : 10/09/19-05:17:09
+Epoch: 65/100 |  time : 10/10/19-02:38:36
 =================================================================
 train_loss: 0.01572, accuracy: 0.99631, 0.99801, 0.98455, 0.99831, mean accuracy: 0.99429
 valid_loss: 0.04762, accuracy: 0.99244, 0.99562, 0.96500, 0.99562, mean accuracy: 0.98717
@@ -603,7 +603,7 @@ train: TP   169, TN  9843, FP     0, FN    20, valid: TP    42, TN  2461, FP    
 train: TP  3930, TN  5947, FP    41, FN   114, valid: TP   981, TN  1445, FP    39, FN    49
 train: TP   615, TN  9400, FP     1, FN    16, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 66/100 |  time : 10/09/19-05:20:46
+Epoch: 66/100 |  time : 10/10/19-02:42:13
 =================================================================
 train_loss: 0.01679, accuracy: 0.99701, 0.99761, 0.98575, 0.99691, mean accuracy: 0.99432
 valid_loss: 0.04905, accuracy: 0.99125, 0.99562, 0.96619, 0.99483, mean accuracy: 0.98697
@@ -612,7 +612,7 @@ train: TP   167, TN  9841, FP     2, FN    22, valid: TP    42, TN  2461, FP    
 train: TP  3945, TN  5944, FP    30, FN   113, valid: TP   990, TN  1439, FP    45, FN    40
 train: TP   599, TN  9402, FP     8, FN    23, valid: TP   148, TN  2353, FP     1, FN    12
 
-Epoch: 67/100 |  time : 10/09/19-05:24:24
+Epoch: 67/100 |  time : 10/10/19-02:45:49
 =================================================================
 train_loss: 0.01656, accuracy: 0.99721, 0.99781, 0.98495, 0.99761, mean accuracy: 0.99439
 valid_loss: 0.04940, accuracy: 0.99165, 0.99562, 0.96500, 0.99523, mean accuracy: 0.98687
@@ -621,7 +621,7 @@ train: TP   170, TN  9840, FP     6, FN    16, valid: TP    42, TN  2461, FP    
 train: TP  3925, TN  5956, FP    33, FN   118, valid: TP   990, TN  1436, FP    48, FN    40
 train: TP   606, TN  9402, FP     4, FN    20, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 68/100 |  time : 10/09/19-05:27:59
+Epoch: 68/100 |  time : 10/10/19-02:49:27
 =================================================================
 train_loss: 0.01712, accuracy: 0.99691, 0.99781, 0.98415, 0.99731, mean accuracy: 0.99404
 valid_loss: 0.04803, accuracy: 0.99204, 0.99562, 0.96579, 0.99602, mean accuracy: 0.98737
@@ -630,7 +630,7 @@ train: TP   166, TN  9844, FP     1, FN    21, valid: TP    42, TN  2461, FP    
 train: TP  3926, TN  5947, FP    42, FN   117, valid: TP   984, TN  1444, FP    40, FN    46
 train: TP   603, TN  9402, FP     2, FN    25, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 69/100 |  time : 10/09/19-05:31:38
+Epoch: 69/100 |  time : 10/10/19-02:53:05
 =================================================================
 train_loss: 0.01681, accuracy: 0.99681, 0.99850, 0.98375, 0.99731, mean accuracy: 0.99409
 valid_loss: 0.04883, accuracy: 0.99165, 0.99602, 0.96659, 0.99562, mean accuracy: 0.98747
@@ -639,7 +639,7 @@ train: TP   173, TN  9844, FP     2, FN    13, valid: TP    42, TN  2462, FP    
 train: TP  3933, TN  5936, FP    42, FN   121, valid: TP   991, TN  1439, FP    45, FN    39
 train: TP   604, TN  9401, FP     3, FN    24, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 70/100 |  time : 10/09/19-05:35:16
+Epoch: 70/100 |  time : 10/10/19-02:56:43
 =================================================================
 train_loss: 0.01654, accuracy: 0.99671, 0.99791, 0.98395, 0.99691, mean accuracy: 0.99387
 valid_loss: 0.04775, accuracy: 0.99244, 0.99562, 0.96460, 0.99562, mean accuracy: 0.98707
@@ -648,7 +648,7 @@ train: TP   162, TN  9849, FP     0, FN    21, valid: TP    42, TN  2461, FP    
 train: TP  3932, TN  5939, FP    39, FN   122, valid: TP   978, TN  1447, FP    37, FN    52
 train: TP   604, TN  9397, FP     4, FN    27, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 71/100 |  time : 10/09/19-05:38:52
+Epoch: 71/100 |  time : 10/10/19-03:00:20
 =================================================================
 train_loss: 0.01767, accuracy: 0.99571, 0.99741, 0.98156, 0.99791, mean accuracy: 0.99315
 valid_loss: 0.04797, accuracy: 0.99244, 0.99523, 0.96619, 0.99562, mean accuracy: 0.98737
@@ -657,7 +657,7 @@ train: TP   161, TN  9845, FP     4, FN    22, valid: TP    41, TN  2461, FP    
 train: TP  3917, TN  5930, FP    52, FN   133, valid: TP   987, TN  1442, FP    42, FN    43
 train: TP   609, TN  9402, FP     3, FN    18, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 72/100 |  time : 10/09/19-05:42:29
+Epoch: 72/100 |  time : 10/10/19-03:03:58
 =================================================================
 train_loss: 0.01752, accuracy: 0.99631, 0.99771, 0.98365, 0.99661, mean accuracy: 0.99357
 valid_loss: 0.04723, accuracy: 0.99204, 0.99602, 0.96619, 0.99602, mean accuracy: 0.98757
@@ -666,7 +666,7 @@ train: TP   157, TN  9852, FP     0, FN    23, valid: TP    42, TN  2462, FP    
 train: TP  3924, TN  5944, FP    40, FN   124, valid: TP   983, TN  1446, FP    38, FN    47
 train: TP   602, TN  9396, FP    12, FN    22, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 73/100 |  time : 10/09/19-05:46:04
+Epoch: 73/100 |  time : 10/10/19-03:07:35
 =================================================================
 train_loss: 0.01664, accuracy: 0.99532, 0.99791, 0.98445, 0.99731, mean accuracy: 0.99375
 valid_loss: 0.04861, accuracy: 0.99244, 0.99562, 0.96579, 0.99562, mean accuracy: 0.98737
@@ -675,7 +675,7 @@ train: TP   165, TN  9846, FP     2, FN    19, valid: TP    42, TN  2461, FP    
 train: TP  3936, TN  5940, FP    35, FN   121, valid: TP   985, TN  1443, FP    41, FN    45
 train: TP   596, TN  9409, FP     2, FN    25, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 74/100 |  time : 10/09/19-05:49:42
+Epoch: 74/100 |  time : 10/10/19-03:11:14
 =================================================================
 train_loss: 0.01580, accuracy: 0.99571, 0.99771, 0.98575, 0.99751, mean accuracy: 0.99417
 valid_loss: 0.04840, accuracy: 0.99125, 0.99562, 0.96619, 0.99562, mean accuracy: 0.98717
@@ -685,7 +685,7 @@ train: TP  3927, TN  5962, FP    38, FN   105, valid: TP   991, TN  1438, FP    
 train: TP   612, TN  9395, FP     4, FN    21, valid: TP   150, TN  2353, FP     1, FN    10
 Epoch    73: reducing learning rate of group 0 to 1.0000e-05.
 
-Epoch: 75/100 |  time : 10/09/19-05:53:19
+Epoch: 75/100 |  time : 10/10/19-03:14:52
 =================================================================
 train_loss: 0.01712, accuracy: 0.99532, 0.99731, 0.98495, 0.99721, mean accuracy: 0.99370
 valid_loss: 0.04760, accuracy: 0.99204, 0.99602, 0.96579, 0.99562, mean accuracy: 0.98737
@@ -694,7 +694,7 @@ train: TP   164, TN  9841, FP     1, FN    26, valid: TP    42, TN  2462, FP    
 train: TP  3923, TN  5958, FP    33, FN   118, valid: TP   984, TN  1444, FP    40, FN    46
 train: TP   605, TN  9399, FP     7, FN    21, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 76/100 |  time : 10/09/19-05:56:57
+Epoch: 76/100 |  time : 10/10/19-03:18:28
 =================================================================
 train_loss: 0.01768, accuracy: 0.99551, 0.99771, 0.98305, 0.99751, mean accuracy: 0.99345
 valid_loss: 0.04932, accuracy: 0.99165, 0.99562, 0.96579, 0.99443, mean accuracy: 0.98687
@@ -703,7 +703,7 @@ train: TP   162, TN  9847, FP     3, FN    20, valid: TP    42, TN  2461, FP    
 train: TP  3919, TN  5943, FP    45, FN   125, valid: TP   987, TN  1441, FP    43, FN    43
 train: TP   607, TN  9400, FP     2, FN    23, valid: TP   147, TN  2353, FP     1, FN    13
 
-Epoch: 77/100 |  time : 10/09/19-06:00:34
+Epoch: 77/100 |  time : 10/10/19-03:22:06
 =================================================================
 train_loss: 0.01675, accuracy: 0.99561, 0.99781, 0.98525, 0.99821, mean accuracy: 0.99422
 valid_loss: 0.04900, accuracy: 0.99165, 0.99562, 0.96579, 0.99523, mean accuracy: 0.98707
@@ -712,7 +712,7 @@ train: TP   166, TN  9844, FP     2, FN    20, valid: TP    42, TN  2461, FP    
 train: TP  3936, TN  5948, FP    33, FN   115, valid: TP   986, TN  1442, FP    42, FN    44
 train: TP   608, TN  9406, FP     1, FN    17, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 78/100 |  time : 10/09/19-06:04:11
+Epoch: 78/100 |  time : 10/10/19-03:25:45
 =================================================================
 train_loss: 0.01640, accuracy: 0.99601, 0.99771, 0.98505, 0.99691, mean accuracy: 0.99392
 valid_loss: 0.04803, accuracy: 0.99204, 0.99602, 0.96301, 0.99642, mean accuracy: 0.98687
@@ -721,7 +721,7 @@ train: TP   164, TN  9845, FP     2, FN    21, valid: TP    43, TN  2461, FP    
 train: TP  3931, TN  5951, FP    33, FN   117, valid: TP   971, TN  1450, FP    34, FN    59
 train: TP   594, TN  9407, FP     6, FN    25, valid: TP   152, TN  2353, FP     1, FN     8
 
-Epoch: 79/100 |  time : 10/09/19-06:07:46
+Epoch: 79/100 |  time : 10/10/19-03:29:21
 =================================================================
 train_loss: 0.01664, accuracy: 0.99601, 0.99741, 0.98575, 0.99791, mean accuracy: 0.99427
 valid_loss: 0.04847, accuracy: 0.99165, 0.99602, 0.96420, 0.99602, mean accuracy: 0.98697
@@ -730,7 +730,7 @@ train: TP   169, TN  9837, FP     2, FN    24, valid: TP    42, TN  2462, FP    
 train: TP  3937, TN  5952, FP    23, FN   120, valid: TP   982, TN  1442, FP    42, FN    48
 train: TP   615, TN  9396, FP     6, FN    15, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 80/100 |  time : 10/09/19-06:11:22
+Epoch: 80/100 |  time : 10/10/19-03:32:58
 =================================================================
 train_loss: 0.01626, accuracy: 0.99671, 0.99781, 0.98365, 0.99850, mean accuracy: 0.99417
 valid_loss: 0.04911, accuracy: 0.99244, 0.99562, 0.96579, 0.99443, mean accuracy: 0.98707
@@ -739,7 +739,7 @@ train: TP   164, TN  9846, FP     3, FN    19, valid: TP    42, TN  2461, FP    
 train: TP  3910, TN  5958, FP    31, FN   133, valid: TP   989, TN  1439, FP    45, FN    41
 train: TP   616, TN  9401, FP     2, FN    13, valid: TP   147, TN  2353, FP     1, FN    13
 
-Epoch: 81/100 |  time : 10/09/19-06:14:59
+Epoch: 81/100 |  time : 10/10/19-03:36:36
 =================================================================
 train_loss: 0.01668, accuracy: 0.99611, 0.99741, 0.98365, 0.99841, mean accuracy: 0.99389
 valid_loss: 0.04955, accuracy: 0.99244, 0.99602, 0.96380, 0.99483, mean accuracy: 0.98677
@@ -748,7 +748,7 @@ train: TP   163, TN  9843, FP     2, FN    24, valid: TP    43, TN  2461, FP    
 train: TP  3932, TN  5936, FP    43, FN   121, valid: TP   978, TN  1445, FP    39, FN    52
 train: TP   616, TN  9400, FP     1, FN    15, valid: TP   148, TN  2353, FP     1, FN    12
 
-Epoch: 82/100 |  time : 10/09/19-06:18:37
+Epoch: 82/100 |  time : 10/10/19-03:40:14
 =================================================================
 train_loss: 0.01596, accuracy: 0.99611, 0.99791, 0.98535, 0.99731, mean accuracy: 0.99417
 valid_loss: 0.04865, accuracy: 0.99165, 0.99602, 0.96659, 0.99483, mean accuracy: 0.98727
@@ -757,7 +757,7 @@ train: TP   169, TN  9842, FP     4, FN    17, valid: TP    42, TN  2462, FP    
 train: TP  3944, TN  5941, FP    36, FN   111, valid: TP   987, TN  1443, FP    41, FN    43
 train: TP   606, TN  9399, FP     3, FN    24, valid: TP   148, TN  2353, FP     1, FN    12
 
-Epoch: 83/100 |  time : 10/09/19-06:22:15
+Epoch: 83/100 |  time : 10/10/19-03:43:52
 =================================================================
 train_loss: 0.01659, accuracy: 0.99621, 0.99791, 0.98614, 0.99671, mean accuracy: 0.99424
 valid_loss: 0.04898, accuracy: 0.99165, 0.99562, 0.96619, 0.99562, mean accuracy: 0.98727
@@ -766,7 +766,7 @@ train: TP   165, TN  9846, FP     3, FN    18, valid: TP    42, TN  2461, FP    
 train: TP  3951, TN  5942, FP    42, FN    97, valid: TP   991, TN  1438, FP    46, FN    39
 train: TP   597, TN  9402, FP     1, FN    32, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 84/100 |  time : 10/09/19-06:25:53
+Epoch: 84/100 |  time : 10/10/19-03:47:31
 =================================================================
 train_loss: 0.01739, accuracy: 0.99551, 0.99761, 0.98435, 0.99791, mean accuracy: 0.99384
 valid_loss: 0.04856, accuracy: 0.99125, 0.99562, 0.96539, 0.99602, mean accuracy: 0.98707
@@ -775,7 +775,7 @@ train: TP   167, TN  9841, FP     2, FN    22, valid: TP    41, TN  2462, FP    
 train: TP  3936, TN  5939, FP    45, FN   112, valid: TP   990, TN  1437, FP    47, FN    40
 train: TP   612, TN  9399, FP     2, FN    19, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 85/100 |  time : 10/09/19-06:29:32
+Epoch: 85/100 |  time : 10/10/19-03:51:10
 =================================================================
 train_loss: 0.01598, accuracy: 0.99621, 0.99761, 0.98445, 0.99821, mean accuracy: 0.99412
 valid_loss: 0.04850, accuracy: 0.99244, 0.99602, 0.96539, 0.99602, mean accuracy: 0.98747
@@ -784,7 +784,7 @@ train: TP   166, TN  9842, FP     2, FN    22, valid: TP    42, TN  2462, FP    
 train: TP  3935, TN  5941, FP    30, FN   126, valid: TP   986, TN  1441, FP    43, FN    44
 train: TP   607, TN  9407, FP     3, FN    15, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 86/100 |  time : 10/09/19-06:33:09
+Epoch: 86/100 |  time : 10/10/19-03:54:48
 =================================================================
 train_loss: 0.01736, accuracy: 0.99611, 0.99771, 0.98455, 0.99711, mean accuracy: 0.99387
 valid_loss: 0.04761, accuracy: 0.99244, 0.99562, 0.96659, 0.99602, mean accuracy: 0.98767
@@ -794,7 +794,7 @@ train: TP  3930, TN  5947, FP    28, FN   127, valid: TP   986, TN  1444, FP    
 train: TP   605, TN  9398, FP     6, FN    23, valid: TP   151, TN  2353, FP     1, FN     9
 ******** Validation accuracy improved from 0.98756963 to 0.98766905 ********
 
-Epoch: 87/100 |  time : 10/09/19-06:36:46
+Epoch: 87/100 |  time : 10/10/19-03:58:27
 =================================================================
 train_loss: 0.01571, accuracy: 0.99601, 0.99791, 0.98515, 0.99831, mean accuracy: 0.99434
 valid_loss: 0.04861, accuracy: 0.99204, 0.99562, 0.96539, 0.99562, mean accuracy: 0.98717
@@ -803,7 +803,7 @@ train: TP   164, TN  9847, FP     3, FN    18, valid: TP    42, TN  2461, FP    
 train: TP  3924, TN  5959, FP    32, FN   117, valid: TP   984, TN  1443, FP    41, FN    46
 train: TP   616, TN  9399, FP     3, FN    14, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 88/100 |  time : 10/09/19-06:40:23
+Epoch: 88/100 |  time : 10/10/19-04:02:06
 =================================================================
 train_loss: 0.01887, accuracy: 0.99452, 0.99701, 0.98096, 0.99741, mean accuracy: 0.99247
 valid_loss: 0.04973, accuracy: 0.99125, 0.99602, 0.96619, 0.99443, mean accuracy: 0.98697
@@ -812,7 +812,7 @@ train: TP   158, TN  9844, FP     2, FN    28, valid: TP    43, TN  2461, FP    
 train: TP  3913, TN  5928, FP    48, FN   143, valid: TP   990, TN  1439, FP    45, FN    40
 train: TP   603, TN  9403, FP     3, FN    23, valid: TP   147, TN  2353, FP     1, FN    13
 
-Epoch: 89/100 |  time : 10/09/19-06:44:01
+Epoch: 89/100 |  time : 10/10/19-04:05:42
 =================================================================
 train_loss: 0.01662, accuracy: 0.99631, 0.99821, 0.98176, 0.99811, mean accuracy: 0.99360
 valid_loss: 0.04919, accuracy: 0.99165, 0.99562, 0.96539, 0.99562, mean accuracy: 0.98707
@@ -821,7 +821,7 @@ train: TP   167, TN  9847, FP     2, FN    16, valid: TP    42, TN  2461, FP    
 train: TP  3904, TN  5945, FP    52, FN   131, valid: TP   986, TN  1441, FP    43, FN    44
 train: TP   615, TN  9398, FP     4, FN    15, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 90/100 |  time : 10/09/19-06:47:38
+Epoch: 90/100 |  time : 10/10/19-04:09:19
 =================================================================
 train_loss: 0.01804, accuracy: 0.99661, 0.99691, 0.98285, 0.99701, mean accuracy: 0.99335
 valid_loss: 0.04799, accuracy: 0.99204, 0.99562, 0.96539, 0.99562, mean accuracy: 0.98717
@@ -830,7 +830,7 @@ train: TP   160, TN  9841, FP     4, FN    27, valid: TP    42, TN  2461, FP    
 train: TP  3924, TN  5936, FP    47, FN   125, valid: TP   983, TN  1444, FP    40, FN    47
 train: TP   601, TN  9401, FP     5, FN    25, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 91/100 |  time : 10/09/19-06:51:15
+Epoch: 91/100 |  time : 10/10/19-04:12:57
 =================================================================
 train_loss: 0.01575, accuracy: 0.99681, 0.99781, 0.98515, 0.99801, mean accuracy: 0.99444
 valid_loss: 0.04820, accuracy: 0.99165, 0.99562, 0.96579, 0.99523, mean accuracy: 0.98707
@@ -839,7 +839,7 @@ train: TP   169, TN  9841, FP     2, FN    20, valid: TP    42, TN  2461, FP    
 train: TP  3939, TN  5944, FP    31, FN   118, valid: TP   984, TN  1444, FP    40, FN    46
 train: TP   612, TN  9400, FP     6, FN    14, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 92/100 |  time : 10/09/19-06:54:53
+Epoch: 92/100 |  time : 10/10/19-04:16:34
 =================================================================
 train_loss: 0.01602, accuracy: 0.99721, 0.99791, 0.98455, 0.99831, mean accuracy: 0.99449
 valid_loss: 0.04841, accuracy: 0.99125, 0.99602, 0.96539, 0.99562, mean accuracy: 0.98707
@@ -848,7 +848,7 @@ train: TP   168, TN  9843, FP     4, FN    17, valid: TP    43, TN  2461, FP    
 train: TP  3922, TN  5955, FP    33, FN   122, valid: TP   985, TN  1442, FP    42, FN    45
 train: TP   615, TN  9400, FP     3, FN    14, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 93/100 |  time : 10/09/19-06:58:32
+Epoch: 93/100 |  time : 10/10/19-04:20:13
 =================================================================
 train_loss: 0.01538, accuracy: 0.99651, 0.99841, 0.98515, 0.99801, mean accuracy: 0.99452
 valid_loss: 0.04905, accuracy: 0.99165, 0.99602, 0.96460, 0.99523, mean accuracy: 0.98687
@@ -857,7 +857,7 @@ train: TP   169, TN  9847, FP     3, FN    13, valid: TP    43, TN  2461, FP    
 train: TP  3938, TN  5945, FP    27, FN   122, valid: TP   983, TN  1442, FP    42, FN    47
 train: TP   609, TN  9403, FP     2, FN    18, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 94/100 |  time : 10/09/19-07:02:10
+Epoch: 94/100 |  time : 10/10/19-04:23:51
 =================================================================
 train_loss: 0.01506, accuracy: 0.99621, 0.99850, 0.98435, 0.99811, mean accuracy: 0.99429
 valid_loss: 0.04680, accuracy: 0.99244, 0.99602, 0.96460, 0.99523, mean accuracy: 0.98707
@@ -866,7 +866,7 @@ train: TP   173, TN  9844, FP     2, FN    13, valid: TP    42, TN  2462, FP    
 train: TP  3934, TN  5941, FP    39, FN   118, valid: TP   976, TN  1449, FP    35, FN    54
 train: TP   612, TN  9401, FP     0, FN    19, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 95/100 |  time : 10/09/19-07:05:48
+Epoch: 95/100 |  time : 10/10/19-04:27:27
 =================================================================
 train_loss: 0.01746, accuracy: 0.99571, 0.99701, 0.98445, 0.99741, mean accuracy: 0.99365
 valid_loss: 0.04792, accuracy: 0.99165, 0.99562, 0.96579, 0.99602, mean accuracy: 0.98727
@@ -875,7 +875,7 @@ train: TP   159, TN  9843, FP     3, FN    27, valid: TP    42, TN  2461, FP    
 train: TP  3938, TN  5938, FP    47, FN   109, valid: TP   986, TN  1442, FP    42, FN    44
 train: TP   606, TN  9400, FP     4, FN    22, valid: TP   151, TN  2353, FP     1, FN     9
 
-Epoch: 96/100 |  time : 10/09/19-07:09:24
+Epoch: 96/100 |  time : 10/10/19-04:31:04
 =================================================================
 train_loss: 0.01671, accuracy: 0.99581, 0.99741, 0.98495, 0.99761, mean accuracy: 0.99394
 valid_loss: 0.04909, accuracy: 0.99165, 0.99562, 0.96579, 0.99483, mean accuracy: 0.98697
@@ -884,7 +884,7 @@ train: TP   170, TN  9836, FP     4, FN    22, valid: TP    42, TN  2461, FP    
 train: TP  3940, TN  5941, FP    30, FN   121, valid: TP   986, TN  1442, FP    42, FN    44
 train: TP   602, TN  9406, FP     1, FN    23, valid: TP   148, TN  2353, FP     1, FN    12
 
-Epoch: 97/100 |  time : 10/09/19-07:13:01
+Epoch: 97/100 |  time : 10/10/19-04:34:41
 =================================================================
 train_loss: 0.01619, accuracy: 0.99551, 0.99711, 0.98375, 0.99751, mean accuracy: 0.99347
 valid_loss: 0.04805, accuracy: 0.99165, 0.99602, 0.96500, 0.99562, mean accuracy: 0.98707
@@ -893,7 +893,7 @@ train: TP   160, TN  9843, FP     3, FN    26, valid: TP    42, TN  2462, FP    
 train: TP  3935, TN  5934, FP    38, FN   125, valid: TP   974, TN  1452, FP    32, FN    56
 train: TP   604, TN  9403, FP     5, FN    20, valid: TP   150, TN  2353, FP     1, FN    10
 
-Epoch: 98/100 |  time : 10/09/19-07:16:41
+Epoch: 98/100 |  time : 10/10/19-04:38:19
 =================================================================
 train_loss: 0.01668, accuracy: 0.99591, 0.99761, 0.98455, 0.99801, mean accuracy: 0.99402
 valid_loss: 0.05021, accuracy: 0.99125, 0.99562, 0.96579, 0.99523, mean accuracy: 0.98697
@@ -902,7 +902,7 @@ train: TP   166, TN  9842, FP     3, FN    21, valid: TP    42, TN  2461, FP    
 train: TP  3936, TN  5941, FP    34, FN   121, valid: TP   991, TN  1437, FP    47, FN    39
 train: TP   611, TN  9401, FP     4, FN    16, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 99/100 |  time : 10/09/19-07:20:18
+Epoch: 99/100 |  time : 10/10/19-04:41:56
 =================================================================
 train_loss: 0.01578, accuracy: 0.99611, 0.99771, 0.98694, 0.99691, mean accuracy: 0.99442
 valid_loss: 0.04809, accuracy: 0.99284, 0.99562, 0.96579, 0.99523, mean accuracy: 0.98737
@@ -911,7 +911,7 @@ train: TP   163, TN  9846, FP     2, FN    21, valid: TP    42, TN  2461, FP    
 train: TP  3964, TN  5937, FP    28, FN   103, valid: TP   987, TN  1441, FP    43, FN    43
 train: TP   604, TN  9397, FP     6, FN    25, valid: TP   149, TN  2353, FP     1, FN    11
 
-Epoch: 100/100 |  time : 10/09/19-07:23:56
+Epoch: 100/100 |  time : 10/10/19-04:45:34
 =================================================================
 train_loss: 0.01685, accuracy: 0.99701, 0.99850, 0.98365, 0.99691, mean accuracy: 0.99402
 valid_loss: 0.04916, accuracy: 0.99165, 0.99562, 0.96659, 0.99523, mean accuracy: 0.98727

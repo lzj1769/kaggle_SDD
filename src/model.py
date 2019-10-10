@@ -91,7 +91,7 @@ class UResNet34(nn.Module):
 
         self.dropout = nn.Dropout2d(p=0.2)
         self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
-                                    nn.ReLU(inplace=True),
+                                    nn.ELU(inplace=True),
                                     nn.Conv2d(64, classes, kernel_size=1, padding=0))
 
     def forward(self, x):
