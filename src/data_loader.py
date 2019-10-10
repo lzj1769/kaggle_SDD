@@ -12,8 +12,7 @@ train_aug_seg = albu.Compose([
     albu.HorizontalFlip(p=0.5),
     albu.VerticalFlip(p=0.5),
     albu.ShiftScaleRotate(shift_limit=0.2, scale_limit=0.2, rotate_limit=0,
-                          interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5),
-    albu.RandomSizedCrop(min_max_height=(128, 256), height=256, width=1600, w2h_ratio=6.25, p=0.2)
+                          interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_CONSTANT, p=0.5)
 ])
 
 train_aug_cls = albu.Compose([
@@ -89,7 +88,7 @@ class SteelDatasetCls(Dataset):
             mask = augmented['mask']
             mask = (mask > 0.5).astype(np.float32)
             # mixup
-            if np.random.rand() < 0.5:
+            if np.random.rand() < 0.5 and np.max(mask) == 0:
                 image = 0.5 * augmented['image'] + 0.5 * image
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0

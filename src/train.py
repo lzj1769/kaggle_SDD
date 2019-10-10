@@ -369,7 +369,7 @@ def main():
     df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
     df_valid = pd.read_csv(df_valid_path)
 
-    if args.model in ["UResNet34", "FPN"]:
+    if args.model in ["UResNet34", "FPN", "FPResNext50"]:
         df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
                 df_train["defect4"] != 0)]
         df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
@@ -401,11 +401,22 @@ def main():
         model_trainer = TrainerSegmentation(model=FPN(),
                                             num_workers=args.num_workers,
                                             batch_size=args.batch_size,
-                                            num_epochs=100,
+                                            num_epochs=200,
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
                                             fold=args.fold)
+
+    elif args.model == "FPResNext50":
+        model_trainer = TrainerSegmentation(model=FPResNext50(),
+                                            num_workers=args.num_workers,
+                                            batch_size=args.batch_size,
+                                            num_epochs=200,
+                                            model_save_path=model_save_path,
+                                            training_history_path=training_history_path,
+                                            model_save_name=args.model,
+                                            fold=args.fold)
+
     elif args.model == "ResNet34":
         model_trainer = TrainerClassification(model=ResNet34(),
                                               num_workers=args.num_workers,
