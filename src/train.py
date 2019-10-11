@@ -232,9 +232,8 @@ class TrainerClassification(object):
 
         running_loss = 0.0
         epoch_label, epoch_pred = np.zeros(shape=(0, 4), dtype=np.int8), np.zeros(shape=(0, 4), dtype=np.int8)
-        for images, masks in self.dataloaders[phase]:
-            labels = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
 
+        for images, labels in self.dataloaders[phase]:
             loss, outputs = self.forward(images, labels)
             outputs = (outputs.detach().cpu() > 0.5).type(torch.int8).numpy()
             labels = labels.type(torch.int8).numpy()

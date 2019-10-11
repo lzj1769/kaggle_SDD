@@ -3,8 +3,8 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['FPResNext50']
-fold_list = [0]
+model_list = ['UResNet34']
+fold_list = [0, 1, 2, 3, 4]
 
 batch_size = dict()
 batch_size["UResNet34"] = 6

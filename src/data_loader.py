@@ -85,16 +85,14 @@ class SteelDatasetCls(Dataset):
 
         if self.phase == "train":
             augmented = train_aug_cls(image=image, mask=mask)
-            mask = augmented['mask']
+            image, mask = augmented['image'], augmented['mask']
             mask = (mask > 0.5).astype(np.float32)
-            # mixup
-            if np.random.rand() < 0.5 and np.max(mask) == 0:
-                image = 0.5 * augmented['image'] + 0.5 * image
 
         image = torch.from_numpy(np.moveaxis(image, -1, 0).astype(np.float32)) / 255.0
         mask = torch.from_numpy(mask).permute(2, 0, 1)
+        label = (torch.sum(mask, (1, 2)) > 0).type(torch.float32)
 
-        return image, mask
+        return image, label
 
     def __len__(self):
         return len(self.filenames)
