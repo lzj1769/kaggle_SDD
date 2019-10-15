@@ -44,36 +44,18 @@ class DiceBCELoss(nn.Module):
         return loss, bce_loss, dice_loss
 
 
-class LovaseBCELoss(nn.Module):
-    def __init__(self, alpha=0.9):
-        super(LovaseBCELoss, self).__init__()
+class SymDiceBCELoss(nn.Module):
+    def __init__(self, alpha=0.9, smooth=1):
+        super(SymDiceBCELoss, self).__init__()
         self.alpha = alpha
         self.bce = BCEWithLogitsLoss()
-        self.lovase = lovasz_hinge
+        self.dice = DiceLoss(smooth)
 
     def forward(self, input, target):
         bce_loss = self.bce(input, target)
-        lovase_loss = self.lovase(input, target)
-        loss = self.alpha * bce_loss + (1 - self.alpha) * lovase_loss
+        dice_loss_positive = self.dice(input, target)
+        dice_loss_negative = self.dice(-input, 1-target)
+        dice_loss = (dice_loss_positive + dice_loss_negative) / 2
+        loss = self.alpha * bce_loss + (1 - self.alpha) * dice_loss
 
-        return loss, bce_loss, lovase_loss
-
-
-class FocalLoss(nn.Module):
-    def __init__(self, gamma=2):
-        super().__init__()
-        self.gamma = gamma
-
-    def forward(self, input, target):
-        if not (target.size() == input.size()):
-            raise ValueError("Target size ({}) must be the same as input size ({})"
-                             .format(target.size(), input.size()))
-
-        max_val = (-input).clamp(min=0)
-        loss = input - input * target + max_val + \
-               ((-max_val).exp() + (-input - max_val).exp()).log()
-
-        invprobs = F.logsigmoid(-input * (target * 2.0 - 1.0))
-        loss = (invprobs * self.gamma).exp() * loss
-
-        return loss.sum(dim=1).mean()
+        return loss, bce_loss, dice_loss
