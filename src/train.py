@@ -190,6 +190,149 @@ class TrainerSegmentation(object):
         return best_dice
 
 
+class TrainerSegmentationDeepSupervision(object):
+    def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
+                 fold, training_history_path):
+        self.model = model
+        self.num_workers = num_workers
+        self.batch_size = batch_size
+        self.num_epochs = num_epochs
+        self.phases = ["train", "valid"]
+        self.model_save_path = model_save_path
+        self.model_save_name = model_save_name
+        self.fold = fold
+        self.training_history_path = training_history_path
+        self.criterion_seg = DiceBCELoss()
+        self.criterion_cls = BCEWithLogitsLoss()
+
+        self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
+        self.scheduler = ReduceLROnPlateau(self.optimizer, mode='max', factor=0.1, patience=10,
+                                           verbose=True, threshold=1e-8,
+                                           min_lr=1e-05, eps=1e-8)
+        self.model = self.model.cuda()
+        self.dataloaders = {
+            phase: get_dataloader_seg(
+                phase=phase,
+                fold=fold,
+                train_batch_size=self.batch_size,
+                valid_batch_size=self.batch_size,
+                num_workers=self.num_workers
+            )
+            for phase in self.phases
+        }
+        self.loss = {phase: [] for phase in self.phases}
+        self.bce_loss = {phase: [] for phase in self.phases}
+        self.dice_loss = {phase: [] for phase in self.phases}
+        self.dice = {phase: [] for phase in self.phases}
+
+    def forward(self, images, masks, labels):
+        outputs_cls, outputs_seg = self.model(images.cuda())
+        cls_loss = self.criterion_cls(outputs_cls, labels.cuda())
+        seg_loss, bce_loss, dice_loss = self.criterion_seg(outputs_seg, masks.cuda())
+        loss = (cls_loss + seg_loss)
+
+        return loss, cls_loss, seg_loss, bce_loss, dice_loss, outputs_cls, outputs_seg
+
+    def iterate(self, phase):
+        self.model.train(phase == "train")
+
+        running_loss = 0.0
+        running_cls_loss = 0.0
+        running_seg_loss = 0.0
+        running_bce_loss = 0.0
+        running_dice_loss = 0.0
+        running_dice = np.zeros(4, dtype=np.float32)
+        epoch_label, epoch_pred = np.zeros(shape=(0, 4), dtype=np.int8), np.zeros(shape=(0, 4), dtype=np.int8)
+
+        for images, masks in self.dataloaders[phase]:
+            labels = (torch.sum(masks, (2, 3)) > 0).type(torch.float32)
+            loss, cls_loss, seg_loss, bce_loss, dice_loss, outputs_cls, outputs_seg = self.forward(images, masks,
+                                                                                                   labels)
+            if phase == "train":
+                self.optimizer.zero_grad()
+                loss.backward()
+                self.optimizer.step()
+
+            running_loss += loss.item()
+            running_cls_loss += cls_loss.item()
+            running_seg_loss += seg_loss.item()
+            running_bce_loss += bce_loss.item()
+            running_dice_loss += dice_loss.item()
+
+            labels = labels.type(torch.int8).numpy()
+            outputs_cls = (outputs_cls.detach().cpu() > 0).type(torch.int8).numpy()
+            epoch_pred = np.concatenate((epoch_pred, outputs_cls), axis=0)
+            epoch_label = np.concatenate((epoch_label, labels), axis=0)
+
+            outputs_seg = outputs_seg.detach().cpu()
+            dice = compute_dice(outputs_seg, masks, threshold=0.5)
+            for j in range(4):
+                running_dice[j] += dice[j]
+
+        loss = running_loss / len(self.dataloaders[phase])
+        cls_loss = running_cls_loss / len(self.dataloaders[phase])
+        seg_loss = running_seg_loss / len(self.dataloaders[phase])
+        bce_loss = running_bce_loss / len(self.dataloaders[phase])
+        dice_loss = running_dice_loss / len(self.dataloaders[phase])
+        dice = running_dice / len(self.dataloaders[phase])
+
+        torch.cuda.empty_cache()
+
+        return loss, cls_loss, seg_loss, bce_loss, dice_loss, dice, epoch_label, epoch_pred
+
+    def start(self):
+        best_dice = 0.0
+
+        for epoch in range(self.num_epochs):
+            start = time.strftime("%D-%H:%M:%S")
+            print("Epoch: {}/{} |  time : {}".format(epoch + 1, self.num_epochs, start))
+            print("=================================================================")
+
+            train_loss, train_cls_loss, train_seg_loss, train_bce_loss, train_dice_loss, train_dice, \
+            train_epoch_label, train_epoch_pred = self.iterate("train")
+
+            with torch.no_grad():
+                valid_loss, valid_cls_loss, valid_seg_loss, valid_bce_loss, valid_dice_loss, valid_dice, \
+                valid_epoch_label, valid_epoch_pred = self.iterate("valid")
+
+            print("loss: %0.5f, cls_loss: %0.5f, seg_loss: %0.5f, bce_loss: %0.5f, dice_loss: %0.5f, "
+                  "dice: %0.5f, %0.5f, %0.5f, %0.5f, mean dice: %0.5f" %
+                  (train_loss, train_cls_loss, train_seg_loss, train_bce_loss, train_dice_loss,
+                   train_dice[0], train_dice[1], train_dice[2], train_dice[3], np.mean(train_dice)))
+            print("loss: %0.5f, cls_loss: %0.5f, seg_loss: %0.5f, bce_loss: %0.5f, dice_loss: %0.5f, "
+                  "dice: %0.5f, %0.5f, %0.5f, %0.5f, mean dice: %0.5f" %
+                  (valid_loss, valid_cls_loss, valid_seg_loss, valid_bce_loss, valid_dice_loss,
+                   valid_dice[0], valid_dice[1], valid_dice[2], valid_dice[3], np.mean(valid_dice)))
+
+            for cls in range(4):
+                train_tn, train_fp, train_fn, train_tp = confusion_matrix(train_epoch_label[:, cls],
+                                                                          train_epoch_pred[:, cls]).ravel()
+
+                valid_tn, valid_fp, valid_fn, valid_tp = confusion_matrix(valid_epoch_label[:, cls],
+                                                                          valid_epoch_pred[:, cls]).ravel()
+                print("train: TP %5d, TN %5d, FP %5d, FN %5d, valid: TP %5d, TN %5d, FP %5d, FN %5d"
+                      % (train_tp, train_tn, train_fp, train_fn, valid_tp, valid_tn, valid_fp, valid_fn))
+
+            self.scheduler.step(metrics=np.mean(valid_dice))
+            if np.mean(valid_dice) > best_dice:
+                print("******** Validation dice improved from %0.8f to %0.8f ********" %
+                      (best_dice, np.mean(valid_dice)))
+                best_dice = np.mean(valid_dice)
+                state = {
+                    "best_dice": best_dice,
+                    "state_dict": self.model.state_dict(),
+                }
+
+                filename = os.path.join(self.model_save_path, "{}_fold_{}.pt".format(self.model_save_name, self.fold))
+                if os.path.exists(filename):
+                    os.remove(filename)
+                torch.save(state, filename)
+
+            print()
+
+        return best_dice
+
+
 class TrainerClassification(object):
     def __init__(self, model, num_workers, batch_size, num_epochs, model_save_path, model_save_name,
                  fold, training_history_path):
@@ -651,15 +794,7 @@ def main():
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
                                             fold=args.fold)
-    elif args.model == "FPN":
-        model_trainer = TrainerSegmentation(model=FPN(),
-                                            num_workers=args.num_workers,
-                                            batch_size=args.batch_size,
-                                            num_epochs=200,
-                                            model_save_path=model_save_path,
-                                            training_history_path=training_history_path,
-                                            model_save_name=args.model,
-                                            fold=args.fold)
+
     elif args.model == "FPResNet34":
         model_trainer = TrainerSegmentation(model=FPResNet34(),
                                             num_workers=args.num_workers,
@@ -670,18 +805,18 @@ def main():
                                             model_save_name=args.model,
                                             fold=args.fold)
 
+    elif args.model == "FPResNet34DeepSupervision":
+        model_trainer = TrainerSegmentationDeepSupervision(model=FPResNet34DeepSupervision(),
+                                                           num_workers=args.num_workers,
+                                                           batch_size=args.batch_size,
+                                                           num_epochs=200,
+                                                           model_save_path=model_save_path,
+                                                           training_history_path=training_history_path,
+                                                           model_save_name=args.model,
+                                                           fold=args.fold)
+
     elif args.model == "ResNet34":
         model_trainer = TrainerClassification(model=ResNet34(),
-                                              num_workers=args.num_workers,
-                                              batch_size=args.batch_size,
-                                              num_epochs=100,
-                                              model_save_path=model_save_path,
-                                              training_history_path=training_history_path,
-                                              model_save_name=args.model,
-                                              fold=args.fold)
-
-    elif args.model == "ResNet34V2":
-        model_trainer = TrainerClassification(model=ResNet34V2(),
                                               num_workers=args.num_workers,
                                               batch_size=args.batch_size,
                                               num_epochs=100,
