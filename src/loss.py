@@ -42,20 +42,3 @@ class DiceBCELoss(nn.Module):
         loss = self.alpha * bce_loss + (1 - self.alpha) * dice_loss
 
         return loss, bce_loss, dice_loss
-
-
-class SymDiceBCELoss(nn.Module):
-    def __init__(self, alpha=0.9, smooth=1):
-        super(SymDiceBCELoss, self).__init__()
-        self.alpha = alpha
-        self.bce = BCEWithLogitsLoss()
-        self.dice = DiceLoss(smooth)
-
-    def forward(self, input, target):
-        bce_loss = self.bce(input, target)
-        dice_loss_positive = self.dice(input, target)
-        dice_loss_negative = self.dice(-input, 1-target)
-        dice_loss = (dice_loss_positive + dice_loss_negative) / 2
-        loss = self.alpha * bce_loss + (1 - self.alpha) * dice_loss
-
-        return loss, bce_loss, dice_loss

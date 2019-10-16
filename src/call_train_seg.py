@@ -11,7 +11,6 @@ batch_size["UResNet34"] = 6
 batch_size["FPResNet34V2"] = 6
 batch_size["FPResNet34"] = 6
 batch_size["FPN"] = 6
-batch_size["FPResNext50"] = 4
 
 for model in model_list:
     model_save_path = os.path.join(SAVE_MODEL_PATH, model)
