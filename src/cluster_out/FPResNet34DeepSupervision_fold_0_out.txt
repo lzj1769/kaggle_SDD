@@ -136,3 +136,952 @@ train: TP   580, TN  4672, FP    21, FN    55, valid: TP   150, TN  1172, FP    
 
 Epoch: 15/200 |  time : 10/16/19-19:01:57
 =================================================================
+loss: 0.11815, cls_loss: 0.08131, seg_loss: 0.03684, bce_loss: 0.02282, dice_loss: 0.16300, dice: 0.92393, 0.97655, 0.67474, 0.95643, mean dice: 0.88291
+loss: 0.12960, cls_loss: 0.09148, seg_loss: 0.03812, bce_loss: 0.02555, dice_loss: 0.15128, dice: 0.92279, 0.97138, 0.68604, 0.95960, mean dice: 0.88495
+train: TP   590, TN  4573, FP    53, FN   112, valid: TP   158, TN  1132, FP    24, FN    21
+train: TP   148, TN  5128, FP    14, FN    38, valid: TP    46, TN  1274, FP    12, FN     3
+train: TP  3874, TN  1090, FP   168, FN   196, valid: TP   950, TN   288, FP    17, FN    80
+train: TP   585, TN  4681, FP    16, FN    46, valid: TP   153, TN  1169, FP     5, FN     8
+******** Validation dice improved from 0.88094705 to 0.88495368 ********
+
+Epoch: 16/200 |  time : 10/16/19-19:11:43
+=================================================================
+loss: 0.12163, cls_loss: 0.08472, seg_loss: 0.03691, bce_loss: 0.02327, dice_loss: 0.15971, dice: 0.92448, 0.97468, 0.67370, 0.94898, mean dice: 0.88046
+loss: 0.11989, cls_loss: 0.08311, seg_loss: 0.03677, bce_loss: 0.02424, dice_loss: 0.14957, dice: 0.92558, 0.96702, 0.69205, 0.94923, mean dice: 0.88347
+train: TP   591, TN  4570, FP    57, FN   110, valid: TP   158, TN  1137, FP    19, FN    21
+train: TP   155, TN  5120, FP    16, FN    37, valid: TP    45, TN  1273, FP    13, FN     4
+train: TP  3876, TN  1080, FP   176, FN   196, valid: TP   973, TN   273, FP    32, FN    57
+train: TP   573, TN  4670, FP    23, FN    62, valid: TP   152, TN  1169, FP     5, FN     9
+
+Epoch: 17/200 |  time : 10/16/19-19:21:28
+=================================================================
+loss: 0.11308, cls_loss: 0.07808, seg_loss: 0.03500, bce_loss: 0.02211, dice_loss: 0.15100, dice: 0.92493, 0.97637, 0.68244, 0.95743, mean dice: 0.88529
+loss: 0.14845, cls_loss: 0.11049, seg_loss: 0.03796, bce_loss: 0.02556, dice_loss: 0.14957, dice: 0.91864, 0.97471, 0.66941, 0.95712, mean dice: 0.87997
+train: TP   600, TN  4580, FP    42, FN   106, valid: TP   141, TN  1143, FP    13, FN    38
+train: TP   153, TN  5124, FP    17, FN    34, valid: TP    44, TN  1277, FP     9, FN     5
+train: TP  3877, TN  1090, FP   169, FN   192, valid: TP   986, TN   217, FP    88, FN    44
+train: TP   582, TN  4683, FP    16, FN    47, valid: TP   151, TN  1168, FP     6, FN    10
+
+Epoch: 18/200 |  time : 10/16/19-19:31:13
+=================================================================
+loss: 0.11747, cls_loss: 0.08250, seg_loss: 0.03497, bce_loss: 0.02206, dice_loss: 0.15111, dice: 0.92397, 0.97715, 0.67668, 0.95832, mean dice: 0.88403
+loss: 0.13657, cls_loss: 0.09841, seg_loss: 0.03816, bce_loss: 0.02495, dice_loss: 0.15703, dice: 0.91081, 0.97673, 0.65163, 0.95590, mean dice: 0.87377
+train: TP   586, TN  4576, FP    52, FN   114, valid: TP   118, TN  1150, FP     6, FN    61
+train: TP   143, TN  5128, FP    12, FN    45, valid: TP    34, TN  1285, FP     1, FN    15
+train: TP  3867, TN  1075, FP   182, FN   204, valid: TP  1002, TN   233, FP    72, FN    28
+train: TP   587, TN  4680, FP    18, FN    43, valid: TP   155, TN  1167, FP     7, FN     6
+
+Epoch: 19/200 |  time : 10/16/19-19:40:58
+=================================================================
+loss: 0.11116, cls_loss: 0.07745, seg_loss: 0.03371, bce_loss: 0.02107, dice_loss: 0.14746, dice: 0.92500, 0.97620, 0.68649, 0.96051, mean dice: 0.88705
+loss: 0.13436, cls_loss: 0.09750, seg_loss: 0.03685, bce_loss: 0.02379, dice_loss: 0.15440, dice: 0.92008, 0.97478, 0.69059, 0.93675, mean dice: 0.88055
+train: TP   596, TN  4580, FP    50, FN   102, valid: TP   153, TN  1136, FP    20, FN    26
+train: TP   148, TN  5114, FP    24, FN    42, valid: TP    39, TN  1276, FP    10, FN    10
+train: TP  3898, TN  1086, FP   158, FN   186, valid: TP   951, TN   282, FP    23, FN    79
+train: TP   598, TN  4686, FP    12, FN    32, valid: TP   157, TN  1156, FP    18, FN     4
+
+Epoch: 20/200 |  time : 10/16/19-19:50:43
+=================================================================
+loss: 0.11220, cls_loss: 0.07757, seg_loss: 0.03463, bce_loss: 0.02190, dice_loss: 0.14920, dice: 0.92505, 0.97841, 0.68485, 0.95777, mean dice: 0.88652
+loss: 0.19123, cls_loss: 0.14425, seg_loss: 0.04698, bce_loss: 0.03483, dice_loss: 0.15633, dice: 0.91179, 0.97370, 0.65128, 0.93846, mean dice: 0.86881
+train: TP   580, TN  4576, FP    57, FN   115, valid: TP   153, TN  1127, FP    29, FN    26
+train: TP   156, TN  5126, FP    13, FN    33, valid: TP    31, TN  1282, FP     4, FN    18
+train: TP  3883, TN  1097, FP   157, FN   191, valid: TP   958, TN   243, FP    62, FN    72
+train: TP   590, TN  4676, FP    21, FN    41, valid: TP    89, TN  1174, FP     0, FN    72
+
+Epoch: 21/200 |  time : 10/16/19-20:00:30
+=================================================================
+loss: 0.10560, cls_loss: 0.07236, seg_loss: 0.03324, bce_loss: 0.02104, dice_loss: 0.14298, dice: 0.92969, 0.97898, 0.69379, 0.95853, mean dice: 0.89025
+loss: 0.12598, cls_loss: 0.09075, seg_loss: 0.03523, bce_loss: 0.02377, dice_loss: 0.13837, dice: 0.92932, 0.97734, 0.67762, 0.95575, mean dice: 0.88501
+train: TP   600, TN  4585, FP    43, FN   100, valid: TP   147, TN  1147, FP     9, FN    32
+train: TP   149, TN  5135, FP     9, FN    35, valid: TP    44, TN  1278, FP     8, FN     5
+train: TP  3898, TN  1100, FP   154, FN   176, valid: TP   989, TN   237, FP    68, FN    41
+train: TP   598, TN  4675, FP    19, FN    36, valid: TP   149, TN  1169, FP     5, FN    12
+******** Validation dice improved from 0.88495368 to 0.88501024 ********
+
+Epoch: 22/200 |  time : 10/16/19-20:10:17
+=================================================================
+loss: 0.10706, cls_loss: 0.07349, seg_loss: 0.03357, bce_loss: 0.02100, dice_loss: 0.14665, dice: 0.92748, 0.97949, 0.68633, 0.95795, mean dice: 0.88781
+loss: 0.13758, cls_loss: 0.09990, seg_loss: 0.03768, bce_loss: 0.02508, dice_loss: 0.15102, dice: 0.92353, 0.97091, 0.66658, 0.95792, mean dice: 0.87974
+train: TP   609, TN  4580, FP    45, FN    94, valid: TP   129, TN  1149, FP     7, FN    50
+train: TP   157, TN  5129, FP    11, FN    31, valid: TP    27, TN  1284, FP     2, FN    22
+train: TP  3880, TN  1094, FP   169, FN   185, valid: TP  1004, TN   230, FP    75, FN    26
+train: TP   597, TN  4676, FP    18, FN    37, valid: TP   148, TN  1170, FP     4, FN    13
+
+Epoch: 23/200 |  time : 10/16/19-20:20:03
+=================================================================
+loss: 0.11556, cls_loss: 0.08139, seg_loss: 0.03416, bce_loss: 0.02144, dice_loss: 0.14869, dice: 0.92539, 0.97683, 0.68532, 0.95584, mean dice: 0.88585
+loss: 0.13481, cls_loss: 0.09954, seg_loss: 0.03527, bce_loss: 0.02246, dice_loss: 0.15051, dice: 0.92015, 0.97121, 0.67599, 0.95725, mean dice: 0.88115
+train: TP   597, TN  4578, FP    52, FN   101, valid: TP   135, TN  1150, FP     6, FN    44
+train: TP   158, TN  5114, FP    20, FN    36, valid: TP    36, TN  1284, FP     2, FN    13
+train: TP  3870, TN  1095, FP   169, FN   194, valid: TP   973, TN   252, FP    53, FN    57
+train: TP   585, TN  4673, FP    25, FN    45, valid: TP   143, TN  1171, FP     3, FN    18
+
+Epoch: 24/200 |  time : 10/16/19-20:29:49
+=================================================================
+loss: 0.10695, cls_loss: 0.07377, seg_loss: 0.03318, bce_loss: 0.02080, dice_loss: 0.14465, dice: 0.92750, 0.97788, 0.69174, 0.95602, mean dice: 0.88828
+loss: 0.13922, cls_loss: 0.10379, seg_loss: 0.03543, bce_loss: 0.02301, dice_loss: 0.14720, dice: 0.92084, 0.97794, 0.68322, 0.95179, mean dice: 0.88345
+train: TP   588, TN  4577, FP    53, FN   110, valid: TP   163, TN  1101, FP    55, FN    16
+train: TP   150, TN  5128, FP    16, FN    34, valid: TP    46, TN  1277, FP     9, FN     3
+train: TP  3897, TN  1105, FP   149, FN   177, valid: TP   960, TN   275, FP    30, FN    70
+train: TP   590, TN  4680, FP    18, FN    40, valid: TP   148, TN  1165, FP     9, FN    13
+
+Epoch: 25/200 |  time : 10/16/19-20:39:35
+=================================================================
+loss: 0.10276, cls_loss: 0.06984, seg_loss: 0.03292, bce_loss: 0.02066, dice_loss: 0.14329, dice: 0.93098, 0.97979, 0.69069, 0.95919, mean dice: 0.89016
+loss: 0.13388, cls_loss: 0.09616, seg_loss: 0.03771, bce_loss: 0.02621, dice_loss: 0.14118, dice: 0.91961, 0.97946, 0.67604, 0.95852, mean dice: 0.88341
+train: TP   601, TN  4587, FP    48, FN    92, valid: TP   154, TN  1135, FP    21, FN    25
+train: TP   153, TN  5131, FP    13, FN    31, valid: TP    41, TN  1282, FP     4, FN     8
+train: TP  3896, TN  1098, FP   158, FN   176, valid: TP   997, TN   218, FP    87, FN    33
+train: TP   593, TN  4682, FP    17, FN    36, valid: TP   143, TN  1173, FP     1, FN    18
+
+Epoch: 26/200 |  time : 10/16/19-20:49:21
+=================================================================
+loss: 0.10423, cls_loss: 0.07110, seg_loss: 0.03313, bce_loss: 0.02093, dice_loss: 0.14292, dice: 0.92828, 0.97978, 0.69671, 0.96120, mean dice: 0.89149
+loss: 0.13804, cls_loss: 0.09908, seg_loss: 0.03896, bce_loss: 0.02662, dice_loss: 0.15008, dice: 0.92627, 0.97330, 0.67423, 0.95095, mean dice: 0.88119
+train: TP   597, TN  4577, FP    52, FN   102, valid: TP   159, TN  1120, FP    36, FN    20
+train: TP   156, TN  5128, FP    13, FN    31, valid: TP    38, TN  1283, FP     3, FN    11
+train: TP  3898, TN  1110, FP   154, FN   166, valid: TP   954, TN   280, FP    25, FN    76
+train: TP   591, TN  4686, FP    13, FN    38, valid: TP   155, TN  1156, FP    18, FN     6
+
+Epoch: 27/200 |  time : 10/16/19-20:59:07
+=================================================================
+loss: 0.10559, cls_loss: 0.07184, seg_loss: 0.03375, bce_loss: 0.02128, dice_loss: 0.14601, dice: 0.92924, 0.97877, 0.68692, 0.95649, mean dice: 0.88786
+loss: 0.14115, cls_loss: 0.10202, seg_loss: 0.03913, bce_loss: 0.02683, dice_loss: 0.14990, dice: 0.91899, 0.97724, 0.67202, 0.95488, mean dice: 0.88078
+train: TP   604, TN  4583, FP    40, FN   101, valid: TP   155, TN  1114, FP    42, FN    24
+train: TP   151, TN  5133, FP    12, FN    32, valid: TP    33, TN  1284, FP     2, FN    16
+train: TP  3909, TN  1086, FP   167, FN   166, valid: TP   964, TN   268, FP    37, FN    66
+train: TP   591, TN  4678, FP    21, FN    38, valid: TP   146, TN  1170, FP     4, FN    15
+
+Epoch: 28/200 |  time : 10/16/19-21:08:53
+=================================================================
+loss: 0.10332, cls_loss: 0.07068, seg_loss: 0.03264, bce_loss: 0.02046, dice_loss: 0.14224, dice: 0.92864, 0.97940, 0.69306, 0.95862, mean dice: 0.88993
+loss: 0.13650, cls_loss: 0.09806, seg_loss: 0.03845, bce_loss: 0.02628, dice_loss: 0.14795, dice: 0.91965, 0.97326, 0.68134, 0.95543, mean dice: 0.88242
+train: TP   609, TN  4574, FP    45, FN   100, valid: TP   150, TN  1142, FP    14, FN    29
+train: TP   153, TN  5132, FP    10, FN    33, valid: TP    46, TN  1273, FP    13, FN     3
+train: TP  3912, TN  1103, FP   152, FN   161, valid: TP   981, TN   259, FP    46, FN    49
+train: TP   594, TN  4673, FP    19, FN    42, valid: TP   140, TN  1171, FP     3, FN    21
+
+Epoch: 29/200 |  time : 10/16/19-21:18:39
+=================================================================
+loss: 0.09888, cls_loss: 0.06649, seg_loss: 0.03239, bce_loss: 0.02043, dice_loss: 0.14001, dice: 0.93180, 0.97927, 0.69943, 0.96185, mean dice: 0.89309
+loss: 0.16321, cls_loss: 0.12471, seg_loss: 0.03850, bce_loss: 0.02591, dice_loss: 0.15181, dice: 0.90566, 0.97813, 0.64580, 0.95867, mean dice: 0.87207
+train: TP   613, TN  4588, FP    39, FN    88, valid: TP   104, TN  1150, FP     6, FN    75
+train: TP   155, TN  5128, FP    13, FN    32, valid: TP    43, TN  1279, FP     7, FN     6
+train: TP  3920, TN  1094, FP   153, FN   161, valid: TP  1005, TN   201, FP   104, FN    25
+train: TP   605, TN  4681, FP    13, FN    29, valid: TP   142, TN  1174, FP     0, FN    19
+
+Epoch: 30/200 |  time : 10/16/19-21:28:25
+=================================================================
+loss: 0.10290, cls_loss: 0.06979, seg_loss: 0.03310, bce_loss: 0.02085, dice_loss: 0.14342, dice: 0.92897, 0.98027, 0.69404, 0.95551, mean dice: 0.88970
+loss: 0.12207, cls_loss: 0.08688, seg_loss: 0.03519, bce_loss: 0.02297, dice_loss: 0.14518, dice: 0.92428, 0.97908, 0.68118, 0.95778, mean dice: 0.88558
+train: TP   604, TN  4585, FP    45, FN    94, valid: TP   144, TN  1143, FP    13, FN    35
+train: TP   155, TN  5133, FP     9, FN    31, valid: TP    38, TN  1285, FP     1, FN    11
+train: TP  3898, TN  1108, FP   155, FN   167, valid: TP   992, TN   242, FP    63, FN    38
+train: TP   588, TN  4673, FP    23, FN    44, valid: TP   153, TN  1167, FP     7, FN     8
+******** Validation dice improved from 0.88501024 to 0.88558161 ********
+
+Epoch: 31/200 |  time : 10/16/19-21:38:12
+=================================================================
+loss: 0.09006, cls_loss: 0.05860, seg_loss: 0.03146, bce_loss: 0.01973, dice_loss: 0.13705, dice: 0.93425, 0.98024, 0.70545, 0.95836, mean dice: 0.89457
+loss: 0.12041, cls_loss: 0.08614, seg_loss: 0.03428, bce_loss: 0.02229, dice_loss: 0.14217, dice: 0.92222, 0.97816, 0.67998, 0.95737, mean dice: 0.88443
+train: TP   630, TN  4598, FP    33, FN    67, valid: TP   137, TN  1151, FP     5, FN    42
+train: TP   155, TN  5136, FP     9, FN    28, valid: TP    45, TN  1280, FP     6, FN     4
+train: TP  3921, TN  1121, FP   134, FN   152, valid: TP  1003, TN   235, FP    70, FN    27
+train: TP   604, TN  4684, FP    11, FN    29, valid: TP   154, TN  1170, FP     4, FN     7
+
+Epoch: 32/200 |  time : 10/16/19-21:47:57
+=================================================================
+loss: 0.09069, cls_loss: 0.05935, seg_loss: 0.03135, bce_loss: 0.01966, dice_loss: 0.13656, dice: 0.93342, 0.98148, 0.70667, 0.96306, mean dice: 0.89616
+loss: 0.14324, cls_loss: 0.10711, seg_loss: 0.03612, bce_loss: 0.02482, dice_loss: 0.13785, dice: 0.91759, 0.97702, 0.70955, 0.95958, mean dice: 0.89093
+train: TP   622, TN  4596, FP    37, FN    73, valid: TP   168, TN  1105, FP    51, FN    11
+train: TP   163, TN  5132, FP    11, FN    22, valid: TP    43, TN  1281, FP     5, FN     6
+train: TP  3914, TN  1141, FP   122, FN   151, valid: TP   954, TN   280, FP    25, FN    76
+train: TP   602, TN  4685, FP    14, FN    27, valid: TP   143, TN  1172, FP     2, FN    18
+******** Validation dice improved from 0.88558161 to 0.89093333 ********
+
+Epoch: 33/200 |  time : 10/16/19-21:57:44
+=================================================================
+loss: 0.09467, cls_loss: 0.06318, seg_loss: 0.03149, bce_loss: 0.01968, dice_loss: 0.13778, dice: 0.93272, 0.97950, 0.70458, 0.95995, mean dice: 0.89419
+loss: 0.12353, cls_loss: 0.08782, seg_loss: 0.03572, bce_loss: 0.02326, dice_loss: 0.14779, dice: 0.92577, 0.97971, 0.69418, 0.94770, mean dice: 0.88684
+train: TP   614, TN  4595, FP    38, FN    81, valid: TP   137, TN  1149, FP     7, FN    42
+train: TP   154, TN  5127, FP    13, FN    34, valid: TP    44, TN  1277, FP     9, FN     5
+train: TP  3911, TN  1111, FP   146, FN   160, valid: TP   974, TN   260, FP    45, FN    56
+train: TP   601, TN  4681, FP    13, FN    33, valid: TP   155, TN  1161, FP    13, FN     6
+
+Epoch: 34/200 |  time : 10/16/19-22:07:29
+=================================================================
+loss: 0.09321, cls_loss: 0.06181, seg_loss: 0.03140, bce_loss: 0.01967, dice_loss: 0.13701, dice: 0.93240, 0.98110, 0.70861, 0.96089, mean dice: 0.89575
+loss: 0.14177, cls_loss: 0.10468, seg_loss: 0.03709, bce_loss: 0.02560, dice_loss: 0.14056, dice: 0.92723, 0.97870, 0.69021, 0.94797, mean dice: 0.88603
+train: TP   609, TN  4596, FP    40, FN    83, valid: TP   163, TN  1122, FP    34, FN    16
+train: TP   159, TN  5132, FP     8, FN    29, valid: TP    47, TN  1275, FP    11, FN     2
+train: TP  3931, TN  1123, FP   123, FN   151, valid: TP   958, TN   272, FP    33, FN    72
+train: TP   602, TN  4678, FP    18, FN    30, valid: TP   140, TN  1169, FP     5, FN    21
+
+Epoch: 35/200 |  time : 10/16/19-22:17:13
+=================================================================
+loss: 0.09421, cls_loss: 0.06178, seg_loss: 0.03243, bce_loss: 0.02038, dice_loss: 0.14085, dice: 0.93133, 0.98198, 0.69900, 0.95911, mean dice: 0.89285
+loss: 0.14134, cls_loss: 0.10349, seg_loss: 0.03786, bce_loss: 0.02505, dice_loss: 0.15307, dice: 0.92722, 0.98001, 0.68469, 0.94271, mean dice: 0.88366
+train: TP   605, TN  4589, FP    40, FN    94, valid: TP   166, TN  1121, FP    35, FN    13
+train: TP   160, TN  5131, FP    12, FN    25, valid: TP    41, TN  1283, FP     3, FN     8
+train: TP  3892, TN  1137, FP   130, FN   169, valid: TP   923, TN   291, FP    14, FN   107
+train: TP   593, TN  4685, FP    15, FN    35, valid: TP   157, TN  1146, FP    28, FN     4
+
+Epoch: 36/200 |  time : 10/16/19-22:26:58
+=================================================================
+loss: 0.09081, cls_loss: 0.05957, seg_loss: 0.03124, bce_loss: 0.01947, dice_loss: 0.13715, dice: 0.93358, 0.98044, 0.70842, 0.96119, mean dice: 0.89591
+loss: 0.12572, cls_loss: 0.09147, seg_loss: 0.03426, bce_loss: 0.02194, dice_loss: 0.14513, dice: 0.92220, 0.97574, 0.70036, 0.95554, mean dice: 0.88846
+train: TP   628, TN  4587, FP    37, FN    76, valid: TP   169, TN  1114, FP    42, FN    10
+train: TP   167, TN  5125, FP    11, FN    25, valid: TP    36, TN  1282, FP     4, FN    13
+train: TP  3922, TN  1122, FP   131, FN   153, valid: TP   962, TN   272, FP    33, FN    68
+train: TP   602, TN  4686, FP     9, FN    31, valid: TP   153, TN  1166, FP     8, FN     8
+
+Epoch: 37/200 |  time : 10/16/19-22:36:43
+=================================================================
+loss: 0.09122, cls_loss: 0.05966, seg_loss: 0.03156, bce_loss: 0.01987, dice_loss: 0.13683, dice: 0.93176, 0.98178, 0.70528, 0.96105, mean dice: 0.89497
+loss: 0.11232, cls_loss: 0.07828, seg_loss: 0.03403, bce_loss: 0.02194, dice_loss: 0.14288, dice: 0.92400, 0.97899, 0.68463, 0.96250, mean dice: 0.88753
+train: TP   622, TN  4586, FP    36, FN    84, valid: TP   143, TN  1147, FP     9, FN    36
+train: TP   166, TN  5131, FP     8, FN    23, valid: TP    31, TN  1284, FP     2, FN    18
+train: TP  3922, TN  1135, FP   121, FN   150, valid: TP   987, TN   257, FP    48, FN    43
+train: TP   610, TN  4681, FP    12, FN    25, valid: TP   153, TN  1170, FP     4, FN     8
+
+Epoch: 38/200 |  time : 10/16/19-22:46:28
+=================================================================
+loss: 0.09137, cls_loss: 0.06025, seg_loss: 0.03112, bce_loss: 0.01947, dice_loss: 0.13590, dice: 0.93305, 0.98177, 0.70875, 0.96173, mean dice: 0.89633
+loss: 0.12899, cls_loss: 0.09538, seg_loss: 0.03361, bce_loss: 0.02174, dice_loss: 0.14048, dice: 0.92840, 0.97656, 0.70809, 0.95567, mean dice: 0.89218
+train: TP   616, TN  4588, FP    42, FN    82, valid: TP   155, TN  1139, FP    17, FN    24
+train: TP   162, TN  5133, FP     8, FN    25, valid: TP    47, TN  1279, FP     7, FN     2
+train: TP  3913, TN  1130, FP   133, FN   152, valid: TP   943, TN   284, FP    21, FN    87
+train: TP   605, TN  4680, FP    13, FN    30, valid: TP   149, TN  1166, FP     8, FN    12
+******** Validation dice improved from 0.89093333 to 0.89217830 ********
+
+Epoch: 39/200 |  time : 10/16/19-22:56:13
+=================================================================
+loss: 0.09611, cls_loss: 0.06453, seg_loss: 0.03158, bce_loss: 0.01978, dice_loss: 0.13780, dice: 0.93220, 0.98051, 0.70159, 0.96210, mean dice: 0.89410
+loss: 0.12282, cls_loss: 0.08875, seg_loss: 0.03407, bce_loss: 0.02257, dice_loss: 0.13755, dice: 0.92857, 0.97742, 0.70599, 0.95863, mean dice: 0.89265
+train: TP   618, TN  4579, FP    42, FN    89, valid: TP   155, TN  1135, FP    21, FN    24
+train: TP   158, TN  5122, FP    17, FN    31, valid: TP    34, TN  1285, FP     1, FN    15
+train: TP  3916, TN  1110, FP   140, FN   162, valid: TP   988, TN   258, FP    47, FN    42
+train: TP   608, TN  4677, FP    16, FN    27, valid: TP   145, TN  1173, FP     1, FN    16
+******** Validation dice improved from 0.89217830 to 0.89265192 ********
+
+Epoch: 40/200 |  time : 10/16/19-23:05:59
+=================================================================
+loss: 0.09068, cls_loss: 0.05937, seg_loss: 0.03131, bce_loss: 0.01959, dice_loss: 0.13679, dice: 0.93611, 0.98057, 0.70498, 0.95764, mean dice: 0.89482
+loss: 0.12145, cls_loss: 0.08557, seg_loss: 0.03587, bce_loss: 0.02408, dice_loss: 0.14201, dice: 0.91899, 0.98093, 0.68439, 0.95603, mean dice: 0.88508
+train: TP   628, TN  4600, FP    34, FN    66, valid: TP   163, TN  1122, FP    34, FN    16
+train: TP   151, TN  5132, FP    13, FN    32, valid: TP    46, TN  1280, FP     6, FN     3
+train: TP  3945, TN  1126, FP   118, FN   139, valid: TP   963, TN   277, FP    28, FN    67
+train: TP   597, TN  4682, FP    16, FN    33, valid: TP   148, TN  1172, FP     2, FN    13
+
+Epoch: 41/200 |  time : 10/16/19-23:15:43
+=================================================================
+loss: 0.08915, cls_loss: 0.05851, seg_loss: 0.03063, bce_loss: 0.01908, dice_loss: 0.13463, dice: 0.93646, 0.98129, 0.70714, 0.96209, mean dice: 0.89675
+loss: 0.13712, cls_loss: 0.09960, seg_loss: 0.03751, bce_loss: 0.02599, dice_loss: 0.14128, dice: 0.92693, 0.97827, 0.69105, 0.95129, mean dice: 0.88688
+train: TP   628, TN  4591, FP    38, FN    71, valid: TP   144, TN  1152, FP     4, FN    35
+train: TP   162, TN  5132, FP    12, FN    22, valid: TP    46, TN  1280, FP     6, FN     3
+train: TP  3946, TN  1110, FP   131, FN   141, valid: TP  1000, TN   239, FP    66, FN    30
+train: TP   602, TN  4686, FP    11, FN    29, valid: TP   126, TN  1173, FP     1, FN    35
+
+Epoch: 42/200 |  time : 10/16/19-23:25:28
+=================================================================
+loss: 0.09470, cls_loss: 0.06293, seg_loss: 0.03176, bce_loss: 0.01995, dice_loss: 0.13813, dice: 0.93216, 0.98069, 0.70700, 0.95867, mean dice: 0.89463
+loss: 0.12154, cls_loss: 0.08742, seg_loss: 0.03412, bce_loss: 0.02227, dice_loss: 0.14081, dice: 0.93150, 0.97986, 0.69339, 0.95781, mean dice: 0.89064
+train: TP   620, TN  4584, FP    40, FN    84, valid: TP   159, TN  1133, FP    23, FN    20
+train: TP   156, TN  5132, FP    11, FN    29, valid: TP    45, TN  1276, FP    10, FN     4
+train: TP  3925, TN  1122, FP   139, FN   142, valid: TP   961, TN   284, FP    21, FN    69
+train: TP   588, TN  4685, FP    15, FN    40, valid: TP   151, TN  1167, FP     7, FN    10
+
+Epoch: 43/200 |  time : 10/16/19-23:35:12
+=================================================================
+loss: 0.08769, cls_loss: 0.05663, seg_loss: 0.03105, bce_loss: 0.01943, dice_loss: 0.13563, dice: 0.93342, 0.98137, 0.71172, 0.96089, mean dice: 0.89685
+loss: 0.13238, cls_loss: 0.09751, seg_loss: 0.03487, bce_loss: 0.02384, dice_loss: 0.13416, dice: 0.92498, 0.98188, 0.70858, 0.95820, mean dice: 0.89341
+train: TP   615, TN  4587, FP    41, FN    85, valid: TP   165, TN  1114, FP    42, FN    14
+train: TP   160, TN  5127, FP    12, FN    29, valid: TP    43, TN  1280, FP     6, FN     6
+train: TP  3925, TN  1145, FP   116, FN   142, valid: TP   964, TN   279, FP    26, FN    66
+train: TP   607, TN  4680, FP    14, FN    27, valid: TP   157, TN  1167, FP     7, FN     4
+******** Validation dice improved from 0.89265192 to 0.89341062 ********
+
+Epoch: 44/200 |  time : 10/16/19-23:44:58
+=================================================================
+loss: 0.08505, cls_loss: 0.05442, seg_loss: 0.03063, bce_loss: 0.01948, dice_loss: 0.13103, dice: 0.93570, 0.98205, 0.72027, 0.96074, mean dice: 0.89969
+loss: 0.14392, cls_loss: 0.10678, seg_loss: 0.03715, bce_loss: 0.02548, dice_loss: 0.14212, dice: 0.92100, 0.97814, 0.70661, 0.93612, mean dice: 0.88547
+train: TP   638, TN  4589, FP    38, FN    63, valid: TP   158, TN  1132, FP    24, FN    21
+train: TP   161, TN  5131, FP    11, FN    25, valid: TP    45, TN  1273, FP    13, FN     4
+train: TP  3933, TN  1147, FP   119, FN   129, valid: TP   978, TN   264, FP    41, FN    52
+train: TP   602, TN  4680, FP    14, FN    32, valid: TP   151, TN  1147, FP    27, FN    10
+
+Epoch: 45/200 |  time : 10/16/19-23:54:42
+=================================================================
+loss: 0.08404, cls_loss: 0.05386, seg_loss: 0.03019, bce_loss: 0.01967, dice_loss: 0.12479, dice: 0.93644, 0.98213, 0.72445, 0.96252, mean dice: 0.90139
+loss: 0.12401, cls_loss: 0.08948, seg_loss: 0.03453, bce_loss: 0.02413, dice_loss: 0.12812, dice: 0.92944, 0.97988, 0.70902, 0.95890, mean dice: 0.89431
+train: TP   625, TN  4596, FP    32, FN    75, valid: TP   149, TN  1151, FP     5, FN    30
+train: TP   166, TN  5132, FP     9, FN    21, valid: TP    45, TN  1281, FP     5, FN     4
+train: TP  3934, TN  1152, FP   107, FN   135, valid: TP   986, TN   257, FP    48, FN    44
+train: TP   610, TN  4680, FP    15, FN    23, valid: TP   151, TN  1168, FP     6, FN    10
+******** Validation dice improved from 0.89341062 to 0.89431036 ********
+
+Epoch: 46/200 |  time : 10/17/19-00:04:28
+=================================================================
+loss: 0.08555, cls_loss: 0.05522, seg_loss: 0.03033, bce_loss: 0.01983, dice_loss: 0.12478, dice: 0.93889, 0.98247, 0.72641, 0.95782, mean dice: 0.90140
+loss: 0.15030, cls_loss: 0.10993, seg_loss: 0.04037, bce_loss: 0.02938, dice_loss: 0.13929, dice: 0.91874, 0.96934, 0.68990, 0.95093, mean dice: 0.88223
+train: TP   631, TN  4597, FP    29, FN    71, valid: TP   166, TN  1117, FP    39, FN    13
+train: TP   165, TN  5127, FP    12, FN    24, valid: TP    43, TN  1280, FP     6, FN     6
+train: TP  3942, TN  1144, FP   113, FN   129, valid: TP   931, TN   284, FP    21, FN    99
+train: TP   602, TN  4672, FP    21, FN    33, valid: TP   152, TN  1166, FP     8, FN     9
+
+Epoch: 47/200 |  time : 10/17/19-00:14:13
+=================================================================
+loss: 0.08422, cls_loss: 0.05407, seg_loss: 0.03015, bce_loss: 0.01956, dice_loss: 0.12545, dice: 0.93535, 0.98106, 0.72130, 0.96246, mean dice: 0.90004
+loss: 0.13281, cls_loss: 0.09299, seg_loss: 0.03982, bce_loss: 0.02792, dice_loss: 0.14693, dice: 0.93017, 0.97816, 0.65949, 0.95635, mean dice: 0.88104
+train: TP   623, TN  4592, FP    34, FN    79, valid: TP   150, TN  1149, FP     7, FN    29
+train: TP   155, TN  5130, FP    14, FN    29, valid: TP    39, TN  1284, FP     2, FN    10
+train: TP  3940, TN  1134, FP   125, FN   129, valid: TP  1008, TN   227, FP    78, FN    22
+train: TP   616, TN  4682, FP    11, FN    19, valid: TP   143, TN  1167, FP     7, FN    18
+
+Epoch: 48/200 |  time : 10/17/19-00:23:57
+=================================================================
+loss: 0.09275, cls_loss: 0.06174, seg_loss: 0.03101, bce_loss: 0.02021, dice_loss: 0.12822, dice: 0.93510, 0.97877, 0.71749, 0.96055, mean dice: 0.89798
+loss: 0.12052, cls_loss: 0.08605, seg_loss: 0.03447, bce_loss: 0.02367, dice_loss: 0.13162, dice: 0.92466, 0.97890, 0.70567, 0.95585, mean dice: 0.89127
+train: TP   621, TN  4590, FP    38, FN    79, valid: TP   158, TN  1139, FP    17, FN    21
+train: TP   143, TN  5124, FP    19, FN    42, valid: TP    45, TN  1279, FP     7, FN     4
+train: TP  3935, TN  1126, FP   133, FN   134, valid: TP   992, TN   257, FP    48, FN    38
+train: TP   608, TN  4681, FP    12, FN    27, valid: TP   146, TN  1169, FP     5, FN    15
+
+Epoch: 49/200 |  time : 10/17/19-00:33:44
+=================================================================
+loss: 0.09059, cls_loss: 0.05970, seg_loss: 0.03089, bce_loss: 0.02024, dice_loss: 0.12669, dice: 0.93581, 0.98127, 0.72166, 0.95976, mean dice: 0.89962
+loss: 0.13100, cls_loss: 0.09484, seg_loss: 0.03616, bce_loss: 0.02483, dice_loss: 0.13807, dice: 0.92203, 0.98089, 0.68472, 0.96010, mean dice: 0.88694
+train: TP   626, TN  4592, FP    35, FN    75, valid: TP   142, TN  1139, FP    17, FN    37
+train: TP   158, TN  5124, FP    12, FN    34, valid: TP    46, TN  1276, FP    10, FN     3
+train: TP  3956, TN  1105, FP   136, FN   131, valid: TP  1001, TN   233, FP    72, FN    29
+train: TP   603, TN  4678, FP    19, FN    28, valid: TP   148, TN  1173, FP     1, FN    13
+
+Epoch: 50/200 |  time : 10/17/19-00:43:30
+=================================================================
+loss: 0.09020, cls_loss: 0.05980, seg_loss: 0.03040, bce_loss: 0.01981, dice_loss: 0.12579, dice: 0.93550, 0.98191, 0.71665, 0.96284, mean dice: 0.89923
+loss: 0.11646, cls_loss: 0.08438, seg_loss: 0.03208, bce_loss: 0.02248, dice_loss: 0.11849, dice: 0.92621, 0.97869, 0.73011, 0.96230, mean dice: 0.89933
+train: TP   615, TN  4606, FP    30, FN    77, valid: TP   159, TN  1133, FP    23, FN    20
+train: TP   163, TN  5133, FP    10, FN    22, valid: TP    43, TN  1281, FP     5, FN     6
+train: TP  3933, TN  1125, FP   135, FN   135, valid: TP   951, TN   291, FP    14, FN    79
+train: TP   605, TN  4683, FP    15, FN    25, valid: TP   155, TN  1169, FP     5, FN     6
+******** Validation dice improved from 0.89431036 to 0.89932764 ********
+
+Epoch: 51/200 |  time : 10/17/19-00:53:17
+=================================================================
+loss: 0.08404, cls_loss: 0.05373, seg_loss: 0.03032, bce_loss: 0.01971, dice_loss: 0.12575, dice: 0.93488, 0.98349, 0.72463, 0.95748, mean dice: 0.90012
+loss: 0.12244, cls_loss: 0.08920, seg_loss: 0.03324, bce_loss: 0.02222, dice_loss: 0.13241, dice: 0.92038, 0.98397, 0.71130, 0.95367, mean dice: 0.89233
+train: TP   629, TN  4588, FP    36, FN    75, valid: TP   138, TN  1150, FP     6, FN    41
+train: TP   165, TN  5131, FP     8, FN    24, valid: TP    44, TN  1284, FP     2, FN     5
+train: TP  3954, TN  1146, FP   102, FN   126, valid: TP   987, TN   258, FP    47, FN    43
+train: TP   604, TN  4676, FP    14, FN    34, valid: TP   155, TN  1163, FP    11, FN     6
+
+Epoch: 52/200 |  time : 10/17/19-01:03:03
+=================================================================
+loss: 0.08085, cls_loss: 0.05133, seg_loss: 0.02952, bce_loss: 0.01929, dice_loss: 0.12156, dice: 0.93606, 0.98301, 0.72318, 0.96345, mean dice: 0.90142
+loss: 0.12365, cls_loss: 0.09067, seg_loss: 0.03298, bce_loss: 0.02281, dice_loss: 0.12450, dice: 0.92618, 0.98071, 0.72072, 0.95831, mean dice: 0.89648
+train: TP   635, TN  4596, FP    34, FN    63, valid: TP   164, TN  1121, FP    35, FN    15
+train: TP   158, TN  5136, FP     8, FN    26, valid: TP    45, TN  1278, FP     8, FN     4
+train: TP  3961, TN  1121, FP   125, FN   121, valid: TP   969, TN   271, FP    34, FN    61
+train: TP   609, TN  4689, FP    10, FN    20, valid: TP   147, TN  1172, FP     2, FN    14
+
+Epoch: 53/200 |  time : 10/17/19-01:12:49
+=================================================================
+loss: 0.07801, cls_loss: 0.04879, seg_loss: 0.02921, bce_loss: 0.01920, dice_loss: 0.11932, dice: 0.94161, 0.98325, 0.73088, 0.96262, mean dice: 0.90459
+loss: 0.10971, cls_loss: 0.07743, seg_loss: 0.03228, bce_loss: 0.02197, dice_loss: 0.12509, dice: 0.93227, 0.98306, 0.72065, 0.95898, mean dice: 0.89874
+train: TP   642, TN  4603, FP    29, FN    54, valid: TP   160, TN  1144, FP    12, FN    19
+train: TP   168, TN  5139, FP     4, FN    17, valid: TP    44, TN  1282, FP     4, FN     5
+train: TP  3936, TN  1150, FP   112, FN   130, valid: TP   990, TN   263, FP    42, FN    40
+train: TP   615, TN  4685, FP     9, FN    19, valid: TP   144, TN  1171, FP     3, FN    17
+
+Epoch: 54/200 |  time : 10/17/19-01:22:35
+=================================================================
+loss: 0.08000, cls_loss: 0.05079, seg_loss: 0.02921, bce_loss: 0.01914, dice_loss: 0.11983, dice: 0.93634, 0.98307, 0.73099, 0.96319, mean dice: 0.90340
+loss: 0.12308, cls_loss: 0.08762, seg_loss: 0.03546, bce_loss: 0.02517, dice_loss: 0.12807, dice: 0.92860, 0.98340, 0.70917, 0.95381, mean dice: 0.89375
+train: TP   630, TN  4597, FP    32, FN    69, valid: TP   158, TN  1142, FP    14, FN    21
+train: TP   164, TN  5132, FP     9, FN    23, valid: TP    44, TN  1284, FP     2, FN     5
+train: TP  3955, TN  1153, FP   109, FN   111, valid: TP   990, TN   250, FP    55, FN    40
+train: TP   609, TN  4679, FP    15, FN    25, valid: TP   139, TN  1174, FP     0, FN    22
+
+Epoch: 55/200 |  time : 10/17/19-01:32:21
+=================================================================
+loss: 0.08734, cls_loss: 0.05718, seg_loss: 0.03016, bce_loss: 0.01965, dice_loss: 0.12479, dice: 0.93628, 0.98125, 0.72184, 0.96073, mean dice: 0.90003
+loss: 0.11694, cls_loss: 0.08380, seg_loss: 0.03314, bce_loss: 0.02200, dice_loss: 0.13347, dice: 0.91790, 0.98093, 0.70365, 0.95793, mean dice: 0.89010
+train: TP   628, TN  4600, FP    31, FN    69, valid: TP   160, TN  1134, FP    22, FN    19
+train: TP   157, TN  5132, FP    11, FN    28, valid: TP    46, TN  1278, FP     8, FN     3
+train: TP  3927, TN  1139, FP   118, FN   144, valid: TP   997, TN   238, FP    67, FN    33
+train: TP   603, TN  4679, FP    14, FN    32, valid: TP   150, TN  1172, FP     2, FN    11
+
+Epoch: 56/200 |  time : 10/17/19-01:42:06
+=================================================================
+loss: 0.09258, cls_loss: 0.06172, seg_loss: 0.03086, bce_loss: 0.02017, dice_loss: 0.12710, dice: 0.93471, 0.98011, 0.72033, 0.95915, mean dice: 0.89857
+loss: 0.11808, cls_loss: 0.08540, seg_loss: 0.03268, bce_loss: 0.02147, dice_loss: 0.13356, dice: 0.92564, 0.97654, 0.69796, 0.96325, mean dice: 0.89085
+train: TP   634, TN  4596, FP    34, FN    64, valid: TP   149, TN  1146, FP    10, FN    30
+train: TP   163, TN  5121, FP    16, FN    28, valid: TP    42, TN  1280, FP     6, FN     7
+train: TP  3922, TN  1133, FP   137, FN   136, valid: TP   997, TN   251, FP    54, FN    33
+train: TP   594, TN  4680, FP    17, FN    37, valid: TP   152, TN  1172, FP     2, FN     9
+
+Epoch: 57/200 |  time : 10/17/19-01:51:52
+=================================================================
+loss: 0.08254, cls_loss: 0.05324, seg_loss: 0.02929, bce_loss: 0.01918, dice_loss: 0.12031, dice: 0.93687, 0.98190, 0.73395, 0.96184, mean dice: 0.90364
+loss: 0.13835, cls_loss: 0.10179, seg_loss: 0.03655, bce_loss: 0.02596, dice_loss: 0.13188, dice: 0.92064, 0.97117, 0.70999, 0.95457, mean dice: 0.88909
+train: TP   631, TN  4586, FP    40, FN    71, valid: TP   137, TN  1137, FP    19, FN    42
+train: TP   170, TN  5125, FP    10, FN    23, valid: TP    46, TN  1269, FP    17, FN     3
+train: TP  3950, TN  1147, FP   107, FN   124, valid: TP   973, TN   270, FP    35, FN    57
+train: TP   602, TN  4680, FP    17, FN    29, valid: TP   144, TN  1171, FP     3, FN    17
+
+Epoch: 58/200 |  time : 10/17/19-02:01:37
+=================================================================
+loss: 0.08030, cls_loss: 0.05099, seg_loss: 0.02931, bce_loss: 0.01915, dice_loss: 0.12075, dice: 0.93812, 0.98314, 0.72849, 0.96164, mean dice: 0.90285
+loss: 0.13951, cls_loss: 0.10552, seg_loss: 0.03399, bce_loss: 0.02291, dice_loss: 0.13369, dice: 0.90648, 0.97840, 0.71860, 0.96072, mean dice: 0.89105
+train: TP   626, TN  4596, FP    33, FN    73, valid: TP   171, TN  1097, FP    59, FN     8
+train: TP   169, TN  5131, FP     7, FN    21, valid: TP    43, TN  1277, FP     9, FN     6
+train: TP  3938, TN  1147, FP   112, FN   131, valid: TP   976, TN   280, FP    25, FN    54
+train: TP   612, TN  4682, FP    12, FN    22, valid: TP   137, TN  1173, FP     1, FN    24
+
+Epoch: 59/200 |  time : 10/17/19-02:11:23
+=================================================================
+loss: 0.07816, cls_loss: 0.04913, seg_loss: 0.02903, bce_loss: 0.01888, dice_loss: 0.12037, dice: 0.93882, 0.98167, 0.72814, 0.96371, mean dice: 0.90309
+loss: 0.14420, cls_loss: 0.11003, seg_loss: 0.03417, bce_loss: 0.02387, dice_loss: 0.12681, dice: 0.91818, 0.97759, 0.71657, 0.95872, mean dice: 0.89277
+train: TP   643, TN  4598, FP    30, FN    57, valid: TP   162, TN  1122, FP    34, FN    17
+train: TP   166, TN  5124, FP    14, FN    24, valid: TP    43, TN  1268, FP    18, FN     6
+train: TP  3944, TN  1152, FP    99, FN   133, valid: TP   955, TN   249, FP    56, FN    75
+train: TP   612, TN  4683, FP     8, FN    25, valid: TP   157, TN  1167, FP     7, FN     4
+
+Epoch: 60/200 |  time : 10/17/19-02:21:08
+=================================================================
+loss: 0.07727, cls_loss: 0.04877, seg_loss: 0.02850, bce_loss: 0.01862, dice_loss: 0.11739, dice: 0.94113, 0.98345, 0.73423, 0.96056, mean dice: 0.90484
+loss: 0.13314, cls_loss: 0.09799, seg_loss: 0.03514, bce_loss: 0.02439, dice_loss: 0.13191, dice: 0.92254, 0.98085, 0.69709, 0.95466, mean dice: 0.88878
+train: TP   640, TN  4609, FP    26, FN    53, valid: TP   146, TN  1139, FP    17, FN    33
+train: TP   165, TN  5133, FP    10, FN    20, valid: TP    43, TN  1279, FP     7, FN     6
+train: TP  3951, TN  1147, FP   113, FN   117, valid: TP   989, TN   254, FP    51, FN    41
+train: TP   607, TN  4682, FP    14, FN    25, valid: TP   143, TN  1170, FP     4, FN    18
+
+Epoch: 61/200 |  time : 10/17/19-02:30:54
+=================================================================
+loss: 0.07751, cls_loss: 0.04860, seg_loss: 0.02891, bce_loss: 0.01894, dice_loss: 0.11863, dice: 0.93783, 0.98142, 0.73528, 0.96076, mean dice: 0.90382
+loss: 0.11005, cls_loss: 0.07875, seg_loss: 0.03130, bce_loss: 0.02092, dice_loss: 0.12479, dice: 0.92626, 0.98101, 0.72739, 0.96294, mean dice: 0.89940
+train: TP   649, TN  4593, FP    28, FN    58, valid: TP   153, TN  1141, FP    15, FN    26
+train: TP   165, TN  5127, FP    11, FN    25, valid: TP    46, TN  1278, FP     8, FN     3
+train: TP  3968, TN  1149, FP   106, FN   105, valid: TP   977, TN   278, FP    27, FN    53
+train: TP   609, TN  4681, FP    12, FN    26, valid: TP   158, TN  1168, FP     6, FN     3
+******** Validation dice improved from 0.89932764 to 0.89940059 ********
+
+Epoch: 62/200 |  time : 10/17/19-02:40:41
+=================================================================
+loss: 0.08108, cls_loss: 0.05239, seg_loss: 0.02869, bce_loss: 0.01880, dice_loss: 0.11774, dice: 0.93995, 0.98335, 0.73255, 0.96295, mean dice: 0.90470
+loss: 0.11215, cls_loss: 0.08046, seg_loss: 0.03169, bce_loss: 0.02189, dice_loss: 0.11990, dice: 0.92939, 0.97998, 0.73161, 0.96012, mean dice: 0.90028
+train: TP   625, TN  4601, FP    36, FN    66, valid: TP   160, TN  1137, FP    19, FN    19
+train: TP   158, TN  5132, FP    12, FN    26, valid: TP    45, TN  1278, FP     8, FN     4
+train: TP  3951, TN  1147, FP   112, FN   118, valid: TP   970, TN   277, FP    28, FN    60
+train: TP   616, TN  4684, FP     6, FN    22, valid: TP   146, TN  1168, FP     6, FN    15
+******** Validation dice improved from 0.89940059 to 0.90027559 ********
+
+Epoch: 63/200 |  time : 10/17/19-02:50:27
+=================================================================
+loss: 0.08039, cls_loss: 0.05130, seg_loss: 0.02908, bce_loss: 0.01891, dice_loss: 0.12063, dice: 0.93711, 0.98255, 0.72809, 0.95987, mean dice: 0.90191
+loss: 0.11377, cls_loss: 0.08193, seg_loss: 0.03183, bce_loss: 0.02088, dice_loss: 0.13045, dice: 0.93075, 0.97986, 0.70528, 0.95565, mean dice: 0.89288
+train: TP   627, TN  4603, FP    28, FN    70, valid: TP   159, TN  1138, FP    18, FN    20
+train: TP   164, TN  5134, FP     6, FN    24, valid: TP    45, TN  1280, FP     6, FN     4
+train: TP  3951, TN  1154, FP   109, FN   114, valid: TP   997, TN   252, FP    53, FN    33
+train: TP   610, TN  4678, FP    15, FN    25, valid: TP   154, TN  1160, FP    14, FN     7
+
+Epoch: 64/200 |  time : 10/17/19-03:00:13
+=================================================================
+loss: 0.08127, cls_loss: 0.05191, seg_loss: 0.02936, bce_loss: 0.01914, dice_loss: 0.12135, dice: 0.93680, 0.98306, 0.72854, 0.95988, mean dice: 0.90207
+loss: 0.13438, cls_loss: 0.10001, seg_loss: 0.03437, bce_loss: 0.02354, dice_loss: 0.13184, dice: 0.92944, 0.97326, 0.70474, 0.95445, mean dice: 0.89047
+train: TP   634, TN  4595, FP    30, FN    69, valid: TP   148, TN  1140, FP    16, FN    31
+train: TP   167, TN  5137, FP     4, FN    20, valid: TP    44, TN  1274, FP    12, FN     5
+train: TP  3958, TN  1138, FP   121, FN   111, valid: TP   985, TN   252, FP    53, FN    45
+train: TP   604, TN  4677, FP    15, FN    32, valid: TP   143, TN  1170, FP     4, FN    18
+
+Epoch: 65/200 |  time : 10/17/19-03:09:59
+=================================================================
+loss: 0.07919, cls_loss: 0.04964, seg_loss: 0.02955, bce_loss: 0.01920, dice_loss: 0.12262, dice: 0.93671, 0.98222, 0.72456, 0.96121, mean dice: 0.90117
+loss: 0.12854, cls_loss: 0.09704, seg_loss: 0.03150, bce_loss: 0.02084, dice_loss: 0.12750, dice: 0.92609, 0.98064, 0.71356, 0.96167, mean dice: 0.89549
+train: TP   626, TN  4592, FP    38, FN    72, valid: TP   165, TN  1117, FP    39, FN    14
+train: TP   171, TN  5133, FP     9, FN    15, valid: TP    36, TN  1284, FP     2, FN    13
+train: TP  3944, TN  1146, FP   103, FN   135, valid: TP   998, TN   236, FP    69, FN    32
+train: TP   610, TN  4681, FP    13, FN    24, valid: TP   153, TN  1169, FP     5, FN     8
+
+Epoch: 66/200 |  time : 10/17/19-03:19:44
+=================================================================
+loss: 0.07807, cls_loss: 0.04972, seg_loss: 0.02835, bce_loss: 0.01844, dice_loss: 0.11753, dice: 0.93888, 0.98243, 0.73379, 0.96430, mean dice: 0.90485
+loss: 0.15131, cls_loss: 0.11148, seg_loss: 0.03983, bce_loss: 0.02829, dice_loss: 0.14367, dice: 0.91739, 0.97078, 0.68796, 0.95345, mean dice: 0.88239
+train: TP   631, TN  4598, FP    30, FN    69, valid: TP   157, TN  1133, FP    23, FN    22
+train: TP   173, TN  5126, FP    10, FN    19, valid: TP    48, TN  1267, FP    19, FN     1
+train: TP  3961, TN  1138, FP   111, FN   118, valid: TP   980, TN   245, FP    60, FN    50
+train: TP   615, TN  4682, FP     7, FN    24, valid: TP   145, TN  1159, FP    15, FN    16
+
+Epoch: 67/200 |  time : 10/17/19-03:29:30
+=================================================================
+loss: 0.07488, cls_loss: 0.04587, seg_loss: 0.02902, bce_loss: 0.01899, dice_loss: 0.11922, dice: 0.94003, 0.98359, 0.73195, 0.96106, mean dice: 0.90416
+loss: 0.12091, cls_loss: 0.08682, seg_loss: 0.03409, bce_loss: 0.02388, dice_loss: 0.12599, dice: 0.93022, 0.98272, 0.71667, 0.95458, mean dice: 0.89605
+train: TP   639, TN  4608, FP    26, FN    55, valid: TP   154, TN  1149, FP     7, FN    25
+train: TP   173, TN  5131, FP     7, FN    17, valid: TP    43, TN  1283, FP     3, FN     6
+train: TP  3966, TN  1150, FP   103, FN   109, valid: TP   989, TN   268, FP    37, FN    41
+train: TP   606, TN  4683, FP    15, FN    24, valid: TP   147, TN  1164, FP    10, FN    14
+
+Epoch: 68/200 |  time : 10/17/19-03:39:15
+=================================================================
+loss: 0.07377, cls_loss: 0.04498, seg_loss: 0.02879, bce_loss: 0.01883, dice_loss: 0.11848, dice: 0.93560, 0.98224, 0.73045, 0.96458, mean dice: 0.90322
+loss: 0.13724, cls_loss: 0.10082, seg_loss: 0.03641, bce_loss: 0.02431, dice_loss: 0.14536, dice: 0.92927, 0.98251, 0.68615, 0.95405, mean dice: 0.88799
+train: TP   635, TN  4594, FP    32, FN    67, valid: TP   165, TN  1113, FP    43, FN    14
+train: TP   168, TN  5134, FP     9, FN    17, valid: TP    40, TN  1281, FP     5, FN     9
+train: TP  3971, TN  1160, FP    90, FN   107, valid: TP   962, TN   271, FP    34, FN    68
+train: TP   615, TN  4686, FP     8, FN    19, valid: TP   145, TN  1171, FP     3, FN    16
+
+Epoch: 69/200 |  time : 10/17/19-03:49:01
+=================================================================
+loss: 0.08240, cls_loss: 0.05268, seg_loss: 0.02972, bce_loss: 0.01947, dice_loss: 0.12200, dice: 0.93620, 0.98449, 0.72767, 0.95984, mean dice: 0.90205
+loss: 0.11595, cls_loss: 0.08475, seg_loss: 0.03119, bce_loss: 0.02095, dice_loss: 0.12342, dice: 0.93182, 0.97915, 0.72672, 0.96127, mean dice: 0.89974
+train: TP   635, TN  4590, FP    35, FN    68, valid: TP   150, TN  1144, FP    12, FN    29
+train: TP   167, TN  5139, FP     3, FN    19, valid: TP    42, TN  1281, FP     5, FN     7
+train: TP  3943, TN  1144, FP   115, FN   126, valid: TP  1006, TN   241, FP    64, FN    24
+train: TP   604, TN  4673, FP    21, FN    30, valid: TP   152, TN  1169, FP     5, FN     9
+
+Epoch: 70/200 |  time : 10/17/19-03:58:47
+=================================================================
+loss: 0.08214, cls_loss: 0.05234, seg_loss: 0.02980, bce_loss: 0.01959, dice_loss: 0.12171, dice: 0.93589, 0.98227, 0.73263, 0.95758, mean dice: 0.90209
+loss: 0.14716, cls_loss: 0.11439, seg_loss: 0.03277, bce_loss: 0.02139, dice_loss: 0.13517, dice: 0.92372, 0.97382, 0.69733, 0.96239, mean dice: 0.88931
+train: TP   630, TN  4593, FP    37, FN    68, valid: TP   157, TN  1136, FP    20, FN    22
+train: TP   156, TN  5135, FP    10, FN    27, valid: TP    47, TN  1251, FP    35, FN     2
+train: TP  3962, TN  1141, FP   110, FN   115, valid: TP   986, TN   249, FP    56, FN    44
+train: TP   605, TN  4681, FP    18, FN    24, valid: TP   147, TN  1173, FP     1, FN    14
+
+Epoch: 71/200 |  time : 10/17/19-04:08:32
+=================================================================
+loss: 0.07983, cls_loss: 0.05070, seg_loss: 0.02914, bce_loss: 0.01893, dice_loss: 0.12094, dice: 0.93696, 0.98142, 0.72745, 0.96237, mean dice: 0.90205
+loss: 0.11042, cls_loss: 0.07826, seg_loss: 0.03216, bce_loss: 0.02184, dice_loss: 0.12505, dice: 0.93282, 0.98054, 0.71084, 0.96348, mean dice: 0.89692
+train: TP   634, TN  4592, FP    31, FN    71, valid: TP   150, TN  1139, FP    17, FN    29
+train: TP   175, TN  5128, FP     9, FN    16, valid: TP    39, TN  1282, FP     4, FN    10
+train: TP  3945, TN  1155, FP   101, FN   127, valid: TP   989, TN   257, FP    48, FN    41
+train: TP   610, TN  4685, FP    11, FN    22, valid: TP   152, TN  1170, FP     4, FN     9
+
+Epoch: 72/200 |  time : 10/17/19-04:18:18
+=================================================================
+loss: 0.07388, cls_loss: 0.04516, seg_loss: 0.02872, bce_loss: 0.01894, dice_loss: 0.11676, dice: 0.94217, 0.98255, 0.73460, 0.96291, mean dice: 0.90556
+loss: 0.11095, cls_loss: 0.07906, seg_loss: 0.03189, bce_loss: 0.02086, dice_loss: 0.13119, dice: 0.92547, 0.97787, 0.70677, 0.95654, mean dice: 0.89166
+train: TP   644, TN  4604, FP    27, FN    53, valid: TP   150, TN  1144, FP    12, FN    29
+train: TP   172, TN  5127, FP     8, FN    21, valid: TP    35, TN  1285, FP     1, FN    14
+train: TP  3966, TN  1158, FP    93, FN   111, valid: TP  1000, TN   245, FP    60, FN    30
+train: TP   607, TN  4684, FP    15, FN    22, valid: TP   154, TN  1168, FP     6, FN     7
+
+Epoch: 73/200 |  time : 10/17/19-04:28:03
+=================================================================
+loss: 0.07699, cls_loss: 0.04866, seg_loss: 0.02833, bce_loss: 0.01845, dice_loss: 0.11731, dice: 0.93989, 0.98245, 0.73608, 0.96211, mean dice: 0.90513
+loss: 0.11799, cls_loss: 0.08553, seg_loss: 0.03246, bce_loss: 0.02214, dice_loss: 0.12529, dice: 0.92980, 0.97892, 0.71676, 0.95819, mean dice: 0.89592
+train: TP   652, TN  4598, FP    26, FN    52, valid: TP   153, TN  1143, FP    13, FN    26
+train: TP   163, TN  5132, FP    12, FN    21, valid: TP    45, TN  1276, FP    10, FN     4
+train: TP  3964, TN  1140, FP   105, FN   119, valid: TP   991, TN   253, FP    52, FN    39
+train: TP   607, TN  4686, FP     9, FN    26, valid: TP   156, TN  1160, FP    14, FN     5
+Epoch    72: reducing learning rate of group 0 to 1.0000e-03.
+
+Epoch: 74/200 |  time : 10/17/19-04:37:49
+=================================================================
+loss: 0.06042, cls_loss: 0.03492, seg_loss: 0.02550, bce_loss: 0.01655, dice_loss: 0.10611, dice: 0.94328, 0.98591, 0.75647, 0.96727, mean dice: 0.91323
+loss: 0.09764, cls_loss: 0.06885, seg_loss: 0.02879, bce_loss: 0.01954, dice_loss: 0.11205, dice: 0.93646, 0.98167, 0.74139, 0.96549, mean dice: 0.90625
+train: TP   654, TN  4603, FP    21, FN    50, valid: TP   158, TN  1147, FP     9, FN    21
+train: TP   170, TN  5142, FP     2, FN    14, valid: TP    44, TN  1278, FP     8, FN     5
+train: TP  3999, TN  1167, FP    81, FN    81, valid: TP   995, TN   273, FP    32, FN    35
+train: TP   609, TN  4696, FP     6, FN    17, valid: TP   158, TN  1168, FP     6, FN     3
+******** Validation dice improved from 0.90027559 to 0.90625441 ********
+
+Epoch: 75/200 |  time : 10/17/19-04:47:36
+=================================================================
+loss: 0.05493, cls_loss: 0.03011, seg_loss: 0.02483, bce_loss: 0.01618, dice_loss: 0.10265, dice: 0.94761, 0.98619, 0.76405, 0.96833, mean dice: 0.91655
+loss: 0.09535, cls_loss: 0.06663, seg_loss: 0.02872, bce_loss: 0.01953, dice_loss: 0.11145, dice: 0.93611, 0.98085, 0.74525, 0.96435, mean dice: 0.90664
+train: TP   667, TN  4620, FP    10, FN    31, valid: TP   159, TN  1146, FP    10, FN    20
+train: TP   172, TN  5143, FP     2, FN    11, valid: TP    45, TN  1279, FP     7, FN     4
+train: TP  4011, TN  1185, FP    61, FN    71, valid: TP  1002, TN   269, FP    36, FN    28
+train: TP   617, TN  4690, FP     8, FN    13, valid: TP   157, TN  1169, FP     5, FN     4
+******** Validation dice improved from 0.90625441 to 0.90663874 ********
+
+Epoch: 76/200 |  time : 10/17/19-04:57:22
+=================================================================
+loss: 0.05068, cls_loss: 0.02659, seg_loss: 0.02409, bce_loss: 0.01575, dice_loss: 0.09910, dice: 0.94903, 0.98587, 0.76955, 0.97000, mean dice: 0.91861
+loss: 0.09384, cls_loss: 0.06553, seg_loss: 0.02831, bce_loss: 0.01917, dice_loss: 0.11052, dice: 0.93982, 0.98062, 0.74680, 0.96747, mean dice: 0.90868
+train: TP   671, TN  4619, FP     5, FN    33, valid: TP   166, TN  1144, FP    12, FN    13
+train: TP   177, TN  5137, FP     2, FN    12, valid: TP    45, TN  1275, FP    11, FN     4
+train: TP  4010, TN  1208, FP    43, FN    67, valid: TP   995, TN   275, FP    30, FN    35
+train: TP   626, TN  4689, FP     3, FN    10, valid: TP   157, TN  1170, FP     4, FN     4
+******** Validation dice improved from 0.90663874 to 0.90867794 ********
+
+Epoch: 77/200 |  time : 10/17/19-05:07:09
+=================================================================
+loss: 0.04882, cls_loss: 0.02476, seg_loss: 0.02406, bce_loss: 0.01582, dice_loss: 0.09828, dice: 0.94866, 0.98628, 0.77291, 0.97161, mean dice: 0.91986
+loss: 0.09069, cls_loss: 0.06241, seg_loss: 0.02828, bce_loss: 0.01916, dice_loss: 0.11036, dice: 0.93995, 0.98205, 0.74902, 0.96587, mean dice: 0.90922
+train: TP   671, TN  4613, FP    13, FN    31, valid: TP   160, TN  1147, FP     9, FN    19
+train: TP   178, TN  5134, FP     1, FN    15, valid: TP    44, TN  1279, FP     7, FN     5
+train: TP  4017, TN  1204, FP    48, FN    59, valid: TP  1005, TN   269, FP    36, FN    25
+train: TP   627, TN  4693, FP     2, FN     6, valid: TP   158, TN  1170, FP     4, FN     3
+******** Validation dice improved from 0.90867794 to 0.90922403 ********
+
+Epoch: 78/200 |  time : 10/17/19-05:16:55
+=================================================================
+loss: 0.04609, cls_loss: 0.02242, seg_loss: 0.02368, bce_loss: 0.01549, dice_loss: 0.09738, dice: 0.95049, 0.98653, 0.77411, 0.97065, mean dice: 0.92044
+loss: 0.09096, cls_loss: 0.06267, seg_loss: 0.02829, bce_loss: 0.01946, dice_loss: 0.10775, dice: 0.93868, 0.98237, 0.75194, 0.96649, mean dice: 0.90987
+train: TP   682, TN  4617, FP     9, FN    20, valid: TP   165, TN  1143, FP    13, FN    14
+train: TP   179, TN  5138, FP     3, FN     8, valid: TP    44, TN  1277, FP     9, FN     5
+train: TP  4024, TN  1209, FP    45, FN    50, valid: TP   998, TN   276, FP    29, FN    32
+train: TP   626, TN  4693, FP     2, FN     7, valid: TP   158, TN  1171, FP     3, FN     3
+******** Validation dice improved from 0.90922403 to 0.90987259 ********
+
+Epoch: 79/200 |  time : 10/17/19-05:26:42
+=================================================================
+loss: 0.04796, cls_loss: 0.02408, seg_loss: 0.02387, bce_loss: 0.01578, dice_loss: 0.09668, dice: 0.94972, 0.98673, 0.77437, 0.97034, mean dice: 0.92029
+loss: 0.08847, cls_loss: 0.06043, seg_loss: 0.02804, bce_loss: 0.01913, dice_loss: 0.10820, dice: 0.94083, 0.98359, 0.75629, 0.96606, mean dice: 0.91169
+train: TP   674, TN  4616, FP    14, FN    24, valid: TP   162, TN  1145, FP    11, FN    17
+train: TP   184, TN  5139, FP     0, FN     5, valid: TP    44, TN  1276, FP    10, FN     5
+train: TP  4010, TN  1212, FP    48, FN    58, valid: TP   997, TN   277, FP    28, FN    33
+train: TP   626, TN  4689, FP     2, FN    11, valid: TP   159, TN  1169, FP     5, FN     2
+******** Validation dice improved from 0.90987259 to 0.91169059 ********
+
+Epoch: 80/200 |  time : 10/17/19-05:36:29
+=================================================================
+loss: 0.04843, cls_loss: 0.02487, seg_loss: 0.02356, bce_loss: 0.01547, dice_loss: 0.09633, dice: 0.94935, 0.98633, 0.77638, 0.97002, mean dice: 0.92052
+loss: 0.09258, cls_loss: 0.06434, seg_loss: 0.02824, bce_loss: 0.01948, dice_loss: 0.10704, dice: 0.94039, 0.98189, 0.75496, 0.96599, mean dice: 0.91081
+train: TP   668, TN  4620, FP    11, FN    29, valid: TP   162, TN  1141, FP    15, FN    17
+train: TP   173, TN  5142, FP     3, FN    10, valid: TP    44, TN  1277, FP     9, FN     5
+train: TP  4015, TN  1208, FP    49, FN    56, valid: TP   994, TN   275, FP    30, FN    36
+train: TP   622, TN  4691, FP     4, FN    11, valid: TP   155, TN  1172, FP     2, FN     6
+
+Epoch: 81/200 |  time : 10/17/19-05:46:15
+=================================================================
+loss: 0.04492, cls_loss: 0.02144, seg_loss: 0.02348, bce_loss: 0.01536, dice_loss: 0.09655, dice: 0.95024, 0.98642, 0.77567, 0.97082, mean dice: 0.92079
+loss: 0.09161, cls_loss: 0.06349, seg_loss: 0.02812, bce_loss: 0.01929, dice_loss: 0.10761, dice: 0.93806, 0.98128, 0.75430, 0.96472, mean dice: 0.90959
+train: TP   680, TN  4619, FP     5, FN    24, valid: TP   163, TN  1142, FP    14, FN    16
+train: TP   182, TN  5134, FP     2, FN    10, valid: TP    44, TN  1277, FP     9, FN     5
+train: TP  4012, TN  1222, FP    39, FN    55, valid: TP   997, TN   278, FP    27, FN    33
+train: TP   625, TN  4694, FP     1, FN     8, valid: TP   158, TN  1170, FP     4, FN     3
+
+Epoch: 82/200 |  time : 10/17/19-05:56:00
+=================================================================
+loss: 0.04436, cls_loss: 0.02117, seg_loss: 0.02319, bce_loss: 0.01525, dice_loss: 0.09468, dice: 0.95227, 0.98619, 0.77993, 0.97139, mean dice: 0.92244
+loss: 0.09108, cls_loss: 0.06263, seg_loss: 0.02845, bce_loss: 0.01943, dice_loss: 0.10966, dice: 0.93576, 0.98269, 0.75366, 0.96446, mean dice: 0.90914
+train: TP   676, TN  4624, FP     5, FN    23, valid: TP   163, TN  1144, FP    12, FN    16
+train: TP   178, TN  5136, FP     6, FN     8, valid: TP    44, TN  1280, FP     6, FN     5
+train: TP  4035, TN  1214, FP    38, FN    41, valid: TP   992, TN   279, FP    26, FN    38
+train: TP   625, TN  4697, FP     0, FN     6, valid: TP   159, TN  1170, FP     4, FN     2
+
+Epoch: 83/200 |  time : 10/17/19-06:05:46
+=================================================================
+loss: 0.04328, cls_loss: 0.01999, seg_loss: 0.02329, bce_loss: 0.01529, dice_loss: 0.09523, dice: 0.95124, 0.98658, 0.77960, 0.96996, mean dice: 0.92185
+loss: 0.09039, cls_loss: 0.06240, seg_loss: 0.02800, bce_loss: 0.01911, dice_loss: 0.10794, dice: 0.93579, 0.98355, 0.75295, 0.96746, mean dice: 0.90994
+train: TP   682, TN  4619, FP     9, FN    18, valid: TP   163, TN  1140, FP    16, FN    16
+train: TP   177, TN  5138, FP     1, FN    12, valid: TP    44, TN  1280, FP     6, FN     5
+train: TP  4030, TN  1209, FP    41, FN    48, valid: TP   995, TN   275, FP    30, FN    35
+train: TP   622, TN  4691, FP     2, FN    13, valid: TP   158, TN  1171, FP     3, FN     3
+
+Epoch: 84/200 |  time : 10/17/19-06:15:32
+=================================================================
+loss: 0.04378, cls_loss: 0.02062, seg_loss: 0.02316, bce_loss: 0.01517, dice_loss: 0.09506, dice: 0.95121, 0.98792, 0.77885, 0.97160, mean dice: 0.92240
+loss: 0.09196, cls_loss: 0.06377, seg_loss: 0.02819, bce_loss: 0.01948, dice_loss: 0.10654, dice: 0.93453, 0.98323, 0.75466, 0.96545, mean dice: 0.90947
+train: TP   675, TN  4623, FP     8, FN    22, valid: TP   164, TN  1141, FP    15, FN    15
+train: TP   164, TN  5150, FP     3, FN    11, valid: TP    44, TN  1280, FP     6, FN     5
+train: TP  4022, TN  1213, FP    45, FN    48, valid: TP   993, TN   281, FP    24, FN    37
+train: TP   627, TN  4693, FP     1, FN     7, valid: TP   155, TN  1170, FP     4, FN     6
+
+Epoch: 85/200 |  time : 10/17/19-06:25:17
+=================================================================
+loss: 0.04291, cls_loss: 0.01970, seg_loss: 0.02321, bce_loss: 0.01532, dice_loss: 0.09416, dice: 0.95219, 0.98685, 0.78101, 0.97069, mean dice: 0.92269
+loss: 0.09176, cls_loss: 0.06388, seg_loss: 0.02789, bce_loss: 0.01923, dice_loss: 0.10578, dice: 0.93750, 0.98422, 0.75597, 0.96701, mean dice: 0.91118
+train: TP   683, TN  4621, FP     5, FN    19, valid: TP   163, TN  1142, FP    14, FN    16
+train: TP   181, TN  5138, FP     1, FN     8, valid: TP    44, TN  1279, FP     7, FN     5
+train: TP  4020, TN  1214, FP    40, FN    54, valid: TP   995, TN   278, FP    27, FN    35
+train: TP   623, TN  4693, FP     3, FN     9, valid: TP   158, TN  1170, FP     4, FN     3
+
+Epoch: 86/200 |  time : 10/17/19-06:35:03
+=================================================================
+loss: 0.04221, cls_loss: 0.01906, seg_loss: 0.02315, bce_loss: 0.01534, dice_loss: 0.09351, dice: 0.95082, 0.98734, 0.78372, 0.97141, mean dice: 0.92332
+loss: 0.09451, cls_loss: 0.06594, seg_loss: 0.02858, bce_loss: 0.01979, dice_loss: 0.10770, dice: 0.93527, 0.97962, 0.75711, 0.96620, mean dice: 0.90955
+train: TP   678, TN  4620, FP     8, FN    22, valid: TP   165, TN  1141, FP    15, FN    14
+train: TP   177, TN  5144, FP     0, FN     7, valid: TP    45, TN  1273, FP    13, FN     4
+train: TP  4042, TN  1208, FP    34, FN    44, valid: TP   991, TN   284, FP    21, FN    39
+train: TP   626, TN  4694, FP     0, FN     8, valid: TP   155, TN  1171, FP     3, FN     6
+
+Epoch: 87/200 |  time : 10/17/19-06:44:49
+=================================================================
+loss: 0.04025, cls_loss: 0.01735, seg_loss: 0.02290, bce_loss: 0.01512, dice_loss: 0.09293, dice: 0.95155, 0.98681, 0.78531, 0.97223, mean dice: 0.92398
+loss: 0.09400, cls_loss: 0.06590, seg_loss: 0.02810, bce_loss: 0.01909, dice_loss: 0.10920, dice: 0.93582, 0.98114, 0.75175, 0.96770, mean dice: 0.90910
+train: TP   678, TN  4616, FP     9, FN    25, valid: TP   165, TN  1138, FP    18, FN    14
+train: TP   177, TN  5140, FP     0, FN    11, valid: TP    44, TN  1273, FP    13, FN     5
+train: TP  4044, TN  1211, FP    32, FN    41, valid: TP  1001, TN   275, FP    30, FN    29
+train: TP   629, TN  4695, FP     1, FN     3, valid: TP   153, TN  1171, FP     3, FN     8
+
+Epoch: 88/200 |  time : 10/17/19-06:54:34
+=================================================================
+loss: 0.04032, cls_loss: 0.01751, seg_loss: 0.02281, bce_loss: 0.01499, dice_loss: 0.09320, dice: 0.95195, 0.98745, 0.78212, 0.97132, mean dice: 0.92321
+loss: 0.09783, cls_loss: 0.06981, seg_loss: 0.02802, bce_loss: 0.01891, dice_loss: 0.10999, dice: 0.93614, 0.97921, 0.75385, 0.96578, mean dice: 0.90874
+train: TP   680, TN  4623, FP     5, FN    20, valid: TP   164, TN  1141, FP    15, FN    15
+train: TP   178, TN  5143, FP     1, FN     6, valid: TP    44, TN  1275, FP    11, FN     5
+train: TP  4038, TN  1211, FP    34, FN    45, valid: TP  1004, TN   267, FP    38, FN    26
+train: TP   625, TN  4695, FP     0, FN     8, valid: TP   155, TN  1170, FP     4, FN     6
+
+Epoch: 89/200 |  time : 10/17/19-07:04:19
+=================================================================
+loss: 0.03993, cls_loss: 0.01693, seg_loss: 0.02300, bce_loss: 0.01512, dice_loss: 0.09398, dice: 0.95218, 0.98704, 0.78147, 0.97077, mean dice: 0.92286
+loss: 0.09357, cls_loss: 0.06576, seg_loss: 0.02781, bce_loss: 0.01922, dice_loss: 0.10503, dice: 0.93770, 0.98446, 0.75830, 0.96645, mean dice: 0.91173
+train: TP   680, TN  4623, FP     8, FN    17, valid: TP   165, TN  1143, FP    13, FN    14
+train: TP   185, TN  5138, FP     1, FN     4, valid: TP    44, TN  1278, FP     8, FN     5
+train: TP  4044, TN  1202, FP    44, FN    38, valid: TP  1004, TN   274, FP    31, FN    26
+train: TP   623, TN  4694, FP     3, FN     8, valid: TP   154, TN  1171, FP     3, FN     7
+******** Validation dice improved from 0.91169059 to 0.91172826 ********
+
+Epoch: 90/200 |  time : 10/17/19-07:14:06
+=================================================================
+loss: 0.04050, cls_loss: 0.01741, seg_loss: 0.02309, bce_loss: 0.01524, dice_loss: 0.09377, dice: 0.95112, 0.98586, 0.78358, 0.97140, mean dice: 0.92299
+loss: 0.09599, cls_loss: 0.06795, seg_loss: 0.02804, bce_loss: 0.01925, dice_loss: 0.10716, dice: 0.93587, 0.98196, 0.75764, 0.96558, mean dice: 0.91026
+train: TP   688, TN  4615, FP     6, FN    19, valid: TP   166, TN  1139, FP    17, FN    13
+train: TP   186, TN  5133, FP     3, FN     6, valid: TP    44, TN  1275, FP    11, FN     5
+train: TP  4020, TN  1227, FP    38, FN    43, valid: TP   997, TN   278, FP    27, FN    33
+train: TP   627, TN  4694, FP     2, FN     5, valid: TP   157, TN  1172, FP     2, FN     4
+
+Epoch: 91/200 |  time : 10/17/19-07:23:51
+=================================================================
+loss: 0.04273, cls_loss: 0.01979, seg_loss: 0.02294, bce_loss: 0.01507, dice_loss: 0.09384, dice: 0.95114, 0.98700, 0.78202, 0.97157, mean dice: 0.92293
+loss: 0.09305, cls_loss: 0.06523, seg_loss: 0.02782, bce_loss: 0.01923, dice_loss: 0.10513, dice: 0.93918, 0.98450, 0.75597, 0.96592, mean dice: 0.91139
+train: TP   681, TN  4620, FP     9, FN    18, valid: TP   163, TN  1145, FP    11, FN    16
+train: TP   183, TN  5138, FP     2, FN     5, valid: TP    44, TN  1279, FP     7, FN     5
+train: TP  4018, TN  1212, FP    46, FN    52, valid: TP  1002, TN   274, FP    31, FN    28
+train: TP   626, TN  4692, FP     3, FN     7, valid: TP   155, TN  1173, FP     1, FN     6
+
+Epoch: 92/200 |  time : 10/17/19-07:33:36
+=================================================================
+loss: 0.03930, cls_loss: 0.01650, seg_loss: 0.02280, bce_loss: 0.01515, dice_loss: 0.09165, dice: 0.95228, 0.98725, 0.78614, 0.97215, mean dice: 0.92446
+loss: 0.09391, cls_loss: 0.06599, seg_loss: 0.02791, bce_loss: 0.01916, dice_loss: 0.10671, dice: 0.93765, 0.98227, 0.75601, 0.96584, mean dice: 0.91044
+train: TP   688, TN  4620, FP     5, FN    15, valid: TP   164, TN  1144, FP    12, FN    15
+train: TP   179, TN  5143, FP     0, FN     6, valid: TP    44, TN  1277, FP     9, FN     5
+train: TP  4024, TN  1226, FP    32, FN    46, valid: TP  1000, TN   272, FP    33, FN    30
+train: TP   629, TN  4693, FP     2, FN     4, valid: TP   153, TN  1172, FP     2, FN     8
+
+Epoch: 93/200 |  time : 10/17/19-07:43:20
+=================================================================
+loss: 0.03955, cls_loss: 0.01683, seg_loss: 0.02272, bce_loss: 0.01500, dice_loss: 0.09219, dice: 0.95267, 0.98713, 0.78587, 0.97140, mean dice: 0.92427
+loss: 0.09267, cls_loss: 0.06482, seg_loss: 0.02784, bce_loss: 0.01903, dice_loss: 0.10710, dice: 0.93739, 0.98309, 0.75542, 0.96601, mean dice: 0.91048
+train: TP   690, TN  4618, FP     6, FN    14, valid: TP   167, TN  1140, FP    16, FN    12
+train: TP   182, TN  5140, FP     2, FN     4, valid: TP    44, TN  1276, FP    10, FN     5
+train: TP  4032, TN  1224, FP    33, FN    39, valid: TP   999, TN   273, FP    32, FN    31
+train: TP   628, TN  4692, FP     1, FN     7, valid: TP   155, TN  1172, FP     2, FN     6
+
+Epoch: 94/200 |  time : 10/17/19-07:53:04
+=================================================================
+loss: 0.04045, cls_loss: 0.01785, seg_loss: 0.02259, bce_loss: 0.01490, dice_loss: 0.09181, dice: 0.95323, 0.98691, 0.78567, 0.97267, mean dice: 0.92462
+loss: 0.09435, cls_loss: 0.06647, seg_loss: 0.02788, bce_loss: 0.01929, dice_loss: 0.10520, dice: 0.93783, 0.98370, 0.75391, 0.96523, mean dice: 0.91017
+train: TP   682, TN  4625, FP     8, FN    13, valid: TP   163, TN  1144, FP    12, FN    16
+train: TP   179, TN  5138, FP     3, FN     8, valid: TP    45, TN  1277, FP     9, FN     4
+train: TP  4036, TN  1218, FP    39, FN    35, valid: TP   999, TN   275, FP    30, FN    31
+train: TP   627, TN  4698, FP     0, FN     3, valid: TP   154, TN  1171, FP     3, FN     7
+
+Epoch: 95/200 |  time : 10/17/19-08:02:48
+=================================================================
+loss: 0.03941, cls_loss: 0.01685, seg_loss: 0.02256, bce_loss: 0.01490, dice_loss: 0.09149, dice: 0.95260, 0.98697, 0.78812, 0.97152, mean dice: 0.92480
+loss: 0.09458, cls_loss: 0.06645, seg_loss: 0.02813, bce_loss: 0.01945, dice_loss: 0.10625, dice: 0.93604, 0.98318, 0.75990, 0.96554, mean dice: 0.91117
+train: TP   672, TN  4628, FP     8, FN    20, valid: TP   166, TN  1139, FP    17, FN    13
+train: TP   182, TN  5141, FP     1, FN     4, valid: TP    45, TN  1276, FP    10, FN     4
+train: TP  4038, TN  1221, FP    37, FN    32, valid: TP   994, TN   281, FP    24, FN    36
+train: TP   626, TN  4691, FP     5, FN     6, valid: TP   155, TN  1171, FP     3, FN     6
+
+Epoch: 96/200 |  time : 10/17/19-08:12:33
+=================================================================
+loss: 0.03841, cls_loss: 0.01595, seg_loss: 0.02246, bce_loss: 0.01482, dice_loss: 0.09118, dice: 0.95193, 0.98686, 0.78814, 0.97312, mean dice: 0.92501
+loss: 0.09441, cls_loss: 0.06612, seg_loss: 0.02828, bce_loss: 0.01959, dice_loss: 0.10653, dice: 0.93642, 0.98348, 0.75608, 0.96416, mean dice: 0.91004
+train: TP   690, TN  4616, FP     8, FN    14, valid: TP   165, TN  1142, FP    14, FN    14
+train: TP   184, TN  5138, FP     2, FN     4, valid: TP    45, TN  1277, FP     9, FN     4
+train: TP  4041, TN  1213, FP    33, FN    41, valid: TP   995, TN   279, FP    26, FN    35
+train: TP   628, TN  4697, FP     1, FN     2, valid: TP   154, TN  1170, FP     4, FN     7
+
+Epoch: 97/200 |  time : 10/17/19-08:22:17
+=================================================================
+loss: 0.03861, cls_loss: 0.01628, seg_loss: 0.02233, bce_loss: 0.01468, dice_loss: 0.09114, dice: 0.95224, 0.98707, 0.78976, 0.97179, mean dice: 0.92521
+loss: 0.09774, cls_loss: 0.06989, seg_loss: 0.02784, bce_loss: 0.01900, dice_loss: 0.10746, dice: 0.93714, 0.98290, 0.75504, 0.96639, mean dice: 0.91037
+train: TP   684, TN  4620, FP     5, FN    19, valid: TP   165, TN  1143, FP    13, FN    14
+train: TP   175, TN  5144, FP     2, FN     7, valid: TP    45, TN  1279, FP     7, FN     4
+train: TP  4038, TN  1223, FP    33, FN    34, valid: TP  1004, TN   268, FP    37, FN    26
+train: TP   622, TN  4697, FP     1, FN     8, valid: TP   154, TN  1173, FP     1, FN     7
+
+Epoch: 98/200 |  time : 10/17/19-08:32:01
+=================================================================
+loss: 0.03731, cls_loss: 0.01484, seg_loss: 0.02247, bce_loss: 0.01474, dice_loss: 0.09207, dice: 0.95175, 0.98711, 0.78665, 0.97184, mean dice: 0.92434
+loss: 0.09431, cls_loss: 0.06640, seg_loss: 0.02791, bce_loss: 0.01909, dice_loss: 0.10728, dice: 0.94021, 0.98160, 0.75502, 0.96561, mean dice: 0.91061
+train: TP   691, TN  4621, FP     5, FN    11, valid: TP   165, TN  1146, FP    10, FN    14
+train: TP   181, TN  5140, FP     2, FN     5, valid: TP    46, TN  1276, FP    10, FN     3
+train: TP  4053, TN  1206, FP    35, FN    34, valid: TP  1004, TN   269, FP    36, FN    26
+train: TP   628, TN  4691, FP     4, FN     5, valid: TP   153, TN  1171, FP     3, FN     8
+
+Epoch: 99/200 |  time : 10/17/19-08:41:46
+=================================================================
+loss: 0.03867, cls_loss: 0.01633, seg_loss: 0.02234, bce_loss: 0.01462, dice_loss: 0.09183, dice: 0.95295, 0.98713, 0.78564, 0.97164, mean dice: 0.92434
+loss: 0.09288, cls_loss: 0.06518, seg_loss: 0.02770, bce_loss: 0.01898, dice_loss: 0.10623, dice: 0.93700, 0.98351, 0.76046, 0.96577, mean dice: 0.91168
+train: TP   684, TN  4621, FP     9, FN    14, valid: TP   165, TN  1142, FP    14, FN    14
+train: TP   187, TN  5134, FP     2, FN     5, valid: TP    44, TN  1280, FP     6, FN     5
+train: TP  4044, TN  1206, FP    40, FN    38, valid: TP   999, TN   275, FP    30, FN    31
+train: TP   627, TN  4695, FP     1, FN     5, valid: TP   155, TN  1169, FP     5, FN     6
+
+Epoch: 100/200 |  time : 10/17/19-08:51:31
+=================================================================
+loss: 0.03865, cls_loss: 0.01627, seg_loss: 0.02237, bce_loss: 0.01468, dice_loss: 0.09166, dice: 0.95308, 0.98672, 0.78798, 0.97124, mean dice: 0.92475
+loss: 0.09005, cls_loss: 0.06264, seg_loss: 0.02741, bce_loss: 0.01888, dice_loss: 0.10417, dice: 0.93890, 0.98393, 0.76422, 0.96759, mean dice: 0.91366
+train: TP   678, TN  4626, FP     5, FN    19, valid: TP   166, TN  1144, FP    12, FN    13
+train: TP   183, TN  5138, FP     2, FN     5, valid: TP    44, TN  1281, FP     5, FN     5
+train: TP  4035, TN  1228, FP    28, FN    37, valid: TP  1000, TN   275, FP    30, FN    30
+train: TP   621, TN  4694, FP     2, FN    11, valid: TP   156, TN  1170, FP     4, FN     5
+******** Validation dice improved from 0.91172826 to 0.91366148 ********
+
+Epoch: 101/200 |  time : 10/17/19-09:01:16
+=================================================================
+loss: 0.03902, cls_loss: 0.01663, seg_loss: 0.02239, bce_loss: 0.01482, dice_loss: 0.09052, dice: 0.95272, 0.98763, 0.78952, 0.97099, mean dice: 0.92522
+loss: 0.09300, cls_loss: 0.06505, seg_loss: 0.02795, bce_loss: 0.01933, dice_loss: 0.10555, dice: 0.93899, 0.98521, 0.75949, 0.96587, mean dice: 0.91239
+train: TP   692, TN  4618, FP     3, FN    15, valid: TP   166, TN  1144, FP    12, FN    13
+train: TP   185, TN  5140, FP     0, FN     3, valid: TP    46, TN  1280, FP     6, FN     3
+train: TP  4042, TN  1210, FP    38, FN    38, valid: TP   999, TN   275, FP    30, FN    31
+train: TP   624, TN  4689, FP     2, FN    13, valid: TP   159, TN  1170, FP     4, FN     2
+
+Epoch: 102/200 |  time : 10/17/19-09:11:01
+=================================================================
+loss: 0.03742, cls_loss: 0.01523, seg_loss: 0.02219, bce_loss: 0.01458, dice_loss: 0.09070, dice: 0.95294, 0.98731, 0.79006, 0.97190, mean dice: 0.92555
+loss: 0.08978, cls_loss: 0.06230, seg_loss: 0.02748, bce_loss: 0.01900, dice_loss: 0.10383, dice: 0.93790, 0.98380, 0.76077, 0.96736, mean dice: 0.91246
+train: TP   683, TN  4629, FP     6, FN    10, valid: TP   164, TN  1143, FP    13, FN    15
+train: TP   182, TN  5141, FP     0, FN     5, valid: TP    45, TN  1278, FP     8, FN     4
+train: TP  4030, TN  1233, FP    34, FN    31, valid: TP   999, TN   279, FP    26, FN    31
+train: TP   631, TN  4690, FP     2, FN     5, valid: TP   156, TN  1171, FP     3, FN     5
+
+Epoch: 103/200 |  time : 10/17/19-09:20:45
+=================================================================
+loss: 0.03627, cls_loss: 0.01407, seg_loss: 0.02219, bce_loss: 0.01466, dice_loss: 0.08998, dice: 0.95317, 0.98725, 0.79004, 0.97303, mean dice: 0.92587
+loss: 0.09179, cls_loss: 0.06451, seg_loss: 0.02728, bce_loss: 0.01876, dice_loss: 0.10404, dice: 0.94152, 0.98388, 0.76017, 0.96641, mean dice: 0.91299
+train: TP   682, TN  4625, FP     4, FN    17, valid: TP   167, TN  1143, FP    13, FN    12
+train: TP   179, TN  5140, FP     2, FN     7, valid: TP    46, TN  1277, FP     9, FN     3
+train: TP  4043, TN  1227, FP    27, FN    31, valid: TP  1009, TN   268, FP    37, FN    21
+train: TP   632, TN  4693, FP     0, FN     3, valid: TP   156, TN  1170, FP     4, FN     5
+
+Epoch: 104/200 |  time : 10/17/19-09:30:29
+=================================================================
+loss: 0.03757, cls_loss: 0.01538, seg_loss: 0.02219, bce_loss: 0.01461, dice_loss: 0.09045, dice: 0.95253, 0.98716, 0.78976, 0.97161, mean dice: 0.92527
+loss: 0.09137, cls_loss: 0.06373, seg_loss: 0.02764, bce_loss: 0.01915, dice_loss: 0.10402, dice: 0.93915, 0.98485, 0.76368, 0.96548, mean dice: 0.91329
+train: TP   690, TN  4617, FP     6, FN    15, valid: TP   162, TN  1144, FP    12, FN    17
+train: TP   184, TN  5138, FP     2, FN     4, valid: TP    44, TN  1281, FP     5, FN     5
+train: TP  4050, TN  1220, FP    27, FN    31, valid: TP  1003, TN   275, FP    30, FN    27
+train: TP   628, TN  4693, FP     0, FN     7, valid: TP   154, TN  1170, FP     4, FN     7
+
+Epoch: 105/200 |  time : 10/17/19-09:40:13
+=================================================================
+loss: 0.03745, cls_loss: 0.01535, seg_loss: 0.02210, bce_loss: 0.01465, dice_loss: 0.08915, dice: 0.95259, 0.98746, 0.79475, 0.97172, mean dice: 0.92663
+loss: 0.09078, cls_loss: 0.06359, seg_loss: 0.02719, bce_loss: 0.01855, dice_loss: 0.10491, dice: 0.93818, 0.98283, 0.76271, 0.96614, mean dice: 0.91247
+train: TP   685, TN  4623, FP     4, FN    16, valid: TP   168, TN  1142, FP    14, FN    11
+train: TP   175, TN  5142, FP     2, FN     9, valid: TP    45, TN  1279, FP     7, FN     4
+train: TP  4037, TN  1237, FP    22, FN    32, valid: TP  1005, TN   273, FP    32, FN    25
+train: TP   623, TN  4698, FP     1, FN     6, valid: TP   155, TN  1172, FP     2, FN     6
+
+Epoch: 106/200 |  time : 10/17/19-09:49:57
+=================================================================
+loss: 0.03660, cls_loss: 0.01444, seg_loss: 0.02216, bce_loss: 0.01454, dice_loss: 0.09077, dice: 0.95330, 0.98726, 0.78879, 0.97140, mean dice: 0.92519
+loss: 0.09200, cls_loss: 0.06450, seg_loss: 0.02750, bce_loss: 0.01892, dice_loss: 0.10471, dice: 0.93754, 0.98399, 0.76011, 0.96879, mean dice: 0.91261
+train: TP   685, TN  4625, FP     6, FN    12, valid: TP   167, TN  1143, FP    13, FN    12
+train: TP   186, TN  5138, FP     2, FN     2, valid: TP    45, TN  1279, FP     7, FN     4
+train: TP  4052, TN  1211, FP    30, FN    35, valid: TP  1004, TN   270, FP    35, FN    26
+train: TP   628, TN  4693, FP     2, FN     5, valid: TP   155, TN  1172, FP     2, FN     6
+
+Epoch: 107/200 |  time : 10/17/19-09:59:42
+=================================================================
+loss: 0.03540, cls_loss: 0.01342, seg_loss: 0.02198, bce_loss: 0.01454, dice_loss: 0.08903, dice: 0.95457, 0.98775, 0.79328, 0.97242, mean dice: 0.92701
+loss: 0.09227, cls_loss: 0.06477, seg_loss: 0.02750, bce_loss: 0.01895, dice_loss: 0.10444, dice: 0.93715, 0.98274, 0.76276, 0.96773, mean dice: 0.91259
+train: TP   682, TN  4632, FP     1, FN    13, valid: TP   166, TN  1143, FP    13, FN    13
+train: TP   178, TN  5143, FP     0, FN     7, valid: TP    46, TN  1277, FP     9, FN     3
+train: TP  4043, TN  1224, FP    29, FN    32, valid: TP  1003, TN   283, FP    22, FN    27
+train: TP   624, TN  4697, FP     0, FN     7, valid: TP   157, TN  1171, FP     3, FN     4
+
+Epoch: 108/200 |  time : 10/17/19-10:09:27
+=================================================================
+loss: 0.03449, cls_loss: 0.01261, seg_loss: 0.02188, bce_loss: 0.01439, dice_loss: 0.08925, dice: 0.95366, 0.98797, 0.79393, 0.97199, mean dice: 0.92689
+loss: 0.09035, cls_loss: 0.06310, seg_loss: 0.02725, bce_loss: 0.01871, dice_loss: 0.10406, dice: 0.93911, 0.98537, 0.76245, 0.96777, mean dice: 0.91367
+train: TP   690, TN  4624, FP     3, FN    11, valid: TP   167, TN  1142, FP    14, FN    12
+train: TP   185, TN  5142, FP     0, FN     1, valid: TP    44, TN  1283, FP     3, FN     5
+train: TP  4040, TN  1229, FP    29, FN    30, valid: TP  1005, TN   272, FP    33, FN    25
+train: TP   628, TN  4695, FP     1, FN     4, valid: TP   157, TN  1170, FP     4, FN     4
+******** Validation dice improved from 0.91366148 to 0.91367221 ********
+
+Epoch: 109/200 |  time : 10/17/19-10:19:13
+=================================================================
+loss: 0.03577, cls_loss: 0.01371, seg_loss: 0.02206, bce_loss: 0.01454, dice_loss: 0.08972, dice: 0.95338, 0.98709, 0.79169, 0.97229, mean dice: 0.92611
+loss: 0.09624, cls_loss: 0.06869, seg_loss: 0.02755, bce_loss: 0.01888, dice_loss: 0.10560, dice: 0.93697, 0.98440, 0.75935, 0.96783, mean dice: 0.91214
+train: TP   691, TN  4620, FP     4, FN    13, valid: TP   168, TN  1135, FP    21, FN    11
+train: TP   179, TN  5140, FP     1, FN     8, valid: TP    46, TN  1277, FP     9, FN     3
+train: TP  4036, TN  1232, FP    26, FN    34, valid: TP  1006, TN   274, FP    31, FN    24
+train: TP   632, TN  4693, FP     1, FN     2, valid: TP   155, TN  1171, FP     3, FN     6
+
+Epoch: 110/200 |  time : 10/17/19-10:28:58
+=================================================================
+loss: 0.03769, cls_loss: 0.01545, seg_loss: 0.02224, bce_loss: 0.01468, dice_loss: 0.09023, dice: 0.95219, 0.98706, 0.79022, 0.97242, mean dice: 0.92547
+loss: 0.09372, cls_loss: 0.06629, seg_loss: 0.02742, bce_loss: 0.01892, dice_loss: 0.10395, dice: 0.93710, 0.98526, 0.76170, 0.96883, mean dice: 0.91322
+train: TP   693, TN  4621, FP     4, FN    10, valid: TP   168, TN  1136, FP    20, FN    11
+train: TP   184, TN  5139, FP     1, FN     4, valid: TP    45, TN  1281, FP     5, FN     4
+train: TP  4041, TN  1218, FP    32, FN    37, valid: TP   994, TN   282, FP    23, FN    36
+train: TP   625, TN  4695, FP     2, FN     6, valid: TP   156, TN  1173, FP     1, FN     5
+
+Epoch: 111/200 |  time : 10/17/19-10:38:44
+=================================================================
+loss: 0.03723, cls_loss: 0.01515, seg_loss: 0.02208, bce_loss: 0.01449, dice_loss: 0.09046, dice: 0.95374, 0.98775, 0.78851, 0.97178, mean dice: 0.92545
+loss: 0.09219, cls_loss: 0.06494, seg_loss: 0.02724, bce_loss: 0.01878, dice_loss: 0.10337, dice: 0.93889, 0.98546, 0.76270, 0.96897, mean dice: 0.91401
+train: TP   683, TN  4624, FP     9, FN    12, valid: TP   165, TN  1140, FP    16, FN    14
+train: TP   182, TN  5143, FP     1, FN     2, valid: TP    45, TN  1280, FP     6, FN     4
+train: TP  4043, TN  1217, FP    33, FN    35, valid: TP   998, TN   275, FP    30, FN    32
+train: TP   623, TN  4695, FP     2, FN     8, valid: TP   158, TN  1171, FP     3, FN     3
+******** Validation dice improved from 0.91367221 to 0.91400713 ********
+
+Epoch: 112/200 |  time : 10/17/19-10:48:31
+=================================================================
+loss: 0.03654, cls_loss: 0.01473, seg_loss: 0.02181, bce_loss: 0.01429, dice_loss: 0.08950, dice: 0.95318, 0.98709, 0.79238, 0.97221, mean dice: 0.92622
+loss: 0.09084, cls_loss: 0.06349, seg_loss: 0.02735, bce_loss: 0.01889, dice_loss: 0.10354, dice: 0.93824, 0.98545, 0.76084, 0.96716, mean dice: 0.91292
+train: TP   683, TN  4626, FP     7, FN    12, valid: TP   169, TN  1134, FP    22, FN    10
+train: TP   189, TN  5134, FP     2, FN     3, valid: TP    45, TN  1281, FP     5, FN     4
+train: TP  4029, TN  1230, FP    29, FN    40, valid: TP  1006, TN   270, FP    35, FN    24
+train: TP   632, TN  4688, FP     2, FN     6, valid: TP   156, TN  1172, FP     2, FN     5
+
+Epoch: 113/200 |  time : 10/17/19-10:58:16
+=================================================================
+loss: 0.03438, cls_loss: 0.01279, seg_loss: 0.02159, bce_loss: 0.01421, dice_loss: 0.08800, dice: 0.95451, 0.98744, 0.79473, 0.97207, mean dice: 0.92719
+loss: 0.09708, cls_loss: 0.06928, seg_loss: 0.02779, bce_loss: 0.01922, dice_loss: 0.10495, dice: 0.93852, 0.98290, 0.75613, 0.96774, mean dice: 0.91132
+train: TP   686, TN  4627, FP     5, FN    10, valid: TP   166, TN  1142, FP    14, FN    13
+train: TP   178, TN  5143, FP     1, FN     6, valid: TP    45, TN  1276, FP    10, FN     4
+train: TP  4055, TN  1230, FP    20, FN    23, valid: TP  1008, TN   263, FP    42, FN    22
+train: TP   632, TN  4691, FP     2, FN     3, valid: TP   151, TN  1173, FP     1, FN    10
+
+Epoch: 114/200 |  time : 10/17/19-11:08:01
+=================================================================
+loss: 0.03773, cls_loss: 0.01582, seg_loss: 0.02192, bce_loss: 0.01444, dice_loss: 0.08925, dice: 0.95312, 0.98832, 0.79003, 0.97268, mean dice: 0.92604
+loss: 0.09266, cls_loss: 0.06497, seg_loss: 0.02769, bce_loss: 0.01894, dice_loss: 0.10644, dice: 0.93348, 0.98418, 0.76167, 0.96622, mean dice: 0.91138
+train: TP   685, TN  4624, FP     6, FN    13, valid: TP   166, TN  1136, FP    20, FN    13
+train: TP   181, TN  5144, FP     1, FN     2, valid: TP    45, TN  1280, FP     6, FN     4
+train: TP  4042, TN  1217, FP    32, FN    37, valid: TP  1001, TN   267, FP    38, FN    29
+train: TP   622, TN  4698, FP     0, FN     8, valid: TP   157, TN  1173, FP     1, FN     4
+
+Epoch: 115/200 |  time : 10/17/19-11:17:47
+=================================================================
+loss: 0.03522, cls_loss: 0.01353, seg_loss: 0.02169, bce_loss: 0.01427, dice_loss: 0.08851, dice: 0.95328, 0.98726, 0.79329, 0.97233, mean dice: 0.92654
+loss: 0.09347, cls_loss: 0.06534, seg_loss: 0.02813, bce_loss: 0.01944, dice_loss: 0.10630, dice: 0.93590, 0.98220, 0.76006, 0.96746, mean dice: 0.91140
+train: TP   684, TN  4625, FP     4, FN    15, valid: TP   166, TN  1137, FP    19, FN    13
+train: TP   178, TN  5142, FP     0, FN     8, valid: TP    45, TN  1280, FP     6, FN     4
+train: TP  4055, TN  1219, FP    26, FN    28, valid: TP   998, TN   272, FP    33, FN    32
+train: TP   624, TN  4696, FP     2, FN     6, valid: TP   154, TN  1173, FP     1, FN     7
+
+Epoch: 116/200 |  time : 10/17/19-11:27:33
+=================================================================
+loss: 0.03562, cls_loss: 0.01378, seg_loss: 0.02184, bce_loss: 0.01444, dice_loss: 0.08840, dice: 0.95366, 0.98778, 0.79591, 0.97201, mean dice: 0.92734
+loss: 0.09272, cls_loss: 0.06532, seg_loss: 0.02740, bce_loss: 0.01866, dice_loss: 0.10609, dice: 0.94003, 0.97916, 0.75936, 0.96790, mean dice: 0.91161
+train: TP   683, TN  4625, FP     7, FN    13, valid: TP   163, TN  1144, FP    12, FN    16
+train: TP   180, TN  5142, FP     1, FN     5, valid: TP    45, TN  1276, FP    10, FN     4
+train: TP  4042, TN  1235, FP    28, FN    23, valid: TP  1003, TN   275, FP    30, FN    27
+train: TP   628, TN  4691, FP     2, FN     7, valid: TP   157, TN  1172, FP     2, FN     4
+
+Epoch: 117/200 |  time : 10/17/19-11:37:18
+=================================================================
+loss: 0.03396, cls_loss: 0.01229, seg_loss: 0.02167, bce_loss: 0.01425, dice_loss: 0.08843, dice: 0.95376, 0.98773, 0.79558, 0.97260, mean dice: 0.92742
+loss: 0.09394, cls_loss: 0.06653, seg_loss: 0.02741, bce_loss: 0.01889, dice_loss: 0.10409, dice: 0.93801, 0.98293, 0.76105, 0.96829, mean dice: 0.91257
+train: TP   686, TN  4626, FP     6, FN    10, valid: TP   167, TN  1139, FP    17, FN    12
+train: TP   178, TN  5144, FP     1, FN     5, valid: TP    45, TN  1278, FP     8, FN     4
+train: TP  4054, TN  1225, FP    23, FN    26, valid: TP   997, TN   277, FP    28, FN    33
+train: TP   630, TN  4693, FP     2, FN     3, valid: TP   156, TN  1172, FP     2, FN     5
+
+Epoch: 118/200 |  time : 10/17/19-11:47:04
+=================================================================

@@ -3,7 +3,7 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['ResNet34V2']
+model_list = ['ResNext50']
 fold_list = [0, 1, 2, 3, 4]
 
 for model in model_list:
