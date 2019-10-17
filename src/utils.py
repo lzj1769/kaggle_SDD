@@ -14,8 +14,17 @@ def seed_torch(seed):
     torch.backends.cudnn.deterministic = True
 
 
-def compute_dice(preds, truth, threshold=0.5):
-    probability = torch.sigmoid(preds)
+def predict_to_onehot(predict, num_class=4):
+    value, index = torch.max(predict, 1, keepdim=True)
+    value = value.repeat(1, num_class, 1, 1)
+    index = index.repeat(1, num_class, 1, 1)
+    arange = torch.arange(1, num_class + 1).view(1, num_class, 1, 1).to(predict.device)
+    onehot = (index == arange).float()
+    value = value * onehot
+    return value
+
+
+def compute_dice(probability, truth, threshold=0.5):
     batch_size = truth.shape[0]
     channel_num = truth.shape[1]
     mean_dice_channels = [0.] * channel_num

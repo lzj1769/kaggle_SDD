@@ -63,7 +63,7 @@ class DecoderBlock(nn.Module):
         self.SCSE = SCSEBlock(out_channels)
 
     def forward(self, x, skip=None):
-        x = F.interpolate(x, scale_factor=2, mode='bilinear', align_corners=True)
+        x = F.interpolate(x, scale_factor=2, mode='bilinear', align_corners=False)
         if skip is not None:
             x = torch.cat([x, skip], dim=1)
 
@@ -110,10 +110,10 @@ class UResNet34(nn.Module):
         x = self.decoder1(decode2, None)
 
         x = torch.cat((x,
-                       F.interpolate(decode2, scale_factor=2, mode='bilinear', align_corners=True),
-                       F.interpolate(decode3, scale_factor=4, mode='bilinear', align_corners=True),
-                       F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=True),
-                       F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=True)),
+                       F.interpolate(decode2, scale_factor=2, mode='bilinear', align_corners=False),
+                       F.interpolate(decode3, scale_factor=4, mode='bilinear', align_corners=False),
+                       F.interpolate(decode4, scale_factor=8, mode='bilinear', align_corners=False),
+                       F.interpolate(decode5, scale_factor=16, mode='bilinear', align_corners=False)),
                       1)  # 320, 256, 1600
         x = self.dropout(x)
         x = self.output(x)
@@ -135,7 +135,7 @@ class Conv3x3GNReLU(nn.Module):
     def forward(self, x):
         x = self.block(x)
         if self.upsample:
-            x = F.interpolate(x, scale_factor=2, mode='bilinear', align_corners=True)
+            x = F.interpolate(x, scale_factor=2, mode='bilinear', align_corners=False)
         return x
 
 
@@ -177,9 +177,9 @@ class SegmentationBlock(nn.Module):
         return x
 
 
-class FPResNet34(nn.Module):
+class FPResNet34V2(nn.Module):
     def __init__(self, classes=4, pretrained=True):
-        super(FPResNet34, self).__init__()
+        super(FPResNet34V2, self).__init__()
         self.resnet = torchvision.models.resnet34(pretrained=pretrained)
 
         self.encoder1 = nn.Sequential(self.resnet.conv1, self.resnet.bn1, self.resnet.relu)
@@ -226,73 +226,6 @@ class FPResNet34(nn.Module):
         x = F.interpolate(x, scale_factor=4, mode='bilinear', align_corners=False)
 
         return x
-
-
-class FPResNet34DeepSupervision(nn.Module):
-    def __init__(self, classes=4, pretrained=True):
-        super(FPResNet34DeepSupervision, self).__init__()
-        self.resnet = torchvision.models.resnet34(pretrained=pretrained)
-
-        self.encoder1 = nn.Sequential(self.resnet.conv1, self.resnet.bn1, self.resnet.relu)
-        self.encoder2 = nn.Sequential(self.resnet.layer1, SCSEBlock(64))
-        self.encoder3 = nn.Sequential(self.resnet.layer2, SCSEBlock(128))
-        self.encoder4 = nn.Sequential(self.resnet.layer3, SCSEBlock(256))
-        self.encoder5 = nn.Sequential(self.resnet.layer4, SCSEBlock(512))
-
-        self.conv1 = nn.Conv2d(512, 256, kernel_size=(1, 1))
-
-        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        self.fc = nn.Linear(512, classes)
-
-        self.p4 = FPNBlock(256, 256)
-        self.p3 = FPNBlock(256, 128)
-        self.p2 = FPNBlock(256, 64)
-
-        self.s5 = SegmentationBlock(256, 64, n_upsamples=3)
-        self.s4 = SegmentationBlock(256, 64, n_upsamples=2)
-        self.s3 = SegmentationBlock(256, 64, n_upsamples=1)
-        self.s2 = SegmentationBlock(256, 64, n_upsamples=0)
-
-        self.dropout = nn.Dropout2d(p=0.2)
-        self.output = nn.Sequential(nn.Conv2d(320, 64, kernel_size=3, padding=1),
-                                    nn.ReLU(inplace=True),
-                                    nn.Conv2d(64, classes, kernel_size=1, padding=0))
-
-    def forward(self, x):
-        encode1 = self.encoder1(x)  # 3x256x1600 ==> 64x128x800 (1/4)
-        encode2 = self.encoder2(self.resnet.maxpool(encode1))  # 64x128x800 ==> 64x64x400 (1/8)
-        encode3 = self.encoder3(encode2)  # 64x64x400 ==> 128x32x200 (1/16)
-        encode4 = self.encoder4(encode3)  # 128x32x200 ==> 256x16x100 (1/32)
-        encode5 = self.encoder5(encode4)  # 256x16x100 ==> 512x8x50 (1/64)
-
-        # classification
-        x1 = self.avgpool(encode5)
-        x1 = torch.flatten(x1, 1)
-        x1 = self.fc(x1)
-
-        # segmentation
-        decode5 = self.conv1(encode5)  # 256x8x50
-        decode4 = self.p4(decode5, encode4)  # 256x8x50 + 256x16x100 ==> 256x16x100
-        decode3 = self.p3(decode4, encode3)  # 256x16x100 + 128x32x200 ==> 256x32x200
-        decode2 = self.p2(decode3, encode2)  # 256x32x200 + 64x64x400 ==> 256x64x400
-
-        s5 = self.s5(decode5)
-        s4 = self.s4(decode4)
-        s3 = self.s3(decode3)
-        s2 = self.s2(decode2)
-
-        x2 = s5 + s4 + s3 + s2
-
-        x2 = torch.cat((F.interpolate(x2, scale_factor=4, mode='bilinear', align_corners=True),
-                        F.interpolate(s2, scale_factor=4, mode='bilinear', align_corners=True),
-                        F.interpolate(s3, scale_factor=4, mode='bilinear', align_corners=True),
-                        F.interpolate(s4, scale_factor=4, mode='bilinear', align_corners=True),
-                        F.interpolate(s5, scale_factor=4, mode='bilinear', align_corners=True)),
-                       1)  # 320, 256, 1600
-        x2 = self.dropout(x2)
-        x2 = self.output(x2)
-
-        return x1, x2
 
 
 class Identity(nn.Module):
@@ -860,13 +793,13 @@ class EfficientNetEncoder(EfficientNet):
 class FPEfficientNet(nn.Module):
     def __init__(self, classes=4):
         super(FPEfficientNet, self).__init__()
-        self.encoder = EfficientNetEncoder(skip_connections=[5, 8, 18],
-                                           model_name='efficientnet-b3')
+        self.encoder = EfficientNetEncoder(skip_connections=[6, 10, 22],
+                                           model_name='efficientnet-b4')
 
-        self.conv1 = nn.Conv2d(384, 256, kernel_size=(1, 1))
+        self.conv1 = nn.Conv2d(448, 256, kernel_size=(1, 1))
 
-        self.p4 = FPNBlock(256, 136)
-        self.p3 = FPNBlock(256, 48)
+        self.p4 = FPNBlock(256, 160)
+        self.p3 = FPNBlock(256, 56)
         self.p2 = FPNBlock(256, 32)
 
         self.s5 = SegmentationBlock(256, 64, n_upsamples=3)

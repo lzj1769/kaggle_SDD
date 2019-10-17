@@ -1,0 +1,4 @@
+Training on 5320 images, class 1: 718, class 2: 198, class 3: 4120, class 4: 641
+Validate on 1346 images, class 1: 179, class 2: 49, class 3: 1030, class 4: 160
+Epoch: 1/400 |  time : 10/17/19-16:39:54
+=================================================================
