@@ -148,7 +148,7 @@ def get_dataloader_seg(phase, fold, train_batch_size, valid_batch_size, num_work
     df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
     df = pd.read_csv(df_path)
 
-    df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
+    # df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
     image_dataset = SteelDatasetSeg(df, phase)
     shuffle = True if phase == "train" else False
     drop_last = True if phase == "train" else False
@@ -186,11 +186,11 @@ def get_dataloader_cls_pesudo_labels(phase, fold, train_batch_size, valid_batch_
     df = pd.read_csv(df_path)
 
     if phase == "train":
-        df_path_pesudo = os.path.join("../pseudo_labels/ResNet34.csv")
+        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_0.1_0.9.csv")
         df_pesudo = pd.read_csv(df_path_pesudo)
         image_dataset = SteelDatasetClsPseudoLabels(df, df_pesudo, phase)
         dataloader = DataLoader(image_dataset,
-                                batch_size=valid_batch_size,
+                                batch_size=train_batch_size,
                                 num_workers=num_workers,
                                 pin_memory=True,
                                 shuffle=True,

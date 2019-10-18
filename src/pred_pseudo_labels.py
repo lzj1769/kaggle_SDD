@@ -56,22 +56,32 @@ def predict_classification(image, model):
     return preds
 
 
-def main(dataset, low_bound=0.05, up_bound=0.95):
+def main(dataset, low_bound, up_bound):
     # predict defect vs. no defect
     pred_cls = np.zeros(shape=(len(dataset), 4), dtype=np.float32)
     for i in range(5):
-        model_classification = ResNet34(pretrained=False)
-        model_classification.cuda()
-
+        model = ResNet34(pretrained=False)
+        model.cuda()
         model_save_path = "../input/models/ResNet34/ResNet34_fold_{}.pt".format(i)
-        model_classification.eval()
         state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
-        model_classification.load_state_dict(state["state_dict"])
+        model.load_state_dict(state["state_dict"])
+        model.eval()
 
         for j, (filename, image) in enumerate(dataset):
-            pred_cls[j] += predict_classification(image=image, model=model_classification)[0]
+            pred_cls[j] += predict_classification(image=image, model=model)[0]
 
-    pred_cls = (pred_cls / 5)
+    for i in range(5):
+        model = ResNext50(pretrained=False)
+        model.cuda()
+        model_save_path = "../input/models/ResNext50/ResNext50_fold_{}.pt".format(i)
+        state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+        model.load_state_dict(state["state_dict"])
+        model.eval()
+
+        for j, (filename, image) in enumerate(dataset):
+            pred_cls[j] += predict_classification(image=image, model=model)[0]
+
+    pred_cls = (pred_cls / 10)
     prediction = []
     for i, (filename, image) in enumerate(dataset):
         is_pseudo_label = True
@@ -90,9 +100,11 @@ def main(dataset, low_bound=0.05, up_bound=0.95):
     df = pd.DataFrame(prediction, columns=['ImageId',
                                            'defect1', 'defect2', 'defect3', 'defect4',
                                            'prob1', 'prob2', 'prob3', 'prob4'])
-    df.to_csv("../pseudo_labels/ResNet34.csv", index=False)
+
+    df.to_csv("../pseudo_labels/PseudoLabels_{}_{}.csv".format(low_bound, up_bound), index=False)
 
 
 if __name__ == '__main__':
     test_dataset = TestDataset(test_folder=TEST_FOLDER, test_df=TEST_DF)
-    main(test_dataset)
+    # main(test_dataset, low_bound=0.05, up_bound=0.95)
+    main(test_dataset, low_bound=0.1, up_bound=0.9)

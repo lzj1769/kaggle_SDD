@@ -3,7 +3,6 @@ import argparse
 from torch.optim import SGD
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from sklearn.metrics import confusion_matrix
-from torch.nn.modules.loss import CrossEntropyLoss
 from model import *
 from data_loader import *
 from configure import *
@@ -441,11 +440,11 @@ def main():
     df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
     df_valid = pd.read_csv(df_valid_path)
 
-    if args.model in ["UResNet34", "FPN", "FPResNext50", "FPResNet34", "FPResNet34V2", "FPEfficientNet"]:
-        df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
-                df_train["defect4"] != 0)]
-        df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
-                df_valid["defect4"] != 0)]
+    # if args.model in ["UResNet34", "FPN", "FPResNext50", "FPResNet34", "FPResNet34V2", "FPEfficientNet"]:
+    #     df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
+    #             df_train["defect4"] != 0)]
+    #     df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
+    #             df_valid["defect4"] != 0)]
 
     print("Training on {} images, class 1: {}, class 2: {}, class 3: {}, class 4: {}".format(len(df_train),
                                                                                              df_train['defect1'].sum(),
@@ -459,31 +458,12 @@ def main():
                                                                                              df_valid['defect4'].sum()))
 
     model_trainer, best = None, None
-    if args.model == "UResNet34":
-        model_trainer = TrainerSegmentation(model=UResNet34(),
-                                            num_workers=args.num_workers,
-                                            batch_size=args.batch_size,
-                                            num_epochs=100,
-                                            model_save_path=model_save_path,
-                                            training_history_path=training_history_path,
-                                            model_save_name=args.model,
-                                            fold=args.fold)
 
-    elif args.model == "FPResNet34V2":
-        model_trainer = TrainerSegmentation(model=FPResNet34V2(),
+    if args.model == "FPResNet34":
+        model_trainer = TrainerSegmentation(model=FPResNet34(),
                                             num_workers=args.num_workers,
                                             batch_size=args.batch_size,
-                                            num_epochs=400,
-                                            model_save_path=model_save_path,
-                                            training_history_path=training_history_path,
-                                            model_save_name=args.model,
-                                            fold=args.fold)
-
-    elif args.model == "FPEfficientNet":
-        model_trainer = TrainerSegmentation(model=FPEfficientNet(),
-                                            num_workers=args.num_workers,
-                                            batch_size=args.batch_size,
-                                            num_epochs=400,
+                                            num_epochs=200,
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
@@ -511,6 +491,16 @@ def main():
 
     elif args.model == "ResNet34WithPseudoLabels":
         model_trainer = TrainerClassificationPesudoLabels(model=ResNet34WithPseudoLabels(),
+                                                          num_workers=args.num_workers,
+                                                          batch_size=args.batch_size,
+                                                          num_epochs=100,
+                                                          model_save_path=model_save_path,
+                                                          training_history_path=training_history_path,
+                                                          model_save_name=args.model,
+                                                          fold=args.fold)
+
+    elif args.model == "ResNet34WithPseudoLabelsV2":
+        model_trainer = TrainerClassificationPesudoLabels(model=ResNet34WithPseudoLabelsV2(),
                                                           num_workers=args.num_workers,
                                                           batch_size=args.batch_size,
                                                           num_epochs=100,
