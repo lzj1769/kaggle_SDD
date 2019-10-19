@@ -4,7 +4,7 @@ import pathlib
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
 model_list = ['FPResNet34']
-fold_list = [0, 1, 2, 3, 4]
+fold_list = [4]
 
 batch_size = dict()
 batch_size["FPResNet34"] = 24

@@ -509,6 +509,16 @@ def main():
                                                           model_save_name=args.model,
                                                           fold=args.fold)
 
+    elif args.model == "ResNet34WithPseudoLabelsV3":
+        model_trainer = TrainerClassificationPesudoLabels(model=ResNet34WithPseudoLabelsV3(),
+                                                          num_workers=args.num_workers,
+                                                          batch_size=args.batch_size,
+                                                          num_epochs=100,
+                                                          model_save_path=model_save_path,
+                                                          training_history_path=training_history_path,
+                                                          model_save_name=args.model,
+                                                          fold=args.fold)
+
     best = model_trainer.start()
 
     print("Training is done, best: {}".format(best))

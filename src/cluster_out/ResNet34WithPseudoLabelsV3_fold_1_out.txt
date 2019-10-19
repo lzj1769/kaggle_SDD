@@ -1,0 +1,286 @@
+Training on 10055 images, class 1: 718, class 2: 198, class 3: 4120, class 4: 641
+Validate on 2513 images, class 1: 179, class 2: 49, class 3: 1030, class 4: 160
+Epoch: 1/100 |  time : 10/19/19-15:59:54
+=================================================================
+train_loss: 0.19863, accuracy: 0.93087, 0.98158, 0.83153, 0.94981, mean accuracy: 0.92345
+valid_loss: 0.16009, accuracy: 0.93036, 0.98050, 0.89654, 0.94986, mean accuracy: 0.93932
+train: TP     5, TN 10659, FP    38, FN   754, valid: TP     4, TN  2334, FP     0, FN   175
+train: TP     0, TN 11245, FP    23, FN   188, valid: TP     0, TN  2464, FP     0, FN    49
+train: TP  3309, TN  6217, FP   701, FN  1229, valid: TP   883, TN  1370, FP   113, FN   147
+train: TP   169, TN 10712, FP    41, FN   534, valid: TP    35, TN  2352, FP     1, FN   125
+******** Validation accuracy improved from 0.00000000 to 0.93931562 ********
+
+Epoch: 2/100 |  time : 10/19/19-16:04:00
+=================================================================
+train_loss: 0.12285, accuracy: 0.94728, 0.98403, 0.91210, 0.97722, mean accuracy: 0.95515
+valid_loss: 0.13410, accuracy: 0.94628, 0.98050, 0.92041, 0.97055, mean accuracy: 0.95444
+train: TP   206, TN 10646, FP    52, FN   552, valid: TP    98, TN  2280, FP    54, FN    81
+train: TP     0, TN 11273, FP     0, FN   183, valid: TP     0, TN  2464, FP     0, FN    49
+train: TP  3933, TN  6516, FP   391, FN   616, valid: TP   960, TN  1353, FP   130, FN    70
+train: TP   507, TN 10688, FP    59, FN   202, valid: TP   124, TN  2315, FP    38, FN    36
+******** Validation accuracy improved from 0.93931562 to 0.95443696 ********
+
+Epoch: 3/100 |  time : 10/19/19-16:08:58
+=================================================================
+train_loss: 0.10642, accuracy: 0.95993, 0.98315, 0.92371, 0.98123, mean accuracy: 0.96201
+valid_loss: 0.12297, accuracy: 0.95145, 0.98050, 0.88500, 0.98567, mean accuracy: 0.95066
+train: TP   401, TN 10596, FP   100, FN   359, valid: TP    70, TN  2321, FP    13, FN   109
+train: TP     0, TN 11263, FP     0, FN   193, valid: TP     0, TN  2464, FP     0, FN    49
+train: TP  4000, TN  6582, FP   343, FN   531, valid: TP   975, TN  1249, FP   234, FN    55
+train: TP   553, TN 10688, FP    60, FN   155, valid: TP   129, TN  2348, FP     5, FN    31
+
+Epoch: 4/100 |  time : 10/19/19-16:13:26
+=================================================================
+train_loss: 0.08919, accuracy: 0.96884, 0.98411, 0.93427, 0.98394, mean accuracy: 0.96779
+valid_loss: 0.09623, accuracy: 0.96856, 0.98289, 0.92877, 0.98846, mean accuracy: 0.96717
+train: TP   492, TN 10607, FP    89, FN   268, valid: TP   122, TN  2312, FP    22, FN    57
+train: TP     6, TN 11268, FP     1, FN   181, valid: TP     7, TN  2463, FP     1, FN    42
+train: TP  4069, TN  6634, FP   291, FN   462, valid: TP   963, TN  1371, FP   112, FN    67
+train: TP   562, TN 10710, FP    45, FN   139, valid: TP   141, TN  2343, FP    10, FN    19
+******** Validation accuracy improved from 0.95443696 to 0.96717072 ********
+
+Epoch: 5/100 |  time : 10/19/19-16:17:57
+=================================================================
+train_loss: 0.08407, accuracy: 0.97163, 0.98560, 0.93558, 0.98507, mean accuracy: 0.96947
+valid_loss: 0.08044, accuracy: 0.97891, 0.98766, 0.94071, 0.98170, mean accuracy: 0.97224
+train: TP   517, TN 10614, FP    89, FN   236, valid: TP   133, TN  2327, FP     7, FN    46
+train: TP    28, TN 11263, FP    10, FN   155, valid: TP    26, TN  2456, FP     8, FN    23
+train: TP  4103, TN  6615, FP   302, FN   436, valid: TP   957, TN  1407, FP    76, FN    73
+train: TP   587, TN 10698, FP    50, FN   121, valid: TP   150, TN  2317, FP    36, FN    10
+******** Validation accuracy improved from 0.96717072 to 0.97224432 ********
+
+Epoch: 6/100 |  time : 10/19/19-16:22:26
+=================================================================
+train_loss: 0.07615, accuracy: 0.97582, 0.98647, 0.93951, 0.98673, mean accuracy: 0.97213
+valid_loss: 0.14181, accuracy: 0.94031, 0.98050, 0.92439, 0.97573, mean accuracy: 0.95523
+train: TP   550, TN 10629, FP    72, FN   205, valid: TP    30, TN  2333, FP     1, FN   149
+train: TP    48, TN 11253, FP    18, FN   137, valid: TP     0, TN  2464, FP     0, FN    49
+train: TP  4118, TN  6645, FP   279, FN   414, valid: TP   930, TN  1393, FP    90, FN   100
+train: TP   592, TN 10712, FP    41, FN   111, valid: TP   100, TN  2352, FP     1, FN    60
+
+Epoch: 7/100 |  time : 10/19/19-16:26:57
+=================================================================
+train_loss: 0.07003, accuracy: 0.98027, 0.98874, 0.94274, 0.98874, mean accuracy: 0.97512
+valid_loss: 0.07841, accuracy: 0.97573, 0.98846, 0.93275, 0.99363, mean accuracy: 0.97264
+train: TP   580, TN 10650, FP    63, FN   163, valid: TP   129, TN  2323, FP    11, FN    50
+train: TP    67, TN 11260, FP    15, FN   114, valid: TP    26, TN  2458, FP     6, FN    23
+train: TP  4152, TN  6648, FP   263, FN   393, valid: TP   905, TN  1439, FP    44, FN   125
+train: TP   612, TN 10715, FP    34, FN    95, valid: TP   153, TN  2344, FP     9, FN     7
+******** Validation accuracy improved from 0.97224432 to 0.97264224 ********
+
+Epoch: 8/100 |  time : 10/19/19-16:30:58
+=================================================================
+train_loss: 0.06558, accuracy: 0.98027, 0.99040, 0.94797, 0.99005, mean accuracy: 0.97717
+valid_loss: 0.07928, accuracy: 0.97055, 0.99164, 0.93633, 0.99085, mean accuracy: 0.97234
+train: TP   584, TN 10646, FP    59, FN   167, valid: TP   145, TN  2294, FP    40, FN    34
+train: TP    89, TN 11257, FP    13, FN    97, valid: TP    33, TN  2459, FP     5, FN    16
+train: TP  4172, TN  6688, FP   231, FN   365, valid: TP   913, TN  1440, FP    43, FN   117
+train: TP   622, TN 10720, FP    32, FN    82, valid: TP   148, TN  2342, FP    11, FN    12
+
+Epoch: 9/100 |  time : 10/19/19-16:35:57
+=================================================================
+train_loss: 0.06552, accuracy: 0.98097, 0.99162, 0.94544, 0.99031, mean accuracy: 0.97709
+valid_loss: 0.07311, accuracy: 0.97453, 0.99324, 0.93872, 0.99244, mean accuracy: 0.97473
+train: TP   592, TN 10646, FP    60, FN   158, valid: TP   145, TN  2304, FP    30, FN    34
+train: TP   106, TN 11254, FP    16, FN    80, valid: TP    32, TN  2464, FP     0, FN    17
+train: TP  4164, TN  6667, FP   251, FN   374, valid: TP   920, TN  1439, FP    44, FN   110
+train: TP   622, TN 10723, FP    32, FN    79, valid: TP   152, TN  2342, FP    11, FN     8
+******** Validation accuracy improved from 0.97264224 to 0.97473139 ********
+
+Epoch: 10/100 |  time : 10/19/19-16:39:58
+=================================================================
+train_loss: 0.06089, accuracy: 0.98272, 0.99171, 0.94728, 0.99258, mean accuracy: 0.97857
+valid_loss: 0.06438, accuracy: 0.98368, 0.99403, 0.94469, 0.99204, mean accuracy: 0.97861
+train: TP   610, TN 10648, FP    53, FN   145, valid: TP   149, TN  2323, FP    11, FN    30
+train: TP   114, TN 11247, FP    19, FN    76, valid: TP    46, TN  2452, FP    12, FN     3
+train: TP  4176, TN  6676, FP   248, FN   356, valid: TP   952, TN  1422, FP    61, FN    78
+train: TP   638, TN 10733, FP    21, FN    64, valid: TP   144, TN  2349, FP     4, FN    16
+******** Validation accuracy improved from 0.97473139 to 0.97861117 ********
+
+Epoch: 11/100 |  time : 10/19/19-16:44:58
+=================================================================
+train_loss: 0.05590, accuracy: 0.98280, 0.99284, 0.95452, 0.99171, mean accuracy: 0.98047
+valid_loss: 0.07421, accuracy: 0.97811, 0.99602, 0.94628, 0.98329, mean accuracy: 0.97593
+train: TP   614, TN 10645, FP    60, FN   137, valid: TP   130, TN  2328, FP     6, FN    49
+train: TP   125, TN 11249, FP    14, FN    68, valid: TP    43, TN  2460, FP     4, FN     6
+train: TP  4214, TN  6721, FP   203, FN   318, valid: TP   948, TN  1430, FP    53, FN    82
+train: TP   634, TN 10727, FP    29, FN    66, valid: TP   119, TN  2352, FP     1, FN    41
+
+Epoch: 12/100 |  time : 10/19/19-16:49:26
+=================================================================
+train_loss: 0.05529, accuracy: 0.98499, 0.99363, 0.95033, 0.99118, mean accuracy: 0.98003
+valid_loss: 0.05523, accuracy: 0.99005, 0.99761, 0.94827, 0.99443, mean accuracy: 0.98259
+train: TP   638, TN 10646, FP    51, FN   121, valid: TP   160, TN  2328, FP     6, FN    19
+train: TP   129, TN 11254, FP    17, FN    56, valid: TP    47, TN  2460, FP     4, FN     2
+train: TP  4204, TN  6683, FP   231, FN   338, valid: TP   940, TN  1443, FP    40, FN    90
+train: TP   635, TN 10720, FP    30, FN    71, valid: TP   150, TN  2349, FP     4, FN    10
+******** Validation accuracy improved from 0.97861117 to 0.98259056 ********
+
+Epoch: 13/100 |  time : 10/19/19-16:53:58
+=================================================================
+train_loss: 0.05049, accuracy: 0.98682, 0.99450, 0.95566, 0.99232, mean accuracy: 0.98232
+valid_loss: 0.06898, accuracy: 0.97493, 0.99443, 0.93673, 0.99483, mean accuracy: 0.97523
+train: TP   651, TN 10654, FP    38, FN   113, valid: TP   119, TN  2331, FP     3, FN    60
+train: TP   139, TN 11254, FP    13, FN    50, valid: TP    36, TN  2463, FP     1, FN    13
+train: TP  4248, TN  6700, FP   213, FN   295, valid: TP   953, TN  1401, FP    82, FN    77
+train: TP   637, TN 10731, FP    23, FN    65, valid: TP   150, TN  2350, FP     3, FN    10
+
+Epoch: 14/100 |  time : 10/19/19-16:58:26
+=================================================================
+train_loss: 0.04912, accuracy: 0.98682, 0.99380, 0.95723, 0.99310, mean accuracy: 0.98274
+valid_loss: 0.08477, accuracy: 0.97692, 0.99562, 0.93673, 0.97692, mean accuracy: 0.97155
+train: TP   652, TN 10653, FP    48, FN   103, valid: TP   126, TN  2329, FP     5, FN    53
+train: TP   130, TN 11255, FP    13, FN    58, valid: TP    42, TN  2460, FP     4, FN     7
+train: TP  4248, TN  6718, FP   195, FN   295, valid: TP   911, TN  1443, FP    40, FN   119
+train: TP   653, TN 10724, FP    24, FN    55, valid: TP   155, TN  2300, FP    53, FN     5
+
+Epoch: 15/100 |  time : 10/19/19-17:02:57
+=================================================================
+train_loss: 0.04927, accuracy: 0.98638, 0.99450, 0.95670, 0.99232, mean accuracy: 0.98248
+valid_loss: 0.06516, accuracy: 0.98289, 0.99403, 0.93912, 0.99443, mean accuracy: 0.97762
+train: TP   649, TN 10651, FP    48, FN   108, valid: TP   148, TN  2322, FP    12, FN    31
+train: TP   129, TN 11264, FP     8, FN    55, valid: TP    48, TN  2450, FP    14, FN     1
+train: TP  4246, TN  6714, FP   195, FN   301, valid: TP   948, TN  1412, FP    71, FN    82
+train: TP   644, TN 10724, FP    26, FN    62, valid: TP   151, TN  2348, FP     5, FN     9
+
+Epoch: 16/100 |  time : 10/19/19-17:06:58
+=================================================================
+train_loss: 0.04668, accuracy: 0.98839, 0.99476, 0.96159, 0.99206, mean accuracy: 0.98420
+valid_loss: 0.07441, accuracy: 0.97971, 0.99602, 0.93713, 0.98965, mean accuracy: 0.97563
+train: TP   658, TN 10665, FP    38, FN    95, valid: TP   131, TN  2331, FP     3, FN    48
+train: TP   143, TN 11253, FP    16, FN    44, valid: TP    42, TN  2461, FP     3, FN     7
+train: TP  4289, TN  6727, FP   186, FN   254, valid: TP   972, TN  1383, FP   100, FN    58
+train: TP   642, TN 10723, FP    33, FN    58, valid: TP   135, TN  2352, FP     1, FN    25
+
+Epoch: 17/100 |  time : 10/19/19-17:11:57
+=================================================================
+train_loss: 0.04552, accuracy: 0.98664, 0.99433, 0.95862, 0.99398, mean accuracy: 0.98339
+valid_loss: 0.06816, accuracy: 0.98010, 0.99403, 0.93554, 0.99125, mean accuracy: 0.97523
+train: TP   655, TN 10648, FP    50, FN   103, valid: TP   143, TN  2320, FP    14, FN    36
+train: TP   141, TN 11250, FP    16, FN    49, valid: TP    36, TN  2462, FP     2, FN    13
+train: TP  4256, TN  6726, FP   186, FN   288, valid: TP   935, TN  1416, FP    67, FN    95
+train: TP   652, TN 10735, FP    24, FN    45, valid: TP   139, TN  2352, FP     1, FN    21
+
+Epoch: 18/100 |  time : 10/19/19-17:15:58
+=================================================================
+train_loss: 0.04355, accuracy: 0.98778, 0.99485, 0.96063, 0.99389, mean accuracy: 0.98429
+valid_loss: 0.06441, accuracy: 0.98289, 0.99483, 0.94708, 0.99125, mean accuracy: 0.97901
+train: TP   656, TN 10660, FP    38, FN   102, valid: TP   137, TN  2333, FP     1, FN    42
+train: TP   137, TN 11260, FP     9, FN    50, valid: TP    39, TN  2461, FP     3, FN    10
+train: TP  4278, TN  6727, FP   192, FN   259, valid: TP   941, TN  1439, FP    44, FN    89
+train: TP   651, TN 10735, FP    21, FN    49, valid: TP   156, TN  2335, FP    18, FN     4
+
+Epoch: 19/100 |  time : 10/19/19-17:20:57
+=================================================================
+train_loss: 0.04162, accuracy: 0.98804, 0.99468, 0.96456, 0.99459, mean accuracy: 0.98547
+valid_loss: 0.05598, accuracy: 0.98846, 0.99483, 0.94787, 0.99204, mean accuracy: 0.98080
+train: TP   663, TN 10656, FP    38, FN    99, valid: TP   157, TN  2327, FP     7, FN    22
+train: TP   143, TN 11252, FP    13, FN    48, valid: TP    42, TN  2458, FP     6, FN     7
+train: TP  4304, TN  6746, FP   164, FN   242, valid: TP   949, TN  1433, FP    50, FN    81
+train: TP   664, TN 10730, FP    18, FN    44, valid: TP   153, TN  2340, FP    13, FN     7
+
+Epoch: 20/100 |  time : 10/19/19-17:24:57
+=================================================================
+train_loss: 0.04309, accuracy: 0.98883, 0.99494, 0.96063, 0.99380, mean accuracy: 0.98455
+valid_loss: 0.07103, accuracy: 0.98050, 0.99244, 0.94509, 0.99483, mean accuracy: 0.97821
+train: TP   667, TN 10661, FP    35, FN    93, valid: TP   133, TN  2331, FP     3, FN    46
+train: TP   149, TN 11249, FP    16, FN    42, valid: TP    31, TN  2463, FP     1, FN    18
+train: TP  4268, TN  6737, FP   183, FN   268, valid: TP   969, TN  1406, FP    77, FN    61
+train: TP   652, TN 10733, FP    18, FN    53, valid: TP   149, TN  2351, FP     2, FN    11
+
+Epoch: 21/100 |  time : 10/19/19-17:28:58
+=================================================================
+train_loss: 0.04123, accuracy: 0.99031, 0.99485, 0.96351, 0.99372, mean accuracy: 0.98560
+valid_loss: 0.06708, accuracy: 0.98567, 0.99721, 0.94708, 0.98846, mean accuracy: 0.97961
+train: TP   675, TN 10670, FP    29, FN    82, valid: TP   154, TN  2323, FP    11, FN    25
+train: TP   142, TN 11255, FP    12, FN    47, valid: TP    44, TN  2462, FP     2, FN     5
+train: TP  4281, TN  6757, FP   164, FN   254, valid: TP   964, TN  1416, FP    67, FN    66
+train: TP   649, TN 10735, FP    22, FN    50, valid: TP   156, TN  2328, FP    25, FN     4
+
+Epoch: 22/100 |  time : 10/19/19-17:33:57
+=================================================================
+train_loss: 0.04018, accuracy: 0.98856, 0.99520, 0.96377, 0.99476, mean accuracy: 0.98558
+valid_loss: 0.07583, accuracy: 0.97851, 0.99522, 0.94150, 0.98727, mean accuracy: 0.97563
+train: TP   662, TN 10663, FP    39, FN    92, valid: TP   129, TN  2330, FP     4, FN    50
+train: TP   144, TN 11257, FP    13, FN    42, valid: TP    39, TN  2462, FP     2, FN    10
+train: TP  4289, TN  6752, FP   167, FN   248, valid: TP   967, TN  1399, FP    84, FN    63
+train: TP   662, TN 10734, FP    19, FN    41, valid: TP   130, TN  2351, FP     2, FN    30
+
+Epoch: 23/100 |  time : 10/19/19-17:37:58
+=================================================================
+train_loss: 0.04111, accuracy: 0.98874, 0.99555, 0.96273, 0.99372, mean accuracy: 0.98518
+valid_loss: 0.09267, accuracy: 0.97692, 0.99602, 0.93593, 0.97493, mean accuracy: 0.97095
+train: TP   672, TN 10655, FP    37, FN    92, valid: TP   121, TN  2334, FP     0, FN    58
+train: TP   151, TN 11254, FP    12, FN    39, valid: TP    40, TN  2463, FP     1, FN     9
+train: TP  4268, TN  6761, FP   173, FN   254, valid: TP   956, TN  1396, FP    87, FN    74
+train: TP   651, TN 10733, FP    25, FN    47, valid: TP    98, TN  2352, FP     1, FN    62
+Epoch    22: reducing learning rate of group 0 to 1.0000e-03.
+
+Epoch: 24/100 |  time : 10/19/19-17:42:57
+=================================================================
+train_loss: 0.03138, accuracy: 0.99214, 0.99642, 0.97407, 0.99555, mean accuracy: 0.98955
+valid_loss: 0.05137, accuracy: 0.98886, 0.99721, 0.95185, 0.99483, mean accuracy: 0.98319
+train: TP   684, TN 10682, FP    13, FN    77, valid: TP   164, TN  2321, FP    13, FN    15
+train: TP   156, TN 11259, FP    10, FN    31, valid: TP    42, TN  2464, FP     0, FN     7
+train: TP  4358, TN  6801, FP   125, FN   172, valid: TP   953, TN  1439, FP    44, FN    77
+train: TP   660, TN 10745, FP     9, FN    42, valid: TP   153, TN  2347, FP     6, FN     7
+******** Validation accuracy improved from 0.98259056 to 0.98318744 ********
+
+Epoch: 25/100 |  time : 10/19/19-17:46:59
+=================================================================
+train_loss: 0.02621, accuracy: 0.99406, 0.99729, 0.97669, 0.99764, mean accuracy: 0.99142
+valid_loss: 0.05230, accuracy: 0.99045, 0.99721, 0.95384, 0.99562, mean accuracy: 0.98428
+train: TP   701, TN 10687, FP    18, FN    50, valid: TP   159, TN  2330, FP     4, FN    20
+train: TP   155, TN 11270, FP     3, FN    28, valid: TP    42, TN  2464, FP     0, FN     7
+train: TP  4372, TN  6817, FP   101, FN   166, valid: TP   947, TN  1450, FP    33, FN    83
+train: TP   683, TN 10746, FP     7, FN    20, valid: TP   152, TN  2350, FP     3, FN     8
+******** Validation accuracy improved from 0.98318744 to 0.98428178 ********
+
+Epoch: 26/100 |  time : 10/19/19-17:51:58
+=================================================================
+train_loss: 0.02485, accuracy: 0.99468, 0.99686, 0.97757, 0.99686, mean accuracy: 0.99149
+valid_loss: 0.05086, accuracy: 0.99085, 0.99721, 0.95304, 0.99562, mean accuracy: 0.98418
+train: TP   711, TN 10684, FP    13, FN    48, valid: TP   165, TN  2325, FP     9, FN    14
+train: TP   160, TN 11260, FP    10, FN    26, valid: TP    42, TN  2464, FP     0, FN     7
+train: TP  4393, TN  6806, FP    96, FN   161, valid: TP   954, TN  1441, FP    42, FN    76
+train: TP   683, TN 10737, FP    14, FN    22, valid: TP   152, TN  2350, FP     3, FN     8
+
+Epoch: 27/100 |  time : 10/19/19-17:56:57
+=================================================================
+train_loss: 0.02411, accuracy: 0.99476, 0.99729, 0.97896, 0.99756, mean accuracy: 0.99214
+valid_loss: 0.05026, accuracy: 0.99085, 0.99602, 0.95384, 0.99443, mean accuracy: 0.98378
+train: TP   710, TN 10686, FP    16, FN    44, valid: TP   165, TN  2325, FP     9, FN    14
+train: TP   159, TN 11266, FP     4, FN    27, valid: TP    43, TN  2460, FP     4, FN     6
+train: TP  4386, TN  6829, FP    91, FN   150, valid: TP   958, TN  1439, FP    44, FN    72
+train: TP   682, TN 10746, FP     7, FN    21, valid: TP   151, TN  2348, FP     5, FN     9
+
+Epoch: 28/100 |  time : 10/19/19-18:00:58
+=================================================================
+train_loss: 0.02479, accuracy: 0.99415, 0.99738, 0.97669, 0.99703, mean accuracy: 0.99131
+valid_loss: 0.05092, accuracy: 0.99125, 0.99602, 0.95185, 0.99483, mean accuracy: 0.98349
+train: TP   697, TN 10692, FP    23, FN    44, valid: TP   164, TN  2327, FP     7, FN    15
+train: TP   153, TN 11273, FP     3, FN    27, valid: TP    44, TN  2459, FP     5, FN     5
+train: TP  4372, TN  6817, FP   105, FN   162, valid: TP   958, TN  1434, FP    49, FN    72
+train: TP   676, TN 10746, FP     8, FN    26, valid: TP   152, TN  2348, FP     5, FN     8
+
+Epoch: 29/100 |  time : 10/19/19-18:05:57
+=================================================================
+train_loss: 0.02268, accuracy: 0.99441, 0.99747, 0.97914, 0.99747, mean accuracy: 0.99212
+valid_loss: 0.05117, accuracy: 0.99045, 0.99721, 0.95384, 0.99602, mean accuracy: 0.98438
+train: TP   717, TN 10675, FP    20, FN    44, valid: TP   165, TN  2324, FP    10, FN    14
+train: TP   162, TN 11265, FP     6, FN    23, valid: TP    43, TN  2463, FP     1, FN     6
+train: TP  4383, TN  6834, FP    86, FN   153, valid: TP   956, TN  1441, FP    42, FN    74
+train: TP   676, TN 10751, FP     8, FN    21, valid: TP   153, TN  2350, FP     3, FN     7
+******** Validation accuracy improved from 0.98428178 to 0.98438120 ********
+
+Epoch: 30/100 |  time : 10/19/19-18:10:18
+=================================================================
+train_loss: 0.02203, accuracy: 0.99642, 0.99677, 0.97861, 0.99817, mean accuracy: 0.99249
+valid_loss: 0.05197, accuracy: 0.99085, 0.99522, 0.95105, 0.99522, mean accuracy: 0.98309
+train: TP   716, TN 10699, FP     8, FN    33, valid: TP   160, TN  2330, FP     4, FN    19
+train: TP   159, TN 11260, FP     7, FN    30, valid: TP    42, TN  2459, FP     5, FN     7
+train: TP  4403, TN  6808, FP   103, FN   142, valid: TP   953, TN  1437, FP    46, FN    77
+train: TP   685, TN 10750, FP     8, FN    13, valid: TP   151, TN  2350, FP     3, FN     9
+
+Epoch: 31/100 |  time : 10/19/19-18:14:57
+=================================================================

@@ -3,8 +3,8 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['ResNet34WithPseudoLabelsV2']
-fold_list = [0, 1, 2, 3, 4]
+model_list = ['ResNet34WithPseudoLabelsV3']
+fold_list = [0]
 
 for model in model_list:
     model_save_path = os.path.join(SAVE_MODEL_PATH, model)
