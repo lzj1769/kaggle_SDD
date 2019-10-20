@@ -108,4 +108,4 @@ if __name__ == '__main__':
     test_dataset = TestDataset(test_folder=TEST_FOLDER, test_df=TEST_DF)
     # main(test_dataset, low_bound=0.05, up_bound=0.95)
     # main(test_dataset, low_bound=0.1, up_bound=0.9)
-    main(test_dataset, low_bound=0.2, up_bound=0.8)
+    main(test_dataset, low_bound=0.2, up_bound=0.9)
