@@ -186,7 +186,7 @@ def get_dataloader_cls_pesudo_labels(phase, fold, train_batch_size, valid_batch_
     df = pd.read_csv(df_path)
 
     if phase == "train":
-        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_0.2_0.9.csv")
+        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_0.1_0.9.csv")
         df_pesudo = pd.read_csv(df_path_pesudo)
         image_dataset = SteelDatasetClsPseudoLabels(df, df_pesudo, phase)
         dataloader = DataLoader(image_dataset,

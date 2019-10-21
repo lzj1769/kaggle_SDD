@@ -3,8 +3,12 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['ResNet34WithPseudoLabelsV4']
-fold_list = [3]
+model_list = ['ResNext50V2']
+fold_list = [0, 1, 2, 3, 4]
+
+batch_size = dict()
+batch_size["ResNext50"] = 8
+batch_size["ResNext50V2"] = 8
 
 for model in model_list:
     model_save_path = os.path.join(SAVE_MODEL_PATH, model)
@@ -19,4 +23,4 @@ for model in model_list:
         command = "sbatch -J " + job_name + " -o " + "./cluster_out/" + job_name + "_out.txt -e " + \
                   "./cluster_err/" + job_name + "_err.txt -t 20:00:00 --mem 30G -A rwth0455 "
         command += "--partition=c18g -c 4 --gres=gpu:1 train_cls.zsh"
-        os.system(command + " " + model + " " + str(fold))
+        os.system(command + " " + model + " " + str(fold) + " " + str(batch_size[model]))

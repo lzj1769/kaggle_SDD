@@ -40,8 +40,7 @@ class TrainerSegmentation(object):
         self.model_save_name = model_save_name
         self.fold = fold
         self.training_history_path = training_history_path
-        # self.criterion = DiceBCELoss()
-        self.criterion = DiceBCELossWeight()
+        self.criterion = DiceBCELoss()
 
         self.optimizer = SGD(self.model.parameters(), lr=1e-02, momentum=0.9, weight_decay=1e-04)
         self.scheduler = ReduceLROnPlateau(self.optimizer, mode='max', factor=0.1, patience=10,
@@ -571,7 +570,7 @@ def main():
     df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
     df_valid = pd.read_csv(df_valid_path)
 
-    if args.model in ["FPResNet34", "FPResNet34V2"]:
+    if args.model in ["FPResNet34", "FPResNet34V2", "UResNet34"]:
         df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
                 df_train["defect4"] != 0)]
         df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
@@ -594,7 +593,7 @@ def main():
         model_trainer = TrainerSegmentation(model=FPResNet34(),
                                             num_workers=args.num_workers,
                                             batch_size=args.batch_size,
-                                            num_epochs=200,
+                                            num_epochs=400,
                                             model_save_path=model_save_path,
                                             training_history_path=training_history_path,
                                             model_save_name=args.model,
@@ -602,6 +601,16 @@ def main():
 
     elif args.model == "ResNet34":
         model_trainer = TrainerClassification(model=ResNet34(),
+                                              num_workers=args.num_workers,
+                                              batch_size=args.batch_size,
+                                              num_epochs=100,
+                                              model_save_path=model_save_path,
+                                              training_history_path=training_history_path,
+                                              model_save_name=args.model,
+                                              fold=args.fold)
+
+    elif args.model == "ResNet34V2":
+        model_trainer = TrainerClassification(model=ResNet34V2(),
                                               num_workers=args.num_workers,
                                               batch_size=args.batch_size,
                                               num_epochs=100,
@@ -619,6 +628,26 @@ def main():
                                               training_history_path=training_history_path,
                                               model_save_name=args.model,
                                               fold=args.fold)
+
+    elif args.model == "ResNext50":
+        model_trainer = TrainerClassification(model=ResNext50(),
+                                              num_workers=args.num_workers,
+                                              batch_size=args.batch_size,
+                                              num_epochs=100,
+                                              model_save_path=model_save_path,
+                                              training_history_path=training_history_path,
+                                              model_save_name=args.model,
+                                              fold=args.fold)
+
+    elif args.model == "ResNext50V2":
+        model_trainer = TrainerClassificationPesudoLabels(model=ResNext50V2(),
+                                                          num_workers=args.num_workers,
+                                                          batch_size=args.batch_size,
+                                                          num_epochs=100,
+                                                          model_save_path=model_save_path,
+                                                          training_history_path=training_history_path,
+                                                          model_save_name=args.model,
+                                                          fold=args.fold)
 
     elif args.model == "ResNet34WithPseudoLabels":
         model_trainer = TrainerClassificationPesudoLabels(model=ResNet34(),
@@ -641,17 +670,7 @@ def main():
                                                           fold=args.fold)
 
     elif args.model == "ResNet34WithPseudoLabelsV3":
-        model_trainer = TrainerClassificationPesudoLabels(model=ResNet34(),
-                                                          num_workers=args.num_workers,
-                                                          batch_size=args.batch_size,
-                                                          num_epochs=100,
-                                                          model_save_path=model_save_path,
-                                                          training_history_path=training_history_path,
-                                                          model_save_name=args.model,
-                                                          fold=args.fold)
-
-    elif args.model == "ResNet34WithPseudoLabelsV4":
-        model_trainer = TrainerClassificationPesudoLabels(model=ResNet34(),
+        model_trainer = TrainerClassificationPesudoLabels(model=ResNet34V2(),
                                                           num_workers=args.num_workers,
                                                           batch_size=args.batch_size,
                                                           num_epochs=100,
