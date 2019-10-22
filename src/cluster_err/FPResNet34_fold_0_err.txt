@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 10343124 ON nrg06 CANCELLED AT 2019-10-22T13:45:48 ***

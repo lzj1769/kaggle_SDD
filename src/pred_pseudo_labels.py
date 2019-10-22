@@ -56,7 +56,7 @@ def predict_classification(image, model):
     return preds
 
 
-def main(dataset, low_bound, up_bound):
+def pseudo_label_cls_s1(dataset, low_bound, up_bound):
     # predict defect vs. no defect
     pred_cls = np.zeros(shape=(len(dataset), 4), dtype=np.float32)
     for i in range(5):
@@ -71,9 +71,9 @@ def main(dataset, low_bound, up_bound):
             pred_cls[j] += predict_classification(image=image, model=model)[0]
 
     for i in range(5):
-        model = ResNext50(pretrained=False)
+        model = ResNet18(pretrained=False)
         model.cuda()
-        model_save_path = "../input/models/ResNext50/ResNext50_fold_{}.pt".format(i)
+        model_save_path = "../input/models/ResNet18/ResNet18_fold_{}.pt".format(i)
         state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
         model.load_state_dict(state["state_dict"])
         model.eval()
@@ -81,7 +81,7 @@ def main(dataset, low_bound, up_bound):
         for j, (filename, image) in enumerate(dataset):
             pred_cls[j] += predict_classification(image=image, model=model)[0]
 
-    pred_cls = (pred_cls / 10)
+    pred_cls /= 5
     prediction = []
     for i, (filename, image) in enumerate(dataset):
         is_pseudo_label = True
@@ -101,11 +101,57 @@ def main(dataset, low_bound, up_bound):
                                            'defect1', 'defect2', 'defect3', 'defect4',
                                            'prob1', 'prob2', 'prob3', 'prob4'])
 
-    df.to_csv("../pseudo_labels/PseudoLabels_{}_{}.csv".format(low_bound, up_bound), index=False)
+    df.to_csv("../pseudo_labels/PseudoLabels_S1_{}_{}.csv".format(low_bound, up_bound), index=False)
+
+
+def pseudo_label_cls_s2(dataset, low_bound, up_bound):
+    # predict defect vs. no defect
+    pred_cls = np.zeros(shape=(len(dataset), 4), dtype=np.float32)
+    for i in range(5):
+        model = ResNet34(pretrained=False)
+        model.cuda()
+        model_save_path = "../input/models/ResNet34WithPseudoLabelsS1/ResNet34WithPseudoLabelsS1_fold_{}.pt".format(i)
+        state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+        model.load_state_dict(state["state_dict"])
+        model.eval()
+
+        for j, (filename, image) in enumerate(dataset):
+            pred_cls[j] += predict_classification(image=image, model=model)[0]
+
+    for i in range(5):
+        model = ResNet34(pretrained=False)
+        model.cuda()
+        model_save_path = "../input/models/ResNet18WithPseudoLabelsS1/ResNet18WithPseudoLabelsS1_fold_{}.pt".format(i)
+        state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+        model.load_state_dict(state["state_dict"])
+        model.eval()
+
+        for j, (filename, image) in enumerate(dataset):
+            pred_cls[j] += predict_classification(image=image, model=model)[0]
+
+    pred_cls /= 10
+    prediction = []
+    for i, (filename, image) in enumerate(dataset):
+        is_pseudo_label = True
+        for cls in range(4):
+            if low_bound < pred_cls[i, cls] < up_bound:
+                is_pseudo_label = False
+
+        if is_pseudo_label:
+            defect1 = 0 if pred_cls[i, 0] < low_bound else 1
+            defect2 = 0 if pred_cls[i, 1] < low_bound else 1
+            defect3 = 0 if pred_cls[i, 2] < low_bound else 1
+            defect4 = 0 if pred_cls[i, 3] < low_bound else 1
+            prediction.append([filename, defect1, defect2, defect3, defect4,
+                               pred_cls[i, 0], pred_cls[i, 1], pred_cls[i, 2], pred_cls[i, 3]])
+
+    df = pd.DataFrame(prediction, columns=['ImageId',
+                                           'defect1', 'defect2', 'defect3', 'defect4',
+                                           'prob1', 'prob2', 'prob3', 'prob4'])
+
+    df.to_csv("../pseudo_labels/PseudoLabels_S2_{}_{}.csv".format(low_bound, up_bound), index=False)
 
 
 if __name__ == '__main__':
     test_dataset = TestDataset(test_folder=TEST_FOLDER, test_df=TEST_DF)
-    # main(test_dataset, low_bound=0.05, up_bound=0.95)
-    # main(test_dataset, low_bound=0.1, up_bound=0.9)
-    main(test_dataset, low_bound=0.2, up_bound=0.9)
+    pseudo_label_cls_s1(test_dataset, low_bound=0.1, up_bound=0.9)

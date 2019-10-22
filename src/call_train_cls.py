@@ -3,12 +3,15 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['ResNext50V2']
+model_list = ['ResNet18WithPseudoLabelsS1', 'ResNet34WithPseudoLabelsS1']
 fold_list = [0, 1, 2, 3, 4]
 
 batch_size = dict()
-batch_size["ResNext50"] = 8
-batch_size["ResNext50V2"] = 8
+batch_size["ResNet34"] = 16
+batch_size["ResNet18"] = 16
+batch_size["ResNet18WithPseudoLabelsS1"] = 16
+batch_size["ResNet34WithPseudoLabelsS1"] = 16
+
 
 for model in model_list:
     model_save_path = os.path.join(SAVE_MODEL_PATH, model)
