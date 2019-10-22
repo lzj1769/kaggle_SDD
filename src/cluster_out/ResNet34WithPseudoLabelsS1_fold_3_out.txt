@@ -1,0 +1,24 @@
+Training on 10054 images, class 1: 717, class 2: 197, class 3: 4120, class 4: 641
+Validate on 2514 images, class 1: 180, class 2: 50, class 3: 1030, class 4: 160
+Epoch: 1/100 |  time : 10/22/19-17:39:09
+=================================================================
+train_loss: 0.19125, accuracy: 0.93618, 0.98087, 0.83163, 0.95301, mean accuracy: 0.92542
+valid_loss: 0.17513, accuracy: 0.92840, 0.98011, 0.90692, 0.95744, mean accuracy: 0.94322
+train: TP    45, TN 10575, FP    30, FN   694, valid: TP     0, TN  2334, FP     0, FN   180
+train: TP     0, TN 11127, FP    13, FN   204, valid: TP     0, TN  2464, FP     0, FN    50
+train: TP  3450, TN  5984, FP   710, FN  1200, valid: TP   952, TN  1328, FP   156, FN    78
+train: TP   211, TN 10600, FP    59, FN   474, valid: TP    55, TN  2352, FP     2, FN   105
+******** Validation accuracy improved from 0.00000000 to 0.94321799 ********
+
+Epoch: 2/100 |  time : 10/22/19-17:43:17
+=================================================================
+train_loss: 0.13037, accuracy: 0.94799, 0.98193, 0.89801, 0.97558, mean accuracy: 0.95088
+valid_loss: 0.14740, accuracy: 0.92959, 0.98011, 0.90175, 0.98409, mean accuracy: 0.94889
+train: TP   254, TN 10500, FP    84, FN   506, valid: TP     3, TN  2334, FP     0, FN   177
+train: TP     0, TN 11139, FP     0, FN   205, valid: TP     0, TN  2464, FP     0, FN    50
+train: TP  3960, TN  6227, FP   468, FN   689, valid: TP   899, TN  1368, FP   116, FN   131
+train: TP   481, TN 10586, FP    73, FN   204, valid: TP   123, TN  2351, FP     3, FN    37
+******** Validation accuracy improved from 0.94321799 to 0.94888622 ********
+
+Epoch: 3/100 |  time : 10/22/19-17:47:22
+=================================================================

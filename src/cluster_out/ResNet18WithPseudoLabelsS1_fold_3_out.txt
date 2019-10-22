@@ -1,0 +1,34 @@
+Training on 10054 images, class 1: 717, class 2: 197, class 3: 4120, class 4: 641
+Validate on 2514 images, class 1: 180, class 2: 50, class 3: 1030, class 4: 160
+Epoch: 1/100 |  time : 10/22/19-17:38:55
+=================================================================
+train_loss: 0.20840, accuracy: 0.93336, 0.97999, 0.80677, 0.95116, mean accuracy: 0.91782
+valid_loss: 0.15032, accuracy: 0.93119, 0.98011, 0.89737, 0.97733, mean accuracy: 0.94650
+train: TP    20, TN 10568, FP    30, FN   726, valid: TP     9, TN  2332, FP     2, FN   171
+train: TP     0, TN 11117, FP    24, FN   203, valid: TP     0, TN  2464, FP     0, FN    50
+train: TP  3314, TN  5838, FP   841, FN  1351, valid: TP   912, TN  1344, FP   140, FN   118
+train: TP   195, TN 10595, FP    61, FN   493, valid: TP   133, TN  2324, FP    30, FN    27
+******** Validation accuracy improved from 0.00000000 to 0.94649959 ********
+
+Epoch: 2/100 |  time : 10/22/19-17:41:52
+=================================================================
+train_loss: 0.14218, accuracy: 0.94288, 0.98202, 0.88955, 0.96915, mean accuracy: 0.94590
+valid_loss: 0.16301, accuracy: 0.94431, 0.98011, 0.89379, 0.97414, mean accuracy: 0.94809
+train: TP   164, TN 10532, FP    58, FN   590, valid: TP   118, TN  2256, FP    78, FN    62
+train: TP     0, TN 11140, FP     0, FN   204, valid: TP     0, TN  2464, FP     0, FN    50
+train: TP  3884, TN  6207, FP   485, FN   768, valid: TP   941, TN  1306, FP   178, FN    89
+train: TP   422, TN 10572, FP    80, FN   270, valid: TP   148, TN  2301, FP    53, FN    12
+******** Validation accuracy improved from 0.94649959 to 0.94809067 ********
+
+Epoch: 3/100 |  time : 10/22/19-17:44:26
+=================================================================
+train_loss: 0.12561, accuracy: 0.94949, 0.98175, 0.90321, 0.97452, mean accuracy: 0.95224
+valid_loss: 0.13373, accuracy: 0.92721, 0.98011, 0.92681, 0.97017, mean accuracy: 0.95107
+train: TP   275, TN 10496, FP   104, FN   469, valid: TP   138, TN  2193, FP   141, FN    42
+train: TP     0, TN 11137, FP     0, FN   207, valid: TP     0, TN  2464, FP     0, FN    50
+train: TP  3988, TN  6258, FP   431, FN   667, valid: TP   940, TN  1390, FP    94, FN    90
+train: TP   474, TN 10581, FP    75, FN   214, valid: TP    86, TN  2353, FP     1, FN    74
+******** Validation accuracy improved from 0.94809067 to 0.95107400 ********
+
+Epoch: 4/100 |  time : 10/22/19-17:47:02
+=================================================================
