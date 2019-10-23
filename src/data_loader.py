@@ -186,7 +186,7 @@ def get_dataloader_cls_pesudo_labels(phase, fold, train_batch_size, valid_batch_
     df = pd.read_csv(df_path)
 
     if phase == "train":
-        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_S1_0.1_0.9.csv")
+        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_S2_0.1_0.9.csv")
         df_pesudo = pd.read_csv(df_path_pesudo)
         image_dataset = SteelDatasetClsPseudoLabels(df, df_pesudo, phase)
         dataloader = DataLoader(image_dataset,
@@ -198,6 +198,38 @@ def get_dataloader_cls_pesudo_labels(phase, fold, train_batch_size, valid_batch_
 
     else:
         image_dataset = SteelDatasetCls(df, phase)
+        dataloader = DataLoader(image_dataset,
+                                batch_size=valid_batch_size,
+                                num_workers=num_workers,
+                                pin_memory=True,
+                                shuffle=False,
+                                drop_last=False)
+
+    return dataloader
+
+
+def get_dataloader_seg_pesudo_labels(phase, fold, train_batch_size, valid_batch_size, num_workers):
+    df_path = os.path.join(SPLIT_FOLDER, "fold_{}_{}.csv".format(fold, phase))
+    df = pd.read_csv(df_path)
+
+    df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
+    if phase == "train":
+        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_seg.csv")
+        df_pesudo = pd.read_csv(df_path_pesudo)
+
+        frames = [df, df_pesudo]
+        df = pd.concat(frames)
+
+        image_dataset = SteelDatasetSeg(df, phase)
+        dataloader = DataLoader(image_dataset,
+                                batch_size=train_batch_size,
+                                num_workers=num_workers,
+                                pin_memory=True,
+                                shuffle=True,
+                                drop_last=True)
+
+    else:
+        image_dataset = SteelDatasetSeg(df, phase)
         dataloader = DataLoader(image_dataset,
                                 batch_size=valid_batch_size,
                                 num_workers=num_workers,

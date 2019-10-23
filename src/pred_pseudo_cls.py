@@ -64,6 +64,7 @@ def pseudo_label_cls_s1(dataset, low_bound, up_bound):
         model.cuda()
         model_save_path = "../input/models/ResNet34/ResNet34_fold_{}.pt".format(i)
         state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+        print("Validation accuracy: {}".format(state["best_acc"]))
         model.load_state_dict(state["state_dict"])
         model.eval()
 
@@ -75,13 +76,14 @@ def pseudo_label_cls_s1(dataset, low_bound, up_bound):
         model.cuda()
         model_save_path = "../input/models/ResNet18/ResNet18_fold_{}.pt".format(i)
         state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
+        print("Validation accuracy: {}".format(state["best_acc"]))
         model.load_state_dict(state["state_dict"])
         model.eval()
 
         for j, (filename, image) in enumerate(dataset):
             pred_cls[j] += predict_classification(image=image, model=model)[0]
 
-    pred_cls /= 5
+    pred_cls /= 10
     prediction = []
     for i, (filename, image) in enumerate(dataset):
         is_pseudo_label = True
@@ -110,7 +112,7 @@ def pseudo_label_cls_s2(dataset, low_bound, up_bound):
     for i in range(5):
         model = ResNet34(pretrained=False)
         model.cuda()
-        model_save_path = "../input/models/ResNet34WithPseudoLabelsS1/ResNet34WithPseudoLabelsS1_fold_{}.pt".format(i)
+        model_save_path = "../input/models/ResNet34WithPseudoLabelsV2/ResNet34WithPseudoLabelsV2_fold_{}.pt".format(i)
         state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
         model.load_state_dict(state["state_dict"])
         model.eval()
@@ -118,18 +120,7 @@ def pseudo_label_cls_s2(dataset, low_bound, up_bound):
         for j, (filename, image) in enumerate(dataset):
             pred_cls[j] += predict_classification(image=image, model=model)[0]
 
-    for i in range(5):
-        model = ResNet34(pretrained=False)
-        model.cuda()
-        model_save_path = "../input/models/ResNet18WithPseudoLabelsS1/ResNet18WithPseudoLabelsS1_fold_{}.pt".format(i)
-        state = torch.load(model_save_path, map_location=lambda storage, loc: storage)
-        model.load_state_dict(state["state_dict"])
-        model.eval()
-
-        for j, (filename, image) in enumerate(dataset):
-            pred_cls[j] += predict_classification(image=image, model=model)[0]
-
-    pred_cls /= 10
+    pred_cls /= 5
     prediction = []
     for i, (filename, image) in enumerate(dataset):
         is_pseudo_label = True
@@ -154,4 +145,4 @@ def pseudo_label_cls_s2(dataset, low_bound, up_bound):
 
 if __name__ == '__main__':
     test_dataset = TestDataset(test_folder=TEST_FOLDER, test_df=TEST_DF)
-    pseudo_label_cls_s1(test_dataset, low_bound=0.1, up_bound=0.9)
+    pseudo_label_cls_s2(test_dataset, low_bound=0.1, up_bound=0.9)
