@@ -214,7 +214,7 @@ def get_dataloader_seg_pesudo_labels(phase, fold, train_batch_size, valid_batch_
 
     df = df.loc[(df["defect1"] != 0) | (df["defect2"] != 0) | (df["defect3"] != 0) | (df["defect4"] != 0)]
     if phase == "train":
-        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_seg.csv")
+        df_path_pesudo = os.path.join("../pseudo_labels/PseudoLabels_seg_S2.csv")
         df_pesudo = pd.read_csv(df_path_pesudo)
 
         frames = [df, df_pesudo]

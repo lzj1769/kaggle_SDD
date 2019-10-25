@@ -558,7 +558,7 @@ def main():
     df_valid_path = os.path.join(SPLIT_FOLDER, "fold_{}_valid.csv".format(args.fold))
     df_valid = pd.read_csv(df_valid_path)
 
-    if args.model in ["FPResNet34", "FPResNet34V2", "FPResNet34WithPseudoLabels"]:
+    if args.model in ["FPResNet34", "FPResNet34V2", "FPResNet34WithPseudoLabels", "FPRes2Net34WithPseudoLabels"]:
         df_train = df_train.loc[(df_train["defect1"] != 0) | (df_train["defect2"] != 0) | (df_train["defect3"] != 0) | (
                 df_train["defect4"] != 0)]
         df_valid = df_valid.loc[(df_valid["defect1"] != 0) | (df_valid["defect2"] != 0) | (df_valid["defect3"] != 0) | (
@@ -592,6 +592,16 @@ def main():
                                                         num_workers=args.num_workers,
                                                         batch_size=args.batch_size,
                                                         num_epochs=400,
+                                                        model_save_path=model_save_path,
+                                                        training_history_path=training_history_path,
+                                                        model_save_name=args.model,
+                                                        fold=args.fold)
+
+    elif args.model == "FPResNet34WithPseudoLabelsS2":
+        model_trainer = TrainerSegmentationPesudoLabels(model=FPResNet34(),
+                                                        num_workers=args.num_workers,
+                                                        batch_size=args.batch_size,
+                                                        num_epochs=200,
                                                         model_save_path=model_save_path,
                                                         training_history_path=training_history_path,
                                                         model_save_name=args.model,

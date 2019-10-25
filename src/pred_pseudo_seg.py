@@ -1,7 +1,7 @@
 import pandas as pd
 
 df_pseudo_cls = pd.read_csv("../pseudo_labels/PseudoLabels_S2_0.1_0.9.csv")
-df_best_submission = pd.read_csv("../pseudo_labels/submission_0.91990.csv")
+df_best_submission = pd.read_csv("../pseudo_labels/submission_0.92143.csv")
 
 df_pseudo_cls = df_pseudo_cls.loc[
     (df_pseudo_cls["defect1"] != 0) | (df_pseudo_cls["defect2"] != 0) | (df_pseudo_cls["defect3"] != 0) | (
@@ -19,4 +19,4 @@ df_best_submission['defect4'] = 1 - df_best_submission[4].isnull().astype(int)
 
 df_best_submission = df_best_submission.loc[df_pseudo_cls['ImageId'].values.tolist()]
 
-df_best_submission.to_csv("../pseudo_labels/PseudoLabels_seg.csv")
+df_best_submission.to_csv("../pseudo_labels/PseudoLabels_seg_S2.csv")

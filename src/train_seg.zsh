@@ -15,4 +15,5 @@ export LD_LIBRARY_PATH=/home/rs619065/local/lib:$LD_LIBRARY_PATH
 
 source ~/miniconda2/bin/activate py36env
 
+echo CUDA_VISIBLE_DEVICES=0,1
 python train.py --model $1 --fold $2 --batch-size $3

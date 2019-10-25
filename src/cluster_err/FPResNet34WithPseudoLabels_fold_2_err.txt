@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 10403753 ON ncg10 CANCELLED AT 2019-10-24T15:52:49 ***

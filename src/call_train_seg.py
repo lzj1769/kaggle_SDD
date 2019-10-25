@@ -3,13 +3,14 @@ import pathlib
 
 from configure import SAVE_MODEL_PATH, TRAINING_HISTORY_PATH
 
-model_list = ['FPResNet34WithPseudoLabels']
+model_list = ['FPResNet34WithPseudoLabelsS2']
 fold_list = [0, 1, 2, 3, 4]
 
 batch_size = dict()
 batch_size["FPResNet34"] = 16
 batch_size["FPResNet34V2"] = 24
 batch_size["FPResNet34WithPseudoLabels"] = 8
+batch_size["FPResNet34WithPseudoLabelsS2"] = 8
 
 for model in model_list:
     model_save_path = os.path.join(SAVE_MODEL_PATH, model)
